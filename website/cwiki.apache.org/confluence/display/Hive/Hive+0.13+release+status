@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>Hive 0.13 release status - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451833156193">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="39622095">
+            <meta name="ajs-latest-page-id" content="39622095">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Hive 0.13 release status">
+            <meta name="ajs-parent-page-title" content="Home">
+            <meta name="ajs-parent-page-id" content="27362069">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="Hive+0.13+release+status">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/z5VcAg">
+    <meta name="wikilink" content="[Hive:Hive 0.13 release status]">
+    <meta name="page-version" content="46">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="Hive+0.13+release+status#title-heading">Skip to content</a></li>
+    <li><a href="Hive+0.13+release+status#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="Hive+0.13+release+status#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="Hive+0.13+release+status#navigation">Skip to action menu</a></li>
+    <li><a href="Hive+0.13+release+status#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="Hive+0.13+release+status#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="Hive+0.13+release+status#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FHive%2B0.13%2Brelease%2Bstatus" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="Home" title="Home"><span class="icon"></span><span class="label">Home</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">Hive 0.13 release status</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"><ul class="children"><li class="child-item" data-page-id="40510656"><span class="icon"></span><a href="Hive+0.13.1+Release+tracking" title="Hive 0.13.1 Release tracking"><span class="label">Hive 0.13.1 Release tracking</span></a></li></ul></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="Hive+0.13+release+status#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=39622095" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=39622095" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=39622095" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=39622095" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=39622095" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=39622095#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=39622095" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=39622095" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=39622095" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=39622095" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=39622095" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=39622095" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="Home">Home</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="Hive+0.13+release+status#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="Hive+0.13+release+status" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="Hive+0.13+release+status" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="Hive+0.13+release+status#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="Hive+0.13+release+status">Hive 0.13 release status</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="Hive+0.13+release+status#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~rhbutani"
+                       class="url fn"
+                            >Harish Butani</a></span>, last modified on <a class='last-modified' title='Apr 11, 2014 17:29' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=39622095&amp;selectedPageVersions=45&amp;selectedPageVersions=46'>Apr 11, 2014</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="Hive+0.13+release+status#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <h3 id="Hive0.13releasestatus-JQLusedtotrackissues">JQL used to track issues</h3><blockquote><p>id in () ORDER BY status ASC, assignee</p></blockquote><h3 id="Hive0.13releasestatus-JQLforjirasfixedfor0.13afterbranch">JQL for jiras fixed for 0.13 after branch</h3><blockquote><pre>project = Hive AND resolutiondate &gt;= &quot;2014/03/04 17:09&quot; AND resolution = Fixed AND fixVersion = 0.13.0 ORDER BY resolutiondate DESC</pre></blockquote><h3 id="Hive0.13releasestatus-Jirasappliedto0.13">Jiras applied to 0.13</h3><p>HIVE-6732 Update Release Notes (Harish Butani)<br />HIVE-6873 DISTINCT clause in aggregates is handled incorrectly by vectorized execution (Jitendra, Remus via Ashutosh)<br />HIVE-6887 Add missing params to hive-default.xml.template (Harish Butani via Lefty)</p><p>HIVE-6879: Vectorization: IsNull returns incorrect output column. (reviewed by Vikram)<br />HIVE-6894 : hcatalog streaming version in 0.13 branch should be &quot;0.13&quot; (Thejas Nair, reviewed by Harish Butani)<br />HIVE-6864 : HiveServer2 concurrency uses incorrect user information in unsecured mode (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6319. Add compactor for ACID tables. (Alan Gates via omalley)<br />HIVE-6876 : Logging information should include thread id (Vikram Dixit K, reviewed by Jason Dere)<br />HIVE-6816 : jar upload path w/o schema is not handled correctly (Sergey Shelukhin, reviewed by Vikram Dixit K)<br />HIVE-6881 : Postgres Upgrade script for hive 0.13 is broken (Harish Butani via Ashutosh Chauhan)<br />HIVE-6882 : Make upgrade script schemaTool friendly (Ashutosh Chauhan via Harish Butani)<br />HIVE-5687 Streaming support in Hive (Roshan Naik via gates)<br />HIVE-6878 : MetaStoreDirectSql may not handle empty filter correctly (Sergey Shelukhin, reviewed by Ashutosh Chauhan)<br />HIVE-6856 : ddl commands fail with permissions issue when running using webhcat in secure Tez cluster (Eugene Koifman via Thejas Nair)<br />HIVE-6604. Forgotten file from previous commit.<br />HIVE-6863 : HiveServer2 binary mode throws exception with PAM (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6604. Fix ORC ACID format to work with vectorization. (omalley)<br />HIVE-6818. I forgot to add the comment that Sergey wanted to add as part of the commit.<br />HIVE-6837 : HiveServer2 thrift/http mode &amp; binary mode proxy user check fails reporting IP null for client (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6818. Fix array out of bounds when ORC is used with ACID and predicate pushdown. (omalley)<br />HIVE-6850. Fix fetch operator to use correct valid transaction list. (omalley)<br />HIVE-4904 A little more CP crossing RS boundaries (Navis Ryu via Ashutosh Chauhan)<br />HIVE-6825 : custom jars for Hive query should be uploaded to scratch dir per query; and/or versioned (Sergey Shelukhin, reviewed by Vikram Dixit K)<br />HIVE-6812 : show compactions returns error when there are no compactions (Alan Gates via Ashutosh Chauhan)<br />HIVE-6845 : TestJdbcDriver.testShowRoleGrant can fail if TestJdbcDriver/TestJdbcDriver2 run together (Jason Dere via Thejas Nair)<br />HIVE-6759. Don't trust file lengths from HDFS when ORC files are being written.<br />HIVE-6782 : HiveServer2Concurrency issue when running with tez intermittently, throwing org.apache.tez.dag.api.SessionNotRunning: Application not running error (Vikram Dixit<br /> K, reviewed by Thejas Nair)<br />HIVE-6846 : allow safe set commands with sql standard authorization (Thejas Nair via Ashutosh Chauhan)<br />HIVE-6757 Remove deprecated parquet classes from outside of org.apache package (Owen O'Malley via Xufeu Zhang)<br />HIVE-6787. Only add ACID OrcInputSplits when the partition is actually ACID<br />HIVE-6830. Remove restriction that ACID base directories have to be completely<br />HIVE-6855 : A couple of errors in MySQL db creation script for transaction tables (Alan Gates via Ashutosh Chauhan)<br />HIVE-6860 : Issue with FS based stats collection on Tez (Ashutosh Chauhan via Vikram Dixit)<br />HIVE-6821 : Fix some non-deterministic tests (Jason Dere via Ashutosh Chauhan)<br />HIVE-6739 : Hive HBase query fails on Tez due to missing jars and then due to NPE in getSplits (Sergey Shelukhin, reviewed by Vikram Dixit K)<br />HIVE-6841: Vectorized execution throws NPE for partitioning columns with __HIVE_DEFAULT_PARTITION__ (reviewd by Hari, Ashutosh)<br />HIVE-6840: Use Unordered Output for Bucket Map Joins on Tez (Siddharth Seth via Gunther Hagleitner)</p><p>HIVE-6834 Dynamic partition optimization bails out after removing file sink operator (Prasanth J via Harish Butani)</p><p>HIVE-6848 importing into an existing table fails (Harish Butani via Ashutosh Chauhan)<br />HIVE-6800 : HiveServer2 is not passing proxy user setting through hive-site (Vaibhav Gumashta, reviewed by Prasad Mujumdar, Thejas Nair)<br />HIVE-6849 : Golden files update for hadoop-2 (Ashutosh Chauhan via Jason Dere)<br />HIVE-6738 : HiveServer2 secure Thrift/HTTP needs to accept doAs parameter from proxying intermediary (Dilli Arumugam via Thejas Nair)<br />HIVE-6829 : alter table foo compact gives an error (Alan Gates via Ashutosh Chauhan)<br />HIVE-6827 : Disable insecure commands with std sql auth (Ashutosh Chauhan via Thejas Nair)<br />HIVE-6743: Allow specifying the log level for Tez tasks (Siddarth Seth via Gunther Hagleitner)<br />HIVE-6838 : q.out files need correction for stats properties - sample8,transform_ppr1,transform_ppr2,union_ppr (Thejas Nair, reviewed by Jitendra Nath Pandey_<br />revert HIVE-6827 to fix unit test failure<br />HIVE-6808 : sql std auth - describe table, show partitions are not being authorized (Thejas M Nair, reviewed by Ashutosh Chauhan)<br />HIVE-6823 : adding missing files<br />HIVE-6823 : sql std auth - database authorization does not check for role ownership (Thejas Nair, reviewed by Ashutosh Chauhan)<br />HIVE-6749 : Turn hive.auto.convert.join.use.nonstaged off by default (Ashutosh Chauhan via Navis)<br />HIVE-6827 : Disable insecure commands with std sql auth (Ashutosh Chauhan via Thejas Nair)<br />HIVE-6796 : Create/drop roles is case-sensitive whereas set role is case insensitive (Ashutosh Chauhan via Thejas Nair)<br />HIVE-6780 : Set tez credential file property along with MR conf property for Tez jobs (Eugene Koifman via Thejas Nair)<br />HIVE-6068 : HiveServer2 client on windows does not handle the non-ascii characters properly (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6804 - adding files missed in earlier commit<br />HIVE-6804 : sql std auth - granting existing table privilege to owner should result in error (Thejas Nair, reviewed by Ashutosh Chauhan)<br />HIVE-6778 ql/src/test/queries/clientpositive/pcr.q covers the test which generate 1.0 =1 predicate in partition pruner. (Harish Butani via Hari S., Jitendra Pandey)<br />HIVE-6797 Add protection against divide by zero in stats annotation (Prasanth J via Harish Butani)<br />HIVE-6786 Off by one error in ORC PPD (Prasanth J via Sergey Shelukhin)<br />HIVE-6789 : HiveStatement client transport lock should unlock in finally block. (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6766 : HCatLoader always returns Char datatype with maxlength(255) when table format is ORC (Eugene Koifman, reviewed by Sushanth Sowmyan)<br />HIVE-6795 : metastore initialization should add default roles with default, SBA (Thejas Nair via Ashutosh Chauhan)<br />HIVE-6802 Fix metastore.thrift: add partition_columns.types constant(Harish Butani via Jason Dere)<br />HIVE-6779 : Hive cli may get into inconsistent state when Ctrl-C is hit on hadoop2 (Ashutosh Chauhan via Jason Dere)<br />HIVE-6642 Query fails to vectorize when a non string partition column is part of the query expression (Hari Subramaniyan via Harish Butani)<br />HIVE-5835 Null pointer exception in DeleteDelegator in templeton code (Hari Subramaniyan via Thejas Nair)<br />HIVE-6781 : Hive JDBC in http mode is using HiveConf - should be removed (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6721 : Streaming ingest needs to be able to send many heartbeats together (Alan Gates via Ashutosh Chauhan)<br />HIVE-6763 : HiveServer2 in http mode might send same kerberos client ticket in case of concurrent requests resulting in server throwing a replay exception (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6662: Vector Join operations with DATE columns fail. (Gopal V via jitendra)<br />HIVE-6744: Permanent UDF lookup fails when current DB has uppercase letters (jdere, reviewed by thejas)<br />HIVE-6643 Add a check for cross products in plans and output a warning(Harish Butani reviewed by Gunther Hagleitner)<br />HIVE-6752: Vectorized Between and IN expressions don't work with decimal, date types. (reviewed by Eric Hanson, Sergey)<br />HIVE-6547 : normalize struct Role in metastore thrift interface (Thejas M Nair, reviewed by Ashutosh Chauhan)<br />HIVE-6728 : Missing file override-container-log4j.properties in Hcatalog (Eugene Koifman via Thejas Nair)<br />HIVE-6676 : hcat cli fails to run when running with hive on tez (Eugene Koifman via Thejas Nair)<br />HIVE-6597 : WebHCat E2E tests doAsTests_6 and doAsTests_7 need to be updated (Deepesh Khandelwal via Eugene Koifman &amp; Sushanth Sowmyan) (backport to 0.13)<br />HIVE-6188 : Document hive.metastore.try.direct.sql &amp; hive.metastore.try.direct.sql.ddl (Sergey Shelukhin, reviewed by Jitendra Nath Pandey)<br />HIVE-6686 : webhcat does not honour -Dlog4j.configuration=$WEBHCAT_LOG4J of log4j.properties file on local filesystem. (Eugene Koifman via Thejas Nair)<br />HIVE-6592 : WebHCat E2E test abort when pointing to https url of webhdfs (Deepesh Khandelwal via Sushanth Sowmyan) (backport to 0.13)<br />HIVE-6633 : pig -useHCatalog with embedded metastore fails to pass command line args to metastore (Eric Hanson via Sushanth Sowmyan) (backport to 0.13)</p><p>HIVE-6314 The logging (progress reporting) is too verbose (Navis Ryu via Harish Butani)<br />HIVE-6697 : HiveServer2 secure thrift/http authentication needs to support SPNego (Dilli Arumugam via Thejas Nair)<br />HIVE-6771 : Update WebHCat E2E tests now that comments is reported correctly in describe table output (Deepesh Khandelwal via Ashutosh Chauhan)<br />HIVE-6710 : Deadlocks seen in transaction handler using mysql (Alan Gates via Ashutosh Chauhan)<br />HIVE-6734 : DDL locking too course grained in new db txn manager (Alan Gates via Ashutosh Chauhan)<br />HIVE-6767 : Golden file updates for hadoop-2 (Ashutosh Chauhan via Vikram Dixit)<br />HIVE-4975: Reading orc file throws exception after adding new column (Kevin Wilfong via Gunther Hagleitner)<br />HIVE-6447 : Bucket map joins in hive-tez (Vikram Dixit, reviewed by Harish Butani, Gunther Hagleitner)<br />HIVE-6748: FileSinkOperator needs to cleanup held references for container reuse (Gopal V via Gunther Hagleitner)<br />HIVE-6714: Fix getMapSize() of LazyMap (Prasanth J via Gunther Hagleitner)<br />HIVE-6735: Make scalable dynamic partitioning work in vectorized mode (Prasanth J via Gunther Hagleitner)<br />HIVE-6760: Scalable dynamic partitioning should bail out properly for list bucketing (Prasanth J via Gunther Hagleitner)<br />HIVE-6761: Hashcode computation does not use maximum parallelism for scalable dynamic partitioning<br />HIVE-6701 Analyze table compute statistics for decimal columns. (Sergey Shelukhin and Jitendra Nath Pandey, reviewed by Ashutosh Chauhan)<br />HIVE-6703 Tez should store SHA of the jar when uploading to cache (Sergey Shelukhin, reviewed by Gunther Hagleitner)<br />HIVE-6670 : ClassNotFound with Serde (Abin Shahab, Ashutosh Chauhan via Jason Dere)<br />HIVE-6753: Unions on Tez NPE when there's a mapjoin the union work (Gunther Hagleitner, reviewed by Vikram Dixit K)<br />HIVE-6546 : WebHCat job submission for pig with -useHCatalog argument fails on Windows (Eric Hanson via Thejas Nair)</p><p>HIVE-2752 Index names are case sensitive (Navis Ryu via Harish Butani)<br />HIVE-6129 alter exchange is implemented in inverted manner (Navis Ryu via Harish Butani)<br />HIVE-6674 : show grant on all throws NPE (Navis via Ashutosh Chauhan)<br />HIVE-6750 : Hive printing debug information in stdout after the end of CLI session (Vaibhav Gumashta via Ashutosh Chauhan)<br />HIVE-6492 : limit partition number involved in a table scan (Selina Zhang via Ashutosh Chauhan, Gunther Hagleitner)<br />HIVE-6733: Driver context logs every query in the warn level (Gunther Hagleitner, reviewed by Thejas M Nair)<br />HIVE-6708 : ConstantVectorExpression should create copies of data objects rather than referencing them. (Hari Subramaniyan via jitendra)<br />HIVE-6060. Create AcidInputFormat and AcidOutputFormat and update</p><p>HIVE-5768 Beeline connection cannot be closed with not close command (Navis Ryu via Brock Noland)<br />HIVE-5567. Add better protection code for SARGs. (omalley)<br />HIVE-6499 Using Metastore-side Auth errors on non-resolvable IF/OF/SerDe (Sushanth Sowmyan via Thejas Nair)<br />HIVE-6742: Tez Outputs need to be started before accessing the writer (Siddharth Seth via Gunther Hagleitner)</p><p>HIVE-6460 Need new 'show' functionality for transactions (Alan Gates via Harish Butani)<br />HIVE-6671 WebHCat Job Submission API 'enablelog' parameter is only supported with Hadoop 1 (Eugene Koifman via gates)<br />HIVE-6724 : HCatStorer throws ClassCastException while storing tinyint/smallint data (Eugene Koifman via Sushanth Sowmyan) (backport from 0.14 trunk)<br />HIVE-6661 WebHCat E2E test TestPig_10 fails (Hadoop 2) (Eugene Koifman via gates)<br />HIVE-6653 WebHCat E2E test JOBS_7 and JOBS_9 fail as profile.url in job details is being returned as null (Eugene Koifman via gates)<br />HIVE-6644 document TestStreaming_2 e2e test case for webhcat for branch 0.13<br />HIVE-6606 : Stand alone metastore fails to start if new transaction values not defined in config (Alan Gates via Ashutosh Chauhan)<br />HIVE-6349 : Column name map is broken (reviewed by Remus, Sergey)<br />HIVE-6646 : Error in txn handler SQL (Alan Gates via Ashutosh Chauhan)<br />HIVE-6682 : nonstaged mapjoin table memory check may be broken (Sergey Shelukhin, reviewed by Navis)<br />HIVE-6702: TezMergedLogicalInput needs to inform the framework when it is ready (Siddharth Seth via Gunther Hagleitner)<br />HIVE-6455 : Scalable dynamic partitioning and bucketing optimization (Prasanth J via Vikram Dixit)<br />HIVE-6716: ORC struct throws NPE for tables with inner structs having null values (Prasanth J via Gunther Hagleitner)<br />HIVE-6706: Tez queries fail when there are no input paths (Gunther Hagleitner, reviewed by Vikram Dixit K)</p><p>HIVE-6700: In some queries inputs are closed on Tez before the operator pipeline is flushed (Gunther Hagleitner, reviewed by Vikram Dixit K and Siddharth Seth)<br />HIVE-6635 : Heartbeats are not being sent when DbLockMgr is used and an operation holds locks (Alan Gates via Ashutosh Chauhan)<br />HIVE-6711 : ORC maps uses getMapSize() from MapOI which is unreliable (Prasanth J via Vikram Dixit, reviewed by Gunther)<br />HIVE-6707 : Lazy maps are broken (LazyMap and LazyBinaryMap) (Prasanth J via Vikram Dixit, reviewed by Gunther)<br />HIVE-6687 : JDBC ResultSet fails to get value by qualified projection name (Laljo John Pullokkaran via Ashutosh Chauhan)<br />HIVE-6222 Make Vector Group By operator abandon grouping if too many distinct keys (Remus Rusanu)<br />HIVE-6704 : date_add()/date_sub()/datediff() fail with NPE with null input (Jason Dere via Ashutosh Chauhan)<br />HIVE-6672 : JARs loaded by permanent functions don't work properly with HiveServer2 (Jason Dere via Ashutosh Chauhan)<br />HIVE-3969 : Session state for hive server should be cleaned-up (Navis via Ashutosh Chauhan)<br />HIVE-6673 : sql std auth - show grant statement for all principals throws NPE (Thejas Nair via Ashutosh Chauhan)<br />HIVE-6472: JDBC cancel will not work with current HiveServer2 (Vaibhav Gumashta via Prasad Mujumdar)<br />HIVE-6650 : hive.optimize.index.filter breaks non-index where with HBaseStorageHandler (Nick Dimiduk via Ashutosh Chauhan)<br />HIVE-4293 : Predicates following UDTF operator are removed by PPD (Navis via Harish Butani)<br />HIVE-6723 : Tez golden files need to be updated (Ashutosh Chauhan via Vikram Dixit)<br />HIVE-6625: HiveServer2 running in http mode should support trusted proxy access (Vaibhav Gumashta via Prasad Mujumdar)<br />HIVE-6689 : Provide an option to not display partition columns separately in describe table output (Ashutosh Chauhan via Jason Dere)<br />HIVE-6580 : Refactor ThriftBinaryCLIService and ThriftHttpCLIService tests. (Vaibhav Gumashta via Ashutosh Chauhan)<br />HIVE-6681 : Describe table sometimes shows from deserializer for column comments (Ashutosh Chauhan via Gunther Hagleitner)<br />HIVE-6668 When auto join convert is on and noconditionaltask is off, ConditionalResolverCommonJoin fails to resolve map joins. (Navis Ryu via Harish Butani)<br />HIVE-6488 : Investigate TestBeeLineWithArgs (Jason Dere via Ashutosh Chauhan)<br />HIVE-6645 : to_date()/to_unix_timestamp() fail with NPE if input is null (Jason Dere via Ashutosh Chauhan)</p><p>HIVE-6613: Control when spcific Inputs / Outputs are started (Siddharth Seth via Gunther Hagleitner)<br />HIVE-6688 : Fix groupby_* qfile failures in hadoop-2 (Jason Dere via Ashutosh Chauhan)<br />HIVE-6690 : NPE in tez session state (Sergey Shelukhin, reviewed by Gunther Hagleitner)<br />HIVE-6658 : Modify Alter_numbuckets* test to reflect hadoop2 changes(Laljo John Pullokkaran via Jason Dere)<br />HIVE-6660: HiveServer2 running in non-http mode closes server socket for an SSL connection after the 1st request (Prasad Mujumdar, reviewed by Thejas Nair and Vaibhav Gumashta)<br />HIVE-6639. Vectorization: Partition column names are not picked up. (reviewed by Vikram)<br />HIVE-6641 : optimized HashMap keys won't work correctly with decimals (Sergey Shelukhin, reviewed by Gunther Hagleitner)<br />HIVE-6562: Protection from exceptions in ORC predicate evaluation (Prasanth J, reviewed by Sergey Shelukhin)<br />HIVE-6656 : Bug in ORC Timestamp reader returns wrong nanoseconds (Prasanth J, reviewed by Owen O'Malley)<br />HIVE-6666 : Metastore init scripts should always populate the version information at the end (Prasad Mujumdar via Ashutosh Chauhan)<br />HIVE-6680. Decimal128#update(Decimal128 o, short scale) should adjust the unscaled value. (jitendra, reviewed by Remus Rusanu)<br />HIVE-6664. Vectorized variance computation differs from row mode computation. (jitendra, reviewed by Eric Hanson)<br />HIVE-6649: Vectorization: some date expressions throw exception. (jitendra, reviewed by Eric Hanson)<br />HIVE-6578 : Use ORC file footer statistics through StatsProvidingRecordReader interface for analyze command (Prasanth J, reviewed by Sergey Shelukhin)</p><p>HIVE-6518: Add a GC canary to the VectorGroupByOperator to flush whenever a GC is triggered. (Gopal V via jitendra, reviewed by Remus, Gunther)<br />HIVE-4764 : Support Kerberos HTTP authentication for HiveServer2 running in http mode (Vaibhav Gumashta via Thejas Nair)<br />HIVE-6659 : Update log for list_bucket_* to add pre/post DB (Laljo John Pullokkaran via Ashutosh Chauhan)<br />HIVE-6012: restore backward compatibility of arithmetic operations (reviewed by Gunther/Sergey)<br />HIVE-6610 : Unit test log needs to reflect DB Name (Laljo John Pullokkaran via Ashutosh Chauhan)</p><p>HIVE-6640 Change hive.version.shortname in hive 0.13 branch to '0.13.0' (reviewd by Jason Dere)<br />HIVE-6607 : describe extended on a view fails with NPE (Eugene Koifman via Ashutosh Chauhan)<br />HIVE-6392 : Hive (and HCatalog) don't allow super-users to add partitions to tables. (Mithun Radhakrishnan via Thejas Nair)</p><p>HIVE-6647 : Bump the thrift api version to V7 for HiveServer2 (Prasad Mujumdar via Thejas Nair)<br />HIVE-6629 : Change SET ROLE NONE to SET ROLE ALL (Brock Noland via Thejas Nair)<br />HIVE-6312 : doAs with plain sasl auth should be session aware (Navis via Thejas Nair)<br />HIVE-6636 : /user/hive is a bad default for HDFS jars path for Tez (Sergey Shelukhin, reviewed by Gunther Hagleitner)<br />HIVE-6576 : sending user.name as a form parameter in POST doesn't work post HADOOP-10193 (Eugene Koifman via Thejas Nair)<br />HIVE-6567 : &quot;show grant ... on all&quot; fails with NPE (Thejas Nair, reviewed by Ashutosh Chauhan)<br />HIVE-6434 : Restrict function create/drop to admin roles (Jason Dere via Thejas Nair)<br />HIVE-6110 : schematool errors out when HIVE_OPTS is set (Venki Korukanti via Ashutosh Chauhan)<br />HIVE-6630 : FS based stats collection have issues for list bucketing case (Ashutosh Chauhan via Gunther Hagleitner)<br />HIVE-6609 : Doing Ctrl-C on hive cli doesn't kill running MR jobs on hadoop-2 (Ashutosh Chauhan via Jason Dere)</p><p>HIVE-6611: Joining multiple union all outputs fails on Tez (Gunther Hagleitner, reviewed by Vikram Dixit K)<br />HIVE-6563: hdfs jar being pulled in when creating a hadoop-2 based hive tar ball (Vikram Dixit, reviewed by Harish Butani)</p><p>HIVE-6618 : assertion when getting reference key from loader with byte-array mapjoin key (Sergey Shelukhin, reviewed by Gunther Hagleitner)</p><p>HIVE-6457: Ensure Parquet integration has good error messages for data types not supported (Brock via Xuefu)<br />HIVE-6575: select * fails on parquet table with map datatype (Szehon via Xuefu)<br />HIVE-6514 : TestExecDriver/HCat Pig tests fails with -Phadoop-2 (Jason Dere via Ashutosh Chauhan)</p><p>HIVE-6572 : Use shimmed version of hadoop conf names for mapred.{min,max}.split.size{.*} (Sushanth Sowmyan via Ashutosh Chauhan)<br />HIVE-6568: Vectorized cast of decimal to string and timestamp produces incorrect result (jitendra reviewed by Eric Hanson)<br />HIVE-6495 : TableDesc.getDeserializer() should use correct classloader when calling Class.forName() (Jason Dere via Ashutosh Chauhan)<br />HIVE-6507 : OrcFile table property names are specified as strings (Sushanth Sowmyan via Thejas Nair)<br />HIVE-5099 : Some partition publish operation cause OOM in metastore backed by SQL Server (Daniel Dai via Thejas Nair)<br />HIVE-6512 : HiveServer2 ThriftCLIServiceTest#testDoAs is an invalid test (Vaibhav Gumashta via Thejas Nair)<br />HIVE-5155 : Support secure proxy user access to HiveServer2 (Prasad Mujumdar via Thejas Nair)<br />HIVE-5931 : SQL std auth - add metastore get_principals_in_role api, support SHOW PRINCIPALS role_name (Thejas Nair via Ashutosh Chauhan)<br />HIVE-6558 : HiveServer2 Plain SASL authentication broken after hadoop 2.3 upgrade (Prasad Mujumdar via Ashutosh Chauhan)<br />HIVE-6559 : sourcing txn-script from schema script results in failure for mysql &amp; oracle (Alan Gates via Ashutosh Chauhan)<br />HIVE-6594: UnsignedInt128 addition does not increase internal int array count resulting in corrupted values during serialization (Remus Rusanu)<br />HIVE-6605 : Hive does not set the environment correctly when running in Tez mode (Sergey Shelukhin, reviewed by Gunther Hagleitner and Siddharth Seth)<br />HIVE-6587 : allow specifying additional Hive classpath for Hadoop (Sergey Shelukhin, reviewed by Gunther Hagleitner)<br />HIVE-6608 add apache pom as parent pom (reviewed by Brock)<br />HIVE-6591 : Importing a table containing hidden dirs fails (Ashutosh Chauhan via Vikram Dixit)<br />HIVE-6585 : bucket map join fails in presence of _SUCCESS file (Ashutosh Chauhan via Vikram Dixit)</p><p>HIVE-6414: ParquetInputFormat provides data values that do not match the object inspectors (Justin Coffey via Xuefu)<br />HIVE-6486 : Support secure Subject.doAs() in HiveServer2 JDBC client. (Shivaraju Gowda via Thejas Nair)<br />HIVE-6574: Type in ql/pom.xml prevents jobs from parquet queries from running on a cluster (reviewed by Brock)<br />HIVE-6551 : group by after join with skew join optimization references invalid task sometimes (Navis via Ashutosh Chauhan)<br />HIVE-6359 : beeline -f fails on scripts with tabs in them. (Navis, reviewed by Xuefu Zhang, Thejas Nair)<br />HIVE-6531 : Runtime errors in vectorized execution (jitendra)<br />HIVE-6511: Casting from decimal to tinyint,smallint, int and bigint generates different result when vectorization is on (jitendra)<br />HIVE-6573 : Oracle metastore doesnt come up when hive.cluster.delegation.token.store.class is set to DBTokenStore (Ashutosh Chauhan via Thejas Nair)<br />HIVE-6508 : Mismatched aggregation results between vector and non-vector mode with decimal field (Remus Rusanu via jitendra)<br />HIVE-5901 : Query cancel should stop running MR tasks (Navis via Thejas Nair)<br />HIVE-6403 uncorrelated subquery is failing with auto.convert.join=true (Navis via Harish Butani)<br />HIVE-6566: Incorrect union-all plan with map-joins on Tez (Gunther Hagleitner, reviewed by Sergey Shelukhin)<br />HIVE-6417 : sql std auth - new users in admin role config should get added (Ashutosh Chauhan via Thejas Nair)<br />HIVE-6555 : Fix metastore version in mysql script(Ashutosh Chauhan via Prasad Mujumdar)<br />HIVE-6537 NullPointerException when loading hashtable for MapJoin directly (Sergey Shelukhin and Navis, reviewed by Gunther Hagleitner)<br />HIVE-6548 : Missing owner name and type fields in schema script for DBS table (Ashutosh Chauhan via Thejas Nair)<br />HIVE-6325: Enable using multiple concurrent sessions in tez (Vikram Dixit, reviewed by Gunther Hagleitner)</p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/Hive+0.13+release+status"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/Hive+0.13+release+status"
+    dc:title="Hive 0.13 release status"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/39622095"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="39622095" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>

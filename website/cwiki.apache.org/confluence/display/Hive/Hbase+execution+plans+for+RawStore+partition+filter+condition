@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>Hbase execution plans for RawStore partition filter condition - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451834143364">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="55151993">
+            <meta name="ajs-latest-page-id" content="55151993">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Hbase execution plans for RawStore partition filter condition">
+            <meta name="ajs-parent-page-title" content="HBaseMetastoreDevelopmentGuide">
+            <meta name="ajs-parent-page-id" content="55151960">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-jira-metadata-count" content="-1">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="Hbase+execution+plans+for+RawStore+partition+filter+condition">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/eY1JAw">
+    <meta name="wikilink" content="[Hive:Hbase execution plans for RawStore partition filter condition]">
+    <meta name="page-version" content="2">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#title-heading">Skip to content</a></li>
+    <li><a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#navigation">Skip to action menu</a></li>
+    <li><a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="Hbase+execution+plans+for+RawStore+partition+filter+condition#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="Hbase+execution+plans+for+RawStore+partition+filter+condition#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FHbase%2Bexecution%2Bplans%2Bfor%2BRawStore%2Bpartition%2Bfilter%2Bcondition" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="HBaseMetastoreDevelopmentGuide" title="HBaseMetastoreDevelopmentGuide"><span class="icon"></span><span class="label">HBaseMetastoreDevelopmentGuide</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">Hbase execution plans for RawStore partition filter condition</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="Hbase+execution+plans+for+RawStore+partition+filter+condition#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=55151993" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=55151993" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=55151993" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=55151993" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=55151993" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=55151993#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=55151993" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=55151993" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=55151993" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=55151993" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=55151993" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=55151993" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="HowToContribute">HowToContribute</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="HBaseMetastoreDevelopmentGuide">HBaseMetastoreDevelopmentGuide</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="Hbase+execution+plans+for+RawStore+partition+filter+condition" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="Hbase+execution+plans+for+RawStore+partition+filter+condition" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="Hbase+execution+plans+for+RawStore+partition+filter+condition">Hbase execution plans for RawStore partition filter condition</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~thejas"
+                       class="url fn"
+                            >Thejas M Nair</a></span>, last modified on <a class='last-modified' title='Mar 25, 2015 20:17' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=55151993&amp;selectedPageVersions=1&amp;selectedPageVersions=2'>Mar 25, 2015</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="Hbase+execution+plans+for+RawStore+partition+filter+condition#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <p><span style="color: rgb(0,0,0);">(Apologies for this doc being organized properly, I thought something is better than nothing - Thejas)</span></p><div><span style="color: rgb(0,0,0);"><br /></span></div><div><span style="color: rgb(0,0,0);">This is part of metastore on hbase work - 
+    <span class="jira-issue" >
+        <a href="https://issues.apache.org/jira/browse/HIVE-9452" class="jira-issue-key"><img class="icon" src="https://issues.apache.org/jira/images/icons/issuetypes/improvement.png" />HIVE-9452</a>
+                    -
+            <span class="summary">Use HBase to store Hive metadata</span>
+                <!-- The new status lozengens support for JIRA 6.2 or later. Otherwise we use the icon.-->
+                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-complete jira-macro-single-issue-export-pdf">Open</span>
+            </span>
+</span></div><p><span style="color: rgb(0,0,0);font-size: 24.0px;line-height: 1.25;">Functionality needed</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">RawStore functions that support partition filtering are the following - </span></p><ul><li><p><span>getPartitionsByExpr</span></p></li><li><p><span>getPartitionsByFilter (takes filter string as argument, used from hcatalog)</span></p></li></ul><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">We need to generate a query execution plan in terms of Hbase scan api calls for a given filter condition.</span></p><p><span><span><br /></span></span></p><h2 id="HbaseexecutionplansforRawStorepartitionfiltercondition-Notesabouttheapitobesupported"><span style="color: rgb(0,0,0);">Notes about the api to be supported</span></h2><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">getPartitionsByExpr</span><span style="color: rgb(0,0,0);"> - Current partition expression evaluation path </span><span style="color: rgb(0,0,0);">ExprNodeGenericFuncDesc</span><span style="color: rgb(0,0,0);"> represents the partition filter expression in the plan</span></p><ol><li><p><span>It is serialized into</span><span> byte[] </span><span>and Metastore api is invoked with the byte[].</span></p></li><li><p><span>ObjectStore processing of expression -</span></p></li><ol><li><p><span>deserializes the byte[], prints it to convert it to </span><span>Filter string</span></p></li><li><p><span>Converts Filter string to </span><span>ExpressionTree</span><span> using parser (Filter.g)</span></p></li><li><p><span>Walk ExpressionTree to create </span><span>sql query</span><span> (in direct sql)</span></p></li></ol></ol><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">getPartitionsByFilter</span><span style="color: rgb(0,0,0);"> - Evaluation of it is similar, it just skips the steps required to create the filter string. We certainly need the ability to work with filter string to support this function.</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">Why do we convert from ExprNodeGenericFuncDesc to kryo serialized byte[] and not to the filter string ?</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">Filter expressions supported currently</span></p><p><span style="color: rgb(0,0,0);"> Leaf Operators : =, &gt;, &lt;, &lt;=, &gt;=, LIKE, !=</span></p><p><span style="color: rgb(0,0,0);"> Logical Operators : AND, OR</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">Partition table in hbase</span></p><p><span style="color: rgb(0,0,0);">Partition information is stored in with the key as a delimited string consisting of - db name, table name, partition values</span></p><p><span style="color: rgb(0,0,0);">The value contains rest of the partition information. (side note: do we need the partition values in the value part?)</span></p><p><span><span><br /><br /><br /><br /><br /><br /><br /><br /><br /></span></span></p><h1 id="HbaseexecutionplansforRawStorepartitionfiltercondition-Implementation"><span style="color: rgb(0,0,0);">Implementation</span></h1><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">Serialization format of partition table key in hbase</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">Desirable properties for key serialization format -</span></p><ol><li><p><span>It should be possible to perform filter operations on the keys without deserializing the fields (LIKE operator is not common, so its ok if we have to deserialize for that one)</span></p></li><li><p><span>The real order for the partition keys and the byte order for the keys should match</span></p></li><li><p><span>It should be possible to efficiently extract the relevant portion of the key for filters. ie, It should be possible to find the begin and end of bytes representing a partition value without checking every preceding byte.</span></p></li></ol><p><span style="color: rgb(0,0,0);">BinarySortableSerDe satisfies these requirements except for number 3. Meeting requirement 3 might need some index information to be stored in end of the serialized key.</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">Limitations with current storage format (no secondary keys)</span></p><p><span style="color: rgb(0,0,0);">If there are multiple partition keys for a table, and partition filter condition does not have a condition on the first partition key, we would end up scanning all partitions for the table to find the matches. For this case, we need support for secondary indexes on the table. While we could implement this using a second table, the lack of support for atomic operations across rows/tables is a problem. We would need some level of transaction support in hbase to be able to create secondary indexes reliably. </span></p><p><span><span><br /><br /></span></span></p><p><span style="color: rgb(0,0,0);">Filtering the partitions</span></p><p><span style="color: rgb(0,0,0);">The hbase api’s used will depend on the filtering condition -</span></p><ol><li><p><span>For simple partition filtering conditions on initial partition column, that check for a particular partition or a range of partition, we can convert them into a simple Hbase Scan operation without any Filter  (new </span><a rel="nofollow"><span style="color: rgb(76,107,135);">Scan</span></a><span style="color: rgb(53,56,51);">(byte[] startRow, byte[] stopRow))</span></p></li><li><p><span>In case of more complex queries involving additional partition columns, we need to use a scan filter with conditions on remaining columns as well. ie, new </span><a rel="nofollow"><span style="color: rgb(76,107,135);">Scan</span></a><span style="color: rgb(53,56,51);">(byte[] startRow, byte[] stopRow) + Scan.setFilter(..) </span></p></li><li><p><span>If there are no conditions on the first partition column, then all partitions on the table would need to be scanned. In that case, start and end rows will be based only on the db+table prefix of the key.</span></p></li></ol><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">Filters with top level “OR” conditions</span><span style="color: rgb(0,0,0);"> - Each of the conditions under OR should be evaluated to see which of the above api call pattern suits them. If any one of the conditions requires no 3 call pattern, it makes sense to represent the entire filter condition using api call pattern 3.</span></p><p><span><span><br /><br /></span></span></p><p><span style="color: rgb(0,0,0);">Examples of conversion of query plan to hbase api calls</span></p><ul><li><p><span>merge function below does a set-union</span></p></li><li><p><span>p1 represents the first partition column</span></p></li><li><p><span>The scan(startRow, endRow) scans from startRow to row before endRow. ie, it represents rows where (r &gt;= startRow and r &lt; endRow). But it can be made to represent (r &gt; startRow) by adding a zero byte to startRow, and made to represent (r &lt;= endRow) by adding zero byte to endRow. ie, the plans for &gt;= and &gt; are similar, &lt;= and = are similar. </span></p></li><li><p><span>All keys corresponding to a partitions of a table have a common prefix of “db + tablename”. That is referred to as “X” in following examples.</span></p></li></ul><p><span><span><br /><br /></span></span></p><div style="margin-left: 0.0pt;"><p> </p><div class="table-wrap"><table class="confluenceTable"><colgroup><col /><col /></colgroup><tbody><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Filter expression</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">HBase calls</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 &gt; 10 and p1 &lt; 20 </span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Scan(X10+, X20)</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 = 10 (if single partition column)</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Scan(X10, X10+). Optimized? : Get(X10)</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Similar case as above, if all partition columns are specified</span></p></td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 = 10 (multiple partition column)</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Scan(X10, X+)</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 = 9 or p1 = 10</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">merge( get(X9), get(X10))</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 &gt; 10 or p1 &lt; 20</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">merge(scan(X10, X+), scan(X  ,X20))</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">(condition on columns other than first partition column) : condition1</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Scan(X, X+).setFilter(genFilter(condition1))</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 &gt; 10 and condition1</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">scan(X10, X+).setFilter(genFilter(condition1))</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 &lt; 20 and condition1</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Scan(X , X20).setFilter(genFilter(condition1))</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 &gt; 10 and p1 &gt; 20 and p1 &lt; 30 and p1 &lt; 40</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Scan(X20+, X30)</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">p1 &gt; 10 and (p1 &gt; 20 or c1 = 5) </span></p><p><span style="color: rgb(0,0,0);">=&gt;</span></p><p><span style="color: rgb(0,0,0);">(p1 &gt; 10 and p1 &gt; 20) or (p1 &gt; 10 and c1 =5)</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">merge(Scan(X20+, X+), Scan(X10+,X+).setFilter(genFilter(c1 = 5)))</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">(special case with OR condition, if one of the conditions results in full table scan): </span><span style="color: rgb(0,0,0);">condition1 or condition2</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Scan(X).filter(getCombinedFilter(condition1, condition2) </span></p><p><span style="color: rgb(0,0,0);">(ie, convert to a full table scan with filter)</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">(general case with OR condition): </span><span style="color: rgb(0,0,0);">condition1 or condition2</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">merge( getResult(condition1), getResult(condition2))</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">c1 and (c2 or c3)</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">(c1 and c2) or (c1 and c3)</span></p></td></tr><tr><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">(c1 or c2) and (c3 or c4)</span></p></td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">(c1 and c3) or (c2 and c3) or (c1 and c4) or (c2 and c4)</span></p></td></tr></tbody></table></div><p> </p></div><p><span><span><br /><br /></span></span></p><p><span style="color: rgb(0,0,0);">Relevant classes :</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(255,0,0);">Input</span><span style="color: rgb(0,0,0);">:</span></p><p><span style="color: rgb(0,0,0);">ExpressionTree</span><span style="color: rgb(0,0,0);"> (existing) - TreeNodes for AND/OR expressions. Leaf Node for leaf expressions with  =,&lt; ...</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(204,0,0);">Output</span><span style="color: rgb(0,0,0);">:</span></p><p><span style="color: rgb(0,0,0);">  public static abstract class </span><span style="color: rgb(0,0,0);">FilterPlan</span><span style="color: rgb(0,0,0);"> {</span></p><p><span style="color: rgb(0,0,0);">    abstract FilterPlan and(FilterPlan other);</span></p><p><span style="color: rgb(0,0,0);">    abstract FilterPlan or(FilterPlan other);</span></p><p><span style="color: rgb(0,0,0);">    abstract List&lt;</span><span style="color: rgb(0,0,0);">ScanPlan</span><span style="color: rgb(0,0,0);">&gt; getPlans();</span></p><p><span style="color: rgb(0,0,0);">  }</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">// represents a union of multiple ScanPlan</span></p><p><span style="color: rgb(0,0,0);">MultiScanPlan extends FilterPlan</span></p><p><span><span><br /><br /></span></span></p><p><span style="color: rgb(0,0,0);">ScanPlan extends FilterPlan</span></p><p><span style="color: rgb(0,0,0);">    // represent Scan start</span></p><p><span style="color: rgb(0,0,0);">    private ScanMarker startMarker ;</span></p><p><span style="color: rgb(0,0,0);">    // represent Scan end</span></p><p><span style="color: rgb(0,0,0);">    private ScanMarker endMarker ;</span></p><p><span style="color: rgb(0,0,0);">    private ScanFilter filter;</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">public FilterPlan and(FilterPlan other) {</span></p><p><span style="color: rgb(0,0,0);"> // calls this.and(otherScanPlan) on each scan plan in other</span></p><p><span style="color: rgb(0,0,0);">}</span></p><p><span style="color: rgb(0,0,0);">private ScanPlan and(ScanPlan other) {</span></p><p><span style="color: rgb(0,0,0);">   // combines start marker and end marker and filters of this and other</span></p><p><span style="color: rgb(0,0,0);">}</span></p><p><span style="color: rgb(0,0,0);">public FilterPlan or(FilterPlan other) {</span></p><p><span style="color: rgb(0,0,0);">   // just create a new FilterPlan from other, with this additional plan</span></p><p><span style="color: rgb(0,0,0);">}</span></p><p><span><span><br /><br /></span></span></p><p><span style="color: rgb(0,0,0);">PartitionFilterGenerator -</span></p><p><span style="color: rgb(0,0,0);">  /**</span></p><p><span style="color: rgb(0,0,0);">   * Visitor for ExpressionTree.</span></p><p><span style="color: rgb(0,0,0);">   * It first generates the ScanPlan for the leaf nodes. The higher level nodes are</span></p><p><span style="color: rgb(0,0,0);">   * either AND or OR operations. It then calls FilterPlan.and and FilterPlan.or with</span></p><p><span style="color: rgb(0,0,0);">   * the child nodes to generate the plans for higher level nodes.</span></p><p><span style="color: rgb(0,0,0);">   */</span></p><p><span><span><br /><br /><br /></span></span></p><p><span style="color: rgb(0,0,0);">Initial implementation: Convert from from ExpressionTree to Hbase filter, thereby implementing both getPartitionsByFilter and getPartitionsByExpr</span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">A new custom Filter class implementation needs to be created. Filter class implements Writable, and the hbase expression to be evaluated is serialized </span></p><p><span><span><br /></span></span></p><p><span style="color: rgb(0,0,0);">We can potentially create the filter directly from ExprNodeGenericFuncDesc in case of the new fastpath config is set.</span></p><p><span><br /></span></p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/Hbase+execution+plans+for+RawStore+partition+filter+condition"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/Hbase+execution+plans+for+RawStore+partition+filter+condition"
+    dc:title="Hbase execution plans for RawStore partition filter condition"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/55151993"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="55151993" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>

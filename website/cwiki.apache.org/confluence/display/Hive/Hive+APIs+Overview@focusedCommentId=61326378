@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>Hive APIs Overview - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451833508003">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="61326349">
+            <meta name="ajs-latest-page-id" content="61326349">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Hive APIs Overview">
+            <meta name="ajs-parent-page-title" content="Home">
+            <meta name="ajs-parent-page-id" content="27362069">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-comment-id" content="61326378">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-styles/org.randombits.confluence.toc%253Atoc-plugin-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/3.7.2/_/download/batch/confluence.extra.information%253Ainformation-plugin-adg-styles/confluence.extra.information%253Ainformation-plugin-adg-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Aclient-side-toc-resources/org.randombits.confluence.toc%253Aclient-side-toc-resources.js" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-analytics/org.randombits.confluence.toc%253Atoc-plugin-analytics.js" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="Hive+APIs+Overview">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/DcSnAw">
+    <meta name="wikilink" content="[Hive:Hive APIs Overview]">
+    <meta name="page-version" content="17">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="Hive+APIs+Overview@focusedCommentId=61326378#title-heading">Skip to content</a></li>
+    <li><a href="Hive+APIs+Overview@focusedCommentId=61326378#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="Hive+APIs+Overview@focusedCommentId=61326378#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="Hive+APIs+Overview@focusedCommentId=61326378#navigation">Skip to action menu</a></li>
+    <li><a href="Hive+APIs+Overview@focusedCommentId=61326378#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="Hive+APIs+Overview@focusedCommentId=61326378#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="Hive+APIs+Overview@focusedCommentId=61326378#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FHive%2BAPIs%2BOverview%3FfocusedCommentId%3D61326378" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="Home" title="Home"><span class="icon"></span><span class="label">Home</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">Hive APIs Overview</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="Hive+APIs+Overview@focusedCommentId=61326378#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=61326349" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=61326349" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=61326349" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=61326349" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=61326349" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=61326349#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=61326349" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=61326349" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=61326349" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=61326349" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=61326349" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=61326349" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="Home">Home</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="Hive+APIs+Overview@focusedCommentId=61326378#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="Hive+APIs+Overview@focusedCommentId=61326378" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="Hive+APIs+Overview@focusedCommentId=61326378" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="Hive+APIs+Overview@focusedCommentId=61326378#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="Hive+APIs+Overview">Hive APIs Overview</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="Hive+APIs+Overview@focusedCommentId=61326378#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~teabot"
+                       class="url fn"
+                            >Elliot West</a></span>, last modified on <a class='last-modified' title='Nov 09, 2015 11:00' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=61326349&amp;selectedPageVersions=16&amp;selectedPageVersions=17'>Nov 09, 2015</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="Hive+APIs+Overview@focusedCommentId=61326378#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <p> </p><p>This page aims to catalogue and describe the various public facing APIs exposed by Hive in order to inform developers wishing to integrate their applications and frameworks with the Hive ecosystem. To date the following APIs have been identified in the Hive project that are either considered public, or widely used in the public domain:</p><p><div class="toc-macro client-side-toc-macro " data-headerelements="H1,H2,H3,H4,H5,H6,H7"></div></p><h1 id="HiveAPIsOverview-APIcategories">API categories</h1><p>The APIs can be segmented into two conceptual categories: operation based APIs and query based APIs.</p><h2 id="HiveAPIsOverview-OperationbasedAPIs">Operation based APIs</h2><p>Operation based APIs expose many tightly scoped methods that each implement a very specific Hive operation. Such methods usually accept and return strongly typed values appropriate to their respective operation. The implementations of the operations usually target very specific layers or subsystems within Hive and are therefore likely to be efficient in use. However, the outcome of an operation may diverge from that of the equivalent HQL as the different code paths may be invoked in each case. Operation based APIs are used for constructing processes that need to interact in a repetitive, declarative manner and provide a greater degree of compile-time checking.</p><h2 id="HiveAPIsOverview-QuerybasedAPIs">Query based APIs</h2><p>Query based APIs permit the submission and execution of some subset of HQL. It is often necessary for the API client to parse and interpret any returned values as the return types are frequently quite broad in scope. The implementations of such APIs usually target the 'query language' subsystem of Hive which parses the query and executes it as needed. Given that most query based APIs share a similar execution pathway, it is likely that any operation submitted via the API will have a similar outcome to equivalent HQL submitted via the Hive CLI. Query based APIs are often used for constructing processes where Hive API operations are created dynamically or where an HQL equivalent outcome is important. Drawbacks of this type of API include: lack of compile time checking, possible inefficiencies in working at a higher level of abstraction, and potential susceptibility to SQL-injection like attacks.</p><h1 id="HiveAPIsOverview-AvailableAPIs">Available APIs</h1><h2 id="HiveAPIsOverview-HCatClient(Java)">HCatClient (Java)</h2><p>Operation based Java API that presents a number of DDL type operations, however it is not as comprehensive as the Metastore API. The HCatClient was intended to be the Java based entry point to WebHCat HCatalog API although this was never realised. Currently <code>HCatClientHMSImpl</code> is the only concrete implementation of the API; it integrates directly with the Metastore using the Metastore API and does not utilise WebHCat whatsoever despite being packaged inside the WebHCat project. The <code>HCatClientHMSImpl</code> was originally provided as a reference implementation but it has over time gained traction as a public client. Anecdotally, it is now the preferred API for issuing DDL type operations from external programs; and feature contributions are encouraged. There is some minimal documentation on the HCatalog wiki in the form of a <a href="https://cwiki.apache.org/confluence/display/HCATALOG/Design+Document+-+Java+APIs+for+HCatalog+DDL+Commands">design document</a> describing the interface but not the implementation.</p><h2 id="HiveAPIsOverview-HCatalogStorageHandlers(Java)">HCatalog Storage Handlers (Java)</h2><p>Operation based Java API. This is well <a href="HCatalog+InputOutput">documented on the wiki</a>.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO</p><div class="confluence-information-macro-body"><p>Requires overview.</p></div></div><h2 id="HiveAPIsOverview-HiveServer2API">HiveServer2 API</h2><p>Query based Java API.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO</p><div class="confluence-information-macro-body"><p>Describe.</p></div></div><h2 id="HiveAPIsOverview-HCatalogCLI(CommandLine)">HCatalog CLI (Command Line)</h2><p>Query based API. This is well <a href="HCatalog+CLI">documented on the wiki</a>.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO</p><div class="confluence-information-macro-body"><p>Requires overview. Describe differences with <code>hive</code> CLI.</p></div></div><h2 id="HiveAPIsOverview-Metastore(Java)">Metastore (Java)</h2><p>A Thrift operation based API with Java bindings, described by the <code>IMetaStoreClient</code> interface. The API decouples the metastore storage layer from other Hive internals. Because Hive itself uses this internally, it is required to implement a comprehensive feature set which makes it attractive to developers who might find the other APIs lacking. It was not originally intended to be a public API although it became public in version 1.0.0 (<a href="https://issues.apache.org/jira/browse/HIVE-3280" class="external-link" rel="nofollow">HIVE-3280</a>) and there is a proposal that it be documented more fully (<a href="https://issues.apache.org/jira/browse/HIVE-9363" class="external-link" rel="nofollow">HIVE-9363</a>). Anecdotally, its use outside of the Hive project is not currently recommended.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO: API usage</p><div class="confluence-information-macro-body"><p>There are numerous ways of instantiating the metastore API including: <code>HCatUtil.getHiveMetastoreClient()</code>, <code>new HiveMetaStoreClient.HiveMetaStoreClient(...)</code>. It may be useful to make some recommendations on the preferred approach.</p></div></div><h2 id="HiveAPIsOverview-Hive(Java)">Hive (Java)</h2><p><span>Refers to the </span><code>org.apache.hadoop.hive.ql.metadata.Hive</code><span> class. Appears to be a distinct concrete implementation of a variation of the metastore API. Delegates to the metastore API but does not directly extend/implement it.</span></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO</p><div class="confluence-information-macro-body"><p>I suspect its use is not encouraged. Seeking clarification on the motivations behind this class and thoughts on its use outside of Hive.</p></div></div><h2 id="HiveAPIsOverview-Driver(Java)">Driver (Java)</h2><p><span>Query based API with Java endpoint. Refers to the </span><code>org.apache.hadoop.hive.ql.Driver</code><span> class.</span></p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO</p><div class="confluence-information-macro-body"><p>Describe the role of <code>Driver</code>, when to use it, etc.</p></div></div><h2 id="HiveAPIsOverview-WebHCat(REST)">WebHCat (REST)</h2><p>WebHCat is a REST operation based API for <a href="HCatalog">HCatalog</a>. This is well <a href="WebHCat+Reference">documented on the wiki</a>.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO</p><div class="confluence-information-macro-body"><p>Is this API actively used? Is its use encouraged? When should one use it?</p></div></div><h2 id="HiveAPIsOverview-StreamingDataIngest(Java)">Streaming Data Ingest (Java)</h2><p>Operation based Java API focused on the writing of continuous streams of data into transactional tables using Hive’s <a href="Hive+Transactions">ACID</a> feature. New data is inserted into tables using small batches and short-lived transactions. Documented <a href="Streaming+Data+Ingest">on the wiki</a> and has <a href="http://htmlpreview.github.io/?https://github.com/apache/hive/blob/master/hcatalog/streaming/src/java/org/apache/hive/hcatalog/streaming/package.html" class="external-link" rel="nofollow">package level Javadoc</a>. Introduced in Hive version 0.13.0 (<a href="https://issues.apache.org/jira/browse/HIVE-5687" class="external-link" rel="nofollow">HIVE-5687</a>).</p><h2 id="HiveAPIsOverview-StreamingMutation(Java)">Streaming Mutation (Java)</h2><p>Operation based Java API focused on mutating (insert/update/delete) records into transactional tables using Hive’s <a href="Hive+Transactions">ACID</a> feature. Large volumes of mutations are applied atomically in a single long-lived transaction. Documented with <a href="http://htmlpreview.github.io/?https://github.com/apache/hive/blob/master/hcatalog/streaming/src/java/org/apache/hive/hcatalog/streaming/mutate/package.html" class="external-link" rel="nofollow">package level Javadoc</a>. Scheduled for release in Hive version 2.0.0 (<a href="https://issues.apache.org/jira/browse/HIVE-10165" class="external-link" rel="nofollow">HIVE-10165</a><a href="https://issues.apache.org/jira/browse/HIVE-5687" class="external-link" rel="nofollow">).</a></p><h2 id="HiveAPIsOverview-hive-jdbc(JDBC)">hive-jdbc (JDBC)</h2><p>Query based API.</p><div class="confluence-information-macro has-no-icon confluence-information-macro-note"><p class="title">TODO</p><div class="confluence-information-macro-body"><p>Seeking documentation. Is this just for reading data? writing data? does it support DDL operations?</p></div></div>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/Hive+APIs+Overview"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/Hive+APIs+Overview"
+    dc:title="Hive APIs Overview"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/61326349"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="61326349" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+                <div class="section-header">
+            <h2 id="comments-section-title" class="section-title">
+                                    1 Comment
+                            </h2>
+        </div>
+    
+    
+
+            <ol class="comment-threads top-level" id="page-comments">
+                    <li id="comment-thread-61326378" class="comment-thread">
+        <div class="comment  focused  " id="comment-61326378">
+        <p class="comment-user-logo">
+            <img class="userLogo logo anonymous" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/icons/profilepics/anonymous.png"
+           alt="User icon: teabot" title="teabot">        </p>
+        <div class="comment-header">
+            <h4 class="author">    <a href="https://cwiki.apache.org/confluence/display/~teabot"
+                       class="url fn"
+                            >Elliot West</a></h4>
+        </div>
+        <div class="comment-body">
+            <div class="comment-content wiki-content">
+                <p>Page created after <a href="https://issues.apache.org/jira/browse/HIVE-12285?focusedCommentId=14981551&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-14981551" class="external-link" rel="nofollow">an interesting discussion</a>.</p>
+            </div>
+            <div class="comment-actions">
+                                                <ul class="comment-actions-secondary">
+                                                              <li class="first comment-permalink"><a title="Permanent link to this comment" href="Hive+APIs+Overview@focusedCommentId=61326378#comment-61326378"
+                 id="comment-permalink-61326378"                     ><span>Permalink</span></a></li>
+            </ul>
+                                    <ul class="comment-actions-primary">
+                                                              <li class="first comment-date"><a title="Oct 30, 2015 17:09" href="Hive+APIs+Overview@focusedCommentId=61326378#comment-61326378"
+                                    ><span>Oct 30, 2015</span></a></li>
+                                                              <li class=" "><a  href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=61326349"
+                 id="delete-all-comments-link-comment-link-61326378"                     ><span>Delete comments</span></a></li>
+            </ul>
+                </div>
+        </div>
+    </div>
+
+    <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/Hive+APIs+Overview?focusedCommentId=61326378#comment-61326378"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/Hive+APIs+Overview?focusedCommentId=61326378#comment-61326378"
+    dc:title="Hive APIs Overview"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/61326378"/>
+</rdf:RDF>
+-->
+
+    
+    </li>
+            </ol>
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>

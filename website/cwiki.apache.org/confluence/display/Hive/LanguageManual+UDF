@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>LanguageManual UDF - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451833234762">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="27362046">
+            <meta name="ajs-latest-page-id" content="27362046">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="LanguageManual UDF">
+            <meta name="ajs-parent-page-id" content="">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-styles/org.randombits.confluence.toc%253Atoc-plugin-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/3.7.2/_/download/batch/confluence.extra.information%253Ainformation-plugin-adg-styles/confluence.extra.information%253Ainformation-plugin-adg-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Aclient-side-toc-resources/org.randombits.confluence.toc%253Aclient-side-toc-resources.js" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-analytics/org.randombits.confluence.toc%253Atoc-plugin-analytics.js" ></script>
+<script type="text/javascript" src="../../s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.js@locale=en-GB" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes.js" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="LanguageManual+UDF">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/-oKhAQ">
+    <meta name="wikilink" content="[Hive:LanguageManual UDF]">
+    <meta name="page-version" content="149">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="LanguageManual+UDF#title-heading">Skip to content</a></li>
+    <li><a href="LanguageManual+UDF#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="LanguageManual+UDF#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="LanguageManual+UDF#navigation">Skip to action menu</a></li>
+    <li><a href="LanguageManual+UDF#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="LanguageManual+UDF#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="LanguageManual+UDF#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FLanguageManual%2BUDF" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" title="Pages"><span class="icon"></span><span class="label">Pages</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">LanguageManual UDF</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="LanguageManual+UDF#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=27362046" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=27362046" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362046" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362046" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362046" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=27362046#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=27362046" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=27362046" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=27362046" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27362046" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=27362046" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=27362046" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="LanguageManual+UDF#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="LanguageManual+UDF" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="LanguageManual+UDF" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="LanguageManual+UDF#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="LanguageManual+UDF">LanguageManual UDF</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="LanguageManual+UDF#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~admin"
+                       class="url fn"
+                            >Confluence Administrator</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/display/~cwsteinbach"
+                       class="url fn"
+                            >Carl Steinbach</a></span> on <a class='last-modified' title='Dec 13, 2015 01:19' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=27362046&amp;selectedPageVersions=148&amp;selectedPageVersions=149'>Dec 13, 2015</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="LanguageManual+UDF#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <h1 id="LanguageManualUDF-HiveOperatorsandUser-DefinedFunctions(UDFs)">Hive Operators and User-Defined Functions (UDFs)</h1><p><div class="toc-macro client-side-toc-macro " data-headerelements="H1,H2,H3,H4,H5,H6,H7"></div></p><div class="confluence-information-macro confluence-information-macro-tip"><p class="title">Case-insensitive</p><span class="aui-icon aui-icon-small aui-iconfont-approve confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>All Hive keywords are case-insensitive, including the names of Hive operators and functions.</p></div></div><p>In <a href="HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell">Beeline</a> or the <a href="LanguageManual+Cli">CLI</a>, use the commands below to show the latest documentation:</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>SHOW FUNCTIONS;
+DESCRIBE FUNCTION &lt;function_name&gt;;
+DESCRIBE FUNCTION EXTENDED &lt;function_name&gt;;
+</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-note"><p class="title">Bug for expression caching when UDF nested in UDF or function</p><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>When <span><a href="Configuration+Properties#ConfigurationProperties-hive.cache.expr.evaluation">hive.cache.expr.evaluation</a> is set to true (which is the default) a UDF can give incorrect results if it is nested in another UDF or a Hive function. This bug affects releases 0.12.0, 0.13.0, and 0.13.1. Release 0.14.0 will fix the bug (<a href="https://issues.apache.org/jira/browse/HIVE-7314" class="external-link" rel="nofollow">HIVE-7314</a>).</span></p><p><span>The problem relates to the UDF's implementation of the getDisplayString method, as <a href="http://mail-archives.apache.org/mod_mbox/hive-user/201407.mbox/%3cCAEWg7THU-Pr1Dfv_A8VS3Uz5t3ZyJvL0f-bebg4Zb3hXkK-CGQ@mail.gmail.com%3e" class="external-link" rel="nofollow">discussed</a> in the Hive user mailing list.</span></p></div></div><h2 id="LanguageManualUDF-Built-inOperators">Built-in Operators</h2><h3 id="LanguageManualUDF-RelationalOperators">Relational Operators</h3><p>The following operators compare the passed operands and generate a TRUE or FALSE value depending on whether the comparison between the operands holds.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Operator</strong></p></th><th class="confluenceTh"><p><strong>Operand types</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>A = B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>TRUE if expression A is equal to expression B otherwise FALSE.</p></td></tr><tr><td colspan="1" class="confluenceTd">A == B</td><td colspan="1" class="confluenceTd">All primitive types</td><td colspan="1" class="confluenceTd">Synonym for the = operator.</td></tr><tr><td class="confluenceTd"><p>A &lt;=&gt; B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>Returns same result with EQUAL(=) operator for non-null operands, but returns TRUE if both are NULL, FALSE if one of the them is NULL. (As of version <a href="https://issues.apache.org/jira/browse/HIVE-2810" class="external-link" rel="nofollow">0.9.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>A &lt;&gt; B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>NULL if A or B is NULL, TRUE if expression A is NOT equal to expression B, otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>A != B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>Synonym for the &lt;&gt; operator.</p></td></tr><tr><td class="confluenceTd"><p>A &lt; B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>NULL if A or B is NULL, TRUE if expression A is less than expression B, otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>A &lt;= B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>NULL if A or B is NULL, TRUE if expression A is less than or equal to expression B, otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>A &gt; B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>NULL if A or B is NULL, TRUE if expression A is greater than expression B, otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>A &gt;= B</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>NULL if A or B is NULL, TRUE if expression A is greater than or equal to expression B, otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>A [NOT] BETWEEN B AND C</p></td><td class="confluenceTd"><p>All primitive types</p></td><td class="confluenceTd"><p>NULL if A, B or C is NULL, TRUE if A is greater than or equal to B AND A less than or equal to C, otherwise FALSE. This can be inverted by using the NOT keyword. (As of version <a href="https://issues.apache.org/jira/browse/HIVE-2005" class="external-link" rel="nofollow">0.9.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>A IS NULL</p></td><td class="confluenceTd"><p>All types</p></td><td class="confluenceTd"><p>TRUE if expression A evaluates to NULL, otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>A IS NOT NULL</p></td><td class="confluenceTd"><p>All types</p></td><td class="confluenceTd"><p>FALSE if expression A evaluates to NULL, otherwise TRUE.</p></td></tr><tr><td class="confluenceTd"><p>A [NOT] LIKE B</p></td><td class="confluenceTd"><p>strings</p></td><td class="confluenceTd"><p>NULL if A or B is NULL, TRUE if string A matches the SQL simple regular expression B, otherwise FALSE. The comparison is done character by character. The _ character in B matches any character in A (similar to . in posix regular expressions) while the % character in B matches an arbitrary number of characters in A (similar to .* in posix regular expressions). For example, 'foobar' like 'foo' evaluates to FALSE whereas 'foobar' like 'foo_ _ _' evaluates to TRUE and so does 'foobar' like 'foo%'.</p></td></tr><tr><td class="confluenceTd"><p>A RLIKE B</p></td><td class="confluenceTd"><p>strings</p></td><td class="confluenceTd"><p>NULL if A or B is NULL, TRUE if any (possibly empty) substring of A matches the Java regular expression B, otherwise FALSE. For example, 'foobar' RLIKE 'foo' evaluates to TRUE and so does 'foobar' RLIKE '^f.*r$'.</p></td></tr><tr><td class="confluenceTd"><p>A REGEXP B</p></td><td class="confluenceTd"><p>strings</p></td><td class="confluenceTd"><p>Same as RLIKE.</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-ArithmeticOperators">Arithmetic Operators</h3><p>The following operators support various common arithmetic operations on the operands. All return number types; if any of the operands are NULL, then the result is also NULL.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Operator</strong></p></th><th class="confluenceTh"><p><strong>Operand types</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>A + B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of adding A and B. The type of the result is the same as the common parent(in the type hierarchy) of the types of the operands. For example since every integer is a float, therefore float is a containing type of integer so the + operator on a float and an int will result in a float.</p></td></tr><tr><td class="confluenceTd"><p>A - B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of subtracting B from A. The type of the result is the same as the common parent(in the type hierarchy) of the types of the operands.</p></td></tr><tr><td class="confluenceTd"><p>A * B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of multiplying A and B. The type of the result is the same as the common parent(in the type hierarchy) of the types of the operands. Note that if the multiplication causing overflow, you will have to cast one of the operators to a type higher in the type hierarchy.</p></td></tr><tr><td class="confluenceTd"><p>A / B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of dividing A by B. The result is a double type in most cases. When A and B are both integers, the result is a double type except when the <a href="Configuration+Properties#ConfigurationProperties-hive.compat">hive.compat</a> configuration parameter is set to &quot;0.13&quot; or &quot;latest&quot; in which case the result is a decimal type.</p></td></tr><tr><td class="confluenceTd"><p>A % B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the reminder resulting from dividing A by B. The type of the result is the same as the common parent(in the type hierarchy) of the types of the operands.</p></td></tr><tr><td class="confluenceTd"><p>A &amp; B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of bitwise AND of A and B. The type of the result is the same as the common parent(in the type hierarchy) of the types of the operands.</p></td></tr><tr><td class="confluenceTd"><p>A | B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of bitwise OR of A and B. The type of the result is the same as the common parent(in the type hierarchy) of the types of the operands.</p></td></tr><tr><td class="confluenceTd"><p>A ^ B</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of bitwise XOR of A and B. The type of the result is the same as the common parent(in the type hierarchy) of the types of the operands.</p></td></tr><tr><td class="confluenceTd"><p>~A</p></td><td class="confluenceTd"><p>All number types</p></td><td class="confluenceTd"><p>Gives the result of bitwise NOT of A. The type of the result is the same as the type of A.</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-LogicalOperators">Logical Operators</h3><p>The following operators provide support for creating logical expressions. All of them return boolean TRUE, FALSE, or NULL depending upon the boolean values of the operands. NULL behaves as an &quot;unknown&quot; flag, so if the result depends on the state of an unknown, the result itself is unknown.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Operator</strong></p></th><th class="confluenceTh"><p><strong>Operand types</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>A AND B</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>TRUE if both A and B are TRUE, otherwise FALSE. NULL if A or B is NULL.</p></td></tr><tr><td class="confluenceTd"><p>A &amp;&amp; B</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>Same as A AND B.</p></td></tr><tr><td class="confluenceTd"><p>A OR B</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>TRUE if either A or B or both are TRUE, FALSE OR NULL is NULL, otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>A || B</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>Same as A OR B.</p></td></tr><tr><td class="confluenceTd"><p>NOT A</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>TRUE if A is FALSE or NULL if A is NULL. Otherwise FALSE.</p></td></tr><tr><td class="confluenceTd"><p>! A</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>Same as NOT A.</p></td></tr><tr><td class="confluenceTd"><p>A IN (val1, val2, ...)</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>TRUE if A is equal to any of the values. As of Hive 0.13 <a href="LanguageManual+SubQueries">subqueries</a> are supported in IN statements.</p></td></tr><tr><td class="confluenceTd"><p>A NOT IN (val1, val2, ...)</p></td><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>TRUE if A is not equal to any of the values. As of Hive 0.13 <a href="LanguageManual+SubQueries">subqueries</a> are supported in NOT IN statements.</p></td></tr><tr><td class="confluenceTd"><p>[NOT] EXISTS (subquery)</p></td><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>TRUE if the the subquery returns at least one row. Supported as of <a href="LanguageManual+SubQueries">Hive 0.13</a>.</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-ComplexTypeConstructors">Complex Type Constructors</h3><p>The following functions construct instances of complex types.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Constructor Function</p></th><th class="confluenceTh"><p>Operands</p></th><th class="confluenceTh"><p>Description</p></th></tr><tr><td class="confluenceTd"><p>map</p></td><td class="confluenceTd"><p>(key1, value1, key2, value2, ...)</p></td><td class="confluenceTd"><p>Creates a map with the given key/value pairs.</p></td></tr><tr><td class="confluenceTd"><p>struct</p></td><td class="confluenceTd"><p>(val1, val2, val3, ...)</p></td><td class="confluenceTd"><p>Creates a struct with the given field values. Struct field names will be col1, col2, ....</p></td></tr><tr><td class="confluenceTd"><p>named_struct</p></td><td class="confluenceTd"><p>(name1, val1, name2, val2, ...)</p></td><td class="confluenceTd"><p>Creates a struct with the given field names and values. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1360" class="external-link" rel="nofollow">0.8.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>array</p></td><td class="confluenceTd"><p>(val1, val2, ...)</p></td><td class="confluenceTd"><p>Creates an array with the given elements.</p></td></tr><tr><td class="confluenceTd"><p>create_union</p></td><td class="confluenceTd"><p>(tag, val1, val2, ...)</p></td><td class="confluenceTd"><p>Creates a union type with the value that is being pointed to by the tag parameter.</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-OperatorsonComplexTypes">Operators on Complex Types</h3><p>The following operators provide mechanisms to access elements in Complex Types.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Operator</strong></p></th><th class="confluenceTh"><p><strong>Operand types</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>A[n]</p></td><td class="confluenceTd"><p>A is an Array and n is an int</p></td><td class="confluenceTd"><p>Returns the nth element in the array A. The first element has index 0. For example, if A is an array comprising of ['foo', 'bar'] then A[0] returns 'foo' and A[1] returns 'bar'.</p></td></tr><tr><td class="confluenceTd"><p>M[key]</p></td><td class="confluenceTd"><p>M is a Map&lt;K, V&gt; and key has type K</p></td><td class="confluenceTd"><p>Returns the value corresponding to the key in the map. For example, if M is a map comprising of {'f' -&gt; 'foo', 'b' -&gt; 'bar', 'all' -&gt; 'foobar'} then M['all'] returns 'foobar'.</p></td></tr><tr><td class="confluenceTd"><p>S.x</p></td><td class="confluenceTd"><p>S is a struct</p></td><td class="confluenceTd"><p>Returns the x field of S. For example for the struct foobar {int foo, int bar}, foobar.foo returns the integer stored in the foo field of the struct.</p></td></tr></tbody></table></div><h2 id="LanguageManualUDF-Built-inFunctions">Built-in Functions</h2><h3 id="LanguageManualUDF-MathematicalFunctions">Mathematical Functions</h3><p>The following built-in mathematical functions are supported in Hive; most return NULL when the argument(s) are NULL:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name (Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>round(DOUBLE a)</p></td><td class="confluenceTd"><p>Returns the rounded <code>BIGINT</code> value of <code>a</code>.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>round(DOUBLE a, INT d)</p></td><td class="confluenceTd"><p>Returns <code>a</code> rounded to <code>d</code> decimal places.</p></td></tr><tr><td colspan="1" class="confluenceTd"><span>DOUBLE</span></td><td colspan="1" class="confluenceTd">bround(DOUBLE a)</td><td colspan="1" class="confluenceTd">Returns the rounded BIGINT value of <code>a</code> using HALF_EVEN rounding mode (as of <a href="https://issues.apache.org/jira/browse/HIVE-11103" class="external-link" rel="nofollow">Hive 1.3.0, 2.0.0</a>). Also known as Gaussian rounding or bankers' rounding. Example: bround(2.5) = 2, bround(3.5) = 4.</td></tr><tr><td colspan="1" class="confluenceTd"><span>DOUBLE</span></td><td colspan="1" class="confluenceTd">bround(DOUBLE a, INT d)</td><td colspan="1" class="confluenceTd">Returns <code>a</code> rounded to <code>d</code> decimal places using HALF_EVEN rounding mode (as of <a href="https://issues.apache.org/jira/browse/HIVE-11103" class="external-link" rel="nofollow">Hive 1.3.0, 2.0.0</a>). Example: bround(8.25, 1) = 8.2, bround(8.35, 1) = 8.4.</td></tr><tr><td class="confluenceTd"><p>BIGINT</p></td><td class="confluenceTd"><p>floor(DOUBLE a)</p></td><td class="confluenceTd"><p>Returns the maximum <code>BIGINT</code> value that is equal to or less than <span><code>a</code>.</span></p></td></tr><tr><td class="confluenceTd"><p>BIGINT</p></td><td class="confluenceTd"><p>ceil(DOUBLE a), ceiling(DOUBLE a)</p></td><td class="confluenceTd"><p>Returns the minimum BIGINT value that is equal to or greater than <span><code>a</code>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>rand(), rand(INT seed)</p></td><td class="confluenceTd"><p>Returns a random number (that changes from row to row) that is distributed uniformly from 0 to 1. Specifying the seed will make sure the generated random number sequence is deterministic.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>exp(DOUBLE a), exp(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns <code>e<sup>a</sup></code> where <code>e</code> is the base of the natural logarithm<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>ln(DOUBLE a), ln(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the natural logarithm of the argument <code>a</code><span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>log10(DOUBLE a), log10(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the base-10 logarithm of the argument <code>a</code><span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>log2(DOUBLE a), log2(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the base-2 logarithm of the argument <code>a</code><span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>log(DOUBLE base, DOUBLE a)</p><p><span>log(</span><span>DECIMAL base, DECIMAL a)</span></p></td><td class="confluenceTd"><p>Returns the base-<code>base</code> logarithm of the argument <code><span>a</span></code>. <span>Decimal versions added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>pow(DOUBLE a, DOUBLE p), power(DOUBLE a, DOUBLE p)</p></td><td class="confluenceTd"><p>Returns <code>a<sup>p</sup></code><span>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>sqrt(DOUBLE a), sqrt(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the square root of <code>a</code><span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>STRING</p></td><td class="confluenceTd"><p>bin(BIGINT a)</p></td><td class="confluenceTd"><p>Returns the number in binary format (see <a href="http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_bin" class="external-link" rel="nofollow">http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_bin</a>).</p></td></tr><tr><td class="confluenceTd"><p>STRING</p></td><td class="confluenceTd"><p>hex(BIGINT a) hex(STRING a) hex(BINARY a)</p></td><td class="confluenceTd"><p>If the argument is an <code>INT</code> or <code>binary</code>, <code>hex</code> returns the number as a <code>STRING</code> in hexadecimal format. Otherwise if the number is a <code>STRING</code>, it converts each character into its hexadecimal representation and returns the resulting <code>STRING</code>. (See <a href="http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_hex" class="external-link" rel="nofollow">http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_hex</a>, <code>BINARY</code> version as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2482" class="external-link" rel="nofollow">0.12.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>BINARY</p></td><td class="confluenceTd"><p>unhex(STRING a)</p></td><td class="confluenceTd"><p>Inverse of hex. Interprets each pair of characters as a hexadecimal number and converts to the byte representation of the number. (<code>BINARY</code> version as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2482" class="external-link" rel="nofollow">0.12.0</a>, used to return a string.)</p></td></tr><tr><td class="confluenceTd"><p>STRING</p></td><td class="confluenceTd"><p>conv(BIGINT num, INT from_base, INT to_base), conv(STRING num, INT from_base, INT to_base)</p></td><td class="confluenceTd"><p>Converts a number from a given base to another (see <a href="http://dev.mysql.com/doc/refman/5.0/en/mathematical-functions.html#function_conv" class="external-link" rel="nofollow">http://dev.mysql.com/doc/refman/5.0/en/mathematical-functions.html#function_conv</a>).</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>abs(DOUBLE a)</p></td><td class="confluenceTd"><p>Returns the absolute value.</p></td></tr><tr><td class="confluenceTd"><p>INT or DOUBLE</p></td><td class="confluenceTd"><p>pmod(INT a, INT b), pmod(DOUBLE a, DOUBLE b)</p></td><td class="confluenceTd"><p>Returns the positive value of <code>a mod b</code>.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>sin(DOUBLE a), sin(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the sine of <code>a</code> (<code>a</code> is in radians)<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>asin(DOUBLE a), asin(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the arc sin of <code>a</code> if -1&lt;=a&lt;=1 or NULL otherwise<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>cos(DOUBLE a), cos(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the cosine of <code>a</code> (<code>a</code> is in radians)<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>acos(DOUBLE a), acos(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the arccosine of <code>a</code> if -1&lt;=a&lt;=1 or NULL otherwise<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>tan(DOUBLE a), tan(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the tangent of <code>a</code> (<code>a</code> is in radians)<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>atan(DOUBLE a), atan(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the arctangent of <code>a</code><span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>degrees(DOUBLE a), degrees(DECIMAL a)</p></td><td class="confluenceTd"><p>Converts value of <code>a</code> from radians to degrees<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6385" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>radians(DOUBLE a), radians(DOUBLE a)</p></td><td class="confluenceTd"><p>Converts value of <code>a</code> from degrees to radians<span>. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a>.</span></p></td></tr><tr><td class="confluenceTd"><p>INT or DOUBLE</p></td><td class="confluenceTd"><p>positive(INT a), positive(DOUBLE a)</p></td><td class="confluenceTd"><p>Returns <code>a</code>.</p></td></tr><tr><td class="confluenceTd"><p>INT or DOUBLE</p></td><td class="confluenceTd"><p>negative(INT a), negative(DOUBLE a)</p></td><td class="confluenceTd"><p>Returns <code>-a</code>.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE or INT</p></td><td class="confluenceTd"><p>sign(DOUBLE a), sign(DECIMAL a)</p></td><td class="confluenceTd"><p>Returns the sign of <code>a</code> as '1.0' (if <code>a</code> is positive) or '-1.0' (if <code>a</code> is negative), '0.0' otherwise. The decimal version returns INT instead of DOUBLE. Decimal version added in <a href="https://issues.apache.org/jira/browse/HIVE-6246" class="external-link" rel="nofollow">Hive 0.13.0</a>.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>e()</p></td><td class="confluenceTd"><p>Returns the value of <code>e</code>.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>pi()</p></td><td class="confluenceTd"><p>Returns the value of <code>pi</code>.</p></td></tr><tr><td colspan="1" class="confluenceTd">BIGINT</td><td colspan="1" class="confluenceTd">factorial(INT a)</td><td colspan="1" class="confluenceTd">Returns the factorial of <code>a</code> <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9857" class="external-link" rel="nofollow">1.2.0</a><span>)</span>. Valid <code>a</code> is [0..20].</td></tr><tr><td colspan="1" class="confluenceTd">DOUBLE</td><td colspan="1" class="confluenceTd">cbrt(DOUBLE a)</td><td colspan="1" class="confluenceTd">Returns the cube root of <code>a</code> double value <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9858" class="external-link" rel="nofollow">1.2.0</a><span>)</span>.</td></tr><tr><td colspan="1" class="confluenceTd">INT or BIGINT</td><td colspan="1" class="confluenceTd">shiftleft(INT a), shiftleft(BIGINT a)</td><td colspan="1" class="confluenceTd">Bitwise left shift (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-9859" class="external-link" rel="nofollow">1.2.0</a>). Returns int for tinyint, smallint and int <code>a</code>. Returns bigint for bigint <code>a</code>.</td></tr><tr><td colspan="1" class="confluenceTd">INT or BIGINT</td><td colspan="1" class="confluenceTd">shiftright(INT a), shiftright(BIGINT a)</td><td colspan="1" class="confluenceTd">Bitwise right shift (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-9859" class="external-link" rel="nofollow">1.2.0</a>). Returns int for tinyint, smallint and int <code>a</code>. Returns bigint for bigint <code>a</code>.</td></tr><tr><td colspan="1" class="confluenceTd">INT or BIGINT</td><td colspan="1" class="confluenceTd">shiftrightunsigned(INT a), shiftrightunsigned(BIGINT a)</td><td colspan="1" class="confluenceTd">Bitwise unsigned right shift (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-9859" class="external-link" rel="nofollow">1.2.0</a>). Returns int for tinyint, smallint and int <code>a</code>. Returns bigint for bigint <code>a</code>.</td></tr><tr><td colspan="1" class="confluenceTd">T</td><td colspan="1" class="confluenceTd">greatest(T v1, T v2, ...)</td><td colspan="1" class="confluenceTd">Returns the greatest value of the list of values (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-9402" class="external-link" rel="nofollow">1.1.0</a>). Fixed to return NULL when one or more arguments are NULL, and strict type restriction relaxed, consistent with &quot;&gt;&quot; operator (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-12082" class="external-link" rel="nofollow">2.0.0</a>).</td></tr><tr><td class="confluenceTd">T</td><td class="confluenceTd">least(T v1, T v2, ...)</td><td class="confluenceTd">Returns the least value of the list of values (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-9402" class="external-link" rel="nofollow">1.1.0</a>). <span>Fixed to return NULL when one or more arguments are NULL, and strict type restriction relaxed, consistent with &quot;&lt;&quot; operator (as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-12082" class="external-link" rel="nofollow">2.0.0</a><span>).</span></td></tr></tbody></table></div><h4 id="LanguageManualUDF-MathematicalFunctionsandOperatorsforDecimalDatatypes">Mathematical Functions and Operators for Decimal Datatypes</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The decimal datatype was introduced in Hive 0.11.0 (<a href="https://issues.apache.org/jira/browse/HIVE-2693" class="external-link" rel="nofollow">HIVE-2693</a>).</p></div></div><p>All regular arithmetic operators (such as +, -, *, /) and relevant mathematical UDFs (Floor, Ceil, Round, and many more) have been updated to handle decimal types. For a list of supported UDFs, see <a href="LanguageManual+Types#LanguageManualTypes-MathematicalUDFs" rel="nofollow">Mathematical UDFs</a> in <a href="LanguageManual+Types#LanguageManualTypes" rel="nofollow">Hive Data Types</a>.</p><h3 id="LanguageManualUDF-CollectionFunctions">Collection Functions</h3><p>The following built-in collection functions are supported in Hive:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name(Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>size(Map&lt;K.V&gt;)</p></td><td class="confluenceTd"><p>Returns the number of elements in the map type.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>size(Array&lt;T&gt;)</p></td><td class="confluenceTd"><p>Returns the number of elements in the array type.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;K&gt;</p></td><td class="confluenceTd"><p>map_keys(Map&lt;K.V&gt;)</p></td><td class="confluenceTd"><p>Returns an unordered array containing the keys of the input map.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;V&gt;</p></td><td class="confluenceTd"><p>map_values(Map&lt;K.V&gt;)</p></td><td class="confluenceTd"><p>Returns an unordered array containing the values of the input map.</p></td></tr><tr><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>array_contains(Array&lt;T&gt;, value)</p></td><td class="confluenceTd"><p>Returns TRUE if the array contains value.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;t&gt;</p></td><td class="confluenceTd"><p>sort_array(Array&lt;T&gt;)</p></td><td class="confluenceTd"><p>Sorts the input array in ascending order according to the natural ordering of the array elements and returns it (as of version <a href="https://issues.apache.org/jira/browse/HIVE-2279" class="external-link" rel="nofollow">0.9.0</a>).</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-TypeConversionFunctions">Type Conversion Functions</h3><p>The following type conversion functions are supported in Hive:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Return Type</p></th><th class="confluenceTh"><p>Name(Signature)</p></th><th class="confluenceTh"><p>Description</p></th></tr><tr><td class="confluenceTd"><p>binary</p></td><td class="confluenceTd"><p>binary(string|binary)</p></td><td class="confluenceTd"><p>Casts the parameter into a binary.</p></td></tr><tr><td class="confluenceTd"><p><strong>Expected &quot;=&quot; to follow &quot;type&quot;</strong></p></td><td class="confluenceTd"><p>cast(expr as &lt;type&gt;)</p></td><td class="confluenceTd"><p>Converts the results of the expression expr to &lt;type&gt;. For example, cast('1' as BIGINT) will convert the string '1' to its integral representation. A null is returned if the conversion does not succeed. If cast(expr as boolean) Hive returns true for a non-empty string.</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-DateFunctions">Date Functions</h3><p>The following built-in date functions are supported in Hive:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name(Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>from_unixtime(bigint unixtime[, string format])</p></td><td class="confluenceTd"><p>Converts the number of seconds from unix epoch (1970-01-01 00:00:00 UTC) to a string representing the timestamp of that moment in the current system time zone in the format of &quot;1970-01-01 00:00:00&quot;.</p></td></tr><tr><td class="confluenceTd"><p>bigint</p></td><td class="confluenceTd"><p>unix_timestamp()</p></td><td class="confluenceTd"><p>Gets current Unix timestamp in seconds.</p></td></tr><tr><td class="confluenceTd"><p>bigint</p></td><td class="confluenceTd"><p>unix_timestamp(string date)</p></td><td class="confluenceTd"><p>Converts time string in format <code>yyyy-MM-dd HH:mm:ss</code> to Unix timestamp (in seconds), using the default timezone and the default locale, return 0 if fail: unix_timestamp('2009-03-20 11:30:01') = 1237573801</p></td></tr><tr><td class="confluenceTd"><p>bigint</p></td><td class="confluenceTd"><p>unix_timestamp(string date, string pattern)</p></td><td class="confluenceTd"><p>Convert time string with given pattern (see [<a href="http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html" class="external-link" rel="nofollow">http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html</a>]) to Unix time stamp (in seconds), return 0 if fail: unix_timestamp('2009-03-20', 'yyyy-MM-dd') = 1237532400.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>to_date(string timestamp)</p></td><td class="confluenceTd"><p>Returns the date part of a timestamp string: to_date(&quot;1970-01-01 00:00:00&quot;) = &quot;1970-01-01&quot;.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>year(string date)</p></td><td class="confluenceTd"><p>Returns the year part of a date or a timestamp string: year(&quot;1970-01-01 00:00:00&quot;) = 1970, year(&quot;1970-01-01&quot;) = 1970.</p></td></tr><tr><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">quarter(date/timestamp/string)</td><td colspan="1" class="confluenceTd">Returns the quarter of the year for a date, timestamp, or string in the range 1 to 4 (as of Hive<span> </span><a href="https://issues.apache.org/jira/browse/HIVE-3404" class="external-link" rel="nofollow">1.3.0</a>). Example: quarter('2015-04-08') = 2.</td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>month(string date)</p></td><td class="confluenceTd"><p>Returns the month part of a date or a timestamp string: month(&quot;1970-11-01 00:00:00&quot;) = 11, month(&quot;1970-11-01&quot;) = 11.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>day(string date) dayofmonth(date)</p></td><td class="confluenceTd"><p>Returns the day part of a date or a timestamp string: day(&quot;1970-11-01 00:00:00&quot;) = 1, day(&quot;1970-11-01&quot;) = 1.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>hour(string date)</p></td><td class="confluenceTd"><p>Returns the hour of the timestamp: hour('2009-07-30 12:58:59') = 12, hour('12:58:59') = 12.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>minute(string date)</p></td><td class="confluenceTd"><p>Returns the minute of the timestamp.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>second(string date)</p></td><td class="confluenceTd"><p>Returns the second of the timestamp.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>weekofyear(string date)</p></td><td class="confluenceTd"><p>Returns the week number of a timestamp string: weekofyear(&quot;1970-11-01 00:00:00&quot;) = 44, weekofyear(&quot;1970-11-01&quot;) = 44.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>datediff(string enddate, string startdate)</p></td><td class="confluenceTd"><p>Returns the number of days from startdate to enddate: datediff('2009-03-01', '2009-02-27') = 2.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>date_add(string startdate, int days)</p></td><td class="confluenceTd"><p>Adds a number of days to startdate: date_add('2008-12-31', 1) = '2009-01-01'.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>date_sub(string startdate, int days)</p></td><td class="confluenceTd"><p>Subtracts a number of days to startdate: date_sub('2008-12-31', 1) = '2008-12-30'.</p></td></tr><tr><td class="confluenceTd"><p>timestamp</p></td><td class="confluenceTd"><p>from_utc_timestamp(timestamp, string timezone)</p></td><td class="confluenceTd"><p>Assumes given timestamp is UTC and converts to given timezone (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2272" class="external-link" rel="nofollow">0.8.0</a>). For example, from_utc_timestamp('1970-01-01 08:00:00','PST') returns 1970-01-01 00:00:00.</p></td></tr><tr><td class="confluenceTd"><p>timestamp</p></td><td class="confluenceTd"><p>to_utc_timestamp(timestamp, string timezone)</p></td><td class="confluenceTd"><p>Assumes given timestamp is in given timezone and converts to UTC (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2272" class="external-link" rel="nofollow">0.8.0</a>). For example, to_utc_timestamp('1970-01-01 00:00:00','PST') returns 1970-01-01 08:00:00.</p></td></tr><tr><td colspan="1" class="confluenceTd">date</td><td colspan="1" class="confluenceTd">current_date</td><td colspan="1" class="confluenceTd"><p>Returns the current date at the start of query evaluation (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-5472" class="external-link" rel="nofollow">1.2.0</a>). All calls of current_date within the same query return the same value.</p></td></tr><tr><td colspan="1" class="confluenceTd">timestamp</td><td colspan="1" class="confluenceTd">current_timestamp</td><td colspan="1" class="confluenceTd"><p>Returns the current timestamp at the start of query evaluation<span> (as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-5472" class="external-link" rel="nofollow">1.2.0</a><span>)</span>. All calls of current_timestamp within the same query return the same value.</p></td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">add_months(string start_date, int num_months)</td><td colspan="1" class="confluenceTd"><p>Returns the date that is num_months after start_date <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9357" class="external-link" rel="nofollow">1.1.0</a><span>)</span>. start_date is a string, date or timestamp. num_months is an integer. The time part of start_date is ignored.<span> If start_date is the last day of the month or if the resulting month has fewer days than the day component of start_date, then the result is the last day of the resulting month. Otherwise, the result has the same day component as start_date.<br /></span></p></td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">last_day(string date)</td><td colspan="1" class="confluenceTd">Returns the last day of the month which the date belongs to <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9358" class="external-link" rel="nofollow">1.1.0</a><span>)</span>. date is a string in the format 'yyyy-MM-dd HH:mm:ss' or 'yyyy-MM-dd'. The time part of date is ignored.</td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">next_day(string start_date, string day_of_week)</td><td colspan="1" class="confluenceTd">Returns the first date which is later than start_date and named as day_of_week <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9520" class="external-link" rel="nofollow">1.2.0</a><span>)</span>. start_date is a string/date/timestamp. day_of_week is 2 letters, 3 letters or full name of the day of the week (e.g. Mo, tue, FRIDAY). The time part of start_date is ignored. Example: next_day('2015-01-14', 'TU') = 2015-01-20.</td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">trunc(string date, string format)</td><td colspan="1" class="confluenceTd">Returns date truncated to the unit specified by the format <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9480" class="external-link" rel="nofollow">1.2.0</a><span>)</span>. Supported formats: MONTH/MON/MM, YEAR/YYYY/YY. Example: trunc('2015-03-17', 'MM') = 2015-03-01.</td></tr><tr><td colspan="1" class="confluenceTd">double</td><td colspan="1" class="confluenceTd">months_between(date1, date2)</td><td colspan="1" class="confluenceTd">Returns number of months between dates date1 and date2 (as of Hive<span> </span><a href="https://issues.apache.org/jira/browse/HIVE-9518" class="external-link" rel="nofollow">1.2.0</a><span>)</span>. If date1 is later than date2, then the result is positive. If date1 is earlier than date2, then the result is negative. If date1 and date2 are either the same days of the month or both last days of months, then the result is always an integer. Otherwise the UDF calculates the fractional portion of the result based on a 31-day month and considers the difference in time components date1 and date2. date1 and date2 type can be date, timestamp or string in the format 'yyyy-MM-dd' or 'yyyy-MM-dd HH:mm:ss'. The result is rounded to 8 decimal places. Example: months_between('1997-02-28 10:30:00', '1996-10-30') = 3.94959677</td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">date_format(date/timestamp/string ts, string fmt)</td><td colspan="1" class="confluenceTd"><p>Converts a date/timestamp/string to a value of string in the format specified by the date format fmt (as of Hive<span> </span><a href="https://issues.apache.org/jira/browse/HIVE-10276" class="external-link" rel="nofollow">1.2.0</a>). Supported formats are Java SimpleDateFormat formats <span style="line-height: 1.4285715;">– </span><a href="https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html" style="line-height: 1.4285715;" class="external-link" rel="nofollow">https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html</a><span style="line-height: 1.4285715;">. The second argument fmt should be constant. Example: date_format('2015-04-08', 'y') = '2015'.</span></p><p>date_format can be used to implement other UDFs, e.g.:</p><ul><li>dayname(date) is date_format(date, 'EEEE')</li><li>dayofyear(date) is date_format(date, 'D')</li></ul></td></tr></tbody></table></div><h3 id="LanguageManualUDF-ConditionalFunctions">Conditional Functions</h3><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name(Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>T</p></td><td class="confluenceTd"><p>if(boolean testCondition, T valueTrue, T valueFalseOrNull)</p></td><td class="confluenceTd"><p>Returns valueTrue when testCondition is true, returns valueFalseOrNull otherwise.</p></td></tr><tr><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" class="confluenceTd">isnull( a )</td><td colspan="1" class="confluenceTd">Returns true if a is NULL and false otherwise.</td></tr><tr><td colspan="1" class="confluenceTd">boolean</td><td colspan="1" class="confluenceTd">isnotnull ( a )</td><td colspan="1" class="confluenceTd">Returns true if a is not NULL and false otherwise.</td></tr><tr><td colspan="1" class="confluenceTd">T</td><td colspan="1" class="confluenceTd"><span>nvl(T value, T default_value)</span></td><td colspan="1" class="confluenceTd">Returns default value if value is null else returns value (as of HIve <a href="https://issues.apache.org/jira/browse/HIVE-2288" class="external-link" rel="nofollow">0.11</a>).</td></tr><tr><td class="confluenceTd"><p>T</p></td><td class="confluenceTd"><p>COALESCE(T v1, T v2, ...)</p></td><td class="confluenceTd"><p>Returns the first v that is not NULL, or NULL if all v's are NULL.</p></td></tr><tr><td class="confluenceTd"><p>T</p></td><td class="confluenceTd"><p>CASE a WHEN b THEN c [WHEN d THEN e]* [ELSE f] END</p></td><td class="confluenceTd"><p>When a = b, returns c; when a = d, returns e; else returns f.</p></td></tr><tr><td class="confluenceTd"><p>T</p></td><td class="confluenceTd"><p>CASE WHEN a THEN b [WHEN c THEN d]* [ELSE e] END</p></td><td class="confluenceTd"><p>When a = true, returns b; when c = true, returns d; else returns e.</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-StringFunctions">String Functions</h3><p>The following built-in String functions are supported in Hive:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name(Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>ascii(string str)</p></td><td class="confluenceTd"><p>Returns the numeric value of the first character of str.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>base64(binary bin)</p></td><td class="confluenceTd"><p>Converts the argument from binary to a base 64 string (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2482" class="external-link" rel="nofollow">0.12.0</a>).</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>concat(string|binary A, string|binary B...)</p></td><td class="confluenceTd"><p>Returns the string or bytes resulting from concatenating the strings or bytes passed in as parameters in order. For example, concat('foo', 'bar') results in 'foobar'. Note that this function can take any number of input strings.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;struct&lt;string,double&gt;&gt;</p></td><td class="confluenceTd"><p>context_ngrams(array&lt;array&lt;string&gt;&gt;, array&lt;string&gt;, int K, int pf)</p></td><td class="confluenceTd"><p>Returns the top-k contextual N-grams from a set of tokenized sentences, given a string of &quot;context&quot;. See <a href="StatisticsAndDataMining">StatisticsAndDataMining</a> for more information.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>concat_ws(string SEP, string A, string B...)</p></td><td class="confluenceTd"><p>Like concat() above, but with custom separator SEP.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>concat_ws(string SEP, array&lt;string&gt;)</p></td><td class="confluenceTd"><p>Like concat_ws() above, but taking an array of strings. (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2203" class="external-link" rel="nofollow">0.9.0</a>)</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>decode(binary bin, string charset)</p></td><td class="confluenceTd"><p>Decodes the first argument into a String using the provided character set (one of 'US-ASCII', 'ISO-8859-1', 'UTF-8', 'UTF-16BE', 'UTF-16LE', 'UTF-16'). If either argument is null, the result will also be null. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2482" class="external-link" rel="nofollow">0.12.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>binary</p></td><td class="confluenceTd"><p>encode(string src, string charset)</p></td><td class="confluenceTd"><p>Encodes the first argument into a BINARY using the provided character set (one of 'US-ASCII', 'ISO-8859-1', 'UTF-8', 'UTF-16BE', 'UTF-16LE', 'UTF-16'). If either argument is null, the result will also be null. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2482" class="external-link" rel="nofollow">0.12.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>find_in_set(string str, string strList)</p></td><td class="confluenceTd"><p>Returns the first occurance of str in strList where strList is a comma-delimited string. Returns null if either argument is null. Returns 0 if the first argument contains any commas. For example, find_in_set('ab', 'abc,b,ab,c,def') returns 3.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>format_number(number x, int d)</p></td><td class="confluenceTd"><p>Formats the number X to a format like '#,###,###.##', rounded to D decimal places, and returns the result as a string. If D is 0, the result has no decimal point or fractional part. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2694" class="external-link" rel="nofollow">0.10.0</a>; bug with float types fixed in <a href="https://issues.apache.org/jira/browse/HIVE-7257" class="external-link" rel="nofollow">Hive 0.14.0</a>, decimal type support added in <a href="https://issues.apache.org/jira/browse/HIVE-7279" class="external-link" rel="nofollow">Hive 0.14.0</a>)</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>get_json_object(string json_string, string path)</p></td><td class="confluenceTd"><p>Extracts json object from a json string based on json path specified, and returns json string of the extracted json object. It will return null if the input json string is invalid. <strong>NOTE: The json path can only have the characters [0-9a-z_], i.e., no upper-case or special characters. Also, the keys *cannot start with numbers.</strong>* This is due to restrictions on Hive column names.</p></td></tr><tr><td class="confluenceTd"><p>boolean</p></td><td class="confluenceTd"><p>in_file(string str, string filename)</p></td><td class="confluenceTd"><p>Returns true if the string str appears as an entire line in filename.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>instr(string str, string substr)</p></td><td class="confluenceTd"><p>Returns the position of the first occurrence of <code>substr</code> in <code>str</code>. Returns <code>null</code> if either of the arguments are <code>null</code> and returns <code>0</code> if <code>substr</code> could not be found in <code>str</code>. Be aware that this is not zero based. The first character in <code>str</code> has index 1.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>length(string A)</p></td><td class="confluenceTd"><p>Returns the length of the string.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>locate(string substr, string str[, int pos])</p></td><td class="confluenceTd"><p>Returns the position of the first occurrence of substr in str after position pos.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>lower(string A) lcase(string A)</p></td><td class="confluenceTd"><p>Returns the string resulting from converting all characters of B to lower case. For example, lower('fOoBaR') results in 'foobar'.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>lpad(string str, int len, string pad)</p></td><td class="confluenceTd"><p>Returns str, left-padded with pad to a length of len.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>ltrim(string A)</p></td><td class="confluenceTd"><p>Returns the string resulting from trimming spaces from the beginning(left hand side) of A. For example, ltrim(' foobar ') results in 'foobar '.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;struct&lt;string,double&gt;&gt;</p></td><td class="confluenceTd"><p>ngrams(array&lt;array&lt;string&gt;&gt;, int N, int K, int pf)</p></td><td class="confluenceTd"><p>Returns the top-k N-grams from a set of tokenized sentences, such as those returned by the sentences() UDAF. See <a href="StatisticsAndDataMining">StatisticsAndDataMining</a> for more information.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>parse_url(string urlString, string partToExtract [, string keyToExtract])</p></td><td class="confluenceTd"><p>Returns the specified part from the URL. Valid values for partToExtract include HOST, PATH, QUERY, REF, PROTOCOL, AUTHORITY, FILE, and USERINFO. For example, parse_url('http://facebook.com/path1/p.php?k1=v1&amp;k2=v2#Ref1', 'HOST') returns 'facebook.com'. Also a value of a particular key in QUERY can be extracted by providing the key as the third argument, for example, parse_url('http://facebook.com/path1/p.php?k1=v1&amp;k2=v2#Ref1', 'QUERY', 'k1') returns 'v1'.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>printf(String format, Obj... args)</p></td><td class="confluenceTd"><p>Returns the input formatted according do printf-style format strings (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2695" class="external-link" rel="nofollow">0.9.0</a>).</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>regexp_extract(string subject, string pattern, int index)</p></td><td class="confluenceTd"><p>Returns the string extracted using the pattern. For example, regexp_extract('foothebar', 'foo(.*?)(bar)', 2) returns 'bar.' Note that some care is necessary in using predefined character classes: using '\s' as the second argument will match the letter s; '\\s' is necessary to match whitespace, etc. The 'index' parameter is the Java regex Matcher group() method index. See docs/api/java/util/regex/Matcher.html for more information on the 'index' or Java regex group() method.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>regexp_replace(string INITIAL_STRING, string PATTERN, string REPLACEMENT)</p></td><td class="confluenceTd"><p>Returns the string resulting from replacing all substrings in INITIAL_STRING that match the java regular expression syntax defined in PATTERN with instances of REPLACEMENT. For example, regexp_replace(&quot;foobar&quot;, &quot;oo|ar&quot;, &quot;&quot;) returns 'fb.' Note that some care is necessary in using predefined character classes: using '\s' as the second argument will match the letter s; '\\s' is necessary to match whitespace, etc.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>repeat(string str, int n)</p></td><td class="confluenceTd"><p>Repeats str n times.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>reverse(string A)</p></td><td class="confluenceTd"><p>Returns the reversed string.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>rpad(string str, int len, string pad)</p></td><td class="confluenceTd"><p>Returns str, right-padded with pad to a length of len.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>rtrim(string A)</p></td><td class="confluenceTd"><p>Returns the string resulting from trimming spaces from the end(right hand side) of A. For example, rtrim(' foobar ') results in ' foobar'.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;array&lt;string&gt;&gt;</p></td><td class="confluenceTd"><p>sentences(string str, string lang, string locale)</p></td><td class="confluenceTd"><p>Tokenizes a string of natural language text into words and sentences, where each sentence is broken at the appropriate sentence boundary and returned as an array of words. The 'lang' and 'locale' are optional arguments. For example, sentences('Hello there! How are you?') returns ( (&quot;Hello&quot;, &quot;there&quot;), (&quot;How&quot;, &quot;are&quot;, &quot;you&quot;) ).</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>space(int n)</p></td><td class="confluenceTd"><p>Returns a string of n spaces.</p></td></tr><tr><td class="confluenceTd"><p>array</p></td><td class="confluenceTd"><p>split(string str, string pat)</p></td><td class="confluenceTd"><p>Splits str around pat (pat is a regular expression).</p></td></tr><tr><td class="confluenceTd"><p>map&lt;string,string&gt;</p></td><td class="confluenceTd"><p>str_to_map(text[, delimiter1, delimiter2])</p></td><td class="confluenceTd"><p>Splits text into key-value pairs using two delimiters. Delimiter1 separates text into K-V pairs, and Delimiter2 splits each K-V pair. Default delimiters are ',' for delimiter1 and '=' for delimiter2.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>substr(string|binary A, int start) substring(string|binary A, int start)</p></td><td class="confluenceTd"><p>Returns the substring or slice of the byte array of A starting from start position till the end of string A. For example, substr('foobar', 4) results in 'bar' (see [<a href="http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_substr" class="external-link" rel="nofollow">http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_substr</a>]).</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>substr(string|binary A, int start, int len) substring(string|binary A, int start, int len)</p></td><td class="confluenceTd"><p>Returns the substring or slice of the byte array of A starting from start position with length len. For example, substr('foobar', 4, 1) results in 'b' (see [<a href="http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_substr" class="external-link" rel="nofollow">http://dev.mysql.com/doc/refman/5.0/en/string-functions.html#function_substr</a>]).</p></td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">substring_index(string A, string delim, int count)</td><td colspan="1" class="confluenceTd">Returns the substring from string A before count occurrences of the delimiter delim (as of <span>Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-686" class="external-link" rel="nofollow">1.3.0</a>). If count is positive, everything to the left of the final delimiter (counting from the left) is returned. If count is negative, everything to the right of the final delimiter (counting from the right) is returned. Substring_index performs a case-sensitive match when searching for delim. Example: substring_index('www.apache.org', '.', 2) = 'www.apache'.</td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>translate(string|char|varchar input, string|char|varchar from, string|char|varchar to)</p></td><td class="confluenceTd"><p>Translates the input string by replacing the characters present in the <code>from</code> string with the corresponding characters in the <code>to</code> string. This is similar to the <code>translate</code> function in <a href="http://www.postgresql.org/docs/9.1/interactive/functions-string.html" class="external-link" rel="nofollow">PostgreSQL</a>. If any of the parameters to this UDF are NULL, the result is NULL as well. (Available as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2418" class="external-link" rel="nofollow">0.10.0</a>, for string types)</p><p>Char/varchar support added as of <a href="https://issues.apache.org/jira/browse/HIVE-6622" class="external-link" rel="nofollow">Hive 0.14.0</a>.</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>trim(string A)</p></td><td class="confluenceTd"><p>Returns the string resulting from trimming spaces from both ends of A. For example, trim(' foobar ') results in 'foobar'</p></td></tr><tr><td class="confluenceTd"><p>binary</p></td><td class="confluenceTd"><p>unbase64(string str)</p></td><td class="confluenceTd"><p>Converts the argument from a base 64 string to BINARY. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-2482" class="external-link" rel="nofollow">0.12.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>string</p></td><td class="confluenceTd"><p>upper(string A) ucase(string A)</p></td><td class="confluenceTd"><p>Returns the string resulting from converting all characters of A to upper case. For example, upper('fOoBaR') results in 'FOOBAR'.</p></td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">initcap(string A)</td><td colspan="1" class="confluenceTd">Returns string, with the first letter of each word in uppercase, all other letters in lowercase. Words are delimited by whitespace. <span>(As of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-3405" class="external-link" rel="nofollow">1.1.0</a>.<span>)</span></td></tr><tr><td colspan="1" class="confluenceTd">int</td><td colspan="1" class="confluenceTd">levenshtein(string A, string B)</td><td colspan="1" class="confluenceTd">Returns the Levenshtein distance between two strings <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9556" class="external-link" rel="nofollow">1.2.0</a><span>)</span>. For example, levenshtein('kitten', 'sitting') results in 3.</td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">soundex(string A)</td><td colspan="1" class="confluenceTd">Returns soundex code of the string <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9738" class="external-link" rel="nofollow">1.2.0</a><span>)</span>. For example, soundex('Miller') results in M460.</td></tr></tbody></table></div><h3 id="LanguageManualUDF-Misc.Functions">Misc. Functions</h3><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name(Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>varies</p></td><td class="confluenceTd"><p>java_method(class, method[, arg1[, arg2..]])</p></td><td class="confluenceTd"><p>Synonym for <code>reflect</code>. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1877" class="external-link" rel="nofollow">0.9.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>varies</p></td><td class="confluenceTd"><p>reflect(class, method[, arg1[, arg2..]])</p></td><td class="confluenceTd"><p>Calls a Java method by matching the argument signature, using reflection. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-471" class="external-link" rel="nofollow">0.7.0</a>.) See <a href="ReflectUDF">Reflect (Generic) UDF</a> for examples.</p></td></tr><tr><td class="confluenceTd"><p>int</p></td><td class="confluenceTd"><p>hash(a1[, a2...])</p></td><td class="confluenceTd"><p>Returns a hash value of the arguments. (As of Hive 0.4.)</p></td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">current_user()</td><td colspan="1" class="confluenceTd">Returns current user name <span>(as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-9143" class="external-link" rel="nofollow">1.2.0</a><span>)</span>.</td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">md5(string/binary)</td><td colspan="1" class="confluenceTd">Calculates an MD5 128-bit checksum for the string or binary (<span>as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-10485" class="external-link" rel="nofollow">1.3.0</a>). The value is returned as a string of 32 hex digits, or NULL if the argument was NULL. Example: md5('ABC') = '902fbdd2b1df0c4f70b4a5d23525e932'.</td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd"><p>sha1(string/binary)</p><p>sha(string/binary)</p></td><td colspan="1" class="confluenceTd">Calculates the SHA-1 digest for string or binary and returns the value as a hex string (<span>as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-10639" class="external-link" rel="nofollow">1.3.0</a>). Example: sha1('ABC') = '3c01bdbb26f358bab27f267924aa2c9a03fcfdb8'.</td></tr><tr><td colspan="1" class="confluenceTd">bigint</td><td colspan="1" class="confluenceTd">crc32(string/binary)</td><td colspan="1" class="confluenceTd">Computes a cyclic redundancy check value for string or binary argument and returns bigint value (<span>as of Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-10641" class="external-link" rel="nofollow">1.3.0</a>). Example: crc32('ABC') = 2743272264.</td></tr><tr><td colspan="1" class="confluenceTd">string</td><td colspan="1" class="confluenceTd">sha2(string/binary, int)</td><td colspan="1" class="confluenceTd">Calculates the SHA-2 family of hash functions (SHA-224, SHA-256, SHA-384, and SHA-512) (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-10644" class="external-link" rel="nofollow">1.3.0</a>). The first argument is the string or binary to be hashed. The second argument indicates the desired bit length of the result, which must have a value of 224, 256, 384, 512, or 0 (which is equivalent to 256). SHA-224 is supported starting from Java 8. If either argument is NULL or the hash length is not one of the permitted values, the return value is NULL. Example: sha2('ABC', 256) = 'b5d4045c3f466fa91fe2cc6abe79232a1a57cdf104f7a26e716e0a1e2789df78'.</td></tr><tr><td colspan="1" class="confluenceTd">binary</td><td colspan="1" class="confluenceTd">aes_encrypt(input string/binary, key string/binary)</td><td colspan="1" class="confluenceTd">Encrypt input using AES (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-11593" class="external-link" rel="nofollow">1.3.0</a>). Key lengths of 128, 192 or 256 bits can be used. 192 and 256 bits keys can be used if Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files are installed. If either argument is NULL or the key length is not one of the permitted values, the return value is NULL. Example: base64(aes_encrypt('ABC', '1234567890123456')) = 'y6Ss+zCYObpCbgfWfyNWTw=='.</td></tr><tr><td colspan="1" class="confluenceTd">binary</td><td colspan="1" class="confluenceTd">aes_decrypt(input binary, key string/binary)</td><td colspan="1" class="confluenceTd">Decrypt input using AES (as of Hive <a href="https://issues.apache.org/jira/browse/HIVE-11593" class="external-link" rel="nofollow">1.3.0</a>). Key lengths of 128, 192 or 256 bits can be used. 192 and 256 bits keys can be used if Java Cryptography Extension (JCE) Unlimited Strength Jurisdiction Policy Files are installed. If either argument is NULL or the key length is not one of the permitted values, the return value is NULL. Example: aes_decrypt(unbase64('y6Ss+zCYObpCbgfWfyNWTw=='), '1234567890123456') = 'ABC'.</td></tr></tbody></table></div><h4 id="LanguageManualUDF-xpath">xpath</h4><p>The following functions are described in <a href="LanguageManual+XPathUDF">LanguageManual XPathUDF</a>:</p><ul><li>xpath, xpath_short, xpath_int, xpath_long, xpath_float, xpath_double, xpath_number, xpath_string</li></ul><h4 id="LanguageManualUDF-get_json_object">get_json_object</h4><p>A limited version of JSONPath is supported:</p><ul><li>$ : Root object</li><li>. : Child operator</li><li>[] : Subscript operator for array</li><li>* : Wildcard for []</li></ul><p>Syntax not supported that's worth noticing:</p><ul><li>: Zero length string as key</li><li>.. : Recursive descent</li><li>@ : Current object/element</li><li>() : Script expression</li><li>?() : Filter (script) expression.</li><li>[,] : Union operator</li><li>[start:end.step] : array slice operator</li></ul><p>Example: src_json table is a single column (json), single row table:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[+----+
+                               json
++----+
+{&quot;store&quot;:
+  {&quot;fruit&quot;:\[{&quot;weight&quot;:8,&quot;type&quot;:&quot;apple&quot;},{&quot;weight&quot;:9,&quot;type&quot;:&quot;pear&quot;}],
+   &quot;bicycle&quot;:{&quot;price&quot;:19.95,&quot;color&quot;:&quot;red&quot;}
+  },
+ &quot;email&quot;:&quot;amy@only_for_json_udf_test.net&quot;,
+ &quot;owner&quot;:&quot;amy&quot;
+}
++----+
+]]></script>
+</div></div><p>The fields of the json object can be extracted using these queries:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[hive&gt; SELECT get_json_object(src_json.json, &#39;$.owner&#39;) FROM src_json;
+amy
+
+hive&gt; SELECT get_json_object(src_json.json, &#39;$.store.fruit\[0]&#39;) FROM src_json;
+{&quot;weight&quot;:8,&quot;type&quot;:&quot;apple&quot;}
+
+hive&gt; SELECT get_json_object(src_json.json, &#39;$.non_exist_key&#39;) FROM src_json;
+NULL
+]]></script>
+</div></div><h2 id="LanguageManualUDF-Built-inAggregateFunctions(UDAF)">Built-in Aggregate Functions (UDAF)</h2><p>The following built-in aggregate functions are supported in Hive:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name(Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>BIGINT</p></td><td class="confluenceTd"><p>count(*), count(expr), count(DISTINCT expr[, expr...])</p></td><td class="confluenceTd"><p>count(*) - Returns the total number of retrieved rows, including rows containing NULL values.</p><p>count(expr) - Returns the number of rows for which the supplied expression is non-NULL.</p><p>count(DISTINCT expr[, expr]) - Returns the number of rows for which the supplied expression(s) are unique and non-NULL. Execution of this can be optimized with <a href="Configuration+Properties#ConfigurationProperties-hive.optimize.distinct.rewrite">hive.optimize.distinct.rewrite</a>.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>sum(col), sum(DISTINCT col)</p></td><td class="confluenceTd"><p>Returns the sum of the elements in the group or the sum of the distinct values of the column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>avg(col), avg(DISTINCT col)</p></td><td class="confluenceTd"><p>Returns the average of the elements in the group or the average of the distinct values of the column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>min(col)</p></td><td class="confluenceTd"><p>Returns the minimum of the column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>max(col)</p></td><td class="confluenceTd"><p>Returns the maximum value of the column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>variance(col), var_pop(col)</p></td><td class="confluenceTd"><p>Returns the variance of a numeric column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>var_samp(col)</p></td><td class="confluenceTd"><p>Returns the unbiased sample variance of a numeric column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>stddev_pop(col)</p></td><td class="confluenceTd"><p>Returns the standard deviation of a numeric column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>stddev_samp(col)</p></td><td class="confluenceTd"><p>Returns the unbiased sample standard deviation of a numeric column in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>covar_pop(col1, col2)</p></td><td class="confluenceTd"><p>Returns the population covariance of a pair of numeric columns in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>covar_samp(col1, col2)</p></td><td class="confluenceTd"><p>Returns the sample covariance of a pair of a numeric columns in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>corr(col1, col2)</p></td><td class="confluenceTd"><p>Returns the Pearson coefficient of correlation of a pair of a numeric columns in the group.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>percentile(BIGINT col, p)</p></td><td class="confluenceTd"><p>Returns the exact p<sup>th</sup> percentile of a column in the group (does not work with floating point types). p must be between 0 and 1. NOTE: A true percentile can only be computed for integer values. Use PERCENTILE_APPROX if your input is non-integral.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;double&gt;</p></td><td class="confluenceTd"><p>percentile(BIGINT col, array(p<sub>1</sub> [, p<sub>2</sub>]...))</p></td><td class="confluenceTd"><p>Returns the exact percentiles p<sub>1</sub>, p<sub>2</sub>, ... of a column in the group (does not work with floating point types). p<sub>i</sub> must be between 0 and 1. NOTE: A true percentile can only be computed for integer values. Use PERCENTILE_APPROX if your input is non-integral.</p></td></tr><tr><td class="confluenceTd"><p>DOUBLE</p></td><td class="confluenceTd"><p>percentile_approx(DOUBLE col, p [, B])</p></td><td class="confluenceTd"><p>Returns an approximate p<sup>th</sup> percentile of a numeric column (including floating point types) in the group. The B parameter controls approximation accuracy at the cost of memory. Higher values yield better approximations, and the default is 10,000. When the number of distinct values in col is smaller than B, this gives an exact percentile value.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;double&gt;</p></td><td class="confluenceTd"><p>percentile_approx(DOUBLE col, array(p<sub>1</sub> [, p<sub>2</sub>]...) [, B])</p></td><td class="confluenceTd"><p>Same as above, but accepts and returns an array of percentile values instead of a single one.</p></td></tr><tr><td class="confluenceTd"><p>array&lt;struct {<code>'x','y'</code>}&gt;</p></td><td class="confluenceTd"><p>histogram_numeric(col, b)</p></td><td class="confluenceTd"><p>Computes a histogram of a numeric column in the group using b non-uniformly spaced bins. The output is an array of size b of double-valued (x,y) coordinates that represent the bin centers and heights</p></td></tr><tr><td class="confluenceTd"><p>array</p></td><td class="confluenceTd"><p>collect_set(col)</p></td><td class="confluenceTd"><p>Returns a set of objects with duplicate elements eliminated.</p></td></tr><tr><td class="confluenceTd"><p>array</p></td><td class="confluenceTd"><p>collect_list(col)</p></td><td class="confluenceTd"><p>Returns a list of objects with duplicates. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-5294" class="external-link" rel="nofollow">0.13.0</a>.)</p></td></tr><tr><td colspan="1" class="confluenceTd">INTEGER</td><td colspan="1" class="confluenceTd">ntile(INTEGER x)</td><td colspan="1" class="confluenceTd"><p><span>Divides an ordered partition into <code>x</code></span><span> groups called buckets and assigns a bucket number to each row in the partition. This </span><span style="line-height: 1.4285715;">allows easy calculation of tertiles, quartiles, deciles, percentiles and other </span><span style="line-height: 1.4285715;">common summary statistics. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-896" class="external-link" rel="nofollow">0.11.0</a>.)</span></p></td></tr></tbody></table></div><h2 id="LanguageManualUDF-Built-inTable-GeneratingFunctions(UDTF)">Built-in Table-Generating Functions (UDTF)</h2><p>Normal user-defined functions, such as concat(), take in a single input row and output a single output row. In contrast, table-generating functions transform a single input row to multiple output rows.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p><strong>Return Type</strong></p></th><th class="confluenceTh"><p><strong>Name(Signature)</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>N rows</p></td><td class="confluenceTd"><p>explode(ARRAY)</p></td><td class="confluenceTd"><p>Returns one row for each element from the array.</p></td></tr><tr><td class="confluenceTd"><p>N rows</p></td><td class="confluenceTd"><p>explode(MAP)</p></td><td class="confluenceTd"><p>Returns one row for each key-value pair from the input map with two columns in each row: one for the key and another for the value. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-1735" class="external-link" rel="nofollow">0.8.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p> </p></td><td class="confluenceTd"><p>inline(ARRAY&lt;STRUCT[,STRUCT]&gt;)</p></td><td class="confluenceTd"><p>Explodes an array of structs into a table. (As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-3238" class="external-link" rel="nofollow">0.10</a>.)</p></td></tr><tr><td class="confluenceTd"><p>Array Type</p></td><td class="confluenceTd"><p>explode(array&lt;<em>TYPE</em>&gt; a)</p></td><td class="confluenceTd"><p>For each element in a, generates a row containing that element.</p></td></tr><tr><td class="confluenceTd"><p>tuple</p></td><td class="confluenceTd"><p>json_tuple(jsonStr, k1, k2, ...)</p></td><td class="confluenceTd"><p>Takes a set of names (keys) and a JSON string, and returns a tuple of values. This is a more efficient version of the <code>get_json_object</code> UDF because it can get multiple keys with just one call.</p></td></tr><tr><td class="confluenceTd"><p>tuple</p></td><td class="confluenceTd"><p>parse_url_tuple(url, p1, p2, ...)</p></td><td class="confluenceTd"><p>This is similar to the <code>parse_url()</code> UDF but can extract multiple parts at once out of a URL. Valid part names are: HOST, PATH, QUERY, REF, PROTOCOL, AUTHORITY, FILE, USERINFO, QUERY:&lt;KEY&gt;.</p></td></tr><tr><td class="confluenceTd"><p>N rows</p></td><td class="confluenceTd"><p>posexplode(ARRAY)</p></td><td class="confluenceTd"><p>Behaves like <code>explode</code> for arrays, but includes the position of items in the original array by returning a tuple of <code>(pos, value)</code>. (As of <a href="https://issues.apache.org/jira/browse/HIVE-4943" class="external-link" rel="nofollow">Hive 0.13.0</a>.)</p></td></tr><tr><td class="confluenceTd"><p>N rows</p></td><td class="confluenceTd"><p>stack(INT n, v_1, v_2, ..., v_k)</p></td><td class="confluenceTd"><p>Breaks up v_1, ..., v_k into n rows. Each row will have k/n columns. n must be constant.</p></td></tr></tbody></table></div><p>Using the syntax &quot;SELECT udtf(col) AS colAlias...&quot; has a few limitations:</p><ul><li>No other expressions are allowed in SELECT<ul><li>SELECT pageid, explode(adid_list) AS myCol... is not supported</li></ul></li><li>UDTF's can't be nested<ul><li>SELECT explode(explode(adid_list)) AS myCol... is not supported</li></ul></li><li>GROUP BY / CLUSTER BY / DISTRIBUTE BY / SORT BY is not supported<ul><li>SELECT explode(adid_list) AS myCol ... GROUP BY myCol is not supported</li></ul></li></ul><p>Please see <a href="LanguageManual+LateralView">LanguageManual LateralView</a> for an alternative syntax that does not have these limitations.</p><p>Also see <a href="DeveloperGuide+UDTF">Writing UDTFs</a> if you want to create a custom UDTF.</p><h3 id="LanguageManualUDF-explode">explode</h3><p><code>explode()</code> takes in an array (or a map) as an input and outputs the elements of the array (map) as separate rows. UDTFs can be used in the SELECT expression list and as a part of LATERAL VIEW.</p><p>As an example of using <code>explode()</code> in the SELECT expression list, c<span style="line-height: 1.4285715;">onsider a table named myTable that has a single column (myCol) and two rows:</span></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Array&lt;int&gt; myCol</p></th></tr><tr><td class="confluenceTd"><p>[100,200,300]</p></td></tr><tr><td class="confluenceTd"><p>[400,500,600]</p></td></tr></tbody></table></div><p>Then running the query:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[SELECT explode(myCol) AS myNewCol FROM myTable;
+]]></script>
+</div></div><p>will produce:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>(int) myNewCol</p></th></tr><tr><td class="confluenceTd"><p>100</p></td></tr><tr><td class="confluenceTd"><p>200</p></td></tr><tr><td class="confluenceTd"><p>300</p></td></tr><tr><td class="confluenceTd"><p>400</p></td></tr><tr><td class="confluenceTd"><p>500</p></td></tr><tr><td class="confluenceTd"><p>600</p></td></tr></tbody></table></div><p>The usage with Maps is similar:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[SELECT explode(myMap) AS (myMapKey, myMapValue) FROM myMapTable;]]></script>
+</div></div><h3 id="LanguageManualUDF-posexplode"><span style="font-size: 16.0px;line-height: 1.5625;">posexplode</span></h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Available as of Hive 0.13.0. See <a href="https://issues.apache.org/jira/browse/HIVE-4943" class="external-link" rel="nofollow">HIVE-4943</a>.</p></div></div><p><code>posexplode()</code> is similar to <code>explode</code> but instead of just returning the elements of the array it returns the element as well as its position in the original array.</p><p>As an example of using <code>posexplode()</code> in the SELECT expression list, c<span style="line-height: 1.4285715;">onsider a table named myTable that has a single column (myCol) and two rows:</span></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Array&lt;int&gt; myCol</p></th></tr><tr><td class="confluenceTd"><p>[100,200,300]</p></td></tr><tr><td class="confluenceTd"><p>[400,500,600]</p></td></tr></tbody></table></div><p>Then running the query:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[SELECT posexplode(myCol) AS pos, myNewCol FROM myTable;
+]]></script>
+</div></div><p>will produce:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>(int) pos</p></th><th class="confluenceTh"><p>(int) myNewCol</p></th></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>100</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>200</p></td></tr><tr><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>300</p></td></tr><tr><td class="confluenceTd"><p>1</p></td><td class="confluenceTd"><p>400</p></td></tr><tr><td class="confluenceTd"><p>2</p></td><td class="confluenceTd"><p>500</p></td></tr><tr><td class="confluenceTd"><p>3</p></td><td class="confluenceTd"><p>600</p></td></tr></tbody></table></div><h3 id="LanguageManualUDF-json_tuple">json_tuple</h3><p>A new json_tuple() UDTF is introduced in Hive 0.7. It takes a set of names (keys) and a JSON string, and returns a tuple of values using one function. This is much more efficient than calling GET_JSON_OBJECT to retrieve more than one key from a single JSON string. In any case where a single JSON string would be parsed more than once, your query will be more efficient if you parse it once, which is what JSON_TUPLE is for. As JSON_TUPLE is a UDTF, you will need to use the <a href="LanguageManual+LateralView">LATERAL VIEW</a> syntax in order to achieve the same goal.</p><p>For example,</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[select a.timestamp, get_json_object(a.appevents, &#39;$.eventid&#39;), get_json_object(a.appenvets, &#39;$.eventname&#39;) from log a;
+]]></script>
+</div></div><p>should be changed to:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[select a.timestamp, b.*
+from log a lateral view json_tuple(a.appevent, &#39;eventid&#39;, &#39;eventname&#39;) b as f1, f2;
+]]></script>
+</div></div><h3 id="LanguageManualUDF-parse_url_tuple">parse_url_tuple</h3><p>The parse_url_tuple() UDTF is similar to parse_url(), but can extract multiple parts of a given URL, returning the data in a tuple. Values for a particular key in QUERY can be extracted by appending a colon and the key to the partToExtract argument, for example, parse_url_tuple('http://facebook.com/path1/p.php?k1=v1&amp;k2=v2#Ref1', 'QUERY:k1', 'QUERY:k2') returns a tuple with values of 'v1','v2'. This is more efficient than calling parse_url() multiple times. All the input parameters and output column types are string.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SELECT b.*
+FROM src LATERAL VIEW parse_url_tuple(fullurl, &#39;HOST&#39;, &#39;PATH&#39;, &#39;QUERY&#39;, &#39;QUERY:id&#39;) b as host, path, query, query_id LIMIT 1;
+]]></script>
+</div></div><h2 id="LanguageManualUDF-GROUPingandSORTingonf(column)">GROUPing and SORTing on f(column)</h2><p>A typical OLAP pattern is that you have a timestamp column and you want to group by daily or other less granular date windows than by second. So you might want to select concat(year(dt),month(dt)) and then group on that concat(). But if you attempt to GROUP BY or SORT BY a column on which you've applied a function and alias, like this:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[select f(col) as fc, count(*) from table_name group by fc;
+]]></script>
+</div></div><p>you will get an error:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[FAILED: Error in semantic analysis: line 1:69 Invalid Table Alias or Column Reference fc
+]]></script>
+</div></div><p>because you are not able to GROUP BY or SORT BY a column alias on which a function has been applied. There are two workarounds. First, you can reformulate this query with subqueries, which is somewhat complicated:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[select sq.fc,col1,col2,...,colN,count(*) from
+  (select f(col) as fc,col1,col2,...,colN from table_name) sq
+ group by sq.fc,col1,col2,...,colN;
+]]></script>
+</div></div><p>Or you can make sure not to use a column alias, which is simpler:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[select f(col) as fc, count(*) from table_name group by f(col);
+]]></script>
+</div></div><p>Contact Tim Ellis (tellis) at RiotGames dot com if you would like to discuss this in further detail.</p><h2 id="LanguageManualUDF-UDFinternals">UDF internals</h2><p>The context of a UDF's evaluate method is one row at a time. A simple invocation of a UDF like</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SELECT length(string_col) FROM table_name;
+]]></script>
+</div></div><p>would evaluate the length of each of the string_col's values in the map portion of the job. The side effect of the UDF being evaluated on the map-side is that you can't control the order of rows which get sent to the mapper. It is the same order in which the file split sent to the mapper gets deserialized. Any reduce side operation (such as SORT BY, ORDER BY, regular JOIN, etc.) would apply to the UDFs output as if it is just another column of the table. This is fine since the context of the UDF's evaluate method is meant to be one row at a time.</p><p>If you would like to control which rows get sent to the same UDF (and possibly in what order), you will have the urge to make the UDF evaluate during the reduce phase. This is achievable by making use of <a href="LanguageManual+SortBy">DISTRIBUTE BY, DISTRIBUTE BY + SORT BY, CLUSTER BY</a>. An example query would be:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SELECT reducer_udf(my_col, distribute_col, sort_col) FROM
+(SELECT my_col, distribute_col, sort_col FROM table_name DISTRIBUTE BY distribute_col SORT BY distribute_col, sort_col) t
+]]></script>
+</div></div><p>However, one could argue that the very premise of your requirement to control the set of rows sent to the same UDF is to do aggregation in that UDF. In such a case, using a User Defined Aggregate Function (UDAF) is a better choice. You can read more about writing a UDAF <a href="GenericUDAFCaseStudy">here</a>. Alternatively, you can user a custom reduce script to accomplish the same using <a href="LanguageManual+Transform">Hive's Transform functionality</a>. Both of these options would do aggregations on the reduce side.</p><h2 id="LanguageManualUDF-CreatingCustomUDFs">Creating Custom UDFs</h2><p>For information about how to create a custom UDF, see <a href="HivePlugins">Hive Plugins</a> and <a href="LanguageManual+DDL#LanguageManualDDL-CreateFunction">Create Function</a>.</p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF"
+    dc:title="LanguageManual UDF"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/27362046"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="27362046" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>

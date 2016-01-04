@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>Cost-based optimization in Hive - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451833706187">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="42566775">
+            <meta name="ajs-latest-page-id" content="42566775">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Cost-based optimization in Hive">
+            <meta name="ajs-parent-page-title" content="DesignDocs">
+            <meta name="ajs-parent-page-id" content="27362075">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-styles/org.randombits.confluence.toc%253Atoc-plugin-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Aclient-side-toc-resources/org.randombits.confluence.toc%253Aclient-side-toc-resources.js" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-analytics/org.randombits.confluence.toc%253Atoc-plugin-analytics.js" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="Cost-based+optimization+in+Hive">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/d4SJAg">
+    <meta name="wikilink" content="[Hive:Cost-based optimization in Hive]">
+    <meta name="page-version" content="8">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="Cost-based+optimization+in+Hive#title-heading">Skip to content</a></li>
+    <li><a href="Cost-based+optimization+in+Hive#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="Cost-based+optimization+in+Hive#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="Cost-based+optimization+in+Hive#navigation">Skip to action menu</a></li>
+    <li><a href="Cost-based+optimization+in+Hive#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="Cost-based+optimization+in+Hive#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="Cost-based+optimization+in+Hive#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FCost-based%2Boptimization%2Bin%2BHive" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="DesignDocs" title="DesignDocs"><span class="icon"></span><span class="label">DesignDocs</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">Cost-based optimization in Hive</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="Cost-based+optimization+in+Hive#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=42566775" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (10)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=42566775" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=42566775" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=42566775" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=42566775" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=42566775#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=42566775" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=42566775" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=42566775" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=42566775" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=42566775" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=42566775" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="DesignDocs">DesignDocs</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="Cost-based+optimization+in+Hive#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="Cost-based+optimization+in+Hive" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a><a href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=42566775&amp;metadataLink=true" title="10 attachments" id="content-metadata-attachments" ><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/grey_attach.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="Cost-based+optimization+in+Hive" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="Cost-based+optimization+in+Hive#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="Cost-based+optimization+in+Hive">Cost-based optimization in Hive</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="Cost-based+optimization+in+Hive#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~gunther"
+                       class="url fn"
+                            >Gunther Hagleitner</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/display/~leftyl"
+                       class="url fn"
+                            >Lefty Leverenz</a></span> on <a class='last-modified' title='Dec 27, 2014 09:57' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=42566775&amp;selectedPageVersions=7&amp;selectedPageVersions=8'>Dec 27, 2014</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="Cost-based+optimization+in+Hive#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <p><div class="toc-macro client-side-toc-macro " data-headerelements="H1"></div></p><h1 id="Cost-basedoptimizationinHive-Abstract">Abstract</h1><p>Apache Hadoop is a framework for the distributed processing of large data sets using clusters of computers typically composed of commodity hardware. Over last few years Apache Hadoop has become the de facto platform for distributed data processing using commodity hardware. Apache Hive is a popular SQL interface for data processing using Apache Hadoop.</p><p> </p><p>User submitted SQL query is converted by Hive to physical operator tree which is optimized and converted to Tez Jobs and is then executed on Hadoop cluster. Distributed SQL query processing in Hadoop differs from conventional relational query engine when it comes to handling of intermediate result sets. Hive query processing often requires sorting and reassembling of intermediate result set; this is called shuffling in Hadoop parlance.</p><p> </p><p>Most of the existing query optimizations in Hive are about minimizing shuffling cost. Currently user would have to submit an optimized query to Hive with right join order for query to be executed efficiently. Logical optimizations in Hive are limited to filter push down, projection pruning and partition pruning. Cost based logical optimizations can significantly improve Apache Hive’s query latency and ease of use.</p><p> </p><p>Join reordering and join algorithm selection are few of the optimizations that can benefit from a cost based optimizer. Cost based optimizer would free up user from having to rearrange joins in the right order or from having to specify join algorithm by using query hints and configuration options. This can potentially free up users to model their reporting and ETL needs close to business process without having to worry about query optimizations.</p><p> </p><p>Calcite is an open source cost based query optimizer and query execution framework. Calcite currently has more than fifty query optimization rules that can rewrite query tree, and an efficient plan pruner that can select cheapest query plan in an optimal manner. In this paper we discuss how Calcite can be used to introduce Cost Based Logical Optimizer (CBO) in to Apache Hive.</p><p> </p><p>CBO will be introduced in to Hive in a Phased manner. In the first phase, Calcite would be used to reorder joins and to pick right join algorithm so as to reduce query latency. Table cardinality and Boundary statistics will be used for this cost based optimizations.</p><h1 id="Cost-basedoptimizationinHive-1.INTRODUCTION">1. INTRODUCTION</h1><p>Hive is a data-warehousing infrastructure on top of Apache Hadoop. Hive takes advantage of Hadoop’s massive scale out and fault tolerance capabilities for data storage and processing on commodity hardware. Hive is designed to enable easy data summarization, ad-hoc querying and analysis of large volumes of data. Hive SQL is the declarative query language, which enables users familiar with SQL to do ad-hoc querying, summarization and data analysis easily.</p><p>In past Hadoop jobs tended to have high latencies and incurred substantial overheads in job submission and scheduling. As a result - latency for Hive queries was generally very high even when data sets involved were very small. As a result Hive was typically used for ETL and not much for interactive queries. With Hadoop2 and Tez the overheads for job submission and job scheduling have gone down significantly. In Hadoop version one, the jobs that could be executed could only be Map-Reduce Jobs.  With Hadoop2 and Tez that limitation no longer apply.</p><p>In Hadoop the output of mapper is sorted and sometimes persisted on the local disk of the mapper. This sorted mapper output is then send to appropriate reducer which then combines sorted results from different mappers.  While executing multiple map-reduce jobs where output of one job needs to be consumed by the successive map-reduce job, the output of preceding map-reduce job needs to be persisted into HDFS; this persistence is costly as the data needs to be copied to other nodes based on the replication factor of HDFS.</p><p>Hive on top of Hadoop version 1 often had to submit multiple map-reduce jobs to complete query processing. This Map-Reduce job pipeline degraded performance, as the intermediate result set now needs to be persisted to fault tolerant HDFS. Also submitting jobs and scheduling them were relatively costly operations. With Hadoop2 and Tez the cost of job submission and scheduling is minimized. Also Tez does not restrict the job to be only Map followed by Reduce; this implies all of the query execution can be done in a single job without having to cross job boundaries. This would result in a significant cost savings, as the intermediate result sets need not be persisted to HDFS or to even local disk.</p><p>Query optimizations in a relational query engine can be broadly classified as logical query optimizations and physical query optimizations. Logical query optimizations generally refer to query optimizations that can be derived based on relational algebra independent of the physical layer in which query is executed. Physical query optimizations are query optimizations that are cognizant of physical layer primitives. For Hive, the physical layer implies Map-Reduce and Tez primitives.</p><p>Currently logical query optimizations in Hive can be broadly categorized as follows:</p><ul><li>Projection Pruning</li><li>Deducing Transitive Predicates</li><li>Predicate Push down</li><li>Merging of Select-Select, Filter-Filter in to single operator</li><li>Multi-way Join</li><li>Query Rewrite to accommodate for Join skew on some column values</li></ul><p> </p><p>Physical optimizations in Hive can be broadly classified as follows:</p><ul><li>Partition Pruning</li><li>Scan pruning based on partitions and bucketing</li><li>Scan pruning if query is based on sampling</li><li>Apply Group By on the map side in some cases</li><li>Perform Join on the Mapper</li><li>Optimize Union so that union can be performed on map side only</li><li>Decide which table to stream last, based on user hint, in a multi way join</li><li>Remove unnecessary reduce sink operators</li><li>For queries with limit clause, reduce the number of files that needs to be scanned for the table.</li><li>For queries with Limit clause, restrict the output coming from mapper by restricting what Reduce Sink operator generates.</li><li>Reduce the number of Tez jobs needed for answering user submitted SQL query</li><li>Avoid Map-Reduce jobs in case of simple fetch query</li><li>For simple fetch queries with aggregation, perform aggregation without Map-Reduce tasks</li><li>Rewrite Group By Query to use index table instead of original table</li><li>Use Index scans when predicates above table scan is equality predicates and columns in predicate have indexes on it.</li></ul><p>In Hive most of the optimizations are not based on the cost of query execution. Most of the optimizations do not rearrange the operator tree except for filter push down and operator merging.  Most of the operator tree mutation is for removing reduce-sink and reducer operator.  Listed below are some of optimization decisions that can benefit from a CBO:</p><ul><li>How to order Join</li><li>What algorithm to use for a given Join</li><li>Should the intermediate result be persisted or should it be recomputed on operator failure.</li><li>The degree of parallelism at any operator (specifically number of reducers to use).</li><li>Semi Join selection</li></ul><p>Calcite is an open source, Apache Licensed, query planning and execution framework. Many pieces of Calcite are derived from Eigenbase Project. Calcite has optional JDBC server, query parser and validator, query optimizer and pluggable data source adapters. One of the available Calcite optimizer is a cost based optimizer based on volcano paper. Currently different pieces of Calcite is used in following projects/products:</p><ul><li>Apache Drill</li><li>Cascading (Lingual)</li><li>Lucid DB</li><li>Mondrian/Pentaho</li></ul><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="../../download/attachments/42566775/CalciteArchitectureOverview.jpg@version=1&amp;modificationDate=1419674386000&amp;api=v2" data-image-src="/confluence/download/attachments/42566775/CalciteArchitectureOverview.jpg?version=1&amp;modificationDate=1419674386000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="51183721" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="CalciteArchitectureOverview.jpg" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="42566775" data-linked-resource-container-version="8"></span></p><p>Calcite currently has over fifty cost based optimization rules. Some of the prominent cost based optimization rules are listed below:</p><ul><li>Push Join through Union</li><li>Push Filter past Table Function</li><li>Join Reordering</li><li>Semi Join selection</li><li>Push Aggregate through Union</li><li>Pull Aggregate through Union</li><li>Pull Constants through Aggregate</li><li>Merge Unions</li></ul><p>In this document we propose to use Calcite’s cost based optimizer, Volcano, to perform Cost Based Optimizations in Hive. We propose to implement Calcite based CBO in a phased manner. Note here that proposal is to use Calcite’s optimizer only and nothing else. Listed below are the envisioned stages of introducing CBO in to Hive using Calcite:</p><ul><li>Phase1 – Join Reordering &amp; Join algorithm Selection<ul><li>Table cardinality and boundary statistics will be used to compute operator cardinality.</li><li>Hive operator tree will be converted to Calcite operator tree.</li><li>Volcano optimizer in Calcite will be used to rearrange joins and to pick the join algorithm.</li><li>Optimized Calcite operator tree would be converted back to Hive AST and will be executed as before. So all of the Hive’s existing optimizations would run on top of Calcite optimized SQL.</li></ul></li><li>Phase2 – Add support for Histograms, use other optimizations in Calcite<ul><li>Introduce space efficient histograms</li><li>Change operator cardinality computation to use histograms</li><li>Register additional optimization rules available in Calcite like the ones listed above.</li></ul></li><li>Phase3 – Code restructuring so that Calcite generates optimized Hive Operator tree<ul><li>Unlike phase1 Hive AST would be directly translated into Calcite operator tree.</li><li>Optimize Calcite operator tree using Volcano optimizer.</li><li>Convert optimized Calcite operator tree back into Hive Operator tree. This is unlike phase1 where optimized Calcite operator tree is converted to Hive AST.</li></ul></li></ul><h1 id="Cost-basedoptimizationinHive-2.RELATEDWORK">2. RELATED WORK</h1><h2 id="Cost-basedoptimizationinHive-STATS">STATS</h2><ul><li>histogram_numeric(): Estimating frequency distributions: <a href="https://cwiki.apache.org/confluence/x/CoOhAQ" style="line-height: 1.4285715;" rel="nofollow">https://cwiki.apache.org/confluence/x/CoOhAQ</a></li></ul><ul><li>histogram() UDAF for a numerical column <a href="https://issues.apache.org/jira/browse/HIVE-1397" style="line-height: 1.4285715;" class="external-link" rel="nofollow">https://issues.apache.org/jira/browse/HIVE-1397</a></li></ul><ul><li>Built-in Aggregate Functions (UDAF): <a href="https://cwiki.apache.org/confluence/x/-oKhAQ" style="line-height: 1.4285715;" rel="nofollow">https://cwiki.apache.org/confluence/x/-oKhAQ</a></li></ul><ul><li>Annotate hive operator tree with statistics from metastore: <a href="https://issues.apache.org/jira/browse/HIVE-5369" style="line-height: 1.4285715;" class="external-link" rel="nofollow">https://issues.apache.org/jira/browse/HIVE-5369</a></li></ul><p> </p><h2 id="Cost-basedoptimizationinHive-PAPERS">PAPERS</h2><ul><li>Query Optimization for Massively Parallel Data Processing</li></ul><p>Sai Wu, Feng Li, Sharad Mehrotra, Beng Chin Ooi</p><p><em>School of Computing, National University of Singapore, Singapore, 117590 </em></p><p><em>School of Information and Computer Science, University of California at Irvine</em></p><p> </p><ul><li>Profiling, What-if Analysis, and Cost-based Optimization of MapReduce Programs</li></ul><p>Herodotos Herodotou Duke University, Shivnath Babu Duke University</p><p> </p><ul><li>Optimizing Joins in a Map-Reduce Environment</li></ul><p>Foto N. Afrati, National Technical University of Athens, Greece</p><p>Jeffrey D. Ullman, Stanford University USA</p><p> </p><ul><li>Efficient and scalable statistics gathering for large databases in Oracle 11g</li></ul><p>Sunil Chakkappen, Thierry Cruanes, Benoit Dageville, Linan Jiang, Uri Shaft, Hong Su, Mohamed Zait , Oracle Redwood Shores CA</p><p><a href="http://dl.acm.org/citation.cfm?doid=1376616.1376721" class="external-link" rel="nofollow">http://dl.acm.org/citation.cfm?doid=1376616.1376721</a></p><p> </p><ul><li>Estimating Distinct (Postgress SQL)</li></ul><p><a href="http://wiki.postgresql.org/wiki/Estimating_Distinct" class="external-link" rel="nofollow">http://wiki.postgresql.org/wiki/Estimating_Distinct</a></p><p> </p><ul><li>The History of Histograms</li></ul><p>Yannis Ioannidis, Department of Informatics and Telecommunications, University of Athens</p><p><a href="http://www.vldb.org/conf/2003/papers/S02P01.pdf" class="external-link" rel="nofollow">http://www.vldb.org/conf/2003/papers/S02P01.pdf</a></p><p> </p><h1 id="Cost-basedoptimizationinHive-3.BACKGROUND">3. BACKGROUND</h1><h2 id="Cost-basedoptimizationinHive-HiveQueryoptimizationissues">Hive Query optimization issues</h2><p>Hive converts user specified SQL statement to AST that is then used to produce physical operator tree. All of the query optimizations are performed on the physical operator tree. Hive keeps semantic info separate from query operator tree. Semantic info is extracted during plan generation that is then looked up often during down stream query optimizations. Adding new query optimizations into Hive is often made difficult by the lack of proper logical query plan and due to Semantic info and query tree separation.</p><h2 id="Cost-basedoptimizationinHive-TEZ">TEZ</h2><p>Apache Tez generalizes the MapReduce paradigm to execute a complex DAG (directed acyclic graph) of tasks. Refer to the following link for more info.</p><p><a href="http://hortonworks.com/blog/apache-tez-a-new-chapter-in-hadoop-data-processing/" class="external-link" rel="nofollow">http://hortonworks.com/blog/apache-tez-a-new-chapter-in-hadoop-data-processing/</a></p><h2 id="Cost-basedoptimizationinHive-JoinalgorithmsinHive">Join algorithms in Hive</h2><p>Hive only supports equi-Join currently. Hive Join algorithm can be any of the following:</p><h3 id="Cost-basedoptimizationinHive-MultiwayJoin">Multi way Join</h3><p>If multiple joins share the same driving side join key then all of those joins can be done in a single task.</p><p>Example: (R1 <sup>PR1.x=R2.a</sup>  - R2) <sup>PR1.x=R3.b</sup> - R3) <sup>PR1.x=R4.c </sup>- R4</p><p>All of the join can be done in the same reducer, since R1 will already be sorted based on join key x.</p><h3 id="Cost-basedoptimizationinHive-CommonJoin">Common Join</h3><p>Use Mappers to do the parallel sort of the tables on the join keys, which are then passed on to reducers. All of the tuples with same key is given to same reducer. A reducer may get tuples for more than one key. Key for tuple will also include table id, thus sorted output from two different tables with same key can be recognized. Reducers will merge the sorted stream to get join output.</p><h3 id="Cost-basedoptimizationinHive-MapJoin">Map Join</h3><p>Useful for star schema joins, this joining algorithm keeps all of the small tables (dimension tables) in memory in all of the mappers and big table (fact table) is streamed over it in the mapper. This avoids shuffling cost that is inherent in Common-Join. For each of the small table (dimension table) a hash table would be created using join key as the hash table key.</p><p> </p><h3 id="Cost-basedoptimizationinHive-BucketMapJoin">Bucket Map Join</h3><p>If the joining keys of map-join are bucketed then instead of keeping whole of small table (dimension table) in every mapper, only the matching buckets will be kept. This reduces the memory footprint of the map-join.</p><h3 id="Cost-basedoptimizationinHive-SMBJoin">SMB Join</h3><p>This is an optimization on Bucket Map Join; if data to be joined is already sorted on joining keys then hash table creation is avoided and instead a sort merge join algorithm is used.</p><h3 id="Cost-basedoptimizationinHive-SkewJoin">Skew Join</h3><p>If the distribution of data is skewed for some specific values, then join performance may suffer since some of the instances of join operators (reducers in map-reduce world) may get over loaded and others may get under utilized. On user hint, hive would rewrite a join query around skew value as union of joins.</p><p> </p><p>Example R1 <sup>PR1.x=R2.a</sup>  - R2 with most data distributed around x=1 then this join may be rewritten as (R1 <sup>PR1.x=R2.a and PR1.x=1  </sup>  - R2) union all (R1 <sup>PR1.x=R2.a and PR1.x&lt;&gt;1  </sup>  - R2)</p><p> </p><h1 id="Cost-basedoptimizationinHive-4.Implementationdetails">4. Implementation details</h1><p>CBO will be introduced in to Hive in three different phases. Following provides high-level overview of these phases:<span style="line-height: 1.4285715;"> </span></p><h2 id="Cost-basedoptimizationinHive-Phase1">Phase 1</h2><p><span style="font-size: 14.0px;line-height: 1.4285715;"> <span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="../../download/attachments/42566775/Phase1.jpg@version=1&amp;modificationDate=1419673604000&amp;api=v2" data-image-src="/confluence/download/attachments/42566775/Phase1.jpg?version=1&amp;modificationDate=1419673604000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="51183717" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Phase1.jpg" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="42566775" data-linked-resource-container-version="8"></span></span></p><p>Statistics:</p><ul><li>Table Cardinality</li><li>Column Boundary Stats: min, max, avg, number of distinct values</li></ul><p> </p><p>Cost Based Optimizations:</p><ul><li>Join ordering</li><li>Join Algorithm</li></ul><p> </p><p>Restrictions:</p><ul><li>Calcite CBO will be used only for select expressions</li><li>Calcite CBO won’t be used if select expression contains any of the following operators:<ul><li>Sort By</li></ul></li></ul><p>Hive supports both total ordering (order by) and partial ordering (sort by). Partial ordering cannot be represented in relational algebra and SQL. In future we may represent Sort By as a table function.</p><ul><li>Map/Reduce/Transform</li></ul><p>Hive allows users to specify map/reduce/transform operator in the sql; data would be transformed using provided mapper/reducer scripts. There is no direct translation for these operators to relational algebra. We may represent them as table function in future.</p><ul><li>Cluster By/Distribute By</li></ul><p><em>Cluster By</em> and <em>Distribute By</em> are used mainly with the <a href="LanguageManual+Transform" rel="nofollow">Transform/Map-Reduce Scripts</a>. But, it is sometimes useful in SELECT statements if there is a need to partition and sort the output of a query for subsequent queries. <em>Cluster By</em> is a short-cut for both <em>Distribute By</em> and <em>Sort By</em>. Hive uses the columns in <em>Distribute By</em> to distribute the rows among reducers. All rows with the same <em>Distribute By</em> columns will go to the same reducer. However, <em>Distribute By</em> does not guarantee clustering or sorting properties on the distributed keys.</p><ul><li>Table Sample</li></ul><p>The TABLESAMPLE clause allows the users to write queries for samples of the data instead of the whole table. The TABLESAMPLE clause can be added to any table in the FROM clause. In future we may represent Table Sample as table function.</p><ul><li>Lateral Views</li></ul><p>Lateral view is used in conjunction with user-defined table generating functions such as explode(). UDTF generates one or more output rows for each input row. A lateral view first applies the UDTF to each row of base table and then joins resulting output rows to the input rows to form a virtual table having the supplied table alias.</p><ul><li>UDTF (Table Functions)</li><li>PTF (Partitioned Table Functions)</li></ul><p> </p><p>Calcite related enhancements:</p><ul><li>Introduce Operators to represent hive relational operators. Table Scan, Join, Union, Select, Filter, Group By, Distinct, Order By. These operators would implement a calling convention with physical cost for each of these operators.</li><li>Introduce rules to convert Joins from CommonJoin to MapJoin, MapJoin to BucketJoin, BucketJoin to SMBJoin, CommonJoin to SkewJoin.</li><li>Introduce rule to merge joins so that a single join operator will represent multi-way join (similar to MergedJoin in Hive).</li><li>Merged-Join in Hive will be translated to MultiJoinRel in Calcite.</li></ul><p> </p><h2 id="Cost-basedoptimizationinHive-Phase2">Phase 2</h2><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="../../download/attachments/42566775/Phase2.jpg@version=1&amp;modificationDate=1419673823000&amp;api=v2" data-image-src="/confluence/download/attachments/42566775/Phase2.jpg?version=1&amp;modificationDate=1419673823000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="51183718" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Phase2.jpg" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="42566775" data-linked-resource-container-version="8"></span></p><p>Statistics:</p><ul><li>Histograms</li></ul><p> </p><p>Cost Based Optimizations:</p><ul><li>Join ordering based on histograms</li><li>Join Algorithm – histograms are used for estimating join selectivity</li><li>Take advantage of additional optimizations in Calcite. The actual rules to use is TBD.</li></ul><h2 id="Cost-basedoptimizationinHive-Phase3">Phase 3</h2><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="../../download/attachments/42566775/Phase3.jpg@version=2&amp;modificationDate=1419674001000&amp;api=v2" data-image-src="/confluence/download/attachments/42566775/Phase3.jpg?version=2&amp;modificationDate=1419674001000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="51183719" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Phase3.jpg" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/jpeg" data-linked-resource-container-id="42566775" data-linked-resource-container-version="8"></span></p><h2 id="Cost-basedoptimizationinHive-Configuration">Configuration</h2><p>The configuration parameter <a href="Configuration+Properties#ConfigurationProperties-hive.cbo.enable">hive.cbo.enable</a> determines whether cost-based optimization is enabled or not.</p><h2 id="Cost-basedoptimizationinHive-ProposedCostModel">Proposed Cost Model</h2><p>Hive employs parallel-distributed query execution using Hadoop cluster. This implies for a given query operator tree different operators could be running on different nodes. Also same operator may be running in parallel on different nodes in the cluster, processing different partitions of the original relation. This parallel execution model induces high I/O and CPU costs. Hive query execution cost tends to be more I/O centric due to following reasons.</p><ul><li>Shuffling cost</li></ul><p>Data needed by an operator from its child operator in query tree requires assembling data from all instances of child operator. This data then needs to be sorted and chopped up so that a partition of the relation is presented to an instance of the operator.</p><p> </p><p>This shuffling cost involves cost of writing intermediate result set to local file system, cost of reading data back from local file system, and cost of transferring intermediate result set to the node that is operating child processor. In addition to I/O cost, shuffling also requires sorting of data that should be counted towards CPU cost.</p><p> </p><ul><li>HDFS Read/Write is costly</li></ul><p>Reading and writing data to HDFS is more costly compared to local FS. In Map-Reduce framework Table Scan would typically read data from HDFS and would write data to HDFS when switching between two Map-Reduce jobs. In Tez all of the operators should work with in a single Tez Job and hence we shouldn’t have to pay the cost of writing intermediate result set to HDFS.</p><p> </p><p>Cost based optimizations in Hive will keep track of cost in terms of</p><ul><li>CPU usage</li><li>IO Usage</li><li>Cardinality</li><li>Average size of the tuple in the relation.</li></ul><p> </p><p>Average size of the tuple in relation and cardinality of the relation will be used to estimate resources needed to hold a relation in memory. Memory needed to hold a relation is used to decide whether certain join algorithms, like Map/Bucket Join, can be used.</p><p> </p><p>Volcano optimizer in Calcite compares cost of two equivalent query plans by getting cost of each operator in the tree and summing them up to find cumulative cost. Plan with lowest cumulative cost is picked as the best plan to execute the query. “VolcanoCost” is the Java class representing cost for Calcite’s Volcano optimizer. “VolcanoCost” comparison operators seem to take into consideration only the number of rows to decide if one cost is less than other.</p><p> </p><p>For Hive we want to consider CPU and IO usage first before comparing cardinality.</p><p>We propose to introduce a new “RelOptCost” implementation “HiveVolcanoCost” derived from “VolcanoCost”. “HiveVolcanoCost” will keep CPU, I/O, Cardinality, and average size of tuple. Cost comparison algorithm will give importance to CPU and IO cost before paying attention to cardinality. CPU and IO cost will be stored in nano seconds granularity. Following is the pseudo code for “RelOptCost.isLe” function:</p><p> </p><p>Class HiveVolcanoCost extends VolcanoCost {</p><p>Double m_sizeOfTuple;</p><p> </p><p>               @Override</p><p>                  public boolean isLe(RelOptCost other) {</p><p>                                    VolcanoCost that = (VolcanoCost) other;</p><p>                                    if (((this.dCpu + this.dIo) &lt; (that.dCpu + that.dIo))</p><p>                                                                        || ((this.dCpu + this.dIo) == (that.dCpu + that.dIo)</p><p>                                                            &amp;&amp; this.dRows &lt;= that.dRows)) {</p><p>                                                      return true;</p><p>                                    } else {</p><p>                                                      return false;</p><p>                                    }</p><p>                  }</p><p>}</p><p> </p><p><strong>Design Choice</strong>:</p><p>In the absence of histograms, cardinality can be assumed to follow uniform distribution on the distinct values. With this approach cardinality/distinct computation could always follow same code path (Histograms). Alternative is to use heuristics when histograms are not available (like the one described by Hector Garcia Molina, Jeffrey D. Ullman and Jennifer Widom in “Database Systems”). Currently Hive statistics doesn’t keep track of the distinct values for an attribute (only the number of distinct values is kept); however from min, max,number of distinct values, and table cardinality uniformly distributed histogram can be constructed. Following describes formulas for a uniform histogram construction.</p><p>Number of buckets = (Max-Min)/No of distinct values.</p><p>Bucket width = (Max- Min)/ Number of buckets.</p><p>Bucket Height = Table cardinality/ Number of buckets.</p><p> </p><p>In this paper for the cost formula, in the absence of histogram, we will follow heuristics described by Hector Garcia Molina, Jeffrey D. Ullman and Jennifer Widom in the book “Database Systems”.</p><p> </p><p><strong>Following are the cost variables that will be used in cost computation</strong>:</p><ul><li>Hr - This is the cost of Reading 1 byte from HDFS in nano seconds.</li><li>Hw - This is the cost of Writing 1 byte to HDFS in nano seconds.</li><li>Lr - This is the cost of Reading 1 byte from Local FS in nano seconds.</li><li>Lw - This is the cost of writing 1 byte to Local FS in nano seconds.</li><li>NEt – This is the average cost of transferring 1 byte over network in the Hadoop cluster from any node to any node; expressed in nano seconds.</li><li>T(R) - This is the number of tuples in the relation.</li><li>Tsz – Average size of the tuple in the relation</li><li>V(R, a) –The number of distinct values for attribute a in relation R</li><li>CPUc – CPU cost for a comparison in nano seconds</li></ul><p> </p><p><strong>Assumptions</strong>:</p><ul><li>Relative cost of Disk, HDFS, and Network read/write with each other is more important than the exact true cost.</li><li>We assume uniform cost regardless of hardware type, locality, and size of data involved in I/O, type of I/O scatter/gather vs. sequential read/write. This is obviously over simplification, but we are more interested in relative cost of operations.</li><li>This cost model ignores the number of disk blocks that needs to be read/written from/to and instead look at number of bytes that needs to be read/written. This is an obvious oversimplification of I/O cost.</li><li>This cost model also ignores storage layout, column store vs. others.</li><li>We assume all of the tuples to be of uniform size.</li><li>No colocation of tasks is assumed and hence we consider network transfer cost.</li><li>For CPU cost, only comparison cost is considered. It is assumed that each comparison will cost 1 nano second.</li><li>Each vertex in Tez is a different process</li><li>HDFS read is assumed to be 1.5 times of local disk read and HDFS write is assumed to be 10 times of local disk write.</li></ul><p> </p><p><strong>Following are the assumed values for cost variables</strong>:</p><ul><li>CPUc = 1 nano sec</li><li>NEt = 150 * CPUc nano secs</li><li>Lw = 4 * NEt</li><li>Lr = 4 * NEt</li><li>Hw = 10 * Lw</li><li>Hr = 1.5 * Lr</li></ul><p> </p><h3 id="Cost-basedoptimizationinHive-TableScan">Table Scan</h3><p>T(R) = Consult Metadata to get cardinality;</p><p>Tsz = Consult Metadata to get average tuple size;</p><p>V(R, a) = Consult Metadata</p><p>CPU Usage = 0;</p><p>IO Usage = Hr * T(R) * Tsz</p><p> </p><h3 id="Cost-basedoptimizationinHive-CommonJoin.1">Common Join</h3><p>T(R) = Join Cardinality estimation</p><p>Tsz = Consult Metadata to get average tuple size based on join schema;</p><p>CPU Usage = Sorting Cost for each of the relation + Merge Cost for sorted stream</p><p>                      = (T(R1) * log T(R1) * CPUc + T(R2) * log T(R2) * CPUc + … + T(Rm) * log T(Rm) * CPUc) + (T(R1) + T(R2) + …+ T(Rm)) * CPUc nano seconds;</p><p> </p><p>IO Usage = Cost of writing intermediate result set in to local FS for shuffling + Cost of reading from local FS for transferring to Join operator node + Cost of transferring mapped output to Join operator node</p><p>                  = Lw * (T(R1) * Tsz1 + T(R2) * Tsz2 + …+ T(Rm) * Tszm)  + Lr * (T(R1) * Tsz1 + T(R2) * Tsz2 + …+ T(Rm) * Tszm) + NEt *  (T(R1) * Tsz1 + T(R2) * Tsz2 + … + T(Rm) * Tszm)</p><p> </p><p>R1, R2… Rm is the relations involved in join.</p><p>Tsz1, Tsz2… Tszm are the average size of tuple in relations R1, R2…Rm.</p><p> </p><h3 id="Cost-basedoptimizationinHive-MapJoin.1">Map Join</h3><p>Number of Rows = Join Cardinality estimation</p><p>Size of tuple = Consult Metadata to get average tuple size based on join schema</p><p> </p><p>CPU Usage =HashTable Construction cost + Cost of Join</p><p>                      = (T(R2) + …+ T(Rm)) + (T(R1) + T(R2) + …+ T(Rm)) * CPUc nano seconds</p><p> </p><p>IO Usage = Cost of transferring small tables to Join Operator Node * Parallelization of the join</p><p>                  = NEt *  (T(R2) * Tsz2 + … + T(Rm) * Tszm) * number of mappers</p><p> </p><p>R1, R2… Rm is the relations involved in join and R1 is the big table that will be streamed.</p><p>Tsz2… Tszm are the average size of tuple in relations R1, R2…Rm.</p><p> </p><h3 id="Cost-basedoptimizationinHive-BucketMapJoin.1">Bucket Map Join</h3><p>Number of Rows = Join Cardinality estimation</p><p>Size of tuple = Consult Metadata to get average tuple size based on join schema;</p><p> </p><p>CPU Usage =Hash Table Construction cost + Cost of Join</p><p>                      = (T(R2) + …+ T(Rm)) * CPUc + (T(R1) + T(R2) + …+ T(Rm)) * CPUc nano seconds</p><p> </p><p>IO Usage = Cost of transferring small tables to Join * Parallelization of the join</p><p>                  = NEt *  (T(R2) * Tsz2 + … + T(Rm) * Tszm) * number of mappers</p><p> </p><p>R1, R2… Rm is the relations involved in join.</p><p>Tsz2… Tszm are the average size of tuple in relations R2…Rm.</p><p> </p><h3 id="Cost-basedoptimizationinHive-SMBJoin.1">SMB Join</h3><p>Number of Rows = Join Cardinality estimation</p><p>Size of tuple = Consult Metadata to get average tuple size based on join schema;</p><p> </p><p>CPU Usage = Cost of Join</p><p>                      = (T(R1) + T(R2) + …+ T(Rm)) * CPUc nano seconds</p><p> </p><p>IO Usage = Cost of transferring small tables to Join * Parallelization of the join</p><p>                  = NEt *  (T(R2) * Tsz2 + … + T(Rm) * Tszm) * number of mappers</p><p> </p><p>R1, R2… Rm is the relations involved in join.</p><p>Tsz2… Tszm are the average size of tuple in relations R2…Rm.</p><p> </p><h3 id="Cost-basedoptimizationinHive-SkewJoin.1">Skew Join</h3><p>Query will be rewritten as union of two joins. We will have a rule to rewrite query tree for skew join. Rewritten query will use the cost model for the join and union operators.</p><p> </p><h3 id="Cost-basedoptimizationinHive-Distinct/GroupBy">Distinct/Group By</h3><p>Number of Rows = Based on Group-By selectivity = V(R, a,b,c..) where a,b,c are the group by keys</p><p>Size of tuple = Consult Metadata to get average tuple size based on schema</p><p> </p><p>CPU Usage = Cost of Sorting + Cost of categorizing into group</p><p>                      = (T(R) * log T(R) + T(R)) * CPUc nano seconds;</p><p> </p><p>IO Usage = Cost of writing intermediate result set in to local FS for shuffling + Cost of reading from local FS for transferring to GB reducer operator node + Cost of transferring data set to GB Node</p><p>                  = Lw * T(R) * Tsz + Lr * T(R) * Tsz + NEt * T(R) * Tsz</p><p> </p><h3 id="Cost-basedoptimizationinHive-UnionAll">Union All</h3><p>Number of Rows = Number of Rows from left + Number of Rows from right</p><p>Size of tuple = avg of (avg size of left, avg size of right)</p><p>CPU Usage = 0</p><p>IO Usage = Cost of writing intermediate result set in to HDFS + Cost of reading from HDFS for transferring to UNION mapper node + Cost of transferring data set to Mapper Node</p><p>                  = (T(R1) * Tsz1  + T(R2) * Tsz2) * Hw + (T(R1) * Tsz1 + T(R2) * Tsz2) * Hr + (T(R1) * Tsz1 + T(R2) * Tsz2) * NEt</p><p> </p><p>R1, R2 is the relations involved in join.</p><p>Tsz1, Tsz2 is the average size of tuple in relations R1, R2.</p><p> </p><h3 id="Cost-basedoptimizationinHive-Filter/Having">Filter/Having</h3><p>Number of Rows = Filter Selectivity * Number of Rows from Child</p><p>Size of tuple = size of tuple from child operator</p><p>CPU Usage = T(R) * CPUc nano seconds</p><p>IO Usage = 0</p><h3 id="Cost-basedoptimizationinHive-Select">Select</h3><p>Number of Rows = Number of Rows from Child</p><p>Size of tuple = size of tuple from child operator</p><p>CPU Usage = 0</p><p>IO Usage = 0</p><p> </p><h3 id="Cost-basedoptimizationinHive-FilterSelectivity">Filter Selectivity</h3><h4 id="Cost-basedoptimizationinHive-WithoutHistogram">Without Histogram</h4><ul><li>Equality Predicates where one side is a literal = 1/V(R, A)</li><li>Equality Predicate when both sides are not literals = 1/max (V(R, A), V(R, B))</li><li>In Equality Predicates (Less/Greater than) = 1/3</li><li>Not Equal = (V(R, A) -1)/V(R, A)</li><li>OR Condition = n*(1 –(1-m1/n)(1-m2/n)) where n is the total number of tuples from child and m1 and m2 is the expected number of tuples from each part of the disjunction predicate.</li><li>AND condition = product of selectivity of individual leaf predicates in the conjunctive predicate</li></ul><p> </p><h3 id="Cost-basedoptimizationinHive-JoinCardinality(withoutHistogram)">Join Cardinality (without Histogram)</h3><ul><li>Inner Join = Product of cardinalities of child relations * Join selectivity</li><li>One side Outer Join = max (Selectivity of filter rejecting non joined inner tuples * (Product of cardinalities of child relations), Cardinality of Outer side)</li></ul><p>Example: C(R1  <sub>a=b</sub> R2) = max (C(<sub>R2.b=R1.a</sub> C(R1 X R2)), C(R1))</p><ul><li>Full Outer Join = max (Selectivity of filter rejecting non joined inner tuples * (Product of cardinalities of child relations), sum of cardinalities of left and right relation)</li></ul><p>= C(R1 <sub>a=b</sub> R2) = max (C(<sub>R1.a=R1.b C</sub>(R1 X R2)), C(R1) + C(R2))</p><ul><li>For multi-way join algorithm, join would be decomposed to number of different joins for cardinality and cost estimation.</li></ul><p> </p><h4 id="Cost-basedoptimizationinHive-JoinSelectivity(withoutHistogram)">Join Selectivity (without Histogram)</h4><ul><li>Single Attribute  = 1/max (V(R1, a), V(R2, a))  where join predicate is <sub>R1.a=R2.a</sub></li><li>Multiple Attributes = 1/(max (V(R1, a), V(R2, a))   * max (V(R1, b), V(R2, b)) ) where join predicate is <sub>R1.a=R2.a and R1.b = R2.b</sub></li></ul><p> </p><h3 id="Cost-basedoptimizationinHive-DistinctEstimation">Distinct Estimation</h3><h4 id="Cost-basedoptimizationinHive-InnerJoin-DistinctEstimation">Inner Join - Distinct Estimation</h4><ul><li>V(J, a) = V(R1, a) if attribute a comes only from one side of join; J is the relation representing Join output and R1 one of the relation involved.</li><li>V(J, a) = max(V(R1, a), V(R2, a)) if attribute a is present in both sides of join; J is the relation representing Join output and R1, R2 are the relations involved in join.</li><li>V(J, a) = V(R1, a) if attribute a comes only from one side of join; J is the relation representing Join output output and R1 is the relation from which attribute “a” comes from.</li><li>V(J, a) = V(Ro, a) where Ro is the relation for the outer side; J is the relation representing Join output and Ro is the outer relation of the join.</li><li>V(J, a) = V(R1, a) if attribute “a” comes only from one side of join; J is the relation representing Join output and R1 is the relation from which attribute a comes from.</li><li>V(J, a) = max (V(R1, a), V(R2, a)) where J is the relation representing Join output and R1, R2 are the relations involved in join.</li><li>V(U, a) = max (V(R1, a), V(R2, a)) where U is the relation representing Union All output and R1, R2 are the relations involved in union.</li></ul><h4 id="Cost-basedoptimizationinHive-OnesidedOuterJoin-DistinctEstimation">One sided Outer Join - Distinct Estimation</h4><h4 id="Cost-basedoptimizationinHive-FullOuterJoin-DistinctEstimation">Full Outer Join - Distinct Estimation</h4><h4 id="Cost-basedoptimizationinHive-UnionAll-DistinctEstimation">Union All - Distinct Estimation</h4><p> </p><p> </p><h4 id="Cost-basedoptimizationinHive-GB-DistinctEstimation">GB - Distinct Estimation</h4><ul><li>V(G, a) = V(R, a) where G is the relation representing Group-By output and R is the child relation of Group-By. It is assumed attribute “a” is part of grouping keys.</li><li>V(G, a,b,c) = max (V(R,a), V(R,b), V(R,c)) where G is the relation representing Group-By output and R is the child relation of Group-By. It is assumed attribute “a”, “b”, “c” is part of grouping keys.</li></ul><p> </p><h4 id="Cost-basedoptimizationinHive-Filter-DistinctEstimation">Filter - Distinct Estimation</h4><ul><li>V(F, a) = V(R, a) where F is the relation representing filter output and R is the child relation of the filter.</li></ul><p> </p><h1 id="Cost-basedoptimizationinHive-5.Phase1–WorkItems">5. Phase 1 – Work Items</h1><ol><li>Walk the Hive OP tree and make sure that OP tree doesn’t contain any op that cannot be translated into Calcite (Lateral Views, PTF, Cubes &amp; Rollups, Multi Table Insert).</li><li>Walk the Hive OP tree and introduce cast functions to make sure that all of the comparisons (implicit &amp; explicit) are strictly type safe (the type must be same on both sides).</li><li>Implement Calcite operators specific to Hive that would do cost computation and cloning.</li><li>Convert the Hive OP tree to Calcite OP tree.<ol><li><span style="line-height: 1.4285715;">Convert Hive Types to Calcite types</span></li><li><span style="line-height: 1.4285715;">Convert Hive Expressions to Calcite expressions</span></li><li><span style="line-height: 1.4285715;">Convert Hive Operator to Calcite operator</span></li><li><span style="line-height: 1.4285715;">Handle Hidden Columns</span></li><li><span style="line-height: 1.4285715;">Handle columns introduced by ReduceSink (for shuffling)</span></li><li><span style="line-height: 1.4285715;">Handle Join condition expressions stashed in Reducesink op</span></li><li><span style="line-height: 1.4285715;">Handle filters in Join Conditions</span></li><li><span style="line-height: 1.4285715;">Convert Hive Semi Join to Calcite</span></li><li><span style="line-height: 1.4285715;">Attach cost to operators</span></li><li><span style="line-height: 1.4285715;">Alias the top-level query projections to query projections that user expects.</span></li></ol></li><li><span style="line-height: 1.4285715;">Optimize the Calcite OP tree using Volcano Optimizer.</span><ol><li><span style="line-height: 1.4285715;">Implement Rules to convert Joins to Hive Join algorithms.</span><ol><li><span style="line-height: 1.4285715;">Common Join -&gt; Map Join</span></li><li><span style="line-height: 1.4285715;">Map Join -&gt; Bucket Map Join</span></li><li><span style="line-height: 1.4285715;">Common Join -&gt; Bucket Map Join</span></li><li><span style="line-height: 1.4285715;">Bucket Map Join -&gt;  SMB Join</span></li><li><span style="line-height: 1.4285715;">Common Join -&gt; Skew Join</span></li></ol></li></ol></li><li><span style="line-height: 1.4285715;">Walk the Optimized Calcite OP tree and introduce derived tables to convert OP tree to SQL.</span><ol><li><span style="line-height: 1.4285715;">Generate unique table (including derived table) aliases</span></li></ol></li><li><span style="line-height: 1.4285715;">Walk the OP tree and convert in to AST.</span><ol><li><span style="line-height: 1.4285715;">Stash Join algorithm in AST as query Hints</span></li></ol></li><li><span style="line-height: 1.4285715;">Modify Plan Generator to pay attention to Calcite query hints</span></li><li>Rerun Hive optimizer and generate the execution plan (this second pass would not invoke Calcite optimizer).</li></ol><h1 id="Cost-basedoptimizationinHive-OpenIssues">Open Issues</h1><ol><li>CBO needs to differentiate between types of IPC (Durable-Local-FS vs, Durable-HDFS, Memory vs. Streaming)<span style="line-height: 1.4285715;"> </span></li></ol><h1 id="Cost-basedoptimizationinHive-Reference">Reference</h1><ol><li>Database Systems The Complete Book, Second Edition, Hector Garcia-Molina, Jeffrey D. Ullman, Jennifer Widom</li><li>Query Optimization for Massively Parallel Data Processing</li></ol><p>Sai Wu, Feng Li, Sharad Mehrotra, Beng Chin Ooi</p><p><em>School of Computing, National University of Singapore, Singapore, 117590 </em></p><p><em>School of Information and Computer Science, University of California at Irvine</em></p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/Cost-based+optimization+in+Hive"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/Cost-based+optimization+in+Hive"
+    dc:title="Cost-based optimization in Hive"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/42566775"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="42566775" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>LanguageManual Types - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451833214737">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="27838462">
+            <meta name="ajs-latest-page-id" content="27838462">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="LanguageManual Types">
+            <meta name="ajs-parent-page-title" content="LanguageManual">
+            <meta name="ajs-parent-page-id" content="27362030">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-styles/org.randombits.confluence.toc%253Atoc-plugin-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/3.7.2/_/download/batch/confluence.extra.information%253Ainformation-plugin-adg-styles/confluence.extra.information%253Ainformation-plugin-adg-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Aclient-side-toc-resources/org.randombits.confluence.toc%253Aclient-side-toc-resources.js" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-analytics/org.randombits.confluence.toc%253Atoc-plugin-analytics.js" ></script>
+<script type="text/javascript" src="../../s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.js@locale=en-GB" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes.js" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="LanguageManual+Types">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/-seoAQ">
+    <meta name="wikilink" content="[Hive:LanguageManual Types]">
+    <meta name="page-version" content="51">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="LanguageManual+Types#title-heading">Skip to content</a></li>
+    <li><a href="LanguageManual+Types#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="LanguageManual+Types#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="LanguageManual+Types#navigation">Skip to action menu</a></li>
+    <li><a href="LanguageManual+Types#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="LanguageManual+Types#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="LanguageManual+Types#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FLanguageManual%2BTypes" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="LanguageManual" title="LanguageManual"><span class="icon"></span><span class="label">LanguageManual</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">LanguageManual Types</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="LanguageManual+Types#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=27838462" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=27838462" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27838462" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27838462" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27838462" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=27838462#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=27838462" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=27838462" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=27838462" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27838462" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=27838462" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=27838462" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="LanguageManual">LanguageManual</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="LanguageManual+Types#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="LanguageManual+Types" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="LanguageManual+Types" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="LanguageManual+Types#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="LanguageManual+Types">LanguageManual Types</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="LanguageManual+Types#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~cwsteinbach"
+                       class="url fn"
+                            >Carl Steinbach</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/display/~leftyl"
+                       class="url fn"
+                            >Lefty Leverenz</a></span> on <a class='last-modified' title='Nov 13, 2015 00:16' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=27838462&amp;selectedPageVersions=50&amp;selectedPageVersions=51'>Nov 13, 2015</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="LanguageManual+Types#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <h1 id="LanguageManualTypes-HiveDataTypes">Hive Data Types</h1><p><div class="toc-macro client-side-toc-macro " data-headerelements="H1,H2,H3,H4,H5,H6,H7"></div></p><h2 id="LanguageManualTypes-Overview">Overview</h2><p>This lists all supported data types in Hive. See <a href="Tutorial#Tutorial-TypeSystem">Type System</a> in the <a href="Tutorial">Tutorial</a> for additional information.</p><p>For data types supported by HCatalog, see:</p><ul><li><a href="HCatalog+LoadStore#HCatalogLoadStore-HCatLoaderDataTypes">HCatLoader Data Types</a></li><li><a href="HCatalog+LoadStore#HCatalogLoadStore-HCatStorerDataTypes">HCatStorer Data Types</a></li><li><a href="HCatalog+InputOutput#HCatalogInputOutput-HCatRecord">HCatRecord Data Types</a></li></ul><h3 id="LanguageManualTypes-NumericTypes">Numeric Types</h3><ul><li><a href="LanguageManual+Types#LanguageManualTypes-tinyint"><code>TINYINT</code></a> (1-byte signed integer, from <code>-128</code> to <code>127</code>)</li><li><a href="LanguageManual+Types#LanguageManualTypes-smallint"><code>SMALLINT</code></a> (2-byte signed integer, from <code>-32,768</code> to <code>32,767</code>)</li><li><a href="LanguageManual+Types#LanguageManualTypes-int"><code>INT</code></a> (4-byte signed integer, from <code>-2,147,483,648</code> to <code>2,147,483,647</code>)</li><li><a href="LanguageManual+Types#LanguageManualTypes-bigint"><code>BIGINT</code></a> (8-byte signed integer, from <code>-9,223,372,036,854,775,808</code> to <code>9,223,372,036,854,775,807</code>)</li><li><code>FLOAT</code> (4-byte single precision floating point number)</li><li><code>DOUBLE</code> (8-byte double precision floating point number)</li><li><a href="LanguageManual+Types#LanguageManualTypes-decimal"><code>DECIMAL</code></a><ul><li>Introduced in Hive <a href="https://issues.apache.org/jira/browse/HIVE-2693" class="external-link" rel="nofollow">0.11.0</a> with a precision of 38 digits</li><li>Hive <a href="https://issues.apache.org/jira/browse/HIVE-3976" class="external-link" rel="nofollow">0.13.0</a> introduced user definable precision and scale</li></ul></li></ul><h3 id="LanguageManualTypes-Date/TimeTypes">Date/Time Types</h3><ul><li><a href="LanguageManual+Types#LanguageManualTypes-timestamp"><code>TIMESTAMP</code></a> (Note: Only available starting with Hive <a href="https://issues.apache.org/jira/browse/HIVE-2272" class="external-link" rel="nofollow">0.8.0</a>)</li><li><a href="LanguageManual+Types#LanguageManualTypes-date"><code>DATE</code></a> (Note: Only available starting with Hive <a href="https://issues.apache.org/jira/browse/HIVE-4055" class="external-link" rel="nofollow">0.12.0</a>)</li></ul><h3 id="LanguageManualTypes-StringTypes">String Types</h3><ul><li><a href="LanguageManual+Types#LanguageManualTypes-string"><code>STRING</code></a></li><li><a href="LanguageManual+Types#LanguageManualTypes-varchar"><code>VARCHAR</code></a> (Note: Only available starting with Hive <a href="https://issues.apache.org/jira/browse/HIVE-4844" class="external-link" rel="nofollow">0.12.0</a>)</li><li><a href="LanguageManual+Types#LanguageManualTypes-char"><code>CHAR</code></a> (Note: Only available starting with Hive <a href="https://issues.apache.org/jira/browse/HIVE-5191" class="external-link" rel="nofollow">0.13.0</a>)</li></ul><h3 id="LanguageManualTypes-MiscTypes">Misc Types</h3><ul><li><code>BOOLEAN</code></li><li><code>BINARY</code> (Note: Only available starting with Hive <a href="https://issues.apache.org/jira/browse/HIVE-2380" class="external-link" rel="nofollow">0.8.0</a>)</li></ul><h3 id="LanguageManualTypes-ComplexTypes">Complex Types</h3><ul><li>arrays: <code>ARRAY&lt;data_type&gt;</code> (Note: negative values and non-constant expressions are allowed as of <a href="https://issues.apache.org/jira/browse/HIVE-7325" class="external-link" rel="nofollow">Hive 0.14</a>.)</li><li>maps: <code>MAP&lt;primitive_type, data_type&gt;</code> (Note: negative values and non-constant expressions are allowed as of <a href="https://issues.apache.org/jira/browse/HIVE-7325" class="external-link" rel="nofollow">Hive 0.14</a>.)</li><li>structs: <code>STRUCT&lt;col_name : data_type [COMMENT col_comment], ...&gt;</code></li><li>union: <code>UNIONTYPE&lt;data_type, data_type, ...&gt;</code> (Note: Only available starting with Hive <a href="https://issues.apache.org/jira/browse/HIVE-537" class="external-link" rel="nofollow">0.7.0</a>.)</li></ul><p><span class="confluence-anchor-link" id="LanguageManualTypes-tinyint"></span><span class="confluence-anchor-link" id="LanguageManualTypes-smallint"></span><span class="confluence-anchor-link" id="LanguageManualTypes-int"></span><span class="confluence-anchor-link" id="LanguageManualTypes-bigint"></span></p><h2 id="LanguageManualTypes-ColumnTypes">Column Types</h2><h3 id="LanguageManualTypes-IntegralTypes(TINYINT,SMALLINT,INT,BIGINT)">Integral Types (<code>TINYINT</code>, <code>SMALLINT</code>, <code>INT</code>, <code>BIGINT</code>)</h3><p>Integral literals are assumed to be <code>INT</code> by default, unless the number exceeds the range of <code>INT</code> in which case it is interpreted as a BIGINT, or if one of the following postfixes is present on the number.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Type</p></th><th class="confluenceTh"><p>Postfix</p></th><th class="confluenceTh"><p>Example</p></th></tr><tr><td class="confluenceTd"><p>TINYINT</p></td><td class="confluenceTd"><p>Y</p></td><td class="confluenceTd"><p>100Y</p></td></tr><tr><td class="confluenceTd"><p>SMALLINT</p></td><td class="confluenceTd"><p>S</p></td><td class="confluenceTd"><p>100S</p></td></tr><tr><td class="confluenceTd"><p>BIGINT</p></td><td class="confluenceTd"><p>L</p></td><td class="confluenceTd"><p>100L<span style="line-height: 1.4285715;"> </span></p></td></tr></tbody></table></div><p><span class="confluence-anchor-link" id="LanguageManualTypes-string"></span></p><h3 id="LanguageManualTypes-Strings">Strings</h3><p>String literals can be expressed with either single quotes (') or double quotes (&quot;). Hive uses C-style escaping within the strings.<span class="confluence-anchor-link" id="LanguageManualTypes-varchar"></span></p><h3 id="LanguageManualTypes-Varchar">Varchar</h3><p>Varchar types are created with a length specifier (between 1 and 65355), which defines the maximum number of characters allowed in the character string. If a string value being converted/assigned to a varchar value exceeds the length specifier, the string is silently truncated. Character length is determined by the number of code points contained by the character string.</p><p>Like string, trailing whitespace is significant in varchar and will affect comparison results.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Limitations</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Non-generic UDFs cannot directly use varchar type as input arguments or return values. String UDFs can be created instead, and the varchar values will be converted to strings and passed to the UDF. To use varchar arguments directly or to return varchar values, create a GenericUDF.<br /> There may be other contexts which do not support varchar, if they rely on reflection-based methods for retrieving type information. This includes some SerDe implementations.</p></div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Varchar datatype was introduced in Hive 0.12.0 (<a href="https://issues.apache.org/jira/browse/HIVE-4844" class="external-link" rel="nofollow">HIVE-4844</a>).</p></div></div><p><span class="confluence-anchor-link" id="LanguageManualTypes-char"></span></p><h3 id="LanguageManualTypes-Char">Char</h3><p>Char types are similar to Varchar but they are fixed-length meaning that values shorter than the specified length value are padded with spaces but trailing spaces are not important during comparisons. The maximum length is fixed at 255.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[CREATE TABLE foo (bar CHAR(10))
+]]></script>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Char datatype will be introduced in Hive 0.13.0 (<a href="https://issues.apache.org/jira/browse/HIVE-5191" class="external-link" rel="nofollow">HIVE-5191</a>).</p></div></div><p><span class="confluence-anchor-link" id="LanguageManualTypes-timestamp"></span></p><h3 id="LanguageManualTypes-Timestamps">Timestamps</h3><p>Supports traditional UNIX timestamp with optional nanosecond precision.</p><p>Supported conversions:</p><ul><li>Integer numeric types: Interpreted as UNIX timestamp in seconds</li><li>Floating point numeric types: Interpreted as UNIX timestamp in seconds with decimal precision</li><li>Strings: JDBC compliant java.sql.Timestamp format &quot;<code>YYYY-MM-DD HH:MM:SS.fffffffff</code>&quot; (9 decimal place precision)</li></ul><p>Timestamps are interpreted to be timezoneless and stored as an offset from the UNIX epoch. Convenience <a href="LanguageManual+UDF#LanguageManualUDF-DateFunctions">UDFs</a> for conversion to and from timezones are provided (<code>to_utc_timestamp</code>, <code>from_utc_timestamp</code>).<br /> All existing datetime <a href="LanguageManual+UDF#LanguageManualUDF-DateFunctions">UDFs</a> (month, day, year, hour, etc.) work with the <code>TIMESTAMP</code> data type.</p><p>Timestamps in text files have to use the format <code>yyyy-mm-dd hh:mm:ss[.f...]</code>. If they are in another format declare them as the appropriate type (INT, FLOAT, STRING, etc.) and use a UDF to convert them to timestamps.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Timestamps were introduced in Hive 0.8.0 (<a href="https://issues.apache.org/jira/browse/HIVE-2272" class="external-link" rel="nofollow">HIVE-2272</a>).</p></div></div><p><span style="line-height: 1.5625;"><span class="confluence-anchor-link" id="LanguageManualTypes-date"></span><br /></span></p><h3 id="LanguageManualTypes-Dates"><span style="line-height: 1.5625;">Dates</span></h3><p><code>DATE</code> values describe a particular year/month/day, in the form <code>YYYY-­MM-­DD</code>. For<br /> example, DATE '2013-­01-­01'. Date types do not have a time of day component.<br /> The range of values supported for the Date type is be 0000-­01-­01 to 9999-­12-­31, dependent on<br /> support by the primitive Java Date type.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Dates were introduced in Hive 0.12.0 (<a href="https://issues.apache.org/jira/browse/HIVE-4055" class="external-link" rel="nofollow">HIVE-4055</a>).</p></div></div><h4 id="LanguageManualTypes-CastingDates">Casting Dates</h4><p>Date types can only be converted to/from Date, Timestamp, or String types.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Valid casts to/from Date type</p></th><th class="confluenceTh"><p>Result</p></th></tr><tr><td class="confluenceTd"><p>cast(date as date)</p></td><td class="confluenceTd"><p>Same date value</p></td></tr><tr><td class="confluenceTd"><p>cast(timestamp as date)</p></td><td class="confluenceTd"><p>The year/month/day of the timestamp is determined, based on the local timezone, and returned as a date value.</p></td></tr><tr><td class="confluenceTd"><p>cast(string as date)</p></td><td class="confluenceTd"><p>If the string is in the form 'YYYY-MM-DD', then a date value corresponding to that year/month/day is returned. If the string value does not match this formate, then NULL is returned.</p></td></tr><tr><td class="confluenceTd"><p>cast(date as timestamp)</p></td><td class="confluenceTd"><p>A timestamp value is generated corresponding to midnight of the year/month/day of the date value, based on the local timezone.</p></td></tr><tr><td class="confluenceTd"><p>cast(date as string)</p></td><td class="confluenceTd"><p>The year/month/day represented by the Date is formatted as a string in the form 'YYYY-MM-DD'.</p></td></tr></tbody></table></div><p><span class="confluence-anchor-link" id="LanguageManualTypes-decimal"></span></p><h3 id="LanguageManualTypes-Decimals">Decimals </h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Decimal datatype was introduced in Hive 0.11.0 (<a href="https://issues.apache.org/jira/browse/HIVE-2693" class="external-link" rel="nofollow">HIVE-2693</a>) and revised in Hive 0.13.0 (<a href="https://issues.apache.org/jira/browse/HIVE-3976" class="external-link" rel="nofollow">HIVE-3976</a>).</p></div></div><p>The <code>DECIMAL</code> type in Hive is based on Java's <a href="http://docs.oracle.com/javase/6/docs/api/java/math/BigDecimal.html" class="external-link" rel="nofollow">BigDecimal</a> which is used for representing immutable arbitrary precision decimal numbers in Java. All regular number operations (e.g. +, -, *, /) and relevant UDFs (e.g. Floor, Ceil, Round, and many more) handle decimal types. You can cast to/from decimal types like you would do with other numeric types. The persistence format of the decimal type supports both scientific and non-scientific notation. Therefore, regardless of whether your dataset contains data like 1E+44 (scientific notation) or 4004 (non-scientific notation) or a combination of both, <code>DECIMAL</code> can be used for it.</p><ul><li>Hive 0.11 and 0.12 have the precision of the <code>DECIMAL</code> type fixed and limited to 38 digits.</li><li>As of Hive <a href="https://issues.apache.org/jira/browse/HIVE-3976" class="external-link" rel="nofollow">0.13</a> users can specify scale and precision when creating tables with the <code>DECIMAL</code> datatype using a <code>DECIMAL(precision, scale)</code> syntax.  If scale is not specified, it defaults to 0 (no fractional digits). If no precision is specified, it defaults to 10.</li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[CREATE TABLE foo (
+  a DECIMAL, -- Defaults to decimal(10,0)
+  b DECIMAL(9, 7)
+)
+]]></script>
+</div></div><p>For usage, see <a href="#LanguageManualTypes-FloatingPointTypes">Floating Point Types</a> in the Literals section below.<span class="confluence-anchor-link" id="LanguageManualTypes-DecimalLiterals"></span></p><h4 id="LanguageManualTypes-DecimalLiterals">Decimal Literals</h4><p>Integral literals larger than BIGINT must be handled with Decimal(38,0). The Postfix BD is required. Example:</p><pre>select CAST(18446744073709001000BD AS DECIMAL(38,0)) from my_table limit 1;</pre><h4 id="LanguageManualTypes-DecimalTypeIncompatibilitiesbetweenHive0.12.0and0.13.0">Decimal Type Incompatibilities between Hive 0.12.0 and 0.13.0</h4><p>With the changes in the Decimal data type in Hive 0.13.0, the pre-Hive 0.13.0 columns (of type &quot;decimal&quot;) will be treated as being of type decimal(10,0).  What this means is that existing data being read from these tables will be treated as 10-digit integer values, and data being written to these tables will be converted to 10-digit integer values before being written. To avoid these issues, Hive users on 0.12 or earlier with tables containing Decimal columns will be required to migrate their tables, after upgrading to Hive 0.13.0 or later.</p><h5 id="LanguageManualTypes-UpgradingPre-Hive0.13.0DecimalColumns">Upgrading Pre-Hive 0.13.0 Decimal Columns</h5><p>If the user was on Hive 0.12.0 or earlier and created tables with decimal columns, they should perform the following steps on these tables <strong>after</strong> upgrading to Hive 0.13.0 or later.</p><ol><li>Determine what precision/scale you would like to set for the decimal column in the table.</li><li><p>For each decimal column in the table, update the column definition to the desired precision/scale using the <a href="/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ChangeColumnName/Type/Position/Comment">ALTER TABLE</a> command:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[ALTER TABLE foo CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);]]></script>
+</div></div><p>If the table is not a partitioned table, then you are done.  If the table has partitions, then go on to step 3.</p></li><li><p>If the table is a partitioned table, then find the list of partitions for the table:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[SHOW PARTITIONS foo;
+ 
+ds=2008-04-08/hr=11
+ds=2008-04-08/hr=12
+...]]></script>
+</div></div></li><li><p>Each existing partition in the table must also have its DECIMAL column changed to add the desired precision/scale.</p><p>This can be done with a single <a href="/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-ChangeColumnName/Type/Position/Comment">ALTER TABLE CHANGE COLUMN</a> by using dynamic partitioning (available for ALTER TABLE CHANGE COLUMN in Hive 0.14 or later, with <a href="https://issues.apache.org/jira/browse/HIVE-8411" class="external-link" rel="nofollow">HIVE-8411</a>):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[SET hive.exec.dynamic.partition = true;
+ 
+-- hive.exec.dynamic.partition needs to be set to true to enable dynamic partitioning with ALTER PARTITION
+-- This will alter all existing partitions of the table - be sure you know what you are doing!
+ALTER TABLE foo PARTITION (ds, hr) CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);]]></script>
+</div></div><p> </p><p>Alternatively, this can be done one partition at a time using ALTER TABLE CHANGE COLUMN, by specifying one partition per statement (This is available in Hive 0.14 or later, with <a href="https://issues.apache.org/jira/browse/HIVE-7971" class="external-link" rel="nofollow">HIVE-7971</a>.):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[ALTER TABLE foo PARTITION (ds=&#39;2008-04-08&#39;, hr=11) CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);
+ALTER TABLE foo PARTITION (ds=&#39;2008-04-08&#39;, hr=12) CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);
+...]]></script>
+</div></div></li></ol><p>The Decimal datatype is discussed further in <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27838462#LanguageManualTypes-FloatingPointTypes" rel="nofollow">Floating Point Types</a> below.</p><h3 id="LanguageManualTypes-UnionTypes">Union Types</h3><p><span class="confluence-anchor-link" id="LanguageManualTypes-union"></span></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Union datatype was introduced in Hive 0.7.0 (<a href="https://issues.apache.org/jira/browse/HIVE-537" class="external-link" rel="nofollow">HIVE-537</a>). See <a href="https://issues.apache.org/jira/browse/HIVE-2390" class="external-link" rel="nofollow">HIVE-2390</a> for planned improvements.</p></div></div><p>Union types can at any one point hold exactly one of their specified data types. You can create an instance of this type using the <code>create_union</code> UDF:</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>CREATE TABLE union_test(foo UNIONTYPE&lt;int, double, array&lt;string&gt;, struct&lt;a:int,b:string&gt;&gt;);
+SELECT foo FROM union_test;
+
+{0:1}
+{1:2.0}
+{2:[&quot;three&quot;,&quot;four&quot;]}
+{3:{&quot;a&quot;:5,&quot;b&quot;:&quot;five&quot;}}
+{2:[&quot;six&quot;,&quot;seven&quot;]}
+{3:{&quot;a&quot;:8,&quot;b&quot;:&quot;eight&quot;}}
+{0:9}
+{1:10.0}
+</pre>
+</div></div><p>The first part in the deserialized union is the <em>tag</em> which lets us know which part of the union is being used. In this example <code>0</code> means the first data_type from the definition which is an <code>int</code> and so on.</p><p>To create a union you have to provide this tag to the <code>create_union</code> UDF:</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>SELECT create_union(0, key), create_union(if(key&lt;100, 0, 1), 2.0, value), create_union(1, &quot;a&quot;, struct(2, &quot;b&quot;)) FROM src LIMIT 2;
+
+{0:&quot;238&quot;}	{1:&quot;val_238&quot;}	{1:{&quot;col1&quot;:2,&quot;col2&quot;:&quot;b&quot;}}
+{0:&quot;86&quot;}	{0:2.0}	{1:{&quot;col1&quot;:2,&quot;col2&quot;:&quot;b&quot;}}
+</pre>
+</div></div><h2 id="LanguageManualTypes-Literals">Literals</h2><h3 id="LanguageManualTypes-FloatingPointTypes">Floating Point Types</h3><p>Floating point literals are assumed to be DOUBLE. Scientific notation is not yet supported.</p><h4 id="LanguageManualTypes-DecimalTypes">Decimal Types</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Decimal datatype was introduced in Hive 0.11.0 (<a href="https://issues.apache.org/jira/browse/HIVE-2693" class="external-link" rel="nofollow">HIVE-2693</a>). See <a href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27838462#LanguageManualTypes-DecimalDatatype" rel="nofollow">Decimal Datatype</a> above.</p></div></div><p>Decimal literals provide precise values and greater range for floating point numbers than the DOUBLE type. Decimal data types store exact representations of numeric values, while DOUBLE data types store very close approximations of numeric values.</p><p>Decimal types are needed for use cases in which the (very close) approximation of a DOUBLE is insufficient, such as financial applications, equality and inequality checks, and rounding operations. They are also needed for use cases that deal with numbers outside the DOUBLE range (approximately <span style="color: black;">-10</span><sup>308</sup> to <span style="color: black;">10</span><sup>308</sup>) or very close to zero (<span style="color: black;">-10</span><sup>-308</sup> to <span style="color: black;">10</span><sup>-308</sup>). For a general discussion of the limits of the DOUBLE type, see the Wikipedia article <a href="http://en.wikipedia.org/wiki/Double-precision_floating-point_format" class="external-link" rel="nofollow">Double-precision floating-point format</a>.</p><p>The precision of a Decimal type is limited to 38 digits in Hive. See <a href="https://issues.apache.org/jira/browse/HIVE-4271" class="external-link" rel="nofollow">HIVE-4271</a> and <a href="https://issues.apache.org/jira/browse/HIVE-4320" class="external-link" rel="nofollow">HIVE-4320</a> for comments about the reasons for choosing this limit.</p><h5 id="LanguageManualTypes-UsingDecimalTypes">Using Decimal Types</h5><p>You can create a table in Hive that uses the Decimal type with the following syntax:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[create table decimal_1 (t decimal);
+]]></script>
+</div></div><p>The table <code>decimal_1</code> is a table having one field of type decimal which is basically a Decimal value.</p><p>You can read and write values in such a table using either the LazySimpleSerDe or the LazyBinarySerDe. For example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[alter table decimal_1 set serde &#39;org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe&#39;;
+]]></script>
+</div></div><p>or:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[alter table decimal_1 set serde &#39;org.apache.hadoop.hive.serde2.lazy.LazyBinarySerDe&#39;;
+]]></script>
+</div></div><p>You can use a cast to convert a Decimal value to any other primitive type such as a BOOLEAN. For example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[select cast(t as boolean) from decimal_2;
+]]></script>
+</div></div><h5 id="LanguageManualTypes-MathematicalUDFs">Mathematical UDFs</h5><p>Decimal also supports many <a href="/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-ArithmeticOperators">arithmetic operators</a>, <a href="/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions">mathematical UDFs</a> and <a href="/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-Built-inAggregateFunctions(UDAF)">UDAFs</a> with the same syntax as used in the case of DOUBLE.</p><p>Basic mathematical operations that can use decimal types include:</p><ul><li>Positive</li><li>Negative</li><li>Addition</li><li>Subtraction</li><li>Multiplication</li><li>Division</li><li>Average (avg)</li><li>Sum</li><li>Count</li><li>Modulus (pmod)</li><li>Sign – <a href="https://issues.apache.org/jira/browse/HIVE-6246" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Exp – <a href="https://issues.apache.org/jira/browse/HIVE-6327" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Ln – <a href="https://issues.apache.org/jira/browse/HIVE-6327" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Log2 – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Log10 – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Log(<em>base</em>) – <a class="external-link" href="https://issues.apache.org/jira/browse/HIVE-6327" rel="nofollow" style="text-decoration: none;">Hive 0.13.0</a> and later</li><li>Sqrt – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Sin – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Asin – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Cos – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Acos – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Tan – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Atan – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Radians – <a href="https://issues.apache.org/jira/browse/HIVE-6327" style="text-decoration: none;" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li><li>Degrees – <a href="https://issues.apache.org/jira/browse/HIVE-6385" class="external-link" rel="nofollow">Hive 0.13.0</a> and later</li></ul><p>These rounding functions can also take decimal types:</p><ul><li>Floor</li><li>Ceiling</li><li>Round</li></ul><p>Power(decimal, n) only supports positive integer values for the exponent n.</p><h5 id="LanguageManualTypes-CastingDecimalValues">Casting Decimal Values</h5><p>Casting is supported between decimal values and any other primitive type such as integer, double, boolean, and so on.</p><h5 id="LanguageManualTypes-TestingDecimalTypes">Testing Decimal Types</h5><p>Two new tests have been added as part of the TestCliDriver framework within Hive. They are decimal_1.q and decimal_2.q. Other tests such as udf7.q cover the gamut of UDFs mentioned above.</p><p>More tests need to be added that demonstrate failure or when certain types of casts are prevented (for example, casting to date). There is some ambiguity in the round function because the rounding of Decimal does not work exactly as the SQL standard, and therefore it has been omitted in the current work.</p><p>For general information about running Hive tests, see <a href="https://cwiki.apache.org/confluence/display/Hive/HowToContribute" rel="nofollow">How to Contribute to Apache Hive</a> and <a href="https://cwiki.apache.org/confluence/display/Hive/HiveDeveloperFAQ" rel="nofollow">Hive Developer FAQ</a>.</p><h2 id="LanguageManualTypes-HandlingofNULLValues">Handling of NULL Values</h2><p>Missing values are represented by the special value NULL. To import data with NULL fields, check documentation of the SerDe used by the table. (The default Text Format uses LazySimpleSerDe which interprets the string \N as NULL when importing.)</p><h2 id="LanguageManualTypes-AllowedImplicitConversions">Allowed Implicit Conversions</h2><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p> </p></th><th class="confluenceTh"><p>void</p></th><th class="confluenceTh"><p>boolean</p></th><th class="confluenceTh"><p>tinyint</p></th><th class="confluenceTh"><p>smallint</p></th><th class="confluenceTh"><p>int</p></th><th class="confluenceTh"><p>bigint</p></th><th class="confluenceTh"><p>float</p></th><th class="confluenceTh"><p>double</p></th><th class="confluenceTh"><p>decimal</p></th><th class="confluenceTh"><p>string</p></th><th class="confluenceTh"><p>varchar</p></th><th class="confluenceTh"><p>timestamp</p></th><th class="confluenceTh"><p>date</p></th><th class="confluenceTh"><p>binary</p></th></tr><tr><th class="confluenceTh"><p>void to</p></th><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td></tr><tr><th class="confluenceTh"><p>boolean to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>tinyint to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>smallint to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>int to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>bigint to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>float to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>double to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>decimal to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>string to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>varchar to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>timestamp to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>date to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>false</p></td></tr><tr><th class="confluenceTh"><p>binary to</p></th><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>false</p></td><td class="confluenceTd"><p>true</p></td></tr></tbody></table></div>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Types"
+    dc:title="LanguageManual Types"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/27838462"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="27838462" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>

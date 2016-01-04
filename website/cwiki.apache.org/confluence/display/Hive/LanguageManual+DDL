@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>LanguageManual DDL - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451833216393">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="27362034">
+            <meta name="ajs-latest-page-id" content="27362034">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="LanguageManual DDL">
+            <meta name="ajs-parent-page-title" content="LanguageManual">
+            <meta name="ajs-parent-page-id" content="27362030">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-styles/org.randombits.confluence.toc%253Atoc-plugin-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/3.7.2/_/download/batch/confluence.extra.information%253Ainformation-plugin-adg-styles/confluence.extra.information%253Ainformation-plugin-adg-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Aclient-side-toc-resources/org.randombits.confluence.toc%253Aclient-side-toc-resources.js" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-analytics/org.randombits.confluence.toc%253Atoc-plugin-analytics.js" ></script>
+<script type="text/javascript" src="../../s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.js@locale=en-GB" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes.js" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="LanguageManual+DDL">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/8oKhAQ">
+    <meta name="wikilink" content="[Hive:LanguageManual DDL]">
+    <meta name="page-version" content="211">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="LanguageManual+DDL#title-heading">Skip to content</a></li>
+    <li><a href="LanguageManual+DDL#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="LanguageManual+DDL#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="LanguageManual+DDL#navigation">Skip to action menu</a></li>
+    <li><a href="LanguageManual+DDL#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="LanguageManual+DDL#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="LanguageManual+DDL#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FLanguageManual%2BDDL" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="LanguageManual" title="LanguageManual"><span class="icon"></span><span class="label">LanguageManual</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">LanguageManual DDL</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"><ul class="children"><li class="child-item" data-page-id="27362035"><span class="icon"></span><a href="LanguageManual+DDL+BucketedTables" title="LanguageManual DDL BucketedTables"><span class="label">LanguageManual DDL BucketedTables</span></a></li><li class="child-item" data-page-id="30755801"><span class="icon"></span><a href="Exchange+Partition" title="Exchange Partition"><span class="label">Exchange Partition</span></a></li></ul></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="LanguageManual+DDL#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=27362034" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (0)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=27362034" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362034" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362034" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=27362034" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=27362034#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=27362034" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=27362034" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=27362034" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27362034" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=27362034" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=27362034" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="LanguageManual">LanguageManual</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="LanguageManual+DDL#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="LanguageManual+DDL" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="LanguageManual+DDL" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="LanguageManual+DDL#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="LanguageManual+DDL">LanguageManual DDL</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="LanguageManual+DDL#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~admin"
+                       class="url fn"
+                            >Confluence Administrator</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/display/~pxiong"
+                       class="url fn"
+                            >pengcheng xiong</a></span> on <a class='last-modified' title='Dec 23, 2015 23:21' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=27362034&amp;selectedPageVersions=210&amp;selectedPageVersions=211'>Dec 23, 2015</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="LanguageManual+DDL#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <h1 id="LanguageManualDDL-HiveDataDefinitionLanguage">Hive Data Definition Language</h1><p><div class="toc-macro client-side-toc-macro " data-headerelements="H1,H2" data-structure="list"></div></p><h2 id="LanguageManualDDL-Overview">Overview</h2><p>HiveQL DDL statements are documented here, including:</p><ul><li>CREATE DATABASE/SCHEMA, TABLE, VIEW, FUNCTION, INDEX</li><li>DROP DATABASE/SCHEMA, TABLE, VIEW, INDEX</li><li>TRUNCATE TABLE</li><li>ALTER DATABASE/SCHEMA, TABLE, VIEW</li><li>MSCK REPAIR TABLE (or ALTER TABLE RECOVER PARTITIONS)</li><li>SHOW DATABASES/SCHEMAS, TABLES, TBLPROPERTIES, PARTITIONS, FUNCTIONS, INDEX[ES], COLUMNS, CREATE TABLE</li><li>DESCRIBE DATABASE/SCHEMA, table_name, view_name</li></ul><p>PARTITION statements are usually options of TABLE statements, except for SHOW PARTITIONS.</p><h2 id="LanguageManualDDL-Keywords,Non-reservedKeywordsandReservedKeywords">Keywords, Non-reserved Keywords and Reserved Keywords</h2><h3 id="LanguageManualDDL-Keywords">Keywords</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ADD,ADMIN,AFTER,ALL,ALTER,ANALYZE,AND,ARCHIVE,ARRAY,AS,ASC,AUTHORIZATION,BEFORE,BETWEEN,
+BIGINT,BINARY,BOOLEAN,BOTH,BUCKET,BUCKETS,BY,CASCADE,CASE,CAST,CHANGE,CHAR,CLUSTER,
+CLUSTERED,CLUSTERSTATUS,COLLECTION,COLUMN,COLUMNS,COMMENT,COMPACT,COMPACTIONS,COMPUTE,
+CONCATENATE,CONF,CONTINUE,CREATE,CROSS,CUBE,CURRENT,CURRENT_DATE,CURRENT_TIMESTAMP,CURSOR,
+DATA,DATABASE,DATABASES,DATE,DATETIME,DAY,DBPROPERTIES,DECIMAL,DEFERRED,DEFINED,DELETE,
+DELIMITED,DEPENDENCY,DESC,DESCRIBE,DIRECTORIES,DIRECTORY,DISABLE,DISTINCT,DISTRIBUTE,
+DOUBLE,DROP,ELEM_TYPE,ELSE,ENABLE,END,ESCAPED,EXCHANGE,EXCLUSIVE,EXISTS,EXPLAIN,EXPORT,
+EXTENDED,EXTERNAL,FALSE,FETCH,FIELDS,FILE,FILEFORMAT,FIRST,FLOAT,FOLLOWING,FOR,FORMAT,
+FORMATTED,FROM,FULL,FUNCTION,FUNCTIONS,GRANT,GROUP,GROUPING,HAVING,HOLD_DDLTIME,HOUR,
+IDXPROPERTIES,IF,IGNORE,IMPORT,IN,INDEX,INDEXES,INNER,INPATH,INPUTDRIVER,INPUTFORMAT,
+INSERT,INT,INTERSECT,INTERVAL,INTO,IS,ITEMS,JAR,JOIN,KEYS,KEY_TYPE,LATERAL,LEFT,LESS,
+LIKE,LIMIT,LINES,LOAD,LOCAL,LOCATION,LOCK,LOCKS,LOGICAL,LONG,MACRO,MAP,MAPJOIN,
+MATERIALIZED,MINUS,MINUTE,MONTH,MORE,MSCK,NONE,NOSCAN,NOT,NO_DROP,NULL,OF,OFFLINE,ON,
+OPTION,OR,ORDER,OUT,OUTER,OUTPUTDRIVER,OUTPUTFORMAT,OVER,OVERWRITE,OWNER,PARTIALSCAN,
+PARTITION,PARTITIONED,PARTITIONS,PERCENT,PLUS,PRECEDING,PRESERVE,PRETTY,PRINCIPALS,
+PROCEDURE,PROTECTION,PURGE,RANGE,READ,READONLY,READS,REBUILD,RECORDREADER,RECORDWRITER,
+REDUCE,REGEXP,RELOAD,RENAME,REPAIR,REPLACE,RESTRICT,REVOKE,REWRITE,RIGHT,RLIKE,ROLE,ROLES,
+ROLLUP,ROW,ROWS,SCHEMA,SCHEMAS,SECOND,SELECT,SEMI,SERDE,SERDEPROPERTIES,SERVER,SET,SETS,
+SHARED,SHOW,SHOW_DATABASE,SKEWED,SMALLINT,SORT,SORTED,SSL,STATISTICS,STORED,STREAMTABLE,
+STRING,STRUCT,TABLE,TABLES,TABLESAMPLE,TBLPROPERTIES,TEMPORARY,TERMINATED,THEN,TIMESTAMP,
+TINYINT,TO,TOUCH,TRANSACTIONS,TRANSFORM,TRIGGER,TRUE,TRUNCATE,UNARCHIVE,UNBOUNDED,UNDO,
+UNION,UNIONTYPE,UNIQUEJOIN,UNLOCK,UNSET,UNSIGNED,UPDATE,URI,USE,USER,USING,UTC,
+UTCTIMESTAMP,VALUES,VALUE_TYPE,VARCHAR,VIEW,WHEN,WHERE,WHILE,WINDOW,WITH,YEAR]]></script>
+</div></div><h3 id="LanguageManualDDL-Non-reservedKeywords">Non-reserved Keywords</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[ADD,ADMIN,AFTER,ANALYZE,ARCHIVE,ASC,BEFORE,BUCKET,BUCKETS,CASCADE,CHANGE,CLUSTER,
+CLUSTERED,CLUSTERSTATUS,COLLECTION,COLUMNS,COMMENT,COMPACT,COMPACTIONS,COMPUTE,
+CONCATENATE,CONTINUE,DATA,DATABASES,DATETIME,DAY,DBPROPERTIES,DEFERRED,DEFINED,
+DELIMITED,DEPENDENCY,DESC,DIRECTORIES,DIRECTORY,DISABLE,DISTRIBUTE,ELEM_TYPE,ENABLE,
+ESCAPED,EXCLUSIVE,EXPLAIN,EXPORT,FIELDS,FILE,FILEFORMAT,FIRST,FORMAT,FORMATTED,
+FUNCTIONS,HOLD_DDLTIME,HOUR,IDXPROPERTIES,IGNORE,INDEX,INDEXES,INPATH,INPUTDRIVER,
+INPUTFORMAT,ITEMS,JAR,KEYS,KEY_TYPE,LIMIT,LINES,LOAD,LOCATION,LOCK,LOCKS,LOGICAL,LONG,
+MAPJOIN,MATERIALIZED,MINUS,MINUTE,MONTH,MSCK,NOSCAN,NO_DROP,OFFLINE,OPTION,OUTPUTDRIVER,
+OUTPUTFORMAT,OVERWRITE,OWNER,PARTITIONED,PARTITIONS,PLUS,PRETTY,PRINCIPALS,PROTECTION,
+PURGE,READ,READONLY,REBUILD,RECORDREADER,RECORDWRITER,REGEXP (Hive 0.x.x and 1.x.x),
+RELOAD,RENAME,REPAIR,REPLACE,RESTRICT,REWRITE,RLIKE (Hive 0.x.x and 1.x.x),ROLE,ROLES,
+SCHEMA,SCHEMAS,SECOND,SEMI,SERDE,SERDEPROPERTIES,SERVER,SETS,SHARED,SHOW,SHOW_DATABASE,
+SKEWED,SORT,SORTED,SSL,STATISTICS,STORED,STREAMTABLE,STRING,STRUCT,TABLES,TBLPROPERTIES,
+TEMPORARY,TERMINATED,TINYINT,TOUCH,TRANSACTIONS,UNARCHIVE,UNDO,UNIONTYPE,UNLOCK,UNSET,
+UNSIGNED,URI,USE,UTC,UTCTIMESTAMP,VALUE_TYPE,VIEW,WHILE,YEAR]]></script>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>REGEXP and RLIKE are non-reserved keywords prior to Hive 2.0.0 and reserved keywords starting in Hive 2.0.0 (<a href="https://issues.apache.org/jira/browse/HIVE-11703" class="external-link" rel="nofollow">HIVE-11703</a>).</p></div></div><h3 id="LanguageManualDDL-ReservedKeywords"><span style="font-size: 16.0px;font-weight: bold;line-height: 1.5;">Reserved Keywords</span></h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[ALL,ALTER,AND,ARRAY,AS,AUTHORIZATION,BETWEEN,BIGINT,BINARY,BOOLEAN,BOTH,BY,CASE,CAST,
+CHAR,COLUMN,CONF,CREATE,CROSS,CUBE,CURRENT,CURRENT_DATE,CURRENT_TIMESTAMP,CURSOR,
+DATABASE,DATE,DECIMAL,DELETE,DESCRIBE,DISTINCT,DOUBLE,DROP,ELSE,END,EXCHANGE,EXISTS,
+EXTENDED,EXTERNAL,FALSE,FETCH,FLOAT,FOLLOWING,FOR,FROM,FULL,FUNCTION,GRANT,GROUP,
+GROUPING,HAVING,IF,IMPORT,IN,INNER,INSERT,INT,INTERSECT,INTERVAL,INTO,IS,JOIN,LATERAL,
+LEFT,LESS,LIKE,LOCAL,MACRO,MAP,MORE,NONE,NOT,NULL,OF,ON,OR,ORDER,OUT,OUTER,OVER,
+PARTIALSCAN,PARTITION,PERCENT,PRECEDING,PRESERVE,PROCEDURE,RANGE,READS,REDUCE,
+REGEXP (Hive 2.0.0 onward),REVOKE,RIGHT,RLIKE (Hive 2.0.0 onward),ROLLUP,ROW,ROWS,
+SELECT,SET,SMALLINT,TABLE,TABLESAMPLE,THEN,TIMESTAMP,TO,TRANSFORM,TRIGGER,TRUE,
+TRUNCATE,UNBOUNDED,UNION,UNIQUEJOIN,UPDATE,USER,USING,VALUES,VARCHAR,WHEN,WHERE,
+WINDOW,WITH]]></script>
+</div></div><p><span style="color: rgb(0,0,0);">Reserved keywords are permitted as identifiers if you quote them as described in <a class="external-link" href="https://issues.apache.org/jira/secure/attachment/12618321/QuotedIdentifier.html" rel="nofollow">Supporting Quoted Identifiers in Column Names</a> (<span style="color: rgb(0,0,0);">version 0.13.0 and later, see </span><a href="https://issues.apache.org/jira/browse/HIVE-6013" class="external-link" rel="nofollow">HIVE-6013</a>). Most of the keywords are reserved through <a href="https://issues.apache.org/jira/browse/HIVE-6617" class="external-link" rel="nofollow">HIVE-6617</a> in order to reduce the ambiguity in grammar (version 1.2.0 and later). <span>There are two ways if the user still would like to use those reserved keywords as identifiers: (1) use quoted identifiers, (2) set <a href="Configuration+Properties#ConfigurationProperties-hive.support.sql11.reserved.keywords">hive.support.sql11.reserved.keywords</a>=false. </span></span></p><h2 id="LanguageManualDDL-Create/Drop/AlterDatabase">Create/Drop/Alter Database</h2><h3 id="LanguageManualDDL-CreateDatabase">Create Database</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE (DATABASE|SCHEMA) [IF NOT EXISTS] database_name
+  [COMMENT database_comment]
+  [LOCATION hdfs_path]
+  [WITH DBPROPERTIES (property_name=property_value, ...)];
+]]></script>
+</div></div><p>The uses of SCHEMA and DATABASE are interchangeable – they mean the same thing. CREATE DATABASE was added in Hive 0.6 (<a href="https://issues.apache.org/jira/browse/HIVE-675" style="text-decoration: none;" class="external-link" rel="nofollow">HIVE-675</a>).  The WITH DBPROPERTIES clause was added in Hive 0.7 (<a href="https://issues.apache.org/jira/browse/HIVE-1836" class="external-link" rel="nofollow">HIVE-1836</a>).</p><h3 id="LanguageManualDDL-DropDatabase">Drop Database</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DROP (DATABASE|SCHEMA) [IF EXISTS] database_name [RESTRICT|CASCADE];
+]]></script>
+</div></div><p>The uses of SCHEMA and DATABASE are interchangeable – they mean the same thing. DROP DATABASE was added in Hive 0.6 (<a href="https://issues.apache.org/jira/browse/HIVE-675" style="text-decoration: none;" class="external-link" rel="nofollow">HIVE-675</a>).</p><h3 id="LanguageManualDDL-AlterDatabase">Alter Database</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER (DATABASE|SCHEMA) database_name SET DBPROPERTIES (property_name=property_value, ...);   -- (Note: SCHEMA added in Hive 0.14.0)
+
+ALTER (DATABASE|SCHEMA) database_name SET OWNER [USER|ROLE] user_or_role;   -- (Note: Hive 0.13.0 and later; SCHEMA added in Hive 0.14.0)]]></script>
+</div></div><p>The uses of SCHEMA and DATABASE are interchangeable – they mean the same thing. ALTER SCHEMA was added in Hive 0.14 (<a href="https://issues.apache.org/jira/browse/HIVE-6601" class="external-link" rel="nofollow">HIVE-6601</a>).</p><p>No other metadata about a database can be changed. </p><p> </p><p><span style="font-size: 20.0px;line-height: 1.5;">Use Database</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[USE database_name;
+USE DEFAULT;]]></script>
+</div></div><p style="margin-left: 0.0px;">USE sets the current database for all subsequent HiveQL statements. To revert to the default database, use the keyword &quot;<code>default</code>&quot; instead of a database name.</p><p style="margin-left: 0.0px;"><code>USE database_name</code> was added in Hive 0.6 (<a href="https://issues.apache.org/jira/browse/HIVE-675" style="text-decoration: none;" class="external-link" rel="nofollow">HIVE-675</a>).</p><h2 id="LanguageManualDDL-Create/Drop/TruncateTable">Create/Drop/Truncate Table</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1451833216590 {padding: 0px;}
+div.rbtoc1451833216590 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1451833216590 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1451833216590'>
+<ul class='toc-indentation'>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-CreateTable'>Create Table</a>
+<ul class='toc-indentation'>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-RowFormat,StorageFormat,andSerDe'>Row Format, Storage Format, and SerDe</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-PartitionedTables'>Partitioned Tables</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ExternalTables'>External Tables</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-CreateTableAsSelect(CTAS)'>Create Table As Select (CTAS)</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-CreateTableLike'>Create Table Like</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-BucketedSortedTables'>Bucketed Sorted Tables</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-SkewedTables'>Skewed Tables</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-TemporaryTables'>Temporary Tables</a></li>
+</ul>
+</li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-DropTable'>Drop Table</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-TruncateTable'>Truncate Table</a></li>
+</ul>
+</div><h3 id="LanguageManualDDL-CreateTable">Create Table</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name    -- (Note: TEMPORARY available in Hive 0.14.0 and later)
+  [(col_name data_type [COMMENT col_comment], ...)]
+  [COMMENT table_comment]
+  [PARTITIONED BY (col_name data_type [COMMENT col_comment], ...)]
+  [CLUSTERED BY (col_name, col_name, ...) [SORTED BY (col_name [ASC|DESC], ...)] INTO num_buckets BUCKETS]
+  [SKEWED BY (col_name, col_name, ...)                  -- (Note: Available in Hive 0.10.0 and later)]
+     ON ((col_value, col_value, ...), (col_value, col_value, ...), ...)
+     [STORED AS DIRECTORIES]
+  [
+   [ROW FORMAT row_format] 
+   [STORED AS file_format]
+     | STORED BY &#39;storage.handler.class.name&#39; [WITH SERDEPROPERTIES (...)]  -- (Note: Available in Hive 0.6.0 and later)
+  ]
+  [LOCATION hdfs_path]
+  [TBLPROPERTIES (property_name=property_value, ...)]   -- (Note: Available in Hive 0.6.0 and later)
+  [AS select_statement];   -- (Note: Available in Hive 0.5.0 and later; not supported for external tables)
+
+CREATE [TEMPORARY] [EXTERNAL] TABLE [IF NOT EXISTS] [db_name.]table_name
+  LIKE existing_table_or_view_name
+  [LOCATION hdfs_path];
+
+data_type
+  : primitive_type
+  | array_type
+  | map_type
+  | struct_type
+  | union_type  -- (Note: Available in Hive 0.7.0 and later)
+
+primitive_type
+  : TINYINT
+  | SMALLINT
+  | INT
+  | BIGINT
+  | BOOLEAN
+  | FLOAT
+  | DOUBLE
+  | STRING
+  | BINARY      -- (Note: Available in Hive 0.8.0 and later)
+  | TIMESTAMP   -- (Note: Available in Hive 0.8.0 and later)
+  | DECIMAL     -- (Note: Available in Hive 0.11.0 and later)
+  | DECIMAL(precision, scale)  -- (Note: Available in Hive 0.13.0 and later)
+  | DATE        -- (Note: Available in Hive 0.12.0 and later)
+  | VARCHAR     -- (Note: Available in Hive 0.12.0 and later)
+  | CHAR        -- (Note: Available in Hive 0.13.0 and later)
+
+array_type
+  : ARRAY &lt; data_type &gt;
+
+map_type
+  : MAP &lt; primitive_type, data_type &gt;
+
+struct_type
+  : STRUCT &lt; col_name : data_type [COMMENT col_comment], ...&gt;
+
+union_type
+   : UNIONTYPE &lt; data_type, data_type, ... &gt;  -- (Note: Available in Hive 0.7.0 and later)
+
+row_format
+  : DELIMITED [FIELDS TERMINATED BY char [ESCAPED BY char]] [COLLECTION ITEMS TERMINATED BY char]
+        [MAP KEYS TERMINATED BY char] [LINES TERMINATED BY char]
+        [NULL DEFINED AS char]   -- (Note: Available in Hive 0.13 and later)
+  | SERDE serde_name [WITH SERDEPROPERTIES (property_name=property_value, property_name=property_value, ...)]
+
+file_format:
+  : SEQUENCEFILE
+  | TEXTFILE    -- (Default, depending on hive.default.fileformat configuration)
+  | RCFILE      -- (Note: Available in Hive 0.6.0 and later)
+  | ORC         -- (Note: Available in Hive 0.11.0 and later)
+  | PARQUET     -- (Note: Available in Hive 0.13.0 and later)
+  | AVRO        -- (Note: Available in Hive 0.14.0 and later)
+  | INPUTFORMAT input_format_classname OUTPUTFORMAT output_format_classname
+]]></script>
+</div></div><p>CREATE TABLE creates a table with the given name. An error is thrown if a table or view with the same name already exists. You can use IF NOT EXISTS to skip the error.</p><ul><li>Table names and column names are case insensitive but SerDe and property names are case sensitive.<ul><li>In Hive 0.12 and earlier, only alphanumeric and underscore characters are allowed in table and column names.</li><li>In Hive 0.13 and later, column names can contain any <a href="http://en.wikipedia.org/wiki/List_of_Unicode_characters" class="external-link" rel="nofollow">Unicode</a> character (see <a href="https://issues.apache.org/jira/browse/HIVE-6013" class="external-link" rel="nofollow">HIVE-6013</a>). Any column name that is specified within backticks (<code>`</code>) is treated literally. Within a backtick string, use double backticks (<code>``</code>) to represent a backtick character. Backtick quotation also enables the use of reserved keywords for table and column identifiers.</li><li>To revert to pre-0.13.0 behavior and restrict column names to alphanumeric and underscore characters, set the configuration property <code><a href="Configuration+Properties#ConfigurationProperties-hive.support.quoted.identifiers">hive.support.quoted.identifiers</a></code> to <code>none</code>. In this configuration, backticked names are interpreted as regular expressions. For details, see <a href="https://issues.apache.org/jira/secure/attachment/12618321/QuotedIdentifier.html" class="external-link" rel="nofollow">Supporting Quoted Identifiers in Column Names</a>.</li></ul></li><li>Table and column comments are string literals (single-quoted).</li><li>The TBLPROPERTIES clause allows you to tag the table definition with your own metadata key/value pairs. Some predefined table properties also exist, such as last_modified_user and last_modified_time which are automatically added and managed by Hive. Other predefined table properties include:<ul><li>TBLPROPERTIES (&quot;comment&quot;=&quot;<em>table_comment</em>&quot;)</li><li>TBLPROPERTIES (&quot;hbase.table.name&quot;=&quot;<em>table_name</em>&quot;) – see <a href="HBaseIntegration#HBaseIntegration-Usage">HBase Integration</a>.</li><li>TBLPROPERTIES (&quot;immutable&quot;=&quot;true&quot;) or (&quot;immutable&quot;=&quot;false&quot;) in release 0.13.0+ (<a href="https://issues.apache.org/jira/browse/HIVE-6406" class="external-link" rel="nofollow">HIVE-6406</a>) – see <a href="LanguageManual+DML#LanguageManualDML-InsertingdataintoHiveTablesfromqueries">Inserting Data into Hive Tables from Queries</a>.</li><li>TBLPROPERTIES (&quot;orc.compress&quot;=&quot;ZLIB&quot;) or (&quot;orc.compress&quot;=&quot;SNAPPY&quot;) or (&quot;orc.compress&quot;=&quot;NONE&quot;) and other ORC properties – see <a href="LanguageManual+ORC#LanguageManualORC-HiveQLSyntax">ORC Files</a>.</li><li>TBLPROPERTIES (&quot;transactional&quot;=&quot;true&quot;) or (&quot;transactional&quot;=&quot;false&quot;) in release 0.14.0+, the default is &quot;false&quot; – see <a href="Hive+Transactions#HiveTransactions-TableProperties">Hive Transactions</a>.</li><li>TBLPROPERTIES (&quot;NO_AUTO_COMPACTION&quot;=&quot;true&quot;) or (&quot;NO_AUTO_COMPACTION&quot;=&quot;false&quot;), the default is &quot;false&quot; – see <a href="Hive+Transactions#HiveTransactions-TableProperties">Hive Transactions</a>.</li><li>TBLPROPERTIES (<span>&quot;auto.purge&quot;=&quot;true&quot;) or (<span>&quot;auto.purge&quot;=&quot;false&quot;</span></span>) in release 1.2.0+ (<a href="https://issues.apache.org/jira/browse/HIVE-9118" class="external-link" rel="nofollow">HIVE-9118</a>) <span>– see <a href="LanguageManual+DDL#LanguageManualDDL-DropTable">Drop Table</a> and <a href="LanguageManual+DDL#LanguageManualDDL-DropPartitions">Drop Partitions</a>.</span></li></ul></li><li>To specify a database for the table, either issue the <a href="LanguageManual+DDL#LanguageManualDDL-UseDatabase">USE database_name</a> statement prior to the CREATE TABLE statement (in <a href="https://issues.apache.org/jira/browse/HIVE-675" class="external-link" rel="nofollow">Hive 0.6</a> and later) or qualify the table name with a database name (&quot;<code>database_name.table.name</code>&quot; in <a href="https://issues.apache.org/jira/browse/HIVE-1517" class="external-link" rel="nofollow">Hive 0.7</a> and later). The keyword &quot;<code>default</code>&quot; can be used for the default database.</li></ul><p>See <a href="LanguageManual+DDL#LanguageManualDDL-AlterTable" rel="nofollow">Alter Table</a> below for more information about table comments, table properties, and SerDe properties.</p><p>See <a href="Tutorial#Tutorial-TypeSystem">Type System</a> and <a href="LanguageManual+Types">Hive Data Types</a> for details about the primitive and complex data types.</p><h4 id="LanguageManualDDL-RowFormat,StorageFormat,andSerDe">Row Format, Storage Format, and SerDe</h4><p>You can create tables with a custom SerDe or using a native SerDe. A native SerDe is used if ROW FORMAT is not specified or ROW FORMAT DELIMITED is specified. You can use the DELIMITED clause to read delimited files, and you can enable escaping for the delimiter characters by using the 'ESCAPED BY' clause (such as ESCAPED BY '\') – escaping is needed if you want to work with data that can contain these delimiter characters. A custom NULL format can also be specified using the 'NULL DEFINED AS' clause (default is '\N'). Use the SERDE clause to create a table with a custom SerDe. For more information on SerDes see:</p><ul><li><a href="DeveloperGuide#DeveloperGuide-HiveSerDe">Hive SerDe</a></li><li><a href="SerDe">SerDe</a></li><li><a href="HCatalog+StorageFormats">HCatalog Storage Formats</a></li></ul><p>You must specify a list of columns for tables that use a native SerDe. Refer to the <a href="LanguageManual+Types">Types</a> part of the User Guide for the allowable column types. A list of columns for tables that use a custom SerDe may be specified but Hive will query the SerDe to determine the actual list of columns for this table.</p><p>Use STORED AS TEXTFILE if the data needs to be stored as plain text files. TEXTFILE is the default file format, unless the configuration parameter <a href="Configuration+Properties#ConfigurationProperties-hive.default.fileformat">hive.default.fileformat</a> has a different setting.</p><p>Use STORED AS SEQUENCEFILE if the data needs to be compressed. Please read more about <a href="CompressedStorage">CompressedStorage</a> if you are planning to keep data compressed in your Hive tables.</p><p>Use STORED AS ORC if the data needs to be stored in <a href="LanguageManual+ORC#LanguageManualORC-HiveQLSyntax">ORC file format</a>.</p><p>Use ROW FORMAT SERDE for the RegEx SerDe, as shown in the example <a href="GettingStarted#GettingStarted-ApacheWeblogData">Apache Weblog Data</a> in Getting Started.</p><p>Use INPUTFORMAT and OUTPUTFORMAT in the file_format to specify the name of a corresponding InputFormat and OutputFormat class as a string literal, for example, 'org.apache.hadoop.hive.contrib.fileformat.base64.Base64TextInputFormat'. For LZO compression, the values to use are 'INPUTFORMAT &quot;com.hadoop.mapred.DeprecatedLzoTextInputFormat&quot; OUTPUTFORMAT &quot;org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat&quot;' (see <a href="LanguageManual+LZO">LZO Compression</a>).</p><p>Use STORED AS PARQUET (without ROW FORMAT SERDE) for the <a href="Parquet">Parquet</a> columnar storage format in <a href="Parquet#Parquet-Hive0.13andlater">Hive 0.13.0 and later</a>; or use ROW FORMAT SERDE ... STORED AS INPUTFORMAT ... OUTPUTFORMAT ... in <a href="Parquet#Parquet-Hive0.10-0.12">Hive 0.10, 0.11, or 0.12</a>.</p><p>Use STORED AS AVRO for Avro files in <a href="https://issues.apache.org/jira/browse/HIVE-6806" class="external-link" rel="nofollow">Hive 0.14.0 and later</a> (see <a href="AvroSerDe">Avro SerDe</a>).</p><p>Use STORED BY to create a non-native table, for example in <a href="HBaseIntegration">HBase</a>. See <a href="StorageHandlers">StorageHandlers</a> for more information on this option.</p><p>To change a table's SerDe or SERDEPROPERTIES, use the ALTER TABLE statement as described below in <a href="LanguageManual+DDL#LanguageManualDDL-AddSerDeProperties">Add SerDe Properties</a>.</p><h4 id="LanguageManualDDL-PartitionedTables">Partitioned Tables</h4><p>Partitioned tables can be created using the PARTITIONED BY clause. A table can have one or more partition columns and a separate data directory is created for each distinct value combination in the partition columns. Further, tables or partitions can be bucketed using CLUSTERED BY columns, and data can be sorted within that bucket via SORT BY columns. This can improve performance on certain kinds of queries.</p><p>If, when creating a partitioned table, you get this error: &quot;FAILED: Error in semantic analysis: Column repeated in partitioning columns,&quot; it means you are trying to include the partitioned column in the data of the table itself. You probably really do have the column defined. However, the partition you create makes a pseudocolumn on which you can query, so you must rename your table column to something else (that users should not query on!).</p><p>For example, suppose your original unpartitioned table had three columns: id, date, and name.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[id     int,
+date   date,
+name   varchar
+]]></script>
+</div></div><p>Now you want to partition on date. Your Hive definition could use &quot;dtDontQuery&quot; as a column name so that &quot;date&quot; can be used for partitioning (and querying).</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[create table table_name (
+  id                int,
+  dtDontQuery       string,
+  name              string
+)
+partitioned by (date string)
+]]></script>
+</div></div><p>Now your users will still query on &quot;<code>where date = '...'</code>&quot; but the second column dtDontQuery will hold the original values.</p><p>Here's an example statement to create a partitioned table:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE page_view(viewTime INT, userid BIGINT,
+     page_url STRING, referrer_url STRING,
+     ip STRING COMMENT &#39;IP Address of the User&#39;)
+ COMMENT &#39;This is the page view table&#39;
+ PARTITIONED BY(dt STRING, country STRING)
+ STORED AS SEQUENCEFILE;
+]]></script>
+</div></div><p>The statement above creates the page_view table with viewTime, userid, page_url, referrer_url, and ip columns (including comments). The table is also partitioned and data is stored in sequence files. The data format in the files is assumed to be field-delimited by ctrl-A and row-delimited by newline.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE page_view(viewTime INT, userid BIGINT,
+     page_url STRING, referrer_url STRING,
+     ip STRING COMMENT &#39;IP Address of the User&#39;)
+ COMMENT &#39;This is the page view table&#39;
+ PARTITIONED BY(dt STRING, country STRING)
+ ROW FORMAT DELIMITED
+   FIELDS TERMINATED BY &#39;\001&#39;
+STORED AS SEQUENCEFILE;
+]]></script>
+</div></div><p>The above statement lets you create the same table as the previous table.</p><p>In the previous examples the data is stored in &lt;hive.metastore.warehouse.dir&gt;/page_view. Specify a value for the key <code><a href="Configuration+Properties#ConfigurationProperties-hive.metastore.warehouse.dir">hive.metastore.warehouse.dir</a></code> in the Hive config file hive-site.xml.</p><h4 id="LanguageManualDDL-ExternalTables">External Tables</h4><p>The EXTERNAL keyword lets you create a table and provide a LOCATION so that Hive does not use a default location for this table. This comes in handy if you already have data generated. When dropping an EXTERNAL table, data in the table is <em>NOT</em> deleted from the file system.</p><p>An EXTERNAL table points to any HDFS location for its storage, rather than being stored in a folder specified by the configuration property <code><a href="Configuration+Properties#ConfigurationProperties-hive.metastore.warehouse.dir">hive.metastore.warehouse.dir</a></code>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE EXTERNAL TABLE page_view(viewTime INT, userid BIGINT,
+     page_url STRING, referrer_url STRING,
+     ip STRING COMMENT &#39;IP Address of the User&#39;,
+     country STRING COMMENT &#39;country of origination&#39;)
+ COMMENT &#39;This is the staging page view table&#39;
+ ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;\054&#39;
+ STORED AS TEXTFILE
+ LOCATION &#39;&lt;hdfs_location&gt;&#39;;
+]]></script>
+</div></div><p>You can use the above statement to create a page_view table which points to any HDFS location for its storage. But you still have to make sure that the data is delimited as specified in the CREATE statement above.</p><h4 id="LanguageManualDDL-CreateTableAsSelect(CTAS)">Create Table As Select (CTAS)</h4><p>Tables can also be created and populated by the results of a query in one create-table-as-select (CTAS) statement. The table created by CTAS is atomic, meaning that the table is not seen by other users until all the query results are populated. So other users will either see the table with the complete results of the query or will not see the table at all.</p><p>There are two parts in CTAS, the SELECT part can be any <a href="LanguageManual+Select">SELECT statement</a> supported by HiveQL. The CREATE part of the CTAS takes the resulting schema from the SELECT part and creates the target table with other table properties such as the SerDe and storage format.</p><p>CTAS has these restrictions:</p><ul><li>The target table cannot be a partitioned table.</li><li>The target table cannot be an external table.</li><li>The target table cannot be a list bucketing table.</li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE new_key_value_store
+   ROW FORMAT SERDE &quot;org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe&quot;
+   STORED AS RCFile
+   AS
+SELECT (key % 1024) new_key, concat(key, value) key_value_pair
+FROM key_value_store
+SORT BY new_key, key_value_pair;
+]]></script>
+</div></div><p>The above CTAS statement creates the target table new_key_value_store with the schema (new_key DOUBLE, key_value_pair STRING) derived from the results of the SELECT statement. If the SELECT statement does not specify column aliases, the column names will be automatically assigned to _col0, _col1, and _col2 etc. In addition, the new target table is created using a specific SerDe and a storage format independent of the source tables in the SELECT statement.</p><p>Starting with <a href="https://issues.apache.org/jira/browse/HIVE-1180" class="external-link" rel="nofollow">Hive 0.13.0</a>, the SELECT statement can include one or more common table expressions (CTEs), as shown in the <a href="LanguageManual+Select#LanguageManualSelect-SelectSyntax">SELECT syntax</a>. For an example, see <a href="Common+Table+Expression#CommonTableExpression-CTEinViews,CTAS,andInsertStatements">Common Table Expression</a>.</p><p>Being able to select data from one table to another is one of the most powerful features of Hive. Hive handles the conversion of the data from the source format to the destination format as the query is being executed.</p><h4 id="LanguageManualDDL-CreateTableLike">Create Table Like</h4><p>The LIKE form of CREATE TABLE allows you to copy an existing table definition exactly (without copying its data). In contrast to CTAS, the statement below creates a new empty_key_value_store table whose definition exactly matches the existing key_value_store in all particulars other than table name. The new table contains no rows.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE empty_key_value_store
+LIKE key_value_store;
+]]></script>
+</div></div><p>Before Hive 0.8.0, CREATE TABLE LIKE view_name would make a copy of the view. In Hive 0.8.0 and later releases, CREATE TABLE LIKE view_name creates a table by adopting the schema of view_name (fields and partition columns) using defaults for SerDe and file formats.</p><h4 id="LanguageManualDDL-BucketedSortedTables">Bucketed Sorted Tables</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE page_view(viewTime INT, userid BIGINT,
+     page_url STRING, referrer_url STRING,
+     ip STRING COMMENT &#39;IP Address of the User&#39;)
+ COMMENT &#39;This is the page view table&#39;
+ PARTITIONED BY(dt STRING, country STRING)
+ CLUSTERED BY(userid) SORTED BY(viewTime) INTO 32 BUCKETS
+ ROW FORMAT DELIMITED
+   FIELDS TERMINATED BY &#39;\001&#39;
+   COLLECTION ITEMS TERMINATED BY &#39;\002&#39;
+   MAP KEYS TERMINATED BY &#39;\003&#39;
+ STORED AS SEQUENCEFILE;
+]]></script>
+</div></div><p>In the example above, the page_view table is bucketed (clustered by) userid and within each bucket the data is sorted in increasing order of viewTime. Such an organization allows the user to do efficient sampling on the clustered column - in this case userid. The sorting property allows internal operators to take advantage of the better-known data structure while evaluating queries, also increasing efficiency. MAP KEYS and COLLECTION ITEMS keywords can be used if any of the columns are lists or maps.</p><p>The CLUSTERED BY and SORTED BY creation commands do not affect how data is inserted into a table – only how it is read. This means that users must be careful to insert data correctly by specifying the number of reducers to be equal to the number of buckets, and using CLUSTER BY and SORT BY commands in their query.</p><p>There is also an example of <a href="LanguageManual+DDL+BucketedTables">creating and populating bucketed tables</a>.</p><h4 id="LanguageManualDDL-SkewedTables">Skewed Tables</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.10.0 (<a href="https://issues.apache.org/jira/browse/HIVE-3072" class="external-link" rel="nofollow">HIVE-3072</a> and <a href="https://issues.apache.org/jira/browse/HIVE-3649" class="external-link" rel="nofollow">HIVE-3649</a>). See <a href="https://issues.apache.org/jira/browse/HIVE-3026" class="external-link" rel="nofollow">HIVE-3026</a> for additional JIRA tickets that implemented list bucketing in Hive 0.10.0 and 0.11.0.</p></div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Design documents</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Read the <a href="Skewed+Join+Optimization">Skewed Join Optimization</a> and <a href="ListBucketing">List Bucketing</a> design documents for more information.</p></div></div><p>This feature can be used to improve performance for tables where one or more columns have <a href="Skewed+Join+Optimization">skewed</a> values. By specifying the values that appear very often (heavy skew) Hive will split those out into separate files (or directories in case of <a href="ListBucketing">list bucketing</a>) automatically and take this fact into account during queries so that it can skip or include the whole file <span>(or directory in case of <a href="ListBucketing">list bucketing</a>)</span> if possible.</p><p>This can be specified on a per-table level during table creation.</p><p>The following example shows one column with three skewed values, optionally with the STORED AS DIRECTORIES clause which specifies list bucketing.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE list_bucket_single (key STRING, value STRING)
+  SKEWED BY (key) ON (1,5,6) [STORED AS DIRECTORIES];
+]]></script>
+</div></div><p>And here is an example of a table with two skewed columns.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE list_bucket_multiple (col1 STRING, col2 int, col3 STRING)
+  SKEWED BY (col1, col2) ON ((&#39;s1&#39;,1), (&#39;s3&#39;,3), (&#39;s13&#39;,13), (&#39;s78&#39;,78)) [STORED AS DIRECTORIES];
+]]></script>
+</div></div><p>For corresponding ALTER TABLE statements, see <a href="LanguageManual+DDL#LanguageManualDDL-AlterTableSkewedorStoredasDirectories">Alter Table Skewed or Stored as Directories</a> below.</p><h4 id="LanguageManualDDL-TemporaryTables">Temporary Tables</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.14.0 (<a href="https://issues.apache.org/jira/browse/HIVE-7090" class="external-link" rel="nofollow">HIVE-7090</a>).</p></div></div><p>A table that has been created as a temporary table will only be visible to the current session. Data will be stored in the user's scratch directory, and deleted at the end of the session.</p><p>If a temporary table is created with a database/table name of a permanent table which already exists in the database, then within that session any references to that table will resolve to the temporary table, rather than to the permanent table. The user will not be able to access the original table within that session without either dropping the temporary table, or renaming it to a non-conflicting name.</p><p>Temporary tables have the following limitations:</p><ul><li>Partition columns are not supported.</li><li>No support for creation of indexes.</li></ul><p>S<span>tarting in </span><a href="https://issues.apache.org/jira/browse/HIVE-7313" class="external-link" rel="nofollow">Hive 1.1.0</a><span> t</span>he storage policy for temporary tables can be set to <code>memory</code>, <code>ssd</code>, or <code>default</code> with the <a href="Configuration+Properties#ConfigurationProperties-hive.exec.temporary.table.storage">hive.exec.temporary.table.storage</a> configuration parameter (see <a href="http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/ArchivalStorage.html#Storage_Types_and_Storage_Policies" class="external-link" rel="nofollow">HDFS Storage Types and Storage Policies</a>).</p><h3 id="LanguageManualDDL-DropTable">Drop Table</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DROP TABLE [IF EXISTS] table_name [PURGE];     -- (Note: PURGE available in Hive 0.14.0 and later)
+]]></script>
+</div></div><p>DROP TABLE removes metadata and data for this table. The data is actually moved to the .Trash/Current directory if Trash is configured (and PURGE is not specified). The metadata is completely lost.</p><p>When dropping an EXTERNAL table, data in the table will <em>NOT</em> be deleted from the file system.</p><p>When dropping a table referenced by views, no warning is given (the views are left dangling as invalid and must be dropped or recreated by the user).</p><p>Otherwise, the table information is removed from the metastore and the raw data is removed as if by 'hadoop dfs -rm'. In many cases, this results in the table data being moved into the user's .Trash folder in their home directory; users who mistakenly DROP TABLEs may thus be able to recover their lost data by recreating a table with the same schema, recreating any necessary partitions, and then moving the data back into place manually using Hadoop. This solution is subject to change over time or across installations as it relies on the underlying implementation; users are strongly encouraged not to drop tables capriciously.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information:  PURGE</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The PURGE option is added in version 0.14.0 by <a href="https://issues.apache.org/jira/browse/HIVE-7100" class="external-link" rel="nofollow">HIVE-7100</a>.</p></div></div><p><span><span><span>If </span><span>PURGE</span><span> is specified, the table data does not go to the .Trash/Current directory and so cannot be retrieved in the event of a mistaken DROP. The </span><span>purge</span><span> option can also be specified with the table property </span><span>auto.purge (see <a href="#LanguageManualDDL-CreateTable">Create Table</a> above).</span></span></span></p><p><span><span>In Hive 0.7.0 or later, DROP returns an error if the table doesn't exist, unless IF EXISTS is specified or the configuration variable </span><a href="/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.exec.drop.ignorenonexistent">hive.exec.drop.ignorenonexistent</a><span> is set to true.</span></span></p><p><span>See the Alter Partition section below for how to </span><a href="#LanguageManualDDL-DropPartitions">drop partitions</a><span>.</span></p><h3 id="LanguageManualDDL-TruncateTable">Truncate Table</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.11.0 (<a href="https://issues.apache.org/jira/browse/HIVE-446" class="external-link" rel="nofollow">HIVE-446</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[TRUNCATE TABLE table_name [PARTITION partition_spec];
+
+partition_spec:
+  : (partition_column = partition_col_value, partition_column = partition_col_value, ...)
+]]></script>
+</div></div><p>Removes all rows from a table or partition(s). Currently target table should be native/managed table or exception will be thrown. User can specify partial partition_spec for truncating multiple partitions at once and omitting partition_spec will truncate all partitions in the table.</p><h2 id="LanguageManualDDL-AlterTable/Partition/Column">Alter Table/Partition/Column</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1451833216654 {padding: 0px;}
+div.rbtoc1451833216654 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1451833216654 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1451833216654'>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-AlterTable'>Alter Table</a>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-RenameTable'>Rename Table</a></li>
+<li><a href='#LanguageManualDDL-AlterTableProperties'>Alter Table Properties</a>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-AlterTableComment'>Alter Table Comment</a></li>
+</ul>
+</li>
+<li><a href='#LanguageManualDDL-AddSerDeProperties'>Add SerDe Properties</a></li>
+<li><a href='#LanguageManualDDL-AlterTableStorageProperties'>Alter Table Storage Properties</a></li>
+<li><a href='#LanguageManualDDL-AlterTableSkewedorStoredasDirectories'>Alter Table Skewed or Stored as Directories</a>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-AlterTableSkewed'>Alter Table Skewed</a></li>
+<li><a href='#LanguageManualDDL-AlterTableNotSkewed'>Alter Table Not Skewed</a></li>
+<li><a href='#LanguageManualDDL-AlterTableNotStoredasDirectories'>Alter Table Not Stored as Directories</a></li>
+<li><a href='#LanguageManualDDL-AlterTableSetSkewedLocation'>Alter Table Set Skewed Location</a></li>
+</ul>
+</li>
+<li><a href='#LanguageManualDDL-AdditionalAlterTableStatements'>Additional Alter Table Statements</a></li>
+</ul>
+</li>
+<li><a href='#LanguageManualDDL-AlterPartition'>Alter Partition</a>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-AddPartitions'>Add Partitions</a></li>
+<li><a href='#LanguageManualDDL-RenamePartition'>Rename Partition</a></li>
+<li><a href='#LanguageManualDDL-ExchangePartition'>Exchange Partition</a></li>
+<li><a href='#LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE)'>Recover Partitions (MSCK REPAIR TABLE)</a></li>
+<li><a href='#LanguageManualDDL-DropPartitions'>Drop Partitions</a></li>
+<li><a href='#LanguageManualDDL-(Un)ArchivePartition'>(Un)Archive Partition</a></li>
+</ul>
+</li>
+<li><a href='#LanguageManualDDL-AlterEitherTableorPartition'>Alter Either Table or Partition</a>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-AlterTable/PartitionFileFormat'>Alter Table/Partition File Format</a></li>
+<li><a href='#LanguageManualDDL-AlterTable/PartitionLocation'>Alter Table/Partition Location</a></li>
+<li><a href='#LanguageManualDDL-AlterTable/PartitionTouch'>Alter Table/Partition Touch</a></li>
+<li><a href='#LanguageManualDDL-AlterTable/PartitionProtections'>Alter Table/Partition Protections</a></li>
+<li><a href='#LanguageManualDDL-AlterTable/PartitionCompact'>Alter Table/Partition Compact</a></li>
+<li><a href='#LanguageManualDDL-AlterTable/PartitionConcatenate'>Alter Table/Partition Concatenate</a></li>
+</ul>
+</li>
+<li><a href='#LanguageManualDDL-AlterColumn'>Alter Column</a>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-RulesforColumnNames'>Rules for Column Names</a></li>
+<li><a href='#LanguageManualDDL-ChangeColumnName/Type/Position/Comment'>Change Column Name/Type/Position/Comment</a></li>
+<li><a href='#LanguageManualDDL-Add/ReplaceColumns'>Add/Replace Columns</a></li>
+<li><a href='#LanguageManualDDL-PartialPartitionSpecification'>Partial Partition Specification</a></li>
+</ul>
+</li>
+</ul>
+</div><p>Alter table statements enable you to change the structure of an existing table. You can add columns/partitions, change SerDe, add table and SerDe properties, or rename the table itself. Similarly, alter table partition statements allow you change the properties of a specific partition in the named table.</p><h3 id="LanguageManualDDL-AlterTable">Alter Table</h3><h4 id="LanguageManualDDL-RenameTable">Rename Table</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name RENAME TO new_table_name;
+]]></script>
+</div></div><p>This statement lets you change the name of a table to a different name.</p><p>As of version 0.6, a rename on a managed table moves its HDFS location as well. (Older Hive versions just renamed the table in the metastore without moving the HDFS location.)</p><h4 id="LanguageManualDDL-AlterTableProperties">Alter Table Properties</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name SET TBLPROPERTIES table_properties;
+
+table_properties:
+  : (property_name = property_value, property_name = property_value, ... )
+]]></script>
+</div></div><p>You can use this statement to add your own metadata to the tables. Currently last_modified_user, last_modified_time properties are automatically added and managed by Hive. Users can add their own properties to this list. You can do DESCRIBE EXTENDED TABLE to get this information.</p><h5 id="LanguageManualDDL-AlterTableComment">Alter Table Comment</h5><p>To change the comment of a table you have to change the <code>comment</code> property of the <code>TBLPROPERTIES</code>:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name SET TBLPROPERTIES (&#39;comment&#39; = new_comment);
+]]></script>
+</div></div><h4 id="LanguageManualDDL-AddSerDeProperties">Add SerDe Properties</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name [PARTITION partition_spec] SET SERDE serde_class_name [WITH SERDEPROPERTIES serde_properties];
+
+ALTER TABLE table_name [PARTITION partition_spec] SET SERDEPROPERTIES serde_properties;
+
+serde_properties:
+  : (property_name = property_value, property_name = property_value, ... )
+]]></script>
+</div></div><p>These statements enable you to change a table's SerDe or add user-defined metadata to the table's SerDe object.</p><p>The SerDe properties are passed to the table's SerDe when it is being initialized by Hive to serialize and deserialize data. So users can store any information required for their custom SerDe here. Refer to the <a href="/confluence/display/Hive/SerDe">SerDe documentation</a> and <a href="/confluence/display/Hive/DeveloperGuide#DeveloperGuide-HiveSerDe">Hive SerDe</a> in the Developer Guide for more information, and see <a href="#LanguageManualDDL-RowFormat,StorageFormat,andSerDe">Row Format, Storage Format, and SerDe</a> above for details about setting a table's SerDe and SERDEPROPERTIES in a CREATE TABLE statement.</p><p>Note that both <code>property_name</code> and <code>property_value</code> must be quoted.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name SET SERDEPROPERTIES (&#39;field.delim&#39; = &#39;,&#39;);
+]]></script>
+</div></div><h4 id="LanguageManualDDL-AlterTableStorageProperties">Alter Table Storage Properties</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name CLUSTERED BY (col_name, col_name, ...) [SORTED BY (col_name, ...)]
+  INTO num_buckets BUCKETS;
+]]></script>
+</div></div><p>These statements change the table's physical storage properties.</p><p>NOTE: These commands will only modify Hive's metadata, and will <em>NOT</em> reorganize or reformat existing data. Users should make sure the actual data layout conforms with the metadata definition.</p><h4 id="LanguageManualDDL-AlterTableSkewedorStoredasDirectories">Alter Table Skewed or Stored as Directories</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.10.0 (<a href="https://issues.apache.org/jira/browse/HIVE-3072" class="external-link" rel="nofollow">HIVE-3072</a> and <a href="https://issues.apache.org/jira/browse/HIVE-3649" class="external-link" rel="nofollow">HIVE-3649</a>). See <a href="https://issues.apache.org/jira/browse/HIVE-3026" class="external-link" rel="nofollow">HIVE-3026</a> for additional JIRA tickets that implemented list bucketing in Hive 0.10.0 and 0.11.0.</p></div></div><p>A table's SKEWED and STORED AS DIRECTORIES options can be changed with ALTER TABLE statements. See <a href="#LanguageManualDDL-SkewedTables">Skewed Tables</a> above for the corresponding CREATE TABLE syntax.</p><h5 id="LanguageManualDDL-AlterTableSkewed">Alter Table Skewed</h5><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name SKEWED BY (col_name1, col_name2, ...)
+  ON ([(col_name1_value, col_name2_value, ...) [, (col_name1_value, col_name2_value), ...]
+  [STORED AS DIRECTORIES];]]></script>
+</div></div><p>The STORED AS DIRECTORIES option determines whether a <a href="/confluence/display/Hive/Skewed+Join+Optimization">skewed</a> table uses the <a href="/confluence/display/Hive/ListBucketing">list bucketing</a> feature, which creates subdirectories for skewed values.</p><h5 id="LanguageManualDDL-AlterTableNotSkewed">Alter Table Not Skewed</h5><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name NOT SKEWED;]]></script>
+</div></div><p>The NOT SKEWED option makes the table non-skewed and turns off the list bucketing feature (since a list-bucketing table is always skewed). This affects partitions created after the ALTER statement, but has no effect on partitions created before the ALTER statement.</p><h5 id="LanguageManualDDL-AlterTableNotStoredasDirectories">Alter Table Not Stored as Directories</h5><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name NOT STORED AS DIRECTORIES;]]></script>
+</div></div><p>This turns off the list bucketing feature, although the table remains skewed.</p><h5 id="LanguageManualDDL-AlterTableSetSkewedLocation">Alter Table Set Skewed Location</h5><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name SET SKEWED LOCATION (col_name1=&quot;location1&quot; [, col_name2=&quot;location2&quot;, ...] );]]></script>
+</div></div><p>This changes the location map for list bucketing.</p><h4 id="LanguageManualDDL-AdditionalAlterTableStatements">Additional Alter Table Statements</h4><p>See <a href="#LanguageManualDDL-AlterEitherTableorPartition">Alter Either Table or Partition</a> below for more DDL statements that alter tables.</p><h3 id="LanguageManualDDL-AlterPartition">Alter Partition</h3><p>Partitions can be added, renamed, exchanged, dropped, or (un)archived by using the PARTITION clause in an ALTER TABLE statement, as described below. <span style="line-height: 1.4285715;">To make the metastore aware of partitions that were added directly to HDFS, you can use the metastore check command (</span><a href="#LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE)">MSCK</a><span style="line-height: 1.4285715;">) or on Amazon EMR you can use the RECOVER PARTITIONS option of ALTER TABLE. </span><span style="line-height: 1.4285715;">See </span><a href="#LanguageManualDDL-AlterEitherTableorPartition">Alter Either Table or Partition</a><span style="line-height: 1.4285715;"> below for more ways to alter partitions.</span></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version 1.2+</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><span>As of Hive 1.2 (</span><a href="https://issues.apache.org/jira/browse/HIVE-10307" class="external-link" rel="nofollow">HIVE-10307</a><span>), the partition values specified in partition specification are type checked, converted, and normalized to conform to their column types if the property </span><a href="/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.typecheck.on.insert">hive.typecheck.on.insert</a><span> is set to true (default). The values can be number literals.</span></p></div></div><h4 id="LanguageManualDDL-AddPartitions"><span style="font-weight: bold;line-height: 1.4285715;">Add Partitions</span></h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name ADD [IF NOT EXISTS] PARTITION partition_spec 
+  [LOCATION &#39;location1&#39;] partition_spec [LOCATION &#39;location2&#39;] ...;
+
+partition_spec:
+  : (partition_column = partition_col_value, partition_column = partition_col_value, ...)
+]]></script>
+</div></div><p>You can use ALTER TABLE ADD PARTITION to add partitions to a table. Partition values should be quoted only if they are strings. The location must be a directory inside of which data files reside. (ADD PARTITION changes the table metadata, but does not load data. If the data does not exist in the partition's location, queries will not return any results.) <span>An error is thrown if the partition_spec for the table already exists. You can use IF NOT EXISTS to skip the error.</span></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version 0.7</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><span>Although it is proper syntax to have multiple partition_spec in a single ALTER TABLE, if you do this in version 0.7 your partitioning scheme will fail. That is, every query specifying a partition will always use only the first partition.</span></p></div></div><p><span style="line-height: 1.4285715;">Specifically, the following example will FAIL silently and without error in Hive 0.7, and all queries will go only to dt='2008-08-08' partition, no matter which partition you specify.</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE page_view ADD PARTITION (dt=&#39;2008-08-08&#39;, country=&#39;us&#39;) location &#39;/path/to/us/part080808&#39;
+                          PARTITION (dt=&#39;2008-08-09&#39;, country=&#39;us&#39;) location &#39;/path/to/us/part080809&#39;;
+]]></script>
+</div></div><p>In Hive 0.8 and later, you can add multiple partitions in a single ALTER TABLE statement as shown in the previous example.</p><p><span>In Hive 0.7, if you want to add many partitions </span><span>you should use the following form</span><span>:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name ADD PARTITION (partCol = &#39;value1&#39;) location &#39;loc1&#39;;
+ALTER TABLE table_name ADD PARTITION (partCol = &#39;value2&#39;) location &#39;loc2&#39;;
+...
+ALTER TABLE table_name ADD PARTITION (partCol = &#39;valueN&#39;) location &#39;locN&#39;;]]></script>
+</div></div><p><span style="color: rgb(112,112,112);font-weight: bold;line-height: 1.6666666;">Dynamic Partitions</span></p><p>Partitions can be added to a table dynamically, using a Hive INSERT statement (or a Pig STORE statement). See these documents for details and examples:</p><ul><li><a href="/confluence/display/Hive/DynamicPartitions">Design Document for Dynamic Partitions</a></li><li><a href="/confluence/display/Hive/Tutorial#Tutorial-Dynamic-PartitionInsert">Tutorial: Dynamic-Partition Insert</a></li><li><a href="/confluence/display/Hive/LanguageManual+DML#LanguageManualDML-DynamicPartitionInserts">Hive DML: Dynamic Partition Inserts</a></li><li><a href="/confluence/display/Hive/HCatalog+DynamicPartitions">HCatalog Dynamic Partitioning</a><ul><li><a href="/confluence/display/Hive/HCatalog+DynamicPartitions#HCatalogDynamicPartitions-UsagewithPig">Usage with Pig</a></li><li><a href="/confluence/display/Hive/HCatalog+DynamicPartitions#HCatalogDynamicPartitions-UsagefromMapReduce">Usage from MapReduce</a></li></ul></li></ul><h4 id="LanguageManualDDL-RenamePartition">Rename Partition</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.9.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name PARTITION partition_spec RENAME TO PARTITION partition_spec;
+]]></script>
+</div></div><p>This statement lets you change the value of a partition column. One of use cases is that you can use this statement to normalize your legacy partition column value to conform to its type. In this case, the type conversion and normalization are not enabled for the column values in old <em>partition_spec</em> even with property <a href="/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.typecheck.on.insert">hive.typecheck.on.insert</a> set to true (default) which allows you to specify any legacy data in form of string in the old <em>partition_spec</em>.</p><h4 id="LanguageManualDDL-ExchangePartition">Exchange Partition</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.12 (<a href="https://issues.apache.org/jira/browse/HIVE-4095" class="external-link" rel="nofollow">HIVE-4095</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name_1 EXCHANGE PARTITION (partition_spec) WITH TABLE table_name_2;]]></script>
+</div></div><p>This statement lets you move the data in a partition from a table to another table that has the same schema but does not already have that partition. For details, see <a href="/confluence/display/Hive/Exchange+Partition">Exchange Partition</a> and <a href="https://issues.apache.org/jira/browse/HIVE-4095" class="external-link" rel="nofollow">HIVE-4095</a>.</p><h4 id="LanguageManualDDL-RecoverPartitions(MSCKREPAIRTABLE)">Recover Partitions (MSCK REPAIR TABLE)</h4><p>Hive stores a list of partitions for each table in its metastore. If, however, new partitions are directly added to HDFS (say by using <code>hadoop fs -put</code> command), the metastore (and hence Hive) will not be aware of these partitions unless the user runs <code>ALTER TABLE table_name ADD PARTITION</code> commands on each of the newly added partitions.</p><p>However, users can run a metastore check command with the repair table option:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[MSCK REPAIR TABLE table_name;
+]]></script>
+</div></div><p>which will add metadata about partitions to the Hive metastore for partitions for which such metadata doesn't already exist. In other words, it will add any partitions that exist on HDFS but not in metastore to the metastore. See <a href="https://issues.apache.org/jira/browse/HIVE-874" class="external-link" rel="nofollow">HIVE-874</a> for more details.</p><p>The equivalent command on Amazon Elastic MapReduce (EMR)'s version of Hive is:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name RECOVER PARTITIONS;
+]]></script>
+</div></div><p>Starting with Hive 1.3, MSCK will throw exceptions if directories with disallowed characters in partition values are found on HDFS. Use <strong>hive.msck.path.validation</strong> setting on the client to alter this behavior; &quot;skip&quot; will simply skip the directories. &quot;ignore&quot; will try to create partitions anyway (old behavior). This may or may not work.</p><h4 id="LanguageManualDDL-DropPartitions">Drop Partitions</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name DROP [IF EXISTS] PARTITION partition_spec[, PARTITION partition_spec, ...]
+  [IGNORE PROTECTION] [PURGE];            -- (Note: PURGE available in Hive 1.2.0 and later, IGNORE PROTECTION not available 2.0.0 and later)
+]]></script>
+</div></div><p>You can use ALTER TABLE DROP PARTITION to drop a partition for a table. This removes the data and metadata for this partition. <span>The data is actually moved to the .Trash/Current directory if Trash is configured, unless PURGE is specified,<span> but the metadata is completely lost</span> (see <a href="LanguageManual+DDL#LanguageManualDDL-DropTable">Drop Table</a> above).</span></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version Information: PROTECTION</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>IGNORE PROTECTION is no longer available in versions 2.0.0 and later. This functionality is replaced by using one of the several security options available with Hive (see <a href="SQL+Standard+Based+Hive+Authorization">SQL Standard Based Hive Authorization</a>). See <a href="https://issues.apache.org/jira/browse/HIVE-11145" class="external-link" rel="nofollow">HIVE-11145</a> for details.</p></div></div><p>For tables that are protected by <a href="LanguageManual+DDL#LanguageManualDDL-AlterTable/PartitionProtections">NO_DROP CASCADE</a>, you can use the predicate IGNORE PROTECTION to drop a specified partition or set of partitions (for example, when splitting a table between two Hadoop clusters):</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name DROP [IF EXISTS] PARTITION partition_spec IGNORE PROTECTION;
+]]></script>
+</div></div><p>The above command will drop that partition regardless of protection stats.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information:  PURGE</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The PURGE option is added to ALTER TABLE in version 1.2.1 by <a href="https://issues.apache.org/jira/browse/HIVE-10934" class="external-link" rel="nofollow">HIVE-10934</a>.</p></div></div><p><span style="line-height: 1.4285715;">If PURGE is specified, the partition data does not go to the .Trash/Current directory and so cannot be retrieved in the event of a mistaken DROP:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name DROP [IF EXISTS] PARTITION partition_spec PURGE;     -- (Note: Hive 1.2.0 and later)]]></script>
+</div></div><p><span>The purge option can also be specified with the table property </span><span>auto.purge (see <a href="LanguageManual+DDL#LanguageManualDDL-CreateTable">Create Table</a> above).</span></p><p><span style="line-height: 1.4285715;">In Hive 0.7.0 or later, DROP returns an error if the partition doesn't exist, unless IF EXISTS is specified or the configuration variable </span><a href="Configuration+Properties#ConfigurationProperties-hive.exec.drop.ignorenonexistent">hive.exec.drop.ignorenonexistent</a><span style="line-height: 1.4285715;"> is set to true.</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE page_view DROP PARTITION (dt=&#39;2008-08-08&#39;, country=&#39;us&#39;);
+]]></script>
+</div></div><h4 id="LanguageManualDDL-(Un)ArchivePartition">(Un)Archive Partition</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name ARCHIVE PARTITION partition_spec;
+ALTER TABLE table_name UNARCHIVE PARTITION partition_spec;
+]]></script>
+</div></div><p>Archiving is a feature to moves a partition's files into a Hadoop Archive (HAR). Note that only the file count will be reduced; HAR does not provide any compression. See <a href="LanguageManual+Archiving">LanguageManual Archiving</a> for more information</p><h3 id="LanguageManualDDL-AlterEitherTableorPartition">Alter Either Table or Partition</h3><h4 id="LanguageManualDDL-AlterTable/PartitionFileFormat">Alter Table/Partition File Format</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name [PARTITION partition_spec] SET FILEFORMAT file_format;
+]]></script>
+</div></div><p>This statement changes the table's (or partition's) file format. For available file_format options, see the section above on <a href="LanguageManual+DDL#LanguageManualDDL-CreateTable">CREATE TABLE</a>.</p><h4 id="LanguageManualDDL-AlterTable/PartitionLocation">Alter Table/Partition Location</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name [PARTITION partition_spec] SET LOCATION &quot;new location&quot;;
+]]></script>
+</div></div><h4 id="LanguageManualDDL-AlterTable/PartitionTouch">Alter Table/Partition Touch</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name TOUCH [PARTITION partition_spec];
+]]></script>
+</div></div><p>TOUCH reads the metadata, and writes it back. This has the effect of causing the pre/post execute hooks to fire. An example use case is if you have a hook that logs all the tables/partitions that were modified, along with an external script that alters the files on HDFS directly. Since the script modifies files outside of hive, the modification wouldn't be logged by the hook. The external script could call TOUCH to fire the hook and mark the said table or partition as modified.</p><p>Also, it may be useful later if we incorporate reliable last modified times. Then touch would update that time as well.</p><p>Note that TOUCH doesn't create a table or partition if it doesn't already exist. (See <a href="LanguageManual+DDL#LanguageManualDDL-CreateTable">Create Table</a>.)</p><h4 id="LanguageManualDDL-AlterTable/PartitionProtections">Alter Table/Partition Protections</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.7.0 (<a href="https://issues.apache.org/jira/browse/HIVE-1413" class="external-link" rel="nofollow">HIVE-1413</a>). The CASCADE clause for NO_DROP was added in HIVE 0.8.0 (<a href="https://issues.apache.org/jira/browse/HIVE-2605" class="external-link" rel="nofollow">HIVE-2605</a>).</p><p>This functionality was removed in Hive 2.0.0. <span>This functionality is replaced by using one of the several security options available with Hive (see </span><a href="SQL+Standard+Based+Hive+Authorization">SQL Standard Based Hive Authorization</a><span>). See </span><a href="https://issues.apache.org/jira/browse/HIVE-11145" class="external-link" rel="nofollow">HIVE-11145</a><span> for details.</span></p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name [PARTITION partition_spec] ENABLE|DISABLE NO_DROP [CASCADE];
+ 
+ALTER TABLE table_name [PARTITION partition_spec] ENABLE|DISABLE OFFLINE;
+]]></script>
+</div></div><p>Protection on data can be set at either the table or partition level. Enabling NO_DROP prevents a table from being <a href="LanguageManual+DDL#LanguageManualDDL-DropPartitions">dropped</a>. Enabling OFFLINE prevents the data in a table or partition from being queried, but the metadata can still be accessed.</p><p>If any partition in a table has NO_DROP enabled, the table cannot be dropped either. Conversely, if a table has NO_DROP enabled then partitions may be dropped, but with NO_DROP CASCADE partitions cannot be dropped either unless the <a href="LanguageManual+DDL#LanguageManualDDL-DropPartitions">drop partition command</a> specifies IGNORE PROTECTION<span>.</span></p><h4 id="LanguageManualDDL-AlterTable/PartitionCompact">Alter Table/Partition Compact</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>In Hive release <a href="https://issues.apache.org/jira/browse/HIVE-5317" class="external-link" rel="nofollow">0.13.0</a> and later when <a href="Hive+Transactions">transactions</a> are being used, the ALTER TABLE statement can request <a href="Hive+Transactions#HiveTransactions-BasicDesign">compaction</a> of a table or partition.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name [PARTITION (partition_key = &#39;partition_value&#39; [, ...])]
+  COMPACT &#39;compaction_type&#39;;]]></script>
+</div></div><p>In general you do not need to request compactions when <a href="Hive+Transactions">Hive transactions</a> are being used, because the system will detect the need for them and initiate the compaction. However, if compaction is turned off for a table or you want to compact the table at a time the system would not choose to, ALTER TABLE can initiate the compaction. The statement will enqueue a request for compaction and return. To watch the progress of the compaction, use <a href="LanguageManual+DDL#LanguageManualDDL-ShowCompactions">SHOW COMPACTIONS</a>.</p><p>The compaction_type can be MAJOR or MINOR. See the Basic Design section in <a href="Hive+Transactions#HiveTransactions-BasicDesign">Hive Transactions</a> for more information.</p><h4 id="LanguageManualDDL-AlterTable/PartitionConcatenate">Alter Table/Partition Concatenate</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>In Hive release <a href="https://issues.apache.org/jira/browse/HIVE-1950" class="external-link" rel="nofollow">0.8.0</a> RCFile added support for fast block level merging of small RCFiles using concatenate command. In Hive release <a href="https://issues.apache.org/jira/browse/HIVE-7509" class="external-link" rel="nofollow">0.14.0</a> ORC files added support fast stripe level merging of small ORC files using concatenate command.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name [PARTITION (partition_key = &#39;partition_value&#39; [, ...])] CONCATENATE;]]></script>
+</div></div><p><span style="line-height: 1.4285715;">If the table or partition contains many small RCFiles or ORC files, then the above command will merge them into larger files. In case of RCFile the merge happens at block level whereas for ORC files the merge happens at stripe level thereby avoiding the overhead of decompressing and decoding the data.</span></p><h3 id="LanguageManualDDL-AlterColumn">Alter Column</h3><h4 id="LanguageManualDDL-RulesforColumnNames">Rules for Column Names</h4><p>Column names are case insensitive.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>In Hive release 0.12.0 and earlier, column names can only contain alphanumeric and underscore characters.</p><p>In Hive release 0.13.0 and later, by default column names can be specified within backticks (<code>`</code>) and contain any <a href="http://en.wikipedia.org/wiki/List_of_Unicode_characters" class="external-link" rel="nofollow">Unicode</a> character (<a href="https://issues.apache.org/jira/browse/HIVE-6013" class="external-link" rel="nofollow">HIVE-6013</a>). Within a string delimited by backticks, all characters are treated literally except that double backticks (<code>``</code>) represent one backtick character. The pre-0.13.0 behavior can be used by setting <code><a href="Configuration+Properties#ConfigurationProperties-hive.support.quoted.identifiers">hive.support.quoted.identifiers</a></code> to <code>none</code>, in which case backticked names are interpreted as regular expressions. See <a href="https://issues.apache.org/jira/secure/attachment/12618321/QuotedIdentifier.html" class="external-link" rel="nofollow">Supporting Quoted Identifiers in Column Names</a> for details.</p><p><span>Backtick quotation enables the use of reserved keywords for column names, as well as table names.</span></p></div></div><h4 id="LanguageManualDDL-ChangeColumnName/Type/Position/Comment">Change Column Name/Type/Position/Comment</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name [PARTITION partition_spec] CHANGE [COLUMN] col_old_name col_new_name column_type
+  [COMMENT col_comment] [FIRST|AFTER column_name] [CASCADE|RESTRICT];
+]]></script>
+</div></div><p>This command will allow users to change a column's name, <a href="LanguageManual+Types">data type</a>, comment, or position, or an arbitrary combination of them. The PARTITION clause is available in <a href="https://issues.apache.org/jira/browse/HIVE-7971" class="external-link" rel="nofollow">Hive 0.14.0</a> and later; see <a href="LanguageManual+Types#LanguageManualTypes-UpgradingPre-Hive0.13.0DecimalColumns">Upgrading Pre-Hive 0.13.0 Decimal Columns</a> for usage. A patch for Hive 0.13 is also available (see <a href="https://issues.apache.org/jira/browse/HIVE-7971" class="external-link" rel="nofollow">HIVE-7971</a>).</p><p>The CASCADE|RESTRICT clause is available in <a href="https://issues.apache.org/jira/browse/HIVE-8839" class="external-link" rel="nofollow">Hive 0.15.0</a>. <span>ALTER TABLE CHANGE COLUMN with CASCADE command changes the columns of a table's metadata, and cascades the same change to all the partition metadata. </span>RESTRICT is the default, limiting column change only to table metadata.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><span>ALTER TABLE CHANGE COLUMN CASCADE clause will override the table partition's column metadata regardless of the table or partition's <a href="LanguageManual+DDL#LanguageManualDDL-AlterTable/PartitionProtections">protection mode</a>. Use with discretion.</span></p></div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><span>The column change command will only modify Hive's metadata, and will not modify data. Users should make sure the actual data layout of the table/partition conforms with the metadata definition.</span></p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TABLE test_change (a int, b int, c int);
+
+// First change column a&#39;s name to a1.
+ALTER TABLE test_change CHANGE a a1 INT;
+
+// Next change column a1&#39;s name to a2, its data type to string, and put it after column b.
+ALTER TABLE test_change CHANGE a1 a2 STRING AFTER b;
+// The new table&#39;s structure is:  b int, a2 string, c int.
+ 
+// Then change column c&#39;s name to c1, and put it as the first column.
+ALTER TABLE test_change CHANGE c c1 INT FIRST;
+// The new table&#39;s structure is:  c1 int, b int, a2 string.]]></script>
+</div></div><p> </p><h4 id="LanguageManualDDL-Add/ReplaceColumns">Add/Replace Columns</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE table_name 
+  [PARTITION partition_spec]                 -- (Note: Hive 0.14.0 and later)
+  ADD|REPLACE COLUMNS (col_name data_type [COMMENT col_comment], ...)
+  [CASCADE|RESTRICT]                         -- (Note: Hive 0.15.0 and later)
+]]></script>
+</div></div><p>ADD COLUMNS lets you add new columns to the end of the existing columns but before the partition columns. This is supported for Avro backed tables as well, for <a href="https://issues.apache.org/jira/browse/HIVE-7446" class="external-link" rel="nofollow">Hive 0.14</a> and later.</p><p>REPLACE COLUMNS removes all existing columns and adds the new set of columns. This can be done only for tables with a native SerDe (DynamicSerDe, MetadataTypedColumnsetSerDe, LazySimpleSerDe and ColumnarSerDe). Refer to <a href="DeveloperGuide#DeveloperGuide-HiveSerDe">Hive SerDe</a> for more information. <span style="line-height: 1.4285715;">REPLACE COLUMNS can also be used to drop columns. For example, </span><span style="line-height: 1.4285715;">&quot;</span><code style="line-height: 1.4285715;">ALTER TABLE test_change REPLACE COLUMNS (a int, b int);</code><span style="line-height: 1.4285715;">&quot; will remove column 'c' from test_change's schema.</span></p><p><span>The PARTITION clause is available in </span><a href="https://issues.apache.org/jira/browse/HIVE-7971" class="external-link" rel="nofollow">Hive 0.14.0</a><span> and later; see </span><a href="LanguageManual+Types#LanguageManualTypes-UpgradingPre-Hive0.13.0DecimalColumns">Upgrading Pre-Hive 0.13.0 Decimal Columns</a><span> for usage.</span></p><p>The CASCADE|RESTRICT clause is available in <a href="https://issues.apache.org/jira/browse/HIVE-8839" class="external-link" rel="nofollow">Hive 0.15.0</a>. ALTER TABLE ADD|REPLACE COLUMNS with CASCADE command changes the columns of a table's metadata, and cascades the same change to all the partition metadata. RESTRICT is the default, limiting column changes only to table metadata.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><span>ALTER TABLE ADD or REPLACE COLUMNS CASCADE will override the table partition's column metadata regardless of the table or partition's <a href="LanguageManual+DDL#LanguageManualDDL-AlterTable/PartitionProtections">protection mode</a>. Use with discretion.</span></div></div><div class="confluence-information-macro confluence-information-macro-note"><span class="aui-icon aui-icon-small aui-iconfont-warning confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The column change command will only modify Hive's metadata, and will not modify data. Users should make sure the actual data layout of the table/partition conforms with the metadata definition.</p></div></div><h4 id="LanguageManualDDL-PartialPartitionSpecification">Partial Partition Specification</h4><p>As of Hive 0.14 (<a href="https://issues.apache.org/jira/browse/HIVE-8411" class="external-link" rel="nofollow">HIVE-8411</a>), users are able to provide a partial partition spec for certain above alter column statements, similar to dynamic partitioning. So rather than having to issue an alter column statement for each partition that needs to be changed:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER TABLE foo PARTITION (ds=&#39;2008-04-08&#39;, hr=11) CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);
+ALTER TABLE foo PARTITION (ds=&#39;2008-04-08&#39;, hr=12) CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);
+...
+]]></script>
+</div></div><p><span style="line-height: 1.4285715;">... you can change many existing partitions at once using a single ALTER statement with a partial partition specification:</span></p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[// hive.exec.dynamic.partition needs to be set to true to enable dynamic partitioning with ALTER PARTITION
+SET hive.exec.dynamic.partition = true;
+ 
+// This will alter all existing partitions in the table with ds=&#39;2008-04-08&#39; -- be sure you know what you are doing!
+ALTER TABLE foo PARTITION (ds=&#39;2008-04-08&#39;, hr) CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);
+
+// This will alter all existing partitions in the table -- be sure you know what you are doing!
+ALTER TABLE foo PARTITION (ds, hr) CHANGE COLUMN dec_column_name dec_column_name DECIMAL(38,18);]]></script>
+</div></div><p> </p><p>Similar to dynamic partitioning, <a href="Configuration+Properties#ConfigurationProperties-hive.exec.dynamic.partition">hive.exec.dynamic.partition</a> must be set to true to enable use of partial partition specs during ALTER PARTITION. This is supported for the following operations:</p><ul><li>Change column</li><li>Add column</li><li>Replace column</li><li>File Format</li><li>Serde Properties</li></ul><h2 id="LanguageManualDDL-Create/Drop/AlterView">Create/Drop/Alter View</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1451833216669 {padding: 0px;}
+div.rbtoc1451833216669 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1451833216669 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1451833216669'>
+<ul class='toc-indentation'>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-CreateView'>Create View</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-DropView'>Drop View</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-AlterViewProperties'>Alter View Properties</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-AlterViewAsSelect'>Alter View As Select</a></li>
+</ul>
+</div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>View support is only available in Hive 0.6 and later.</p></div></div><h3 id="LanguageManualDDL-CreateView">Create View</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE VIEW [IF NOT EXISTS] [db_name.]view_name [(column_name [COMMENT column_comment], ...) ]
+  [COMMENT view_comment]
+  [TBLPROPERTIES (property_name = property_value, ...)]
+  AS SELECT ...;
+]]></script>
+</div></div><p>CREATE VIEW creates a view with the given name. An error is thrown if a table or view with the same name already exists. You can use IF NOT EXISTS to skip the error.</p><p>If no column names are supplied, the names of the view's columns will be derived automatically from the defining SELECT expression. (If the SELECT contains unaliased scalar expressions such as x+y, the resulting view column names will be generated in the form _C0, _C1, etc.) When renaming columns, column comments can also optionally be supplied. (Comments are not automatically inherited from underlying columns.)</p><p>A CREATE VIEW statement will fail if the view's defining SELECT expression is invalid.</p><p>Note that a view is a purely logical object with no associated storage. (No support for materialized views is currently available in Hive.) When a query references a view, the view's definition is evaluated in order to produce a set of rows for further processing by the query. (This is a conceptual description; in fact, as part of query optimization, Hive may combine the view's definition with the query's, e.g. pushing filters from the query down into the view.)</p><p>A view's schema is frozen at the time the view is created; subsequent changes to underlying tables (e.g. adding a column) will not be reflected in the view's schema. If an underlying table is dropped or changed in an incompatible fashion, subsequent attempts to query the invalid view will fail.</p><p>Views are read-only and may not be used as the target of LOAD/INSERT/ALTER. For changing metadata, see <a href="LanguageManual+DDL#LanguageManualDDL-AlterViewProperties" rel="nofollow">ALTER VIEW</a>.</p><p>A view may contain ORDER BY and LIMIT clauses. If a referencing query also contains these clauses, the query-level clauses are evaluated <strong>after</strong> the view clauses (and after any other operations in the query). For example, if a view specifies LIMIT 5, and a referencing query is executed as (select * from v LIMIT 10), then at most 5 rows will be returned.</p><p>Starting with <a class="external-link" href="https://issues.apache.org/jira/browse/HIVE-1180" rel="nofollow" style="text-decoration: none;">Hive 0.13.0</a>, the view's select statement can include one or more common table expressions (CTEs) as shown in the <a href="LanguageManual+Select#LanguageManualSelect-SelectSyntax" rel="nofollow" style="text-decoration: none;">SELECT syntax</a>. For examples of CTEs in CREATE VIEW statements, see <a href="Common+Table+Expression#CommonTableExpression-CTEinViews,CTAS,andInsertStatements" rel="nofollow" style="text-decoration: none;">Common Table Expression</a>.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE VIEW onion_referrers(url COMMENT &#39;URL of Referring page&#39;)
+  COMMENT &#39;Referrers to The Onion website&#39;
+  AS
+  SELECT DISTINCT referrer_url
+  FROM page_view
+  WHERE page_url=&#39;http://www.theonion.com&#39;;
+]]></script>
+</div></div><p>Use <a href="LanguageManual+DDL#LanguageManualDDL-ShowCreateTable">SHOW CREATE TABLE</a> to display the CREATE VIEW statement that created a view.</p><h3 id="LanguageManualDDL-DropView">Drop View</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DROP VIEW [IF EXISTS] view_name;
+]]></script>
+</div></div><p>DROP VIEW removes metadata for the specified view. (It is illegal to use DROP TABLE on a view.)</p><p>When dropping a view referenced by other views, no warning is given (the dependent views are left dangling as invalid and must be dropped or recreated by the user).</p><p>In Hive 0.7.0 or later, DROP returns an error if the view doesn't exist, unless IF EXISTS is specified or the configuration variable <a href="Configuration+Properties#ConfigurationProperties-hive.exec.drop.ignorenonexistent">hive.exec.drop.ignorenonexistent</a> is set to true.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DROP VIEW onion_referrers;
+]]></script>
+</div></div><h3 id="LanguageManualDDL-AlterViewProperties">Alter View Properties</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER VIEW view_name SET TBLPROPERTIES table_properties;
+
+table_properties:
+  : (property_name = property_value, property_name = property_value, ...)
+]]></script>
+</div></div><p>As with ALTER TABLE, you can use this statement to add your own metadata to a view.</p><h3 id="LanguageManualDDL-AlterViewAsSelect">Alter View As Select</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-3834" class="external-link" rel="nofollow">Hive 0.11</a>.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER VIEW view_name AS select_statement;
+]]></script>
+</div></div><p>Alter View As Select changes the definition of a view, which must exist. The syntax is similar to that for CREATE VIEW and the effect is the same as for CREATE OR REPLACE VIEW.</p><p>Note: The view must already exist, and if the view has partitions, it could not be replaced by Alter View As Select.</p><h2 id="LanguageManualDDL-Create/Drop/AlterIndex">Create/Drop/Alter Index</h2><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.7.</p></div></div><p>This section provides a brief introduction to Hive indexes, which are documented more fully here:</p><ul><li><a href="LanguageManual+Indexing">Overview of Hive Indexes</a></li><li><a href="IndexDev">Indexes design document</a></li></ul><p>In Hive 0.12.0 and earlier releases, the index name is case-sensitive for CREATE INDEX and DROP INDEX statements. However, ALTER INDEX requires an index name that was created with lowercase letters (see <a href="https://issues.apache.org/jira/browse/HIVE-2752" style="text-decoration: none;" class="external-link" rel="nofollow">HIVE-2752</a>). This bug is fixed in <a href="https://issues.apache.org/jira/browse/HIVE-2752" class="external-link" rel="nofollow">Hive 0.13.0</a> by making index names case-insensitive for all HiveQL statements. For releases prior to 0.13.0, the best practice is to use lowercase letters for all index names.</p><h3 id="LanguageManualDDL-CreateIndex">Create Index</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE INDEX index_name
+  ON TABLE base_table_name (col_name, ...)
+  AS index_type
+  [WITH DEFERRED REBUILD]
+  [IDXPROPERTIES (property_name=property_value, ...)]
+  [IN TABLE index_table_name]
+  [
+     [ ROW FORMAT ...] STORED AS ...
+     | STORED BY ...
+  ]
+  [LOCATION hdfs_path]
+  [TBLPROPERTIES (...)]
+  [COMMENT &quot;index comment&quot;];
+]]></script>
+</div></div><p>CREATE INDEX creates an index on a table using the given list of columns as keys. See CREATE INDEX in the <a href="IndexDev#IndexDev-CREATEINDEX">Indexes</a> design document.</p><h3 id="LanguageManualDDL-DropIndex">Drop Index</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DROP INDEX [IF EXISTS] index_name ON table_name;
+]]></script>
+</div></div><p>DROP INDEX drops the index, as well as deleting the index table.</p><p>In Hive 0.7.0 or later, DROP returns an error if the index doesn't exist, unless IF EXISTS is specified or the configuration variable <a href="Configuration+Properties#ConfigurationProperties-hive.exec.drop.ignorenonexistent">hive.exec.drop.ignorenonexistent</a> is set to true.</p><h3 style="margin-left: 0.0px;" id="LanguageManualDDL-AlterIndex">Alter Index</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[ALTER INDEX index_name ON table_name [PARTITION partition_spec] REBUILD;
+]]></script>
+</div></div><p style="margin-left: 0.0px;">ALTER INDEX ... REBUILD builds an index that was created using the WITH DEFERRED REBUILD clause, or rebuilds a previously built index. If PARTITION is specified, only that partition is rebuilt.</p><h2 id="LanguageManualDDL-Create/Drop/ReloadFunction">Create/Drop/Reload Function</h2><h3 id="LanguageManualDDL-TemporaryFunctions">Temporary Functions</h3><h4 id="LanguageManualDDL-CreateTemporaryFunction">Create Temporary Function</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE TEMPORARY FUNCTION function_name AS class_name;
+]]></script>
+</div></div><p>This statement lets you create a function that is implemented by the class_name. You can use this function in Hive queries as long as the session lasts. You can use any class that is in the class path of Hive. You can add jars to class path by executing 'ADD JAR' statements. Please refer to the CLI section <a href="LanguageManual+Cli#LanguageManualCli-HiveInteractiveShellCommands">Hive Interactive Shell Commands</a>, including <a href="LanguageManual+Cli#LanguageManualCli-HiveResources">Hive Resources</a>, for more information on how to add/delete files from the Hive classpath. Using this, you can register User Defined Functions (UDF's).</p><p>Also see <a href="HivePlugins">Hive Plugins</a> for general information about creating custom UDFs.</p><h4 id="LanguageManualDDL-DropTemporaryFunction">Drop Temporary Function</h4><p>You can unregister a UDF as follows:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DROP TEMPORARY FUNCTION [IF EXISTS] function_name;
+]]></script>
+</div></div><p>In Hive 0.7.0 or later, DROP returns an error if the function doesn't exist, unless IF EXISTS is specified or the configuration variable <a href="Configuration+Properties#ConfigurationProperties-hive.exec.drop.ignorenonexistent">hive.exec.drop.ignorenonexistent</a> is set to true.</p><h3 id="LanguageManualDDL-PermanentFunctions">Permanent Functions</h3><p>In Hive 0.13 or later, functions can be registered to the metastore, so they can be referenced in a query without having to create a temporary function each session.</p><h4 id="LanguageManualDDL-CreateFunction">Create Function</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.13.0 (<a href="https://issues.apache.org/jira/browse/HIVE-6047" class="external-link" rel="nofollow">HIVE-6047</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[CREATE FUNCTION [db_name.]function_name AS class_name
+  [USING JAR|FILE|ARCHIVE &#39;file_uri&#39; [, JAR|FILE|ARCHIVE &#39;file_uri&#39;] ];]]></script>
+</div></div><p>This statement lets you create a function that is implemented by the class_name. Jars, files, or archives which need to be added to the environment can be specified with the USING clause; when the function is referenced for the first time by a Hive session, these resources will be added to the environment as if <a href="LanguageManual+Cli#LanguageManualCli-HiveResources">ADD JAR/FILE</a> had been issued. If Hive is not in local mode, then the resource location must be a non-local URI such as an HDFS location.</p><p>The function will be added to the database specified, or to the current database at the time that the function was created. The function can be referenced by fully qualifying the function name (db_name.function_name), or can be referenced without qualification if the function is in the current database.</p><h4 id="LanguageManualDDL-DropFunction">Drop Function</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.13.0 (<a href="https://issues.apache.org/jira/browse/HIVE-6047" class="external-link" rel="nofollow">HIVE-6047</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DROP FUNCTION [IF EXISTS] function_name;]]></script>
+</div></div><p>DROP returns an error if the function doesn't exist, unless IF EXISTS is specified or the configuration variable <a href="Configuration+Properties#ConfigurationProperties-hive.exec.drop.ignorenonexistent">hive.exec.drop.ignorenonexistent</a> is set to true.</p><h4 id="LanguageManualDDL-ReloadFunction">Reload Function</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 1.2.0 (<a href="https://issues.apache.org/jira/browse/HIVE-2573" class="external-link" rel="nofollow">HIVE-2573</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[RELOAD FUNCTION;]]></script>
+</div></div><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-2573" class="external-link" rel="nofollow">HIVE-2573</a>, creating permanent functions in one Hive CLI session may not be reflected in HiveServer2 or other Hive CLI sessions, if they were started before the function was created. Issuing RELOAD FUNCTION within a HiveServer2 or HiveCLI session will allow it to pick up any changes to the permanent functions that may have been done by a different HiveCLI session.</p><h2 id="LanguageManualDDL-Create/Drop/Grant/RevokeRolesandPrivileges">Create/Drop/Grant/Revoke Roles and Privileges</h2><p><a href="Hive+Default+Authorization+-+Legacy+Mode">Hive Default Authorization - Legacy Mode</a> has information about these DDL statements:</p><ul><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-Create/DropRole">CREATE ROLE</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-Grant/RevokeRoles">GRANT ROLE</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-Grant/RevokeRoles">REVOKE ROLE</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-Grant/RevokePrivileges">GRANT privilege_type</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-Grant/RevokePrivileges">REVOKE privilege_type</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-Create/DropRole">DROP ROLE</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-ViewingGrantedRoles">SHOW ROLE GRANT</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-ViewingGrantedPrivileges">SHOW GRANT</a></li></ul><p>For <a href="SQL+Standard+Based+Hive+Authorization">SQL standard based authorization </a>in Hive 0.13.0 and later releases, see these DDL statements:</p><ul><li>Role Management Commands<ul><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-CreateRole">CREATE ROLE</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-GrantRole">GRANT ROLE</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-RevokeRole">REVOKE ROLE</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-DropRole">DROP ROLE</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowRoles">SHOW ROLES</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowRoleGrant">SHOW ROLE GRANT</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowCurrentRoles">SHOW CURRENT ROLES</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-SetRole">SET ROLE</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowPrincipals">SHOW PRINCIPALS</a></li></ul></li><li>Object Privilege Commands<ul><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-Grant">GRANT privilege_type</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-Revoke">REVOKE privilege_type</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowGrant">SHOW GRANT</a></li></ul></li></ul><h2 id="LanguageManualDDL-Show">Show</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1451833216727 {padding: 0px;}
+div.rbtoc1451833216727 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1451833216727 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1451833216727'>
+<ul class='toc-indentation'>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowDatabases'>Show Databases</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowTables/Partitions/Indexes'>Show Tables/Partitions/Indexes</a>
+<ul class='toc-indentation'>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowTables'>Show Tables</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowPartitions'>Show Partitions</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowTable/PartitionExtended'>Show Table/Partition Extended</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowTableProperties'>Show Table Properties</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowCreateTable'>Show Create Table</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowIndexes'>Show Indexes</a></li>
+</ul>
+</li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowColumns'>Show Columns</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowFunctions'>Show Functions</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowGrantedRolesandPrivileges'>Show Granted Roles and Privileges</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowLocks'>Show Locks</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowConf'>Show Conf</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowTransactions'>Show Transactions</a></li>
+<li><a href='LanguageManual+DDL#LanguageManualDDL-ShowCompactions'>Show Compactions</a></li>
+</ul>
+</div><p>These statements provide a way to query the Hive metastore for existing data and metadata accessible to this Hive system.</p><h3 id="LanguageManualDDL-ShowDatabases">Show Databases</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW (DATABASES|SCHEMAS) [LIKE &#39;identifier_with_wildcards&#39;];
+]]></script>
+</div></div><p>SHOW DATABASES or SHOW SCHEMAS lists all of the databases defined in the metastore. The uses of SCHEMAS and DATABASES are interchangeable – they mean the same thing.</p><p>The optional LIKE clause allows the list of databases to be filtered using a regular expression. Wildcards in the regular expression can only be '*' for any character(s) or '|' for a choice. Examples are 'employees', 'emp*', 'emp*|*ees', all of which will match the database named 'employees'.</p><h3 id="LanguageManualDDL-ShowTables/Partitions/Indexes">Show Tables/Partitions/Indexes</h3><h4 id="LanguageManualDDL-ShowTables">Show Tables</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW TABLES [IN database_name] [&#39;identifier_with_wildcards&#39;];
+]]></script>
+</div></div><p><code>SHOW TABLES</code> lists all the base tables and views in the current database (or the one explicitly named using the <code>IN</code> clause) with names matching the optional regular expression. Wildcards in the regular expression can only be '*' for any character(s) or '|' for a choice. Examples are 'page_view', 'page_v*', '*view|page*', all which will match the 'page_view' table. Matching tables are listed in alphabetical order. It is not an error if there are no matching tables found in metastore. If no regular expression is given then all tables in the selected database are listed.</p><h4 id="LanguageManualDDL-ShowPartitions">Show Partitions</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW PARTITIONS table_name;
+]]></script>
+</div></div><p>SHOW PARTITIONS lists all the existing partitions for a given base table. Partitions are listed in alphabetical order.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.6, SHOW PARTITIONS can filter the list of partitions as shown below.</p></div></div><p>It is also possible to specify parts of a partition specification to filter the resulting list.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Examples:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW PARTITIONS table_name PARTITION(ds=&#39;2010-03-03&#39;);            -- (Note: Hive 0.6 and later)
+SHOW PARTITIONS table_name PARTITION(hr=&#39;12&#39;);                    -- (Note: Hive 0.6 and later)
+SHOW PARTITIONS table_name PARTITION(ds=&#39;2010-03-03&#39;, hr=&#39;12&#39;);   -- (Note: Hive 0.6 and later)
+]]></script>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Starting with Hive 0.13.0, SHOW PARTITIONS can specify a database (<a href="https://issues.apache.org/jira/browse/HIVE-5912" class="external-link" rel="nofollow">HIVE-5912</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW PARTITIONS [db_name.]table_name [PARTITION(partition_spec)];   -- (Note: Hive 0.13.0 and later)
+]]></script>
+</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW PARTITIONS databaseFoo.tableBar PARTITION(ds=&#39;2010-03-03&#39;, hr=&#39;12&#39;);   -- (Note: Hive 0.13.0 and later)
+]]></script>
+</div></div><h4 id="LanguageManualDDL-ShowTable/PartitionExtended">Show Table/Partition Extended</h4><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW TABLE EXTENDED [IN|FROM database_name] LIKE &#39;identifier_with_wildcards&#39; [PARTITION(partition_spec)];
+]]></script>
+</div></div><p>SHOW TABLE EXTENDED will list information for all tables matching the given regular expression. Users cannot use regular expression for table name if a partition specification is present. This command's output includes basic table information and file system information like totalNumberFiles, totalFileSize, maxFileSize, minFileSize,lastAccessTime, and lastUpdateTime. If partition is present, it will output the given partition's file system information instead of table's file system information.</p><h4 id="LanguageManualDDL-ShowTableProperties">Show Table Properties</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.10.0.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW TBLPROPERTIES tblname;
+SHOW TBLPROPERTIES tblname(&quot;foo&quot;);
+]]></script>
+</div></div><p>The first form lists all of the table properties for the table in question one per row separated by tabs. The second form of the command prints only the value for the property that's being asked for.</p><h4 id="LanguageManualDDL-ShowCreateTable">Show Create Table</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-967" class="external-link" rel="nofollow">Hive 0.10</a>.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW CREATE TABLE ([db_name.]table_name|view_name);
+]]></script>
+</div></div><p>SHOW CREATE TABLE shows the CREATE TABLE statement that creates a given table, or the CREATE VIEW statement that creates a given view.</p><h4 id="LanguageManualDDL-ShowIndexes">Show Indexes</h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.7.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW [FORMATTED] (INDEX|INDEXES) ON table_with_index [(FROM|IN) db_name];
+]]></script>
+</div></div><p>SHOW INDEXES shows all of the indexes on a certain column, as well as information about them: index name, table name, names of the columns used as keys, index table name, index type, and comment. If the FORMATTED keyword is used, then column titles are printed for each column.</p><h3 id="LanguageManualDDL-ShowColumns">Show Columns</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-2909" class="external-link" rel="nofollow">Hive 0.10</a>.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW COLUMNS (FROM|IN) table_name [(FROM|IN) db_name];
+]]></script>
+</div></div><p>SHOW COLUMNS shows all the columns in a table including partition columns.</p><h3 id="LanguageManualDDL-ShowFunctions">Show Functions</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[SHOW FUNCTIONS &quot;a.*&quot;;
+]]></script>
+</div></div><p>SHOW FUNCTIONS lists all the user defined and builtin functions matching the regular expression. To get all functions use &quot;.*&quot;</p><h3 id="LanguageManualDDL-ShowGrantedRolesandPrivileges">Show Granted Roles and Privileges</h3><p style="margin-left: 0.0px;"><a href="Hive+Default+Authorization+-+Legacy+Mode">Hive Default Authorization - Legacy Mode</a> has information about these SHOW statements:</p><ul style="margin-left: 0.0px;"><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-ViewingGrantedRoles">SHOW ROLE GRANT</a></li><li><a href="Hive+Default+Authorization+-+Legacy+Mode#HiveDefaultAuthorization-LegacyMode-ViewingGrantedPrivileges">SHOW GRANT</a></li></ul><p>In Hive 0.13.0 and later releases, <a href="SQL+Standard+Based+Hive+Authorization">SQL standard based authorization</a> has these SHOW statements:</p><ul><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowRoleGrant">SHOW ROLE GRANT</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowGrant">SHOW GRANT</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowCurrentRoles">SHOW CURRENT ROLES</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowRoles">SHOW ROLES</a></li><li><a href="SQL+Standard+Based+Hive+Authorization#SQLStandardBasedHiveAuthorization-ShowPrincipals">SHOW PRINCIPALS</a></li></ul><h3 id="LanguageManualDDL-ShowLocks">Show Locks</h3><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[SHOW LOCKS &lt;table_name&gt;;
+SHOW LOCKS &lt;table_name&gt; EXTENDED;
+SHOW LOCKS &lt;table_name&gt; PARTITION (&lt;partition_spec&gt;);
+SHOW LOCKS &lt;table_name&gt; PARTITION (&lt;partition_spec&gt;) EXTENDED;
+SHOW LOCKS (DATABASE|SCHEMA) database_name;     -- (Note: Hive 0.13.0 and later; SCHEMA added in Hive 0.14.0)]]></script>
+</div></div><p>SHOW LOCKS displays the locks on a table or partition. See <a href="/confluence/display/Hive/Locking">Hive Concurrency Model</a> for information about locks.</p><p>SHOW LOCKS (DATABASE|SCHEMA) is supported from Hive 0.13 for DATABASE (see <a href="https://issues.apache.org/jira/browse/HIVE-2093" class="external-link" rel="nofollow">HIVE-2093</a>) and Hive 0.14 for SCHEMA (see <a href="https://issues.apache.org/jira/browse/HIVE-6601" class="external-link" rel="nofollow">HIVE-6601</a>). SCHEMA and DATABASE are interchangeable – they mean the same thing.</p><p>When <a href="/confluence/display/Hive/Hive+Transactions">Hive transactions</a> are being used, SHOW LOCKS returns this information (see <a href="https://issues.apache.org/jira/browse/HIVE-6460" class="external-link" rel="nofollow">HIVE-6460</a>):</p><ul><li>database name</li><li>table name</li><li>partition name (if the table is partitioned)</li><li>the state the lock is in, which can be:<ul><li>&quot;acquired&quot; – the requestor holds the lock</li><li>&quot;waiting&quot; – the requestor is waiting for the lock</li><li>&quot;aborted&quot; – the lock has timed out but has not yet been cleaned up</li></ul></li><li>the type of lock, which can be:<ul><li>&quot;exclusive&quot; – no one else can hold the lock at the same time (obtained mostly by DDL operations such as drop table)</li><li>&quot;shared_read&quot; – any number of other shared_read locks can lock the same resource at the same time (obtained by reads; confusingly, an insert operation also obtains a shared_read lock)</li><li>&quot;shared_write&quot; – any number of shared_read locks can lock the same resource at the same time, but no other shared_write locks are allowed (obtained by update and delete)</li></ul></li><li>ID of the transaction this lock is associated with, if there is one</li><li>last time the holder of this lock sent a heartbeat indicating it was still alive</li><li>the time the lock was acquired, if it has been acquired</li><li>Hive user who requested the lock</li><li>host the user is running on</li></ul><h3 id="LanguageManualDDL-ShowConf">Show Conf</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-6037" class="external-link" rel="nofollow">Hive 0.14.0</a>.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[SHOW CONF &lt;configuration_name&gt;;]]></script>
+</div></div><p>SHOW CONF returns a description of the specified <a href="/confluence/display/Hive/Configuration+Properties">configuration property</a>.</p><ul><li>default value</li><li>required type</li><li>description</li></ul><p>Note that SHOW CONF does not show the <em>current value</em> of a configuration property. For current property settings, use the &quot;set&quot; command in the CLI or a HiveQL script (see <a href="/confluence/display/Hive/LanguageManual+Commands">Commands</a>) or in Beeline (see <a href="/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-BeelineHiveCommands">Beeline Hive Commands</a>).</p><h3 id="LanguageManualDDL-ShowTransactions">Show Transactions</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-6460" class="external-link" rel="nofollow">Hive 0.13.0</a> (see <a href="/confluence/display/Hive/Hive+Transactions">Hive Transactions</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[SHOW TRANSACTIONS;]]></script>
+</div></div><p>SHOW TRANSACTIONS is for use by administrators when <a href="/confluence/display/Hive/Hive+Transactions">Hive transactions</a> are being used. It returns a list of all currently open and aborted transactions in the system, including this information:</p><ul><li>transaction ID</li><li>transaction state</li><li>user who started the transaction</li><li>machine where the transaction was started</li></ul><h3 id="LanguageManualDDL-ShowCompactions">Show Compactions</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of <a href="https://issues.apache.org/jira/browse/HIVE-6460" class="external-link" rel="nofollow">Hive 0.13.0</a> (see <a href="/confluence/display/Hive/Hive+Transactions#HiveTransactions-BasicDesign">Hive Transactions</a>).</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: text; gutter: false; theme: Default"><![CDATA[SHOW COMPACTIONS;]]></script>
+</div></div><p>SHOW COMPACTIONS returns a list of all tables and partitions currently being <a href="/confluence/display/Hive/Hive+Transactions#HiveTransactions-BasicDesign">compacted</a> or scheduled for compaction when <a href="/confluence/display/Hive/Hive+Transactions">Hive transactions</a> are being used, including this information:</p><ul><li>database name</li><li>table name</li><li>partition name (if the table is partitioned)</li><li>whether it is a major or minor compaction</li><li>the state the compaction is in, which can be:<ul><li>&quot;initiated&quot; – waiting in the queue to be compacted</li><li>&quot;working&quot; – being compacted</li><li>&quot;ready for cleaning&quot; – the compaction has been done and the old files are scheduled to be cleaned</li></ul></li><li>thread ID of the worker thread doing the compaction (only if in working state)</li><li>the time at which the compaction started (only if in working or ready for cleaning state)</li></ul><p>Compactions are initiated automatically, but can also be initiated manually with an <a href="#LanguageManualDDL-AlterTable/PartitionCompact">ALTER TABLE COMPACT statement</a>.</p><h2 id="LanguageManualDDL-Describe">Describe</h2><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1451833216747 {padding: 0px;}
+div.rbtoc1451833216747 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1451833216747 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1451833216747'>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-DescribeDatabase'>Describe Database</a></li>
+<li><a href='#LanguageManualDDL-DescribeTable/View/Column'>Describe Table/View/Column</a>
+<ul class='toc-indentation'>
+<li><a href='#LanguageManualDDL-DisplayColumnStatistics'>Display Column Statistics</a></li>
+</ul>
+</li>
+<li><a href='#LanguageManualDDL-DescribePartition'>Describe Partition</a></li>
+<li><a href='#LanguageManualDDL-Hive2.0+:SyntaxChange'>Hive 2.0+: Syntax Change</a></li>
+</ul>
+</div><h3 id="LanguageManualDDL-DescribeDatabase">Describe Database</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.7.</p></div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE DATABASE [EXTENDED] db_name;
+DESCRIBE SCHEMA [EXTENDED] db_name;     -- (Note: Hive 0.15.0 and later)]]></script>
+</div></div><p>DESCRIBE DATABASE shows the name of the database, its comment (if one has been set), and its root location on the filesystem. The uses of SCHEMA and DATABASE are interchangeable – they mean the same thing. DESCRIBE SCHEMA is added in Hive 0.15 (<a href="https://issues.apache.org/jira/browse/HIVE-8803" class="external-link" rel="nofollow">HIVE-8803</a>).</p><p>EXTENDED also shows the <a href="LanguageManual+DDL#LanguageManualDDL-CreateDatabase">database properties</a>.</p><h3 id="LanguageManualDDL-DescribeTable/View/Column">Describe Table/View/Column</h3><p>There are two formats for the describe table/view/column syntax, depending on whether or not the database is specified.</p><p>If the database is not specified, the optional column information is provided after a dot:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE [EXTENDED|FORMATTED]  
+  table_name[.col_name ( [.field_name] | [.&#39;$elem$&#39;] | [.&#39;$key$&#39;] | [.&#39;$value$&#39;] )* ];
+                                        -- (Note: Hive 1.x.x and 0.x.x only. See &quot;Hive 2.0+: New Syntax&quot; below)]]></script>
+</div></div><p>If the database is specified, the optional column information is provided after a space:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE [EXTENDED|FORMATTED]  
+  [db_name.]table_name[ col_name ( [.field_name] | [.&#39;$elem$&#39;] | [.&#39;$key$&#39;] | [.&#39;$value$&#39;] )* ];
+                                        -- (Note: Hive 1.x.x and 0.x.x only. See &quot;Hive 2.0+: New Syntax&quot; below)]]></script>
+</div></div><p>DESCRIBE shows the list of columns including partition columns for the given table. If the EXTENDED keyword is specified then it will show all the metadata for the table in Thrift serialized form. This is generally only useful for debugging and not for general use. If the FORMATTED keyword is specified, then it will show the metadata in a tabular format.</p><p>Note: DESCRIBE EXTENDED shows the number of rows only if statistics were gathered when the data was loaded (see <a href="StatsDev#StatsDev-NewlyCreatedTables">Newly Created Tables</a>), and if the Hive CLI is used instead of a Thrift client or Beeline. <a href="https://issues.apache.org/jira/browse/HIVE-6285" class="external-link" rel="nofollow">HIVE-6285</a> will address this issue. Although ANALYZE TABLE gathers statistics after the data has been loaded (see <a href="StatsDev#StatsDev-ExistingTables">Existing Tables</a>), it does not currently provide information about the number of rows.</p><p>If a table has a complex column then you can examine the attributes of this column by specifying table_name.complex_col_name (and field_name for an element of a struct, '$elem$' for array element, '$key$' for map key, and '$value$' for map value). You can specify this recursively to explore the complex column type.</p><p>For a view, DESCRIBE EXTENDED or FORMATTED can be used to retrieve the view's definition. Two relevant attributes are provided: both the original view definition as specified by the user, and an expanded definition used internally by Hive.</p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information — partition &amp; non-partition columns</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>In Hive 0.10.0 and earlier, no distinction is made between partition columns and non-partition columns while displaying columns for DESCRIBE TABLE. From Hive 0.12.0 onwards, they are displayed separately.</p><p>In Hive 0.13.0 and later, the configuration parameter <a href="Configuration+Properties#ConfigurationProperties-hive.display.partition.cols.separately">hive.display.partition.cols.separately</a> lets you use the old behavior, if desired (<a href="https://issues.apache.org/jira/browse/HIVE-6689" class="external-link" rel="nofollow">HIVE-6689</a>). For an example, see the test case in the <a href="https://issues.apache.org/jira/secure/attachment/12635956/HIVE-6689.2.patch" class="external-link" rel="nofollow">patch for HIVE-6689</a>.</p></div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Bug fixed in Hive 0.10.0 — database qualifiers</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Database qualifiers for table names were introduced in Hive 0.7.0, but they were broken for DESCRIBE until a bug fix in Hive 0.10.0 (<a href="https://issues.apache.org/jira/browse/HIVE-1977" class="external-link" rel="nofollow">HIVE-1977</a>).</p></div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Bug fixed in Hive 0.13.0 — quoted identifiers</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Prior to Hive 0.13.0 DESCRIBE did not accept backticks (`) surrounding table identifiers, so DESCRIBE could not be used for tables with names that matched reserved keywords (<a href="https://issues.apache.org/jira/browse/HIVE-2949" class="external-link" rel="nofollow">HIVE-2949</a> and <a href="https://issues.apache.org/jira/browse/HIVE-6187" class="external-link" rel="nofollow">HIVE-6187</a>). As of 0.13.0, all identifiers specified within backticks are treated literally when the configuration parameter <a href="Configuration+Properties#ConfigurationProperties-hive.support.quoted.identifiers">hive.support.quoted.identifiers</a> has its default value of &quot;<code>column</code>&quot; (<a href="https://issues.apache.org/jira/browse/HIVE-6013" class="external-link" rel="nofollow">HIVE-6013</a>). The only exception is <span>that double backticks (``) represent a single backtick character.</span></p></div></div><h4 id="LanguageManualDDL-DisplayColumnStatistics"><span style="font-weight: bold;line-height: 1.4285715;">Display Column Statistics</span></h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version information</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>As of Hive 0.14.0; see <a href="https://issues.apache.org/jira/browse/HIVE-7050" class="external-link" rel="nofollow">HIVE-7050</a> and <a href="https://issues.apache.org/jira/browse/HIVE-7051" class="external-link" rel="nofollow">HIVE-7051</a>. (The FOR COLUMNS option of ANALYZE TABLE is available as of <a href="https://issues.apache.org/jira/browse/HIVE-1362" class="external-link" rel="nofollow">Hive 0.10.0</a>.)</p></div></div><p>ANALYZE TABLE <em>table_name</em> COMPUTE STATISTICS FOR COLUMNS will compute column statistics for all columns in the specified table (and for all partitions if the table is partitioned). To view the gathered column statistics, the following statements can be used:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE FORMATTED [db_name.]table_name column_name;                              -- (Note: Hive 0.14.0 and later)
+DESCRIBE FORMATTED [db_name.]table_name column_name PARTITION (partition_spec);   -- (Note: Hive 0.14.0 to 1.x.x)
+                                                                                  -- (see &quot;Hive 2.0+: New Syntax&quot; below)]]></script>
+</div></div><p>See <a href="/confluence/display/Hive/StatsDev#StatsDev-ExistingTables">Statistics in Hive: Existing Tables</a> for more information about the ANALYZE TABLE command.</p><h3 id="LanguageManualDDL-DescribePartition">Describe Partition</h3><p>There are two formats for the describe partition syntax, depending on whether or not the database is specified.</p><p>If the database is not specified, the optional column information is provided after a dot:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE [EXTENDED|FORMATTED] table_name[.column_name] PARTITION partition_spec;
+                                        -- (Note: Hive 1.x.x and 0.x.x only. See &quot;Hive 2.0+: New Syntax&quot; below)]]></script>
+</div></div><p>If the database is specified, the optional column information is provided after a space:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE [EXTENDED|FORMATTED] [db_name.]table_name [column_name] PARTITION partition_spec;
+                                        -- (Note: Hive 1.x.x and 0.x.x only. See &quot;Hive 2.0+: New Syntax&quot; below)]]></script>
+</div></div><p>This statement lists metadata for a given partition. The output is similar to that of DESCRIBE table_name. Presently, the column information associated with a particular partition is not used while preparing plans. As of Hive 1.2 (<a href="https://issues.apache.org/jira/browse/HIVE-10307" class="external-link" rel="nofollow">HIVE-10307</a>), the partition column values specified in <em>partition_spec</em> are type validated, converted and normalized to their column types when <a href="/confluence/display/Hive/Configuration+Properties#ConfigurationProperties-hive.typecheck.on.insert">hive.typecheck.on.insert</a> is set to true (default). These values can be number literals.</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Example:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE page_view PARTITION (ds=&#39;2008-08-08&#39;);
+]]></script>
+</div></div><h3 id="LanguageManualDDL-Hive2.0+:SyntaxChange">Hive 2.0+: Syntax Change</h3><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Hive 2.0+: New syntax</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body">In Hive 2.0 release onward, the describe table command has a syntax change which is backward incompatible. See <a href="https://issues.apache.org/jira/browse/HIVE-12184" class="external-link" rel="nofollow">HIVE-12184</a> for details.</div></div><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[DESCRIBE [EXTENDED | FORMATTED]
+    [db_name.]table_name [PARTITION partition_spec] [col_name ( [.field_name] | [.&#39;$elem$&#39;] | [.&#39;$key$&#39;] | [.&#39;$value$&#39;] )* ];
+]]></script>
+</div></div><p>Warning: The new syntax could break current scripts.</p><ul><li>It no longer accepts DOT separated table_name and column_name. They would have to be SPACE-separated. DB and TABLENAME are DOT-separated. column_name can still contain DOTs for complex datatypes.</li><li>Optional partition_spec has to appear after the table_name but prior to the optional column_name. In the previous syntax, column_name appears in between table_name and partition_spec.</li></ul><div class="code panel pdl" style="border-width: 1px;"><div class="codeHeader panelHeader pdl" style="border-bottom-width: 1px;"><b>Examples:</b></div><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: sql; gutter: false; theme: Default"><![CDATA[DESCRIBE FORMATTED default.src_table PARTITION (part_col = 100) columnA;
+DESCRIBE default.src_thrift lintString.$elem$.myint;]]></script>
+</div></div><h1 id="LanguageManualDDL-HCatalogandWebHCatDDL">HCatalog and WebHCat DDL</h1><p>For information about DDL in HCatalog and WebHCat, see:</p><ul><li><a href="/confluence/display/Hive/HCatalog+CLI#HCatalogCLI-HCatalogDDL">HCatalog DDL</a> in the <a href="/confluence/display/Hive/HCatalog">HCatalog manual</a></li><li><a href="/confluence/display/Hive/WebHCat+Reference+AllDDL">WebHCat DDL Resources</a> in the <a href="/confluence/display/Hive/WebHCat">WebHCat manual</a></li></ul><p> </p><div><span style="white-space: pre-wrap;"><br /></span></div><p> </p><p> </p><p> </p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL"
+    dc:title="LanguageManual DDL"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/27362034"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="27362034" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>

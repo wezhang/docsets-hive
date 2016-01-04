@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+                    <title>LanguageManual ORC - Apache Hive - Apache Software Foundation</title>
+    
+        
+
+                        
+    
+                        
+    
+
+                
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="/confluence">
+<meta id="confluence-base-url" name="confluence-base-url" content="https://cwiki.apache.org/confluence">
+
+<meta id="atlassian-token" name="atlassian-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+
+
+<meta id="confluence-space-key" name="confluence-space-key" content="Hive">
+<script type="text/javascript">
+        var contextPath = '/confluence';
+</script>
+
+    
+
+    <meta name="confluence-request-time" content="1451833512730">
+        
+    
+        
+            <meta name="ajs-is-space-admin" content=""> <meta name="ajs-has-space-config" content="">
+            <style>.ia-fixed-sidebar, .ia-splitter-left {width: 285px;}.theme-default .ia-splitter #main {margin-left: 285px;}.ia-fixed-sidebar {visibility: hidden;}</style>
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-discovered-plugin-features" content="$discoveredList">
+            <meta name="ajs-keyboardshortcut-hash" content="38450baaed51271899c8e867d2a48ca9">
+            <meta name="ajs-is-confluence-admin" content="false">
+            <meta name="ajs-connection-timeout" content="10000">
+            <meta name="gliffy-license-type" content="LicenseType&lt;COMMUNITY&gt;">
+<meta name="gliffy-license-quantity" content="${pluginLicenseManager.userCount}">
+
+            <script type="text/x-template" title="gliffy-webpanel-footer">
+        <div class="gliffy-webpanel-footer"><span>This Confluence installation runs a Free Gliffy License - Evaluate the <a href="http://www.gliffy.com/products/confluence-plugin/">Gliffy Confluence Plugin</a> for your Wiki!</span></div>
+</script>
+
+
+            
+    
+    
+            <meta name="ajs-page-id" content="31818911">
+            <meta name="ajs-latest-page-id" content="31818911">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="LanguageManual ORC">
+            <meta name="ajs-parent-page-title" content="LanguageManual">
+            <meta name="ajs-parent-page-id" content="27362030">
+            <meta name="ajs-space-key" content="Hive">
+            <meta name="ajs-space-name" content="Apache Hive">
+            <meta name="ajs-jira-metadata-count" content="0">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-can-remove-page" content="false">
+            <meta name="ajs-browse-page-tree-mode" content="view">
+            <meta name="ajs-shared-drafts" content="false">
+            <meta name="ajs-context-path" content="/confluence">
+            <meta name="ajs-base-url" content="https://cwiki.apache.org/confluence">
+            <meta name="ajs-version-number" content="5.8.4">
+            <meta name="ajs-build-number" content="5982">
+            <meta name="ajs-remote-user" content="">
+            <meta name="ajs-remote-user-key" content="">
+            <meta name="ajs-current-user-fullname" content="">
+            <meta name="ajs-current-user-avatar-url" content="">
+            <meta name="ajs-static-resource-url-prefix" content="/confluence/s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="20971520">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="confluence-inline-comments-resolved,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareContentEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.mentions.api.ConfluenceMentionEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.security.ForgotPasswordEvent,pdf-preview,notification.plugin.api.enabled.com.atlassian.confluence.plugins.tasklist.event.SendTaskEmailEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageMovedEvent,previews.sharing,previews.versions,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentUpdateEvent,file-annotations,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.attachment.AttachmentBatchUploadCompletedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentCreateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingLessUsersEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentRemoveEvent,atlassian.aui.raphael.disabled,previews.conversion-service,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.comment.CommentUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.follow.FollowEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageEditedEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostCreateEvent,previews.trigger-all-file-types,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentResolveEvent,notification.plugin.api.enabled.com.atlassian.confluence.event.events.like.LikeCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.inlinecomments.events.InlineCommentCreateEvent,previews.sharing.pushstate,confluence-inline-comments-rich-editor,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostUpdateEvent,file-annotations.likes,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.page.async.PageCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.files.notifications.event.FileContentMentionUpdateEvent,notification.plugin.api.enabled.com.atlassian.confluence.efi.emails.events.OnboardingNoSpaceCreatedEvent,notification.plugin.api.enabled.com.atlassian.confluence.plugins.hipchat.api.events.HipChatUserMapped,notification.plugin.api.enabled.com.atlassian.confluence.plugins.sharepage.api.ShareAttachmentEvent,confluence-inline-comments,confluence-inline-comments-dangling-comment,notification.plugin.api.enabled.com.atlassian.confluence.event.events.content.blogpost.BlogPostMovedEvent">
+            <meta name="ajs-atl-token" content="735c8f668271f8e1dea73527ae5689ca93f07505">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-user-date-pattern" content="dd MMM yyyy">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="https://cwiki.apache.org/confluence/opensearch/osd.action" title="Apache Software Foundation"/>
+    
+                    
+            <meta name="ajs-create-issue-metadata-show-discovery" content="false">
+            
+
+<script>
+window.WRM=window.WRM||{};window.WRM._unparsedData=window.WRM._unparsedData||{};
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-plugin:context-path.context-path"]="\"/confluence\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:atlassian-nps-plugin-resources.is-server-instance-data-provider"]="true";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:browser-metrics.feature-data-provider-legacy"]="true";
+WRM._unparsedData["com.atlassian.plugins.atlassian-plugins-webresource-rest:web-resource-manager.resource-base-url-pattern"]="\"(?:/confluence(?:/s/.*?/_)?/download)\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-license-banner:confluence-license-banner-resources.license-details"]="{\"daysBeforeLicenseExpiry\":0,\"daysBeforeMaintenanceExpiry\":0,\"showLicenseExpiryBanner\":false,\"showMaintenanceExpiryBanner\":false,\"renewUrl\":null,\"salesEmail\":null}";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-hipchat-integration-plugin:discovery-javascript-data.link-active"]="{\"linkActive\":true,\"conditionsMet\":true,\"admin\":false}";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.analytics-enabled-data-provider"]="\"true\"";
+WRM._unparsedData["com.atlassian.plugins.atlassian-nps-plugin:nps-acknowledgement-resources.sen-data-provider"]="\"SEN-2015076\"";
+WRM._unparsedData["com.atlassian.confluence.plugins.confluence-feature-discovery-plugin:confluence-feature-discovery-plugin-resources.test-mode"]="false";
+WRM._unparsedData["com.atlassian.plugins.browser.metrics.browser-metrics-plugin:api.feature-data-provider"]="true";
+</script>
+<link type="text/css" rel="stylesheet" href="../../s/2e51e60e83eadbb79c5004bd9c4ac765-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css@build-number=5982" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/9b6bdeb7fddc0a2f5337e313f4e85615-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css@highlightactions=true&amp;locale=en-GB&amp;flavour=VANILLA" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/confluence/s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/css/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.css?conditionalComment=lt+IE+9&amp;locale=en-GB" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-styles/org.randombits.confluence.toc%253Atoc-plugin-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/3.7.2/_/download/batch/confluence.extra.information%253Ainformation-plugin-adg-styles/confluence.extra.information%253Ainformation-plugin-adg-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default/com.atlassian.confluence.ext.newcode-macro-plugin%253Ash-theme-default.css" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/13/_/styles/colors.css@spaceKey=Hive" media="all">
+<link type="text/css" rel="stylesheet" href="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/1.0/_/download/resources/com.atlassian.confluence.themes.default%253Astyles/default-theme.css" media="all">
+<script type="text/javascript" src="../../s/b5b7f3c4a47ebde54b884c3070e3bb8c-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/68/_/download/superbatch/js/batch.js@atlassian.aui.raphael.disabled=true&amp;locale=en-GB&amp;build-number=5982" ></script>
+<script type="text/javascript" src="../../s/47fb273cd38c3662368839aefb134f70-T/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/ec13b76cd8d002fa2cf4ca229002aee7/_/download/contextbatch/js/page,viewcontent,atl.general,main,pagebanner,atl.comments/batch.js@highlightactions=true&amp;analytics-uploadable=true&amp;flavour=VANILLA&amp;nps-acknowledged=true&amp;analytics-enabled=true&amp;locale=en-GB&amp;anonymous-access-enabled=true&amp;is-server-instance=true&amp;hostenabled=true" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Aclient-side-toc-resources/org.randombits.confluence.toc%253Aclient-side-toc-resources.js" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.8.6/_/download/batch/org.randombits.confluence.toc%253Atoc-plugin-analytics/org.randombits.confluence.toc%253Atoc-plugin-analytics.js" ></script>
+<script type="text/javascript" src="../../s/6c0981174e94142364564819dc0d1413-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter.js@locale=en-GB" ></script>
+<script type="text/javascript" src="../../s/d41d8cd98f00b204e9800998ecf8427e-CDN/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/2.1.5/_/download/batch/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes/com.atlassian.confluence.ext.newcode-macro-plugin%253Asyntaxhighlighter-brushes.js" ></script>
+
+
+        
+    
+
+        
+        <meta name="ajs-site-title" content="Apache Software Foundation" />
+
+    
+    
+
+    
+                <link rel="canonical" href="LanguageManual+ORC">
+        <link rel="shortlink" href="https://cwiki.apache.org/confluence/x/n4TlAQ">
+    <meta name="wikilink" content="[Hive:LanguageManual ORC]">
+    <meta name="page-version" content="28">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-default  aui-layout aui-theme-default">
+
+        
+            <div id='stp-licenseStatus-banner'></div>
+    <ul id="assistive-skip-links" class="assistive">
+    <li><a href="LanguageManual+ORC#title-heading">Skip to content</a></li>
+    <li><a href="LanguageManual+ORC#breadcrumbs">Skip to breadcrumbs</a></li>
+    <li><a href="LanguageManual+ORC#header-menu-bar">Skip to header menu</a></li>
+    <li><a href="LanguageManual+ORC#navigation">Skip to action menu</a></li>
+    <li><a href="LanguageManual+ORC#quick-search-query">Skip to quick search</a></li>
+</ul>
+<div id="page">
+<div id="full-height-container">
+    <div id="header-precursor">
+        <div class="cell">
+            <style type="text/css">
+#preview #previewArea iframe {
+
+   overflow: visible;
+}
+</style>
+
+                            </div>
+    </div>
+    
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class=" aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-controls="app-switcher" aria-haspopup="true" data-aui-trigger href="LanguageManual+ORC#app-switcher"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="https://cwiki.apache.org/confluence/"><img src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/images/logo/confluence-logo.png" alt="Apache Software Foundation" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="https://cwiki.apache.org/confluence/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                        <li>
+        <form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="https://cwiki.apache.org/confluence/dosearchsite.action" method="get"><fieldset><label for="quick-search-query" class="assistive">Quick Search</label><input id="quick-search-query" class="text app-search search quick-search-query" type="text" accessKey="q" autocomplete="off" name="queryString" title="Quick Search" placeholder="Search" /><input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/><div class="aui-dd-parent quick-nav-drop-down"></div></fieldset></form>
+    </li>
+        <li>
+            
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="LanguageManual+ORC#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+        
+            
+<a  id="confluence-help-link" href="https://docs.atlassian.com/confluence/docs-58/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="https://cwiki.apache.org/confluence" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="feed-builder-link" href="https://cwiki.apache.org/confluence/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="whats-new-menu-link" href="https://docs.atlassian.com/confluence/docs-58/whatsnew/iframe" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="https://cwiki.apache.org/confluence" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="confluence-about-link" href="https://cwiki.apache.org/confluence/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+    </li>
+        <li>
+                
+    
+    </li>
+        <li>
+            
+    </li>
+        <li>
+                                            <li>
+        
+            
+<a  id="login-link" href="https://cwiki.apache.org/confluence/login.action?os_destination=%2Fdisplay%2FHive%2FLanguageManual%2BORC" class="   user-item login-link "      title="" >
+        Log in
+</a>
+</li>
+                        <li>
+    
+            
+<a  id="signup-link" href="https://cwiki.apache.org/confluence/signup.action" class="   user-item signup-link "      title="" >
+        Sign up
+</a>
+</li>
+                        
+    </li>
+    </ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    
+    	<div class="ia-splitter">
+    		<div class="ia-splitter-left">
+    			<div class="ia-fixed-sidebar">
+    				
+	    	<div class="acs-side-bar ia-scrollable-section"><div class="acs-side-bar-space-info tipsy-enabled" data-configure-tooltip="Edit space details"><div class="avatar"><div class="space-logo " data-key="Hive" data-name="Apache Hive" data-entity-type="confluence.space"><div class="avatar-img-container"><div class="avatar-img-wrapper"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive"><img class="avatar-img" src="../../download/attachments/27362113/Hive@version=2&amp;modificationDate=1317659390000&amp;api=v2" alt="Apache Hive"></a></div></div></div></div><div class="name"><a href="https://cwiki.apache.org/confluence/display/Hive" title="Apache Hive">Apache Hive</a></div><div class="flyout-handle icon"></div></div><div class="acs-side-bar-content"><div class="acs-nav-wrapper"><div class="acs-nav" data-has-create-permission="false" data-quick-links-state="null" data-nav-type="pages"><div class="acs-nav-sections"><div class="main-links-section "><ul class="acs-nav-list"><li class="acs-nav-item wiki current-item"data-collector-key="spacebar-pages"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" data-collapsed-tooltip="Pages"><span class="icon"></span><span class="acs-nav-item-label">Pages</span></a></li><li class="acs-nav-item blog"data-collector-key="spacebar-blogs"><a class="acs-nav-item-link tipsy-enabled" href="https://cwiki.apache.org/confluence/pages/viewrecentblogposts.action?key=Hive" data-collapsed-tooltip="Blog"><span class="icon"></span><span class="acs-nav-item-label">Blog</span></a></li></ul></div><div class="quick-links-wrapper"></div></div></div></div><div class="ia-secondary-container tipsy-enabled" data-tree-type="pages"><div class="ia-secondary-header"><h5 class="ia-secondary-header-title pages"><span class="label">Child pages</span></h5></div><div class="ia-secondary-parent-content"><ul class="parent ia-secondary-header-title wiki"><li class="parent-item"><a class="parent-item-link" href="LanguageManual" title="LanguageManual"><span class="icon"></span><span class="label">LanguageManual</span></a></li></ul></div><div class="ia-secondary-current-content"><ul class="ia-secondary-currentPage-title wiki current-item"><li><span class="icon"></span><span class="label">LanguageManual ORC</span></li></ul></div><div class="ia-secondary-content"><div class="contextual-nav-child-pages"></div></div></div></div><div class="hidden"><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive" id="space-pages-link"></a><script type="text/x-template" title="logo-config-content"><h2>Space Details</h2><div class="personal-space-logo-hint">Your profile picture is used as the logo for your personal space. <a href="https://cwiki.apache.org/confluence/users/profile/editmyprofilepicture.action" target="_blank">Change your profile picture</a>.</div></script></div></div><div class="space-tools-section"><div id="space-tools-menu-additional-items" class="hidden"><div data-label="Browse pages" data-class="" data-href="/confluence/pages/reorderpages.action?key=Hive">Browse pages</div></div><div id="space-tools-dd-dummy"></div><a id="space-tools-menu-trigger" class="aui-button aui-button-subtle aui-dropdown2-trigger tipsy-enabled" aria-owns="space-tools-dd-dummy"><span class="aui-icon aui-icon-small aui-iconfont-configure">Configure</span><span class="label">Space tools</span></a><a class="expand-collapse-trigger"></a></div>
+    
+    			</div>
+    		</div>
+        <!-- \#header -->
+
+        
+        <div id="main" class=" aui-page-panel">
+                <div id="main-header">
+            
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                                                        
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action aui-dropdown2-trigger-arrowless aui-button aui-button-subtle ajs-menu-title aui-dropdown2-trigger" href="LanguageManual+ORC#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation">
+            <span>
+                                    <span class="aui-icon aui-icon-small aui-iconfont-more"></span>
+                                
+            </span>
+        </a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-attachments-link" href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=31818911" rel="nofollow" class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>
+                        A<u>t</u>tachments (5)
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-history-link" href="https://cwiki.apache.org/confluence/pages/viewpreviousversions.action?pageId=31818911" rel="nofollow" class="action-view-history"   title="">
+                <span>
+                        Page History
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-page-permissions-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=31818911" rel="nofollow" class="action-page-permissions"   title="Edit restrictions">
+                <span>
+                        Restrictions
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-page-info-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=31818911" rel="nofollow" class="action-view-info"   title="">
+                <span>
+                        Page Information
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-resolved-comments" href="https://cwiki.apache.org/confluence" rel="nofollow" class=""   title="">
+                <span>
+                        Resolved comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="link-to-page-link" href="https://cwiki.apache.org/confluence/pages/viewinfo.action?pageId=31818911" rel="nofollow" class=""   title="Link to this Page">
+                <span>
+                        Link to this Page…
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="view-in-hierarchy-link" href="https://cwiki.apache.org/confluence/pages/reorderpages.action?key=Hive&amp;openId=31818911#selectedPageInHierarchy" rel="nofollow" class=""   title="">
+                <span>
+                        View in Hierarchy
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-view-source-link" href="https://cwiki.apache.org/confluence/plugins/viewsource/viewpagesrc.action?pageId=31818911" rel="nofollow" class="action-view-source popup-link"   title="">
+                <span>
+                        View Source
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="delete-all-comments-link-link" href="https://cwiki.apache.org/confluence/plugins/aptis/deleteAllComments/ask-user.action?pageId=31818911" rel="nofollow" class=""   title="">
+                <span>
+                        Delete comments
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-pdf-link" href="https://cwiki.apache.org/confluence/spaces/flyingpdf/pdfpageexport.action?pageId=31818911" rel="nofollow" class=""   title="">
+                <span>
+                        Export to PDF
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="com-k15t-confluence-scroll-epub-launcher" href="https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=31818911" rel="nofollow" class=""   title="">
+                <span>
+                        Export to EPUB
+        </span>    </a>
+</li>
+                                        <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="action-export-word-link" href="https://cwiki.apache.org/confluence/exportword?pageId=31818911" rel="nofollow" class="action-export-word"   title="">
+                <span>
+                        Export to Word
+        </span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+                                            
+    
+    
+    <a  id="treecopy-action" href="https://cwiki.apache.org/confluence/plugins/treecopy/setnames.action?pageId=31818911" rel="nofollow" class=""   title="">
+                <span>
+                        Copy Page Tree
+        </span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+            
+            <div id="title-heading" class="pagetitle with-breadcrumbs">
+                
+                                    <div id="breadcrumb-section">
+                        
+    
+    
+    <ol id="breadcrumbs">
+                                        
+                        
+        <li class="first" >
+                        
+                            <span class=""><a href="https://cwiki.apache.org/confluence/collector/pages.action?key=Hive">Pages</a></span>
+                                                                    
+                        
+        <li>
+                        
+                            <span class=""><a href="LanguageManual">LanguageManual</a></span>
+                                                    </ol>
+
+
+                    </div>
+                
+                
+        <a href="LanguageManual+ORC#page-banner-end" class="assistive">Skip to end of banner</a>
+<div id="page-banner-start" class="assistive"></div>
+
+                    
+            <div id="page-metadata-banner"><ul class="banner"><li id="system-content-items" class="noprint"><a href="LanguageManual+ORC" title="Restrictions apply" id="content-metadata-page-restrictions" class="hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/red_padlock.png" style="height: 16px; width: 16px;"/></a><a href="https://cwiki.apache.org/confluence/pages/viewpageattachments.action?pageId=31818911&amp;metadataLink=true" title="5 attachments" id="content-metadata-attachments" ><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-page-banner%253Apage-banner-resources/images/grey_attach.png" style="height: 16px; width: 16px;"/></a></li><li class="page-metadata-item noprint has-button"  id="content-metadata-jira-wrapper"><a href="LanguageManual+ORC" title="" id="content-metadata-jira" class="aui-button aui-button-subtle content-metadata-jira tipsy-disabled hidden"><img class="page-banner-item-icon" src="../../s/en_GB/5982/f2b47fb3d636c8bc9fd0b11c0ec6d0ae18646be7.1/_/download/resources/com.atlassian.confluence.plugins.confluence-jira-metadata%253Aconfluence-jira-metadata-resources/img/icon-jira-link.png" style="height: 16px; width: 16px;"/><span>JIRA links</span></a></li></ul></div>
+            
+
+<a href="LanguageManual+ORC#page-banner-start" class="assistive">Go to start of banner</a>
+<div id="page-banner-end" class="assistive"></div>
+    
+
+                <h1 id="title-text" class="with-breadcrumbs">
+                                                <a href="LanguageManual+ORC">LanguageManual ORC</a>
+                                    </h1>
+            </div>
+        </div><!-- \#main-header -->
+        
+        
+
+        <div id="sidebar-container">
+                                                </div><!-- \#sidebar-container -->
+
+        
+    
+
+        
+
+
+
+
+        
+
+    
+    
+        
+    
+    
+                    
+    
+
+                        
+    
+    
+
+    
+
+
+
+
+<div id="content" class="page view">
+    
+
+
+<div id="action-messages">
+                        </div>
+
+
+
+        <script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <td class="search-result-title"><a href="https://cwiki.apache.org/confluence/display/Hive/{1}" class="content-type-{2}"><span>{0}</span></a></td>
+        <td class="search-result-space"><a class="space" href="https://cwiki.apache.org/confluence/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script>
+        
+    
+            
+
+        
+                            
+    
+
+                    
+
+        
+        <a href="LanguageManual+ORC#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+            <li class="page-metadata-modification-info">
+                
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'>     <a href="https://cwiki.apache.org/confluence/display/~leftyl"
+                       class="url fn"
+                            >Lefty Leverenz</a></span>, last modified by <span class='editor'>     <a href="https://cwiki.apache.org/confluence/display/~prasanthj"
+                       class="url fn"
+                            >Prasanth Jayachandran</a></span> on <a class='last-modified' title='Dec 02, 2015 20:48' href='https://cwiki.apache.org/confluence/pages/diffpagesbyversion.action?pageId=31818911&amp;selectedPageVersions=27&amp;selectedPageVersions=28'>Dec 02, 2015</a>
+                </li>
+        </ul>
+    </div>
+
+
+<a href="LanguageManual+ORC#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+
+        
+                                            
+        <div id="main-content" class="wiki-content">
+                           
+        <h1 id="LanguageManualORC-ORCFiles">ORC Files</h1><p><div class="toc-macro client-side-toc-macro " data-headerelements="H1,H2,H3"></div></p><h2 id="LanguageManualORC-ORCFileFormat">ORC File Format</h2><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Introduced in Hive version 0.11.</p></div></div><p>The <em>Optimized Row Columnar</em> (ORC) file format provides a highly efficient way to store Hive data. It was designed to overcome limitations of the other Hive file formats. Using ORC files improves performance when Hive is reading, writing, and processing data.</p><p>Compared with RCFile format, for example, ORC file format has many advantages such as:</p><ul><li>a single file as the output of each task, which reduces the NameNode's load</li><li>Hive type support including datetime, decimal, and the complex types (struct, list, map, and union)</li><li>light-weight indexes stored within the file<ul><li>skip row groups that don't pass predicate filtering</li><li>seek to a given row</li></ul></li><li>block-mode compression based on data type<ul><li>run-length encoding for integer columns</li><li>dictionary encoding for string columns</li></ul></li><li>concurrent reads of the same file using separate RecordReaders</li><li>ability to split files without scanning for markers</li><li>bound the amount of memory needed for reading or writing</li><li>metadata stored using Protocol Buffers, which allows addition and removal of fields</li></ul><h3 id="LanguageManualORC-FileStructure">File Structure</h3><p>An ORC file contains groups of row data called <strong>stripes</strong>, along with auxiliary information in a <strong>file footer</strong>. At the end of the file a <strong>postscript</strong> holds compression parameters and the size of the compressed footer.</p><p>The default stripe size is 250 MB. Large stripe sizes enable large, efficient reads from HDFS.</p><p>The file footer contains a list of stripes in the file, the number of rows per stripe, and each column's data type. It also contains column-level aggregates count, min, max, and sum.</p><p>This diagram illustrates the ORC file structure:</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="../../download/attachments/31818911/OrcFileLayout.png@version=1&amp;modificationDate=1366430304000&amp;api=v2" data-image-src="/confluence/download/attachments/31818911/OrcFileLayout.png?version=1&amp;modificationDate=1366430304000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="31948932" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="OrcFileLayout.png" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="31818911" data-linked-resource-container-version="28"></span></p><h3 id="LanguageManualORC-StripeStructure">Stripe Structure</h3><p>As shown in the diagram, each stripe in an ORC file holds index data, row data, and a stripe footer.</p><p>The <strong>stripe footer</strong> contains a directory of stream locations. <strong>Row data</strong> is used in table scans.</p><p><strong>Index data</strong> includes min and max values for each column and the row positions within each column. (A bit field or bloom filter could also be included.) Row index entries provide offsets that enable seeking to the right compression block and byte within a decompressed block.  Note that ORC indexes are used only for the selection of stripes and row groups and not for answering queries.</p><p>Having relatively frequent row index entries enables row-skipping within a stripe for rapid reads, despite large stripe sizes. By default every 10,000 rows can be skipped.</p><p>With the ability to skip large sets of rows based on filter predicates, you can sort a table on its secondary keys to achieve a big reduction in execution time. For example, if the primary partition is transaction date, the table can be sorted on state, zip code, and last name. Then looking for records in one state will skip the records of all other states.</p><p>A complete specification of the format is given in the <a href="LanguageManual+ORC#LanguageManualORC-orc-spec">ORC specification</a>.</p><h2 id="LanguageManualORC-HiveQLSyntax">HiveQL Syntax</h2><p>File formats are specified at the table (or partition) level. You can specify the ORC file format with HiveQL statements such as these:</p><ul><li><code>CREATE TABLE ... STORED AS ORC</code></li><li><code>ALTER TABLE ... [PARTITION partition_spec] SET FILEFORMAT ORC</code></li><li><code>SET hive.default.fileformat=Orc</code></li></ul><p>The parameters are all placed in the TBLPROPERTIES (see <a href="LanguageManual+DDL#LanguageManualDDL-CreateTable">Create Table</a>). They are:</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><p>Key</p></th><th class="confluenceTh"><p>Default</p></th><th class="confluenceTh"><p>Notes</p></th></tr><tr><td class="confluenceTd"><p>orc.compress</p></td><td class="confluenceTd"><p>ZLIB</p></td><td class="confluenceTd"><p>high level compression (one of NONE, ZLIB, SNAPPY)</p></td></tr><tr><td class="confluenceTd"><p>orc.compress.size</p></td><td class="confluenceTd"><p>262,144</p></td><td class="confluenceTd"><p>number of bytes in each compression chunk</p></td></tr><tr><td class="confluenceTd"><p>orc.stripe.size</p></td><td class="confluenceTd"><p>268435456</p></td><td class="confluenceTd"><p>number of bytes in each stripe</p></td></tr><tr><td class="confluenceTd"><p>orc.row.index.stride</p></td><td class="confluenceTd"><p>10,000</p></td><td class="confluenceTd"><p>number of rows between index entries (must be &gt;= 1000)</p></td></tr><tr><td class="confluenceTd"><p>orc.create.index</p></td><td class="confluenceTd"><p>true</p></td><td class="confluenceTd"><p>whether to create row indexes</p></td></tr><tr><td colspan="1" class="confluenceTd">orc.bloom.filter.columns</td><td colspan="1" class="confluenceTd">&quot;&quot;</td><td colspan="1" class="confluenceTd">comma separated list of column names for which bloom filter should be created</td></tr><tr><td colspan="1" class="confluenceTd">orc.bloom.filter.fpp</td><td colspan="1" class="confluenceTd">0.05</td><td colspan="1" class="confluenceTd">false positive probability for bloom filter (must &gt;0.0 and &lt;1.0)</td></tr></tbody></table></div><p>For example, creating an ORC stored table without compression:</p><div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>create table Addresses (
+  name string,
+  street string,
+  city string,
+  state string,
+  zip int
+) stored as orc tblproperties (&quot;orc.compress&quot;=&quot;NONE&quot;);
+</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version 0.14.0+:  CONCATENATE</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p><code><a href="LanguageManual+DDL#LanguageManualDDL-AlterTable/PartitionConcatenate">ALTER TABLE table_name [PARTITION partition_spec] CONCATENATE</a></code> can be used to merge small ORC files into a larger file, starting in <a href="https://issues.apache.org/jira/browse/HIVE-7509" class="external-link" rel="nofollow">Hive 0.14.0</a>. The merge happens at the stripe level, which avoids decompressing and decoding the data.</p></div></div><h2 id="LanguageManualORC-SerializationandCompression">Serialization and Compression</h2><p>The serialization of column data in an ORC file depends on whether the data type is integer or string.</p><h3 id="LanguageManualORC-IntegerColumnSerialization">Integer Column Serialization</h3><p>Integer columns are serialized in two streams.</p><ol><li><em>present</em> bit stream: is the value non-null?</li><li>data stream: a stream of integers</li></ol><p>Integer data is serialized in a way that takes advantage of the common distribution of numbers:</p><ul><li>Integers are encoded using a variable-width encoding that has fewer bytes for small integers.</li><li>Repeated values are run-length encoded.</li><li>Values that differ by a constant in the range (-128 to 127) are run-length encoded.</li></ul><p>The <em>variable-width encoding</em> is based on Google's protocol buffers and uses the high bit to represent whether this byte is not the last and the lower 7 bits to encode data. To encode negative numbers, a zigzag encoding is used where 0, -1, 1, -2, and 2 map into 0, 1, 2, 3, 4, and 5 respectively.</p><p>Each set of numbers is encoded this way:</p><ul><li>If the first byte (b0) is negative:<ul><li>-b0 variable-length integers follow.</li></ul></li><li>If the first byte (b0) is positive:<ul><li>it represents b0 + 3 repeated integers</li><li>the second byte (-128 to +127) is added between each repetition</li><li>1 variable-length integer.</li></ul></li></ul><p>In <em>run-length encoding,</em> the first byte specifies run length and whether the values are literals or duplicates. Duplicates can step by -128 to +128. Run-length encoding uses protobuf style variable-length integers.</p><h3 id="LanguageManualORC-StringColumnSerialization">String Column Serialization</h3><p>Serialization of string columns uses a dictionary to form unique column values. The dictionary is sorted to speed up predicate filtering and improve compression ratios.</p><p>String columns are serialized in four streams.</p><ol><li><em>present</em> bit stream: is the value non-null?</li><li>dictionary data: the bytes for the strings</li><li>dictionary length: the length of each entry</li><li>row data: the row values</li></ol><p>Both the dictionary length and the row values are run-length encoded streams of integers.</p><h3 id="LanguageManualORC-Compression">Compression</h3><p>Streams are compressed using a codec, which is specified as a table property for all streams in that table. To optimize memory use, compression is done incrementally as each block is produced. Compressed blocks can be jumped over without first having to be decompressed for scanning. Positions in the stream are represented by a block start location and an offset into the block.</p><p>The codec can be Snappy, Zlib, or <em>none</em>.</p><h2 id="LanguageManualORC-ORCFileDumpUtility">ORC File Dump Utility</h2><p>The ORC file dump utility analyzes ORC files.  To invoke it, use this command:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<script type="syntaxhighlighter" class="brush: java; gutter: false; theme: Default"><![CDATA[// Hive version 0.11 through 0.14:
+hive --orcfiledump &lt;location-of-orc-file&gt;
+ 
+// Hive version 0.15 and later:
+hive --orcfiledump [-d] [--rowindex &lt;col_ids&gt;] &lt;location-of-orc-file&gt;
+ 
+// Hive version 1.2.0 and later:
+hive --orcfiledump [-d] [-t] [--rowindex &lt;col_ids&gt;] &lt;location-of-orc-file&gt;
+ 
+// Hive version 1.3.0 and later:
+hive --orcfiledump [-j] [-p] [-d] [-t] [--rowindex &lt;col_ids&gt;] [--recover] [--skip-dump] [--backup-path &lt;new-path&gt;] &lt;location-of-orc-file-or-directory&gt;]]></script>
+</div></div><p>Specifying <code>-d</code> to the command will cause it to dump the data in the ORC file rather than the metadata (Hive <a href="https://issues.apache.org/jira/browse/HIVE-7896" class="external-link" rel="nofollow">1.1.0</a> and later).</p><p>Specifying <code>--rowindex</code> with a comma separated list of column ids will cause it to print <a href="LanguageManual+ORC#LanguageManualORC-StripeStructure">row indexes</a> for the specified columns<span style="line-height: 1.4285715;">, where 0 is the top level struct containing all of the columns and 1 is the first column id (Hive </span><a href="https://issues.apache.org/jira/browse/HIVE-7896" class="external-link" rel="nofollow">1.1.0</a><span style="line-height: 1.4285715;"> and later).</span></p><p><span style="line-height: 1.4285715;">Specifying <code>-t</code> to the command will print the timezone id of the writer.</span></p><p><span style="line-height: 1.4285715;">Specifying <code>-j</code> to the command will print the ORC file metadata in JSON format. To pretty print the JSON metadata add <code>-p</code> to the command.</span></p><p><span style="line-height: 1.4285715;">Specifying <code>--recover</code> to the command will recover corrupted orc file generated by hive streaming</span></p><p><span style="line-height: 1.4285715;">Specifying <code>--skip-dump</code> is used along with <code>--recover</code> to perform recovery without dumping metadata</span></p><p><span style="line-height: 1.4285715;">Specifying <code>--backup-path</code> to the command with new path will let recovery tool to move the corrupted files to the specified backup path (default: /tmp)</span></p><p><span style="line-height: 1.4285715;"><em>&lt;location-of-orc-file&gt;</em> is the URI of the ORC file.</span></p><p><span style="line-height: 1.4285715;"><em>&lt;location-of-orc-file-or-directory&gt;</em> is the URI of the ORC file or directory. From <a href="https://issues.apache.org/jira/browse/HIVE-11669" class="external-link" rel="nofollow">Hive 1.3.0</a> onward, this URI can be a directory containing ORC files.</span></p><h2 id="LanguageManualORC-ORCConfigurationParameters">ORC Configuration Parameters</h2><p>The ORC configuration parameters are described in <a href="Configuration+Properties#ConfigurationProperties-ORCFileFormat">Hive Configuration Properties&nbsp;&ndash; ORC File Format</a>.</p><h1 id="LanguageManualORC-orc-specORCFormatSpecification"><span class="confluence-anchor-link" id="LanguageManualORC-orc-spec"></span>ORC Format Specification</h1><h2 id="LanguageManualORC-Introduction">Introduction</h2><p> </p><p>Hive's RCFile was the standard format for storing tabular data in<br />Hadoop for several years. However, RCFile has limitations because it<br />treats each column as a binary blob without semantics. In Hive 0.11 we<br />added a new file format named Optimized Row Columnar (ORC) file that<br />uses and retains the type information from the table definition. ORC<br />uses type specific readers and writers that provide light weight<br />compression techniques such as dictionary encoding, bit packing, delta<br />encoding, and run length encoding -- resulting in dramatically smaller<br />files. Additionally, ORC can apply generic compression using zlib, or<br />Snappy on top of the lightweight compression for even smaller<br />files. However, storage savings are only part of the gain. ORC<br />supports projection, which selects subsets of the columns for reading,<br />so that queries reading only one column read only the required<br />bytes. Furthermore, ORC files include light weight indexes that<br />include the minimum and maximum values for each column in each set of<br />10,000 rows and the entire file. Using pushdown filters from Hive, the<br />file reader can skip entire sets of rows that aren't important for<br />this query.</p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="../../download/attachments/31818911/OrcFileLayout.png@version=1&amp;modificationDate=1366430304000&amp;api=v2" data-image-src="/confluence/download/attachments/31818911/OrcFileLayout.png?version=1&amp;modificationDate=1366430304000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="31948932" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="OrcFileLayout.png" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="31818911" data-linked-resource-container-version="28"></span></p><h2 id="LanguageManualORC-FileTail">File Tail</h2><p>Since HDFS does not support changing the data in a file after it is written, ORC stores the top level index at the end of the file. The overall structure of the file is given in the figure above.<br />The file's tail consists of 3 parts; the file metadata, file footer and postscript.</p><p>The metadata for ORC is stored using <a href="http://s.apache.org/protobuf_encoding" class="external-link" rel="nofollow">Protocol Buffers</a>, which provides the ability to add new fields without breaking readers. This document incorporates the Protobuf definition from the <a href="http://s.apache.org/orc_proto" class="external-link" rel="nofollow">ORC source code</a><span style="line-height: 1.4285715;"> and the reader </span><span style="line-height: 1.4285715;">are encouraged to review the Protobuf encoding if they need to understand </span><span style="line-height: 1.4285715;">the byte-level encoding</span></p><h3 id="LanguageManualORC-Postscript">Postscript</h3><p>The Postscript section provides the necessary information to interpret<br />the rest of the file including the length of the file's Footer and<br />Metadata sections, the version of the file, and the kind of general<br />compression used (eg. none, zlib, or snappy). The Postscript is never<br />compressed and ends one byte before the end of the file. The version<br />stored in the Postscript is the lowest version of Hive that is<br />guaranteed to be able to read the file and it stored as a sequence of<br />the major and minor version. There are currently two versions that are<br />used: [0,11] for Hive 0.11, and [0,12] for Hive 0.12 to 0.14.</p><p>The process of reading an ORC file works backwards through the<br />file. Rather than making multiple short reads, the ORC reader reads<br />the last 16k bytes of the file with the hope that it will contain both<br />the Footer and Postscript sections. The final byte of the file<br />contains the serialized length of the Postscript, which must be less<br />than 256 bytes. Once the Postscript is parsed, the compressed<br />serialized length of the Footer is known and it can be decompressed<br />and parsed.</p><pre>message PostScript {<br /> // the length of the footer section in bytes<br /> optional uint64 footerLength = 1;<br /> // the kind of generic compression used<br /> optional CompressionKind compression = 2;<br /> // the maximum size of each compression chunk<br /> optional uint64 compressionBlockSize = 3;<br /> // the version of the writer<br /> repeated uint32 version = 4 [packed = true];<br /> // the length of the metadata section in bytes<br /> optional uint64 metadataLength = 5;<br /> // the fixed string &quot;ORC&quot;<br /> optional string magic = 8000;<br />}</pre><pre>enum CompressionKind {<br /> NONE = 0;<br /> ZLIB = 1;<br /> SNAPPY = 2;<br /> LZO = 3;<br />}</pre><h3 id="LanguageManualORC-Footer">Footer</h3><p>The Footer section contains the layout of the body of the file, the<br />type schema information, the number of rows, and the statistics about<br />each of the columns.</p><p>The file is broken in to three parts- Header, Body, and Tail. The<br />Header consists of the bytes &quot;ORC'' to support tools that want to<br />scan the front of the file to determine the type of the file. The Body<br />contains the rows and indexes, and the Tail gives the file level<br />information as described in this section.</p><pre>message Footer {<br /> // the length of the file header in bytes (always 3)<br /> optional uint64 headerLength = 1;<br /> // the length of the file header and body in bytes<br /> optional uint64 contentLength = 2;<br /> // the information about the stripes<br /> repeated StripeInformation stripes = 3;<br /> // the schema information<br /> repeated Type types = 4;<br /> // the user metadata that was added<br /> repeated UserMetadataItem metadata = 5;<br /> // the total number of rows in the file<br /> optional uint64 numberOfRows = 6;<br /> // the statistics of each column across the file<br /> repeated ColumnStatistics statistics = 7;<br /> // the maximum number of rows in each index entry<br /> optional uint32 rowIndexStride = 8;<br />}</pre><h4 id="LanguageManualORC-StripeInformation">Stripe Information</h4><p>The body of the file is divided into stripes. Each stripe is self<br />contained and may be read using only its own bytes combined with the<br />file's Footer and Postscript. Each stripe contains only entire rows so<br />that rows never straddle stripe boundaries. Stripes have three<br />sections: a set of indexes for the rows within the stripe, the data<br />itself, and a stripe footer. Both the indexes and the data sections<br />are divided by columns so that only the data for the required columns<br />needs to be read.</p><pre>message StripeInformation {<br /> // the start of the stripe within the file<br /> optional uint64 offset = 1;<br /> // the length of the indexes in bytes<br /> optional uint64 indexLength = 2;<br /> // the length of the data in bytes<br /> optional uint64 dataLength = 3;<br /> // the length of the footer in bytes<br /> optional uint64 footerLength = 4;<br /> // the number of rows in the stripe<br /> optional uint64 numberOfRows = 5;<br />}</pre><h4 id="LanguageManualORC-TypeInformation">Type Information</h4><p>All of the rows in an ORC file must have the same schema. Logically<br />the schema is expressed as a tree as in the figure below, where<br />the compound types have subcolumns under them.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="../../download/thumbnails/31818911/TreeWriters.png@version=1&amp;modificationDate=1421350127000&amp;api=v2" data-image-src="/confluence/download/attachments/31818911/TreeWriters.png?version=1&amp;modificationDate=1421350127000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="51183950" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="TreeWriters.png" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="31818911" data-linked-resource-container-version="28"></span></p><p>The equivalent Hive DDL would be:</p><pre>create table Foobar (<br /> myInt int,<br /> myMap map&lt;string,<br /> struct&lt;myString : string,<br /> myDouble: double&gt;&gt;,<br /> myTime timestamp<br />);</pre><p>The type tree is flattened in to a list via a pre-order traversal<br />where each type is assigned the next id. Clearly the root of the type<br />tree is always type id 0. Compound types have a field named subtypes<br />that contains the list of their children's type ids.</p><pre>message Type {<br /> enum Kind {<br /> BOOLEAN = 0;<br /> BYTE = 1;<br /> SHORT = 2;<br /> INT = 3;<br /> LONG = 4;<br /> FLOAT = 5;<br /> DOUBLE = 6;<br /> STRING = 7;<br /> BINARY = 8;<br /> TIMESTAMP = 9;<br /> LIST = 10;<br /> MAP = 11;<br /> STRUCT = 12;<br /> UNION = 13;<br /> DECIMAL = 14;<br /> DATE = 15;<br /> VARCHAR = 16;<br /> CHAR = 17;<br /> }<br /> // the kind of this type<br /> required Kind kind = 1;<br /> // the type ids of any subcolumns for list, map, struct, or union<br /> repeated uint32 subtypes = 2 [packed=true];<br /> // the list of field names for struct<br /> repeated string fieldNames = 3;<br /> // the maximum length of the type for varchar or char<br /> optional uint32 maximumLength = 4;<br /> // the precision and scale for decimal<br /> optional uint32 precision = 5;<br /> optional uint32 scale = 6;<br />}</pre><h4 id="LanguageManualORC-ColumnStatistics">Column Statistics</h4><p>The goal of the column statistics is that for each column, the writer<br />records the count and depending on the type other useful fields. For<br />most of the primitive types, it records the minimum and maximum<br />values; and for numeric types it additionally stores the sum.<br />From Hive 1.1.0 onwards, the column statistics will also record if<br />there are any null values within the row group by setting the hasNull flag.<br />The hasNull flag is used by ORC's predicate pushdown to better answer<br />'IS NULL' queries.</p><pre>message ColumnStatistics {<br /> // the number of values<br /> optional uint64 numberOfValues = 1;<br /> // At most one of these has a value for any column<br /> optional IntegerStatistics intStatistics = 2;<br /> optional DoubleStatistics doubleStatistics = 3;<br /> optional StringStatistics stringStatistics = 4;<br /> optional BucketStatistics bucketStatistics = 5;<br /> optional DecimalStatistics decimalStatistics = 6;<br /> optional DateStatistics dateStatistics = 7;<br /> optional BinaryStatistics binaryStatistics = 8;<br /> optional TimestampStatistics timestampStatistics = 9;<br /> optional bool hasNull = 10;<br />}</pre><p>For integer types (tinyint, smallint, int, bigint), the column<br />statistics includes the minimum, maximum, and sum. If the sum<br />overflows long at any point during the calculation, no sum is<br />recorded.</p><pre>message IntegerStatistics {<br /> optional sint64 minimum = 1;<br /> optional sint64 maximum = 2;<br /> optional sint64 sum = 3;<br />}</pre><p><span style="line-height: 1.4285715;">For floating point types (float, double), the column statistics </span><span style="line-height: 1.4285715;">include the minimum, maximum, and sum. If the sum overflows a double, </span><span style="line-height: 1.4285715;">no sum is recorded.</span></p><pre>message DoubleStatistics {<br /> optional double minimum = 1;<br /> optional double maximum = 2;<br /> optional double sum = 3;<br />}</pre><p><span style="line-height: 1.4285715;">For strings, the minimum value, maximum value, and the sum of the </span><span style="line-height: 1.4285715;">lengths of the values are recorded.</span></p><pre>message StringStatistics {<br /> optional string minimum = 1;<br /> optional string maximum = 2;<br /> // sum will store the total length of all strings<br /> optional sint64 sum = 3;<br />}</pre><p>For booleans, the statistics include the count of false and true values.</p><pre>message BucketStatistics {<br /> repeated uint64 count = 1 [packed=true];<br />}</pre><p>For decimals, the minimum, maximum, and sum are stored.</p><pre>message DecimalStatistics {<br /> optional string minimum = 1;<br /> optional string maximum = 2;<br /> optional string sum = 3;<br />}</pre><p>Date columns record the minimum and maximum values as the number of days since<br />the epoch (1/1/2015).</p><pre>message DateStatistics {<br /> // min,max values saved as days since epoch<br /> optional sint32 minimum = 1;<br /> optional sint32 maximum = 2;<br />}</pre><p>Timestamp columns record the minimum and maximum values as the number of<br />milliseconds since the epoch (1/1/2015).</p><pre>message TimestampStatistics {<br /> // min,max values saved as milliseconds since epoch<br /> optional sint64 minimum = 1;<br /> optional sint64 maximum = 2;<br />}</pre><p>Binary columns store the aggregate number of bytes across all of the values.</p><pre>message BinaryStatistics {<br /> // sum will store the total binary blob length<br /> optional sint64 sum = 1;<br />}</pre><h4 id="LanguageManualORC-UserMetadata">User Metadata</h4><p>The user can add arbitrary key/value pairs to an ORC file as it is<br />written. The contents of the keys and values are completely<br />application defined, but the key is a string and the value is<br />binary. Care should be taken by applications to make sure that their<br />keys are unique and in general should be prefixed with an organization<br />code.</p><pre>message UserMetadataItem {<br /> // the user defined key<br /> required string name = 1;<br /> // the user defined binary value<br /> required bytes value = 2;<br />}</pre><h3 id="LanguageManualORC-FileMetadata">File Metadata</h3><p>The file Metadata section contains column statistics at the stripe<br />level granularity. These statistics enable input split elimination<br />based on the predicate push-down evaluated per a stripe.</p><pre>message StripeStatistics {<br /> repeated ColumnStatistics colStats = 1;<br />}</pre><pre>message Metadata {<br /> repeated StripeStatistics stripeStats = 1;<br />}</pre><h2 id="LanguageManualORC-CompressionStreams">Compression Streams</h2><p>If the ORC file writer selects a generic compression codec (zlib or<br />snappy), every part of the ORC file except for the Postscript is<br />compressed with that codec. However, one of the requirements for ORC<br />is that the reader be able to skip over compressed bytes without<br />decompressing the entire stream. To manage this, ORC writes compressed<br />streams in chunks with headers as in the figure below.<br />To handle uncompressable data, if the compressed data is larger than<br />the original, the original is stored and the isOriginal flag is<br />set. Each header is 3 bytes long with <code>(compressedLength * 2 +</code><br /><code>isOriginal)</code> stored as a little endian value. For example, the header<br />for a chunk that compressed to 100,000 bytes would be [0x40, 0x0d,<br />0x03]. The header for 5 bytes that did not compress would be [0x0b,<br />0x00, 0x00]. Each compression chunk is compressed independently so<br />that as long as a decompressor starts at the top of a header, it can<br />start decompressing without the previous bytes.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image confluence-thumbnail" width="300" src="../../download/thumbnails/31818911/CompressionStream.png@version=1&amp;modificationDate=1421350259000&amp;api=v2" data-image-src="/confluence/download/attachments/31818911/CompressionStream.png?version=1&amp;modificationDate=1421350259000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="51183951" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="CompressionStream.png" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="31818911" data-linked-resource-container-version="28"></span></p><p>The default compression chunk size is 256K, but writers can choose<br />their own value less than 2<sup>23</sup>. Larger chunks lead to better<br />compression, but require more memory. The chunk size is recorded in<br />the Postscript so that readers can allocate appropriately sized<br />buffers.</p><p>ORC files without generic compression write each stream directly<br />with no headers.</p><h2 id="LanguageManualORC-RunLengthEncoding">Run Length Encoding</h2><h3 id="LanguageManualORC-Base128Varint">Base 128 Varint</h3><p>Variable width integer encodings take advantage of the fact that most<br />numbers are small and that having smaller encodings for small numbers<br />shrinks the overall size of the data. ORC uses the varint format from<br />Protocol Buffers, which writes data in little endian format using the<br />low 7 bits of each byte. The high bit in each byte is set if the<br />number continues into the next byte.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Unsigned Original</th><th class="confluenceTh">Serialized</th></tr><tr><td class="confluenceTd">0</td><td class="confluenceTd">0x00</td></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">0x01</td></tr><tr><td class="confluenceTd">127</td><td class="confluenceTd">0x7f</td></tr><tr><td class="confluenceTd">128</td><td class="confluenceTd">0x80, 0x01</td></tr><tr><td class="confluenceTd">129</td><td class="confluenceTd">0x81, 0x01</td></tr><tr><td class="confluenceTd">16383</td><td class="confluenceTd">0xff, 0x7f</td></tr><tr><td class="confluenceTd">16384</td><td class="confluenceTd">0x80, 0x80, 0x01</td></tr><tr><td class="confluenceTd">16385</td><td class="confluenceTd">0x81, 0x80, 0x01</td></tr></tbody></table></div><p>For signed integer types, the number is converted into an unsigned<br />number using a zigzag encoding. Zigzag encoding moves the sign bit to<br />the least significant bit using the expression <code>(val &lt;&lt; 1) ^ (val &gt;&gt; 63)</code> and derives its name from the fact that positive and negative<br />numbers alternate once encoded. The unsigned number is then serialized<br />as above.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Signed Original</th><th class="confluenceTh">Unsigned</th></tr><tr><td class="confluenceTd">0</td><td class="confluenceTd">0</td></tr><tr><td class="confluenceTd">-1</td><td class="confluenceTd">1</td></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">2</td></tr><tr><td class="confluenceTd">-2</td><td class="confluenceTd">3</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">4</td></tr></tbody></table></div><h3 id="LanguageManualORC-ByteRunLengthEncoding">Byte Run Length Encoding</h3><p>For byte streams, ORC uses a very light weight encoding of identical<br />values.</p><ul><li><span style="line-height: 1.4285715;">Run - a sequence of at least 3 identical values</span></li><li><span style="line-height: 1.4285715;">Literals - a sequence of non-identical values</span></li></ul><p>The first byte of each group of values is a header than determines<br />whether it is a run (value between 0 to 127) or literal list (value<br />between -128 to -1). For runs, the control byte is the length of the<br />run minus the length of the minimal run (3) and the control byte for<br />literal lists is the negative length of the list. For example, a<br />hundred 0's is encoded as [0x61, 0x00] and the sequence 0x44, 0x45<br />would be encoded as [0xfe, 0x44, 0x45]. The next group can choose<br />either of the encodings.</p><h3 id="LanguageManualORC-BooleanRunLengthEncoding">Boolean Run Length Encoding</h3><p>For encoding boolean types, the bits are put in the bytes from most<br />significant to least significant. The bytes are encoded using byte run<br />length encoding as described in the previous section. For example,<br />the byte sequence [0xff, 0x80] would be one <code>true</code> followed by<br />seven <code>false</code> values.</p><h3 id="LanguageManualORC-IntegerRunLengthEncodingversion1">Integer Run Length Encoding version 1</h3><p>In Hive 0.11 ORC files used Run Length Encoding version 1 (RLEv1),<br />which provides a lightweight compression of signed or unsigned integer<br />sequences. RLEv1 has two sub-encodings:</p><ul><li><span style="line-height: 1.4285715;">Run - a sequence of values that differ by a small fixed delta</span></li><li><span style="line-height: 1.4285715;">Literals - a sequence of varint encoded values</span></li></ul><p>Runs start with an initial byte of 0x00 to 0x7f, which encodes the<br />length of the run - 3. A second byte provides the fixed delta in the<br />range of -128 to 127. Finally, the first value of the run is encoded<br />as a base 128 varint.</p><p>For example, if the sequence is 100 instances of 7 the encoding would<br />start with 100 - 3, followed by a delta of 0, and a varint of 7 for<br />an encoding of [0x61, 0x00, 0x07]. To encode the sequence of numbers<br />running from 100 to 1, the first byte is 100 - 3, the delta is -1,<br />and the varint is 100 for an encoding of [0x61, 0xff, 0x64].</p><p>Literals start with an initial byte of 0x80 to 0xff, which corresponds<br />to the negative of number of literals in the sequence. Following the<br />header byte, the list of N varints is encoded. Thus, if there are<br />no runs, the overhead is 1 byte for each 128 integers. The first 5<br />prime numbers [2, 3, 4, 7, 11] would encoded as [0xfb, 0x02, 0x03,<br />0x04, 0x07, 0xb].</p><h3 id="LanguageManualORC-IntegerRunLengthEncodingVersion2">Integer Run Length Encoding Version 2</h3><p>In Hive 0.12, ORC introduced Run Length Encoding version 2 (RLEv2),<br />which has improved compression and fixed bit width encodings for<br />faster expansion. RLEv2 uses four sub-encodings based on the data:</p><ul><li>Short Repeat - used for short sequences with repeated values</li><li><span style="line-height: 1.4285715;">Direct - used for random sequences with a fixed bit width</span></li><li><span style="line-height: 1.4285715;">Patched Base - used for random sequences with a variable bit width</span></li><li><span style="line-height: 1.4285715;">Delta - used for monotonically increasing or decreasing sequences</span></li></ul><h4 id="LanguageManualORC-ShortRepeat">Short Repeat</h4><p>The short repeat encoding is used for short repeating integer<br />sequences with the goal of minimizing the overhead of the header. All<br />of the bits listed in the header are from the first byte to the last<br />and from most significant bit to least significant bit. If the type is<br />signed, the value is zigzag encoded.</p><ul><li>1 byte header<ul><li><span style="line-height: 1.4285715;">2 bits for encoding type (0)</span></li><li><span style="line-height: 1.4285715;">3 bits for width (W) of repeating value (1 to 8 bytes)</span></li><li><span style="line-height: 1.4285715;">3 bits for repeat count (3 to 10 values)</span></li></ul></li><li><span style="line-height: 1.4285715;">W bytes in big endian format, which is zigzag encoded if they type </span><span style="line-height: 1.4285715;">is signed</span></li></ul><p><span style="line-height: 1.4285715;">The unsigned sequence of [10000, 10000, 10000, 10000, 10000] would be </span><span style="line-height: 1.4285715;">serialized with short repeat encoding (0), a width of 2 bytes (1), and </span><span style="line-height: 1.4285715;">repeat count of 5 (2) as [0x0a, 0x27, 0x10].</span></p><h4 id="LanguageManualORC-Direct">Direct</h4><p>The direct encoding is used for integer sequences whose values have a<br />relatively constant bit width. It encodes the values directly using a<br />fixed width big endian encoding. The width of the values is encoded<br />using the table below.</p><p> </p><h5 id="LanguageManualORC-The5bitwidthencodingtableforRLEv2">The 5 bit width encoding table for RLEv2</h5><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Width in Bits</th><th class="confluenceTh">Encoded Value</th><th class="confluenceTh">Notes</th></tr><tr><td class="confluenceTd">0</td><td class="confluenceTd">0</td><td class="confluenceTd">for delta encoding</td></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">0</td><td class="confluenceTd">for non-delta encoding</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">1</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">4</td><td class="confluenceTd">3</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">8</td><td class="confluenceTd">7</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">16</td><td class="confluenceTd">15</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">24</td><td class="confluenceTd">23</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">32</td><td class="confluenceTd">27</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">40</td><td class="confluenceTd">28</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">48</td><td class="confluenceTd">29</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">56</td><td class="confluenceTd">30</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">64</td><td class="confluenceTd">31</td><td class="confluenceTd"> </td></tr><tr><td class="confluenceTd">3</td><td class="confluenceTd">2</td><td class="confluenceTd">deprecated</td></tr><tr><td class="confluenceTd">5 &lt;= x &lt;= 7</td><td class="confluenceTd">x - 1</td><td class="confluenceTd">deprecated</td></tr><tr><td class="confluenceTd">9 &lt;= x &lt;= 15</td><td class="confluenceTd">x -1</td><td class="confluenceTd">deprecated</td></tr><tr><td class="confluenceTd">17 &lt;= x &lt;= 21</td><td class="confluenceTd">x - 1</td><td class="confluenceTd">deprecated</td></tr><tr><td class="confluenceTd">26</td><td class="confluenceTd">24</td><td class="confluenceTd">deprecated</td></tr><tr><td class="confluenceTd">28</td><td class="confluenceTd">25</td><td class="confluenceTd">deprecated</td></tr><tr><td class="confluenceTd">30</td><td class="confluenceTd">26</td><td class="confluenceTd">deprecated</td></tr></tbody></table></div><ul><li>2 bytes header<ul><li>2 bits for encoding type (1)</li><li>5 bits for encoded width (W) of values (1 to 64 bits) using the 5 bit width encoding table</li><li>9 bits for length (L) (1 to 512 values)</li></ul></li><li><p>W * L bits (padded to the next byte) encoded in big endian format, which is<br /> zigzag encoding if the type is signed</p></li></ul><p>The unsigned sequence of [23713, 43806, 57005, 48879] would be<br />serialized with direct encoding (1), a width of 16 bits (15), and<br />length of 4 (3) as [0x5e, 0x03, 0x5c, 0xa1, 0xab, 0x1e, 0xde, 0xad,<br /> 0xbe, 0xef].</p><h4 id="LanguageManualORC-PatchedBase">Patched Base</h4><p>The patched base encoding is used for integer sequences whose bit<br />widths varies a lot. The minimum signed value of the sequence is found<br />and subtracted from the other values. The bit width of those adjusted<br />values is analyzed and the 90 percentile of the bit width is chosen<br />as W. The 10\% of values larger than W use patches from a patch list<br />to set the additional bits. Patches are encoded as a list of gaps in<br />the index values and the additional value bits.</p><ul><li><span style="line-height: 1.4285715;">4 bytes header</span><br /><ul><li><span style="line-height: 1.4285715;">bits for encoding type (2)</span></li><li><span style="line-height: 1.4285715;">5 bits for encoded width (W) of values (1 to 64 bits)<br />using the 5 bit width encoding table</span></li><li><span style="line-height: 1.4285715;">9 bits for length (L) (1 to 512 values)</span></li><li><span style="line-height: 1.4285715;">3 bits for base value width (BW) (1 to 8 bytes)</span></li><li><span style="line-height: 1.4285715;">5 bits for patch width (PW) (1 to 64 bits)<br />using  the 5 bit width encoding table</span></li><li><span style="line-height: 1.4285715;">3 bits for patch gap width (PGW) (1 to 8 bits)</span></li><li><span style="line-height: 1.4285715;">5 bits for patch list length (PLL) (0 to 31 patches)</span></li></ul></li><li><span style="line-height: 1.4285715;">Base value (BW bytes) - The base value is stored as a big endian value<br />with negative values marked by the most significant bit set. If it that<br />bit is set, the entire value is negated.</span></li><li><span style="line-height: 1.4285715;">Data values (W * L bits padded to the byte) - A sequence of W bit positive values that<br />are added to the base value.</span></li><li><span style="line-height: 1.4285715;">Data values (W * L bits padded to the byte) - A sequence of W bit positive values that </span><span style="line-height: 1.4285715;">are added to the base value.</span></li><li><span style="line-height: 1.4285715;">Patch list (PLL * (PGW + PW) bytes) - A list of patches for </span><span style="line-height: 1.4285715;">values that didn't fit within W bits. Each entry in the list </span><span style="line-height: 1.4285715;">consists of a gap, which is the number of elements skipped from the </span><span style="line-height: 1.4285715;">previous patch, and a patch value. Patches are applied by logically </span><span style="line-height: 1.4285715;">or'ing the data values with the relevant patch shifted W bits </span><span style="line-height: 1.4285715;">left. If a patch is 0, it was introduced to skip over more than 255 </span><span style="line-height: 1.4285715;">items. The combined length of each patch (PGW + PW) must be less or </span><span style="line-height: 1.4285715;">equal to 64.</span></li></ul><p>The unsigned sequence of [2030, 2000, 2020, 1000000, 2040, 2050, 2060,<br /> 2070, 2080, 2090] has a minimum of 2000, which makes the adjusted<br />sequence [30, 0, 20, 998000, 40, 50, 60, 70, 80, 90]. It has an<br />encoding of patched base (2), a bit width of 8 (7), a length of 10<br />(9), a base value width of 2 bytes (1), a patch width of 12 bits (11),<br />patch gap width of 2 bits (1), and a patch list length of 1 (1). The<br />base value is 2000 and the combined result is [0x8e, 0x09, 0x2b, 0x21,<br /> 0x07, 0xd0, 0x1e, 0x00, 0x14, 0x70, 0x28, 0x32, 0x3c, 0x46, 0x50,<br /> 0x5a, 0xfc, 0xe8]</p><h4 id="LanguageManualORC-Delta">Delta</h4><p>The Delta encoding is used for monotonically increasing or decreasing<br />sequences. The first two numbers in the sequence can not be identical,<br />because the encoding is using the sign of the first delta to determine<br />if the series is increasing or decreasing.</p><ul><li><span style="line-height: 1.4285715;">2 bytes header</span><br /><ul><li><span style="line-height: 1.4285715;">2 bits for encoding type (3)</span></li><li><span style="line-height: 1.4285715;">5 bits for encoded width (W) of deltas (0 to 64 bits)<br />using the 5 bit width encoding table</span></li><li><span style="line-height: 1.4285715;">9 bits for run length (L) (1 to 512 values)<br /></span></li></ul></li><li><span style="line-height: 1.4285715;">Base value - encoded as (signed or unsigned) varint</span></li><li><span style="line-height: 1.4285715;">Delta base - encoded as signed varint</span></li><li><span style="line-height: 1.4285715;">Delta values $W * (L - 2)$ bytes - encode each delta after the first<br />one. If the delta base is positive, the sequence is increasing and if it is<br />negative the sequence is decreasing.</span></li></ul><p><span style="line-height: 1.4285715;">The unsigned sequence of [2, 3, 5, 7, 11, 13, 17, 19, 23, 29] would be </span><span style="line-height: 1.4285715;">serialized with delta encoding (3), a width of 4 bits (3), length of </span><span style="line-height: 1.4285715;">10 (9), a base of 2 (2), and first delta of 1 (2). The resulting </span><span style="line-height: 1.4285715;">sequence is [0xc6, 0x09, 0x02, 0x02, 0x22, 0x42, 0x42, 0x46].</span></p><h2 id="LanguageManualORC-Stripes">Stripes</h2><p>The body of ORC files consists of a series of stripes. Stripes are<br />large (typically ~200MB) and independent of each other and are often<br />processed by different tasks. The defining characteristic for columnar<br />storage formats is that the data for each column is stored separately<br />and that reading data out of the file should be proportional to the<br />number of columns read.</p><p>In ORC files, each column is stored in several streams that are stored<br />next to each other in the file. For example, an integer column is<br />represented as two streams PRESENT, which uses one with a bit per<br />value recording if the value is non-null, and DATA, which records the<br />non-null values. If all of a column's values in a stripe are non-null,<br />the PRESENT stream is omitted from the stripe. For binary data, ORC<br />uses three streams PRESENT, DATA, and LENGTH, which stores the length<br />of each value. The details of each type will be presented in the<br />following subsections.</p><h3 id="LanguageManualORC-StripeFooter">Stripe Footer</h3><p>The stripe footer contains the encoding of each column and the<br />directory of the streams including their location.</p><pre>message StripeFooter {<br /> // the location of each stream<br /> repeated Stream streams = 1;<br /> // the encoding of each column<br /> repeated ColumnEncoding columns = 2;<br />}</pre><p>To describe each stream, ORC stores the kind of stream, the column id,<br />and the stream's size in bytes. The details of what is stored in each stream<br />depends on the type and encoding of the column.</p><pre>message Stream {<br /> enum Kind {<br /> // boolean stream of whether the next value is non-null<br /> PRESENT = 0;<br /> // the primary data stream<br /> DATA = 1;<br /> // the length of each value for variable length data<br /> LENGTH = 2;<br /> // the dictionary blob<br /> DICTIONARY\_DATA = 3;<br /> // deprecated prior to Hive 0.11<br /> // It was used to store the number of instances of each value in the<br /> // dictionary<br /> DICTIONARY_COUNT = 4;<br /> // a secondary data stream<br /> SECONDARY = 5;<br /> // the index for seeking to particular row groups<br /> ROW_INDEX = 6;<br /> }<br /> required Kind kind = 1;<br /> // the column id<br /> optional uint32 column = 2;<br /> // the number of bytes in the file<br /> optional uint64 length = 3;<br />}</pre><p>Depending on their type several options for encoding are possible. The<br />encodings are divided into direct or dictionary-based categories and<br />further refined as to whether they use RLE v1 or v2.</p><pre>message ColumnEncoding {<br /> enum Kind {<br /> // the encoding is mapped directly to the stream using RLE v1<br /> DIRECT = 0;<br /> // the encoding uses a dictionary of unique values using RLE v1<br /> DICTIONARY = 1;<br /> // the encoding is direct using RLE v2<br /> DIRECT\_V2 = 2;<br /> // the encoding is dictionary-based using RLE v2<br /> DICTIONARY\_V2 = 3;<br /> }<br /> required Kind kind = 1;<br /> // for dictionary encodings, record the size of the dictionary<br /> optional uint32 dictionarySize = 2;<br />}</pre><h3 id="LanguageManualORC-ColumnEncodings">Column Encodings</h3><h4 id="LanguageManualORC-SmallInt,Int,andBigIntColumns">SmallInt, Int, and BigInt Columns</h4><p>All of the 16, 32, and 64 bit integer column types use the same set of<br />potential encodings, which is basically whether they use RLE v1 or<br />v2. If the PRESENT stream is not included, all of the values are<br />present. For values that have false bits in the present stream, no<br />values are included in the data stream.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Signed Integer RLE v1</td></tr><tr><td class="confluenceTd">DIRECT_V2</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd"><p>Boolean RLE</p></td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">DATA</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Signed Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-FloatandDoubleColumns">Float and Double Columns</h4><p>Floating point types are stored using IEEE 754 floating point bit<br />layout. Float columns use 4 bytes per value and double columns use 8<br />bytes.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">IEEE 754 floating point representation</td></tr></tbody></table></div><h4 id="LanguageManualORC-String,Char,andVarCharColumns">String, Char, and VarChar Columns</h4><p>String columns are adaptively encoded based on whether the first<br />10,000 values are sufficiently distinct. In all of the encodings, the<br />PRESENT stream encodes whether the value is null.</p><p>For direct encoding the UTF-8 bytes are saved in the DATA stream and<br />the length of each value is written into the LENGTH stream. In direct<br />encoding, if the values were [``Nevada'', ``California'']; the DATA<br />would be ``NevadaCalifornia'' and the LENGTH would be [6, 10].</p><p>For dictionary encodings the dictionary is sorted and UTF-8 bytes of<br />each unique value are placed into DICTIONARY_DATA. The length of each<br />item in the dictionary is put into the LENGTH stream. The DATA stream<br />consists of the sequence of references to the dictionary elements.</p><p>In dictionary encoding, if the values were [``Nevada'',<br /> ``California'', ``Nevada'', ``California'', and ``Florida'']; the<br />DICTIONARY\_DATA would be ``CaliforniaFloridaNevada'' and LENGTH would<br />be [10, 7, 6]. The DATA would be [2, 0, 2, 0, 1].</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">String contents</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">LENGTH</td><td class="confluenceTd">No</td><td class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td class="confluenceTd">DICTIONARY</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DICTIONARY_DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">String contents</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">LENGTH</td><td class="confluenceTd">No</td><td class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td class="confluenceTd">DIRECT_V2</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">String Contents</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">LENGTH</td><td class="confluenceTd">No</td><td class="confluenceTd">Unsigned Integer RLE v2</td></tr><tr><td class="confluenceTd">DICTIONARY_V2</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Unsigned Integer RLE v2</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DICTIONARY_DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">String contents</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">LENGTH</td><td class="confluenceTd">No</td><td class="confluenceTd">Unsigned Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-BooleanColumns">Boolean Columns</h4><p>Boolean columns are rare, but have a simple encoding.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Boolean RLE</td></tr></tbody></table></div><h4 id="LanguageManualORC-TinyIntColumns">TinyInt Columns</h4><p>TinyInt (byte) columns use byte run length encoding.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Byte RLE</td></tr></tbody></table></div><h4 id="LanguageManualORC-BinaryColumns">Binary Columns</h4><p>Binary data is encoded with a PRESENT stream, a DATA stream that records<br />the contents, and a LENGTH stream that records the number of bytes per a<br />value.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Binary contents</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">LENGTH</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td colspan="1" class="confluenceTd">DIRECT_V2</td><td colspan="1" class="confluenceTd">PRESENT</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">DATA</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Binary contents</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">LENGTH</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-DecimalColumns">Decimal Columns</h4><p>Decimal was introduced in Hive 0.11 with infinite precision (the total<br />number of digits). In Hive 0.13, the definition was change to limit<br />the precision to a maximum of 38 digits, which conveniently uses 127<br />bits plus a sign bit. The current encoding of decimal columns stores<br />the integer representation of the value as an unbounded length zigzag<br />encoded base 128 varint. The scale is stored in the SECONDARY stream<br />as an unsigned integer.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Unbounded base 128 varints</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">SECONDARY</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td colspan="1" class="confluenceTd">DIRECT_V2</td><td colspan="1" class="confluenceTd">PRESENT</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">DATA</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unbounded base 128 varints</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">SECONDARY</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-DateColumns">Date Columns</h4><p>Date data is encoded with a PRESENT stream, a DATA stream that records<br />the number of days after January 1, 1970 in UTC.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Signed Integer RLE v1</td></tr><tr><td colspan="1" class="confluenceTd">DIRECT_V2</td><td colspan="1" class="confluenceTd">PRESENT</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">DATA</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Signed Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-TimestampColumns">Timestamp Columns</h4><p>Timestamp records times down to nanoseconds as a PRESENT stream that<br />records non-null values, a DATA stream that records the number of<br />seconds after 1 January 2015, and a SECONDARY stream that records the<br />number of nanoseconds.</p><p>Because the number of nanoseconds often has a large number of trailing<br />zeros, the number has trailing decimal zero digits removed and the<br />last three bits are used to record how many zeros were removed. Thus<br />1000 nanoseconds would be serialized as 0x0b and 100000 would be<br />serialized as 0x0d.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td class="confluenceTd"> </td><td class="confluenceTd">DATA</td><td class="confluenceTd">No</td><td class="confluenceTd">Signed Integer RLE v1</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">SECONDARY</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td colspan="1" class="confluenceTd">DIRECT_V2</td><td colspan="1" class="confluenceTd">PRESENT</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">DATA</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Signed Integer RLE v2</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">SECONDARY</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-StructColumns">Struct Columns</h4><p>Structs have no data themselves and delegate everything to their child<br />columns except for their PRESENT stream. They have a child column<br />for each of the fields.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr></tbody></table></div><h4 id="LanguageManualORC-ListColumns">List Columns</h4><p>Lists are encoded as the PRESENT stream and a length stream with<br />number of items in each list. They have a single child column for the<br />element values.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">LENGTH</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td colspan="1" class="confluenceTd">DIRECT_V2</td><td colspan="1" class="confluenceTd">PRESENT</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">LENGTH</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-MapColumns">Map Columns</h4><p>Maps are encoded as the PRESENT stream and a length stream with number<br />of items in each list. They have a child column for the key and<br />another child column for the value.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">LENGTH</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v1</td></tr><tr><td colspan="1" class="confluenceTd">DIRECT_V2</td><td colspan="1" class="confluenceTd">PRESENT</td><td colspan="1" class="confluenceTd">Yes</td><td colspan="1" class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">LENGTH</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Unsigned Integer RLE v2</td></tr></tbody></table></div><h4 id="LanguageManualORC-UnionColumns">Union Columns</h4><p>Unions are encoded as the PRESENT stream and a tag stream that controls which<br />potential variant is used. They have a child column for each variant of the<br />union. Currently ORC union types are limited to 256 variants, which matches<br />the Hive type model.</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">Encoding</th><th class="confluenceTh">Stream Kind</th><th class="confluenceTh">Optional</th><th class="confluenceTh">Contents</th></tr><tr><td class="confluenceTd">DIRECT</td><td class="confluenceTd">PRESENT</td><td class="confluenceTd">Yes</td><td class="confluenceTd">Boolean RLE</td></tr><tr><td colspan="1" class="confluenceTd"> </td><td colspan="1" class="confluenceTd">DATA</td><td colspan="1" class="confluenceTd">No</td><td colspan="1" class="confluenceTd">Byte RLE</td></tr></tbody></table></div><h3 id="LanguageManualORC-Indexes">Indexes</h3><h4 id="LanguageManualORC-RowGroupIndex"><strong>Row Group Index</strong></h4><p>The row group indexes consist of a ROW\_INDEX stream for each primitive<br />column that has an entry for each row group. Row groups are controlled<br />by the writer and default to 10,000 rows. Each RowIndexEntry gives the<br />position of each stream for the column and the statistics for that row<br />group.</p><p>The index streams are placed at the front of the stripe, because in<br />the default case of streaming they do not need to be read. They are<br />only loaded when either predicate push down is being used or the<br />reader seeks to a particular row.</p><pre>message RowIndexEntry {<br /> repeated uint64 positions = 1 [packed=true];<br /> optional ColumnStatistics statistics = 2;<br />}</pre><pre>message RowIndex {<br /> repeated RowIndexEntry entry = 1;<br />}</pre><p>To record positions, each stream needs a sequence of numbers. For<br />uncompressed streams, the position is the byte offset of the RLE run's<br />start location followed by the number of values that need to be<br />consumed from the run. In compressed streams, the first number is the<br />start of the compression chunk in the stream, followed by the number<br />of decompressed bytes that need to be consumed, and finally the number<br />of values consumed in the RLE.</p><p>For columns with multiple streams, the sequences of positions in each<br />stream are concatenated. That was an unfortunate decision on my part<br />that we should fix at some point, because it makes code that uses the<br />indexes error-prone.</p><p>Because dictionaries are accessed randomly, there is not a position to<br />record for the dictionary and the entire dictionary must be read even<br />if only part of a stripe is being read.</p><h4 id="LanguageManualORC-BloomFilterIndex"><strong>Bloom Filter Index</strong></h4><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Version 1.2.0+:  Bloom Filter</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Bloom Filters are added to ORC indexes from <a href="https://issues.apache.org/jira/browse/HIVE-9188" class="external-link" rel="nofollow">Hive 1.2.0</a> onwards. <br />Predicate pushdown can make use of bloom filters to better prune <br />the row groups that do not satisfy the filter condition.</p></div></div><p>The bloom filter indexes consist of a BLOOM_FILTER stream for each<br />column specified through 'orc.bloom.filter.columns' table properties.<br />A BLOOM_FILTER stream records a bloom filter entry for each row<br />group (default to 10,000 rows) in a column. Only the row groups that<br />satisfy min/max row index evaluation will be evaluated against the<br />bloom filter index.</p><p>Each BloomFilterEntry stores the number of hash functions ('k') used and<br />the bitset backing the bloom filter. The bitset is serialized as repeated<br />longs from which the number of bits ('m') for the bloom filter can be derived.<br />m = bitset.length * 64.</p><pre>message BloomFilter {<br /> optional uint32 numHashFunctions = 1;<br /> repeated fixed64 bitset = 2;<br />}</pre><pre>message BloomFilterIndex {<br /> repeated BloomFilter bloomFilter = 1;<br />}</pre><p>Bloom filter internally uses two different hash functions to map a key<br />to a position in the bit set. For tinyint, smallint, int, bigint, float<br />and double types, Thomas Wang's 64-bit integer hash function is used.<br />Floats are converted to IEEE-754 32 bit representation<br />(using Java's Float.floatToIntBits(float)). Similary, Doubles are <br />converted to IEEE-754 64 bit representation (using Java's<br />Double.doubleToLongBits(double)). All these primitive types<br />are cast to long base type before being passed on to the hash function.<br />For strings and binary types, Murmur3 64 bit hash algorithm is used.<br />The 64 bit variant of Murmur3 considers only the most significant<br />8 bytes of Murmur3 128-bit algorithm. The 64 bit hashcode generated<br />from the above algorithms is used as a base to derive 'k' different<br />hash functions. We use the idea mentioned in the paper &quot;Less Hashing,<br />Same Performance: Building a Better Bloom Filter&quot; by Kirsch et. al. to<br />quickly compute the k hashcodes.</p><p>The algorithm for computing k hashcodes and setting the bit position<br />in a bloom filter is as follows:</p><ol><li>Get 64 bit base hash code from Murmur3 or Thomas Wang's hash algorithm.</li><li>Split the above hashcode into two 32-bit hashcodes (say hash1 and hash2).</li><li>k'th hashcode is obtained by (where k &gt; 0):<br /><code><span style="line-height: 1.4285715;">  combinedHash = hash1 + (k * hash2)</span></code></li><li>If combinedHash is negative flip all the bits:<br /><code><span style="line-height: 1.4285715;">  combinedHash = ~combinedHash</span></code></li><li>Bit set position is obtained by performing modulo with m:<br /><code><span style="line-height: 1.4285715;">  position = combinedHash % m</span></code></li><li>Set the position in bit set. The LSB 6 bits identifies the long index <span style="line-height: 1.4285715;">within bitset <br />and bit position within the long uses little endian order.<br /></span><code><span style="line-height: 1.4285715;">  bitset[position &gt;&gt;&gt; 6] |= (1L &lt;&lt; position);</span></code></li></ol><p><span style="line-height: 1.4285715;">Bloom filter streams are interlaced with row group indexes. This placement <br /></span><span style="line-height: 1.4285715;">makes it convenient to read the bloom filter stream and row index stream<br /></span><span style="line-height: 1.4285715;">together in single read operation.</span></p><p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="../../download/attachments/31818911/BloomFilter.png@version=2&amp;modificationDate=1422997292000&amp;api=v2" data-image-src="/confluence/download/attachments/31818911/BloomFilter.png?version=2&amp;modificationDate=1422997292000&amp;api=v2" data-unresolved-comment-count="0" data-linked-resource-id="52035722" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="BloomFilter.png" data-base-url="https://cwiki.apache.org/confluence" data-linked-resource-content-type="image/png" data-linked-resource-container-id="31818911" data-linked-resource-container-version="28"></span></p>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC"
+    dc:identifier="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC"
+    dc:title="LanguageManual ORC"
+    trackback:ping="https://cwiki.apache.org/confluence/rpc/trackback/31818911"/>
+</rdf:RDF>
+-->
+
+                        
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="31818911" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right ">
+            <li class="no-labels-message">
+            No labels
+        </li>
+            </ul>
+
+    </div>
+</div>
+</div>
+        
+		
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                        
+    
+<div id="comments-section" class="pageSection group">
+        
+    
+
+
+
+</div>
+
+
+                
+    
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+    
+<div id="space-tools-web-items" class="hidden">
+                <div data-label="Overview" data-href="/confluence/spaces/viewspacesummary.action?key=Hive">Overview</div>
+            <div data-label="Content Tools" data-href="/confluence/pages/reorderpages.action?key=Hive">Content Tools</div>
+            <div data-label="Add-ons" data-href="/confluence/spaces/snippeterrors.action?key=Hive">Add-ons</div>
+    </div>
+
+
+
+
+    </div><!-- \#main -->
+        
+    
+        
+            
+            
+
+<div id="footer" role="contentinfo">
+    <section class="footer-body">
+
+                                                            <p class="license license-opensource">
+                    Powered by a free <b>Atlassian Confluence Open Source Project License</b> granted to Apache Software Foundation. <a href="http://www.atlassian.com/c/conf/11461">Evaluate Confluence today</a>.<br>
+                </p>
+                    
+        
+
+        <ul id="poweredby">
+            <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.8.4</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+            <li class="print-only">Printed by Atlassian Confluence 5.8.4, Team Collaboration Software.</li>
+            <li class="noprint"><a href="https://jira.atlassian.com/browse/CONF" class="hover-footer-link">Report a bug</a></li>
+            <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+        </ul>
+
+        
+
+        <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+
+                    
+        
+    </section>
+</div>
+
+    
+</div>
+
+</div><!-- \#full-height-container -->
+</div><!-- \#page -->
+</body>
+</html>
