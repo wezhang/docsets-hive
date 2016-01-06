@@ -14,18 +14,28 @@ var fileBuffer = require('gulp-buffer');
 var cheerio = require('cheerio');
 var fs = require('fs');
 var rename = require("gulp-rename");
+var program = require('commander');
+var yaml = require('js-yaml');
 
-var prod = 'Hive';
+program.version('0.0.2')
+  .option('-p, --plan <plan>', 'The plan to generate docsets.', 'hive')
+  .parse(process.argv.slice(2));
+
+
+var plans = [ 'plans/*.yaml' ];
+
+var plan = yaml.safeLoad(fs.readFileSync('plans/' + program.plan + '.yaml', 'utf8'));
+var prod = plan.prod;
 var name = prod.toLowerCase();
 var contentsPath = name + '.docset/Contents/';
 var infoPlistPath = contentsPath;
 var docpath = path.join(contentsPath, 'Resources/Documents/');
 var sqlitePath = path.join(contentsPath, 'Resources/docSet.dsidx');
-var website = 'website/';
+var website = 'website/' + name + '/';
 
 var websiteSrc = [ website + '**' ];
-var htmlSrc = [ website + '**/Hive/*' ];
-var otherSrc = [ website + '**/+(download|plugins|s)/**' ];
+var htmlSrc = [ website + plan.htmlSrcPadding ];
+var otherSrc = [ website + plan.otherSrcPadding ];
 
 var sqls = [
   'CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);',
@@ -139,27 +149,18 @@ var handleDom = function(buffer, filepath) {
   var $ = cheerio.load(buffer);
 
   // remove
-  [
-    'ul#assistive-skip-links.assistive',
-    'header#header',
-    'div.ia-splitter-left',
-    'div#main-header',
-    'a.assistive',
-    'div.header-precursor',
-    'div.page-metadata',
-  ].forEach(function(selector) {
+  plan.selectors.remove.forEach(function(selector) {
     $(selector).remove();
   });
 
   // Remove splitter class
-  $('div.ia-splitter').removeClass('ia-splitter');
+  plan.selectors.removeClass.forEach(function(item) {
+    $(item.selector).removeClass(item['class']);
+  });
 
   // Add keyword
-  [
-    'h2',
-    'h3'
-  ].forEach(function(selector) {
-    $(selector).each(function(i, elem) {
+  plan.selectors.keyword.forEach(function(keyword) {
+    $(keyword.selector).each(function(i, elem) {
       var name = $(elem).text();
       name = name.replace(/'/g, "\'\'");
 
@@ -167,7 +168,7 @@ var handleDom = function(buffer, filepath) {
       path = path.replace(/'/g, "\'\'");
 
       if (name) {
-        index(name, Type.INSTRUCTION, path);
+        index(name, keyword.type, path);
       }
     });
   });

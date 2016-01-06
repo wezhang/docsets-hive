@@ -1,0 +1,26 @@
+---
+
+prod: Hive
+htmlSrcPadding: '**/Hive/*'
+otherSrcPadding: '**/+(download|plugins|s)/**'
+
+selectors:
+  remove:
+    -  ul#assistive-skip-links.assistive
+    -  header#header
+    -  div.ia-splitter-left
+    -  div#main-header
+    -  a.assistive
+    -  div.header-precursor
+    -  div.page-metadata
+    -  div#comments-section
+
+  removeClass:
+    - selector: div.ia-splitter
+      class: ia-splitter
+
+  keyword:
+    - selector: h2
+      type: Instruction
+    - selector: h3
+      type: Instruction
