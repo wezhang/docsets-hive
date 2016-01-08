@@ -1,0 +1,22 @@
+---
+
+prod: HBase
+htmlSrcPadding:
+  - '**/book.html'
+otherSrcPadding:
+  - '**/+(images)/**'
+  - '**/*.css'
+
+selectors:
+  remove:
+    -  div#toc.toc2
+
+  removeClass:
+    - selector: body.book.toc2.toc-left
+      class: toc2 toc-left
+
+  keyword:
+    - selector: h2
+      type: Instruction
+    - selector: h3
+      type: Instruction
