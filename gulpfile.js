@@ -19,7 +19,7 @@ var yaml = require('js-yaml');
 
 program.version('0.0.2')
   .option('-p, --plan <plan>', 'The plan to generate docsets.', 'hive')
-  .parse(process.argv.slice(2));
+  .parse(process.argv);
 
 
 var plans = [ 'plans/*.yaml' ];
@@ -34,8 +34,13 @@ var sqlitePath = path.join(contentsPath, 'Resources/docSet.dsidx');
 var website = 'website/' + name + '/';
 
 var websiteSrc = [ website + '**' ];
-var htmlSrc = [ website + plan.htmlSrcPadding ];
-var otherSrc = [ website + plan.otherSrcPadding ];
+var htmlSrc = _.map(plan.htmlSrcPadding, function(pad) {
+  return website + pad;
+});
+
+var otherSrc = _.map(plan.otherSrcPadding, function(pad) {
+  return website + pad;
+});
 
 var sqls = [
   'CREATE TABLE searchIndex(id INTEGER PRIMARY KEY, name TEXT, type TEXT, path TEXT);',

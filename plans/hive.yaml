@@ -1,8 +1,10 @@
 ---
 
 prod: Hive
-htmlSrcPadding: '**/Hive/*'
-otherSrcPadding: '**/+(download|plugins|s)/**'
+htmlSrcPadding:
+  - '**/Hive/*'
+otherSrcPadding:
+  - '**/+(download|plugins|s)/**'
 
 selectors:
   remove:
