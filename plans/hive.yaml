@@ -1,6 +1,14 @@
 ---
 
-prod: Hive
+prod: Apache Hive
+name: hive
+index: cwiki.apache.org/confluence/display/Hive/index.html
+
+#
+# Icon filename
+#
+# icon: icon.png
+
 htmlSrcPadding:
   - '**/Hive/*'
 otherSrcPadding:

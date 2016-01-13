@@ -1,0 +1,38 @@
+---
+
+prod: Apache Nifi
+name: nifi
+index: nifi-docs/html/overview.html
+
+#
+# Icon filename
+#
+# icon: icon.png
+
+htmlSrcPadding:
+  - '**/nifi-docs/**/*.html'
+  - '**/nifi-docs/documentation'
+
+otherSrcPadding:
+  - '**/nifi/**'
+  - '**/nifi-docs/**/*.+(js|ico|css|png)'
+
+selectors:
+  remove: [ ]
+    #    -  div.documentation-header
+    #    -  div.component-listing
+    #    -  div.component-filter-controls
+
+  removeClass: [ ]
+    #    - selector: div.ia-splitter
+    #      class: ia-splitter
+
+  keyword:
+    - selector: a.component-link
+      type: Component
+      targetAttribute: href
+    - selector: h1
+      type: Instruction
+    - url: nifi-docs/html/expression-language-guide.html
+      selector: h3
+      type: Function

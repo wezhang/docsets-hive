@@ -1,6 +1,7 @@
 ---
 
 prod: HBase
+name: hbase
 htmlSrcPadding:
   - '**/book.html'
 otherSrcPadding:
