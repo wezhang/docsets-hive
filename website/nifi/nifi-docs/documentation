@@ -1,0 +1,354 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="shortcut icon" href="../nifi/images/nifi16.ico"/>
+        <title>NiFi Documentation</title>
+        <script type="text/javascript" src="../nifi/js/jquery/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/application.js"></script>
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <link href="css/component-usage.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body id="documentation-body">
+        <div id="banner-header" class="main-banner-header"></div>
+        <div id="banner-footer" class="main-banner-footer"></div>
+        <span id="initial-selection" style="display: none;"></span>
+        <div id="documentation-header" class="documentation-header">
+            <div id="nf-title">NiFi Documentation</div>
+            <div id="nf-version"></div>
+            <div id="selected-component"></div>
+            <div class="clear"></div>
+        </div>
+        <div id="component-listing" class="component-listing">
+            <div class="section">
+                <div class="header">General</div>
+                <div id="general-links" class="component-links">
+                    <ul>
+                        <li class="component-item"><a class="component-link overview" href="html/overview.html" target="component-usage">Overview</a></li>
+                        <li class="component-item"><a class="component-link getting-started" href="html/getting-started.html" target="component-usage">Getting Started</a></li>
+                        <li class="component-item"><a class="component-link user-guide" href="html/user-guide.html" target="component-usage">User Guide</a></li>
+                        <li class="component-item"><a class="component-link expression-language-guide" href="html/expression-language-guide.html" target="component-usage">Expression Language Guide</a></li>
+                        <li class="component-item"><a class="component-link admin-guide" href="html/administration-guide.html" target="component-usage">Admin Guide</a></li>
+                    </ul>
+                    <span class="no-matching no-components hidden">No matching guides</span>
+                </div>
+            </div>
+            <div class="section">
+                <div class="header">Processors</div>
+                <div id="processor-links" class="component-links">
+                    
+                        
+                            <ul>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.AttributesToJSON/index.html" target="component-usage">AttributesToJSON</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.Base64EncodeContent/index.html" target="component-usage">Base64EncodeContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.CompressContent/index.html" target="component-usage">CompressContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ControlRate/index.html" target="component-usage">ControlRate</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.kite.ConvertAvroSchema/index.html" target="component-usage">ConvertAvroSchema</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.avro.ConvertAvroToJSON/index.html" target="component-usage">ConvertAvroToJSON</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ConvertCharacterSet/index.html" target="component-usage">ConvertCharacterSet</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.kite.ConvertCSVToAvro/index.html" target="component-usage">ConvertCSVToAvro</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.kite.ConvertJSONToAvro/index.html" target="component-usage">ConvertJSONToAvro</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ConvertJSONToSQL/index.html" target="component-usage">ConvertJSONToSQL</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hadoop.CreateHadoopSequenceFile/index.html" target="component-usage">CreateHadoopSequenceFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.aws.s3.DeleteS3Object/index.html" target="component-usage">DeleteS3Object</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.aws.sqs.DeleteSQS/index.html" target="component-usage">DeleteSQS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.DetectDuplicate/index.html" target="component-usage">DetectDuplicate</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.DistributeLoad/index.html" target="component-usage">DistributeLoad</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.DuplicateFlowFile/index.html" target="component-usage">DuplicateFlowFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.EncryptContent/index.html" target="component-usage">EncryptContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.EvaluateJsonPath/index.html" target="component-usage">EvaluateJsonPath</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.EvaluateRegularExpression/index.html" target="component-usage">EvaluateRegularExpression</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.EvaluateXPath/index.html" target="component-usage">EvaluateXPath</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.EvaluateXQuery/index.html" target="component-usage">EvaluateXQuery</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.flume.ExecuteFlumeSink/index.html" target="component-usage">ExecuteFlumeSink</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.flume.ExecuteFlumeSource/index.html" target="component-usage">ExecuteFlumeSource</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ExecuteProcess/index.html" target="component-usage">ExecuteProcess</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ExecuteSQL/index.html" target="component-usage">ExecuteSQL</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ExecuteStreamCommand/index.html" target="component-usage">ExecuteStreamCommand</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.avro.ExtractAvroMetadata/index.html" target="component-usage">ExtractAvroMetadata</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hl7.ExtractHL7Attributes/index.html" target="component-usage">ExtractHL7Attributes</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.image.ExtractImageMetadata/index.html" target="component-usage">ExtractImageMetadata</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ExtractText/index.html" target="component-usage">ExtractText</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.FetchFile/index.html" target="component-usage">FetchFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hadoop.FetchHDFS/index.html" target="component-usage">FetchHDFS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.aws.s3.FetchS3Object/index.html" target="component-usage">FetchS3Object</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.FetchSFTP/index.html" target="component-usage">FetchSFTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.GenerateFlowFile/index.html" target="component-usage">GenerateFlowFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.GeoEnrichIP/index.html" target="component-usage">GeoEnrichIP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.azure.eventhub.GetAzureEventHub/index.html" target="component-usage">GetAzureEventHub</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.couchbase.GetCouchbaseKey/index.html" target="component-usage">GetCouchbaseKey</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.GetFile/index.html" target="component-usage">GetFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.GetFTP/index.html" target="component-usage">GetFTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.hbase.GetHBase/index.html" target="component-usage">GetHBase</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hadoop.GetHDFS/index.html" target="component-usage">GetHDFS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hadoop.GetHDFSSequenceFile/index.html" target="component-usage">GetHDFSSequenceFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.GetHTTP/index.html" target="component-usage">GetHTTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.GetJMSQueue/index.html" target="component-usage">GetJMSQueue</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.GetJMSTopic/index.html" target="component-usage">GetJMSTopic</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.kafka.GetKafka/index.html" target="component-usage">GetKafka</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.mongodb.GetMongo/index.html" target="component-usage">GetMongo</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.GetSFTP/index.html" target="component-usage">GetSFTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.solr.GetSolr/index.html" target="component-usage">GetSolr</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.aws.sqs.GetSQS/index.html" target="component-usage">GetSQS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.twitter.GetTwitter/index.html" target="component-usage">GetTwitter</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.HandleHttpRequest/index.html" target="component-usage">HandleHttpRequest</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.HandleHttpResponse/index.html" target="component-usage">HandleHttpResponse</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.HashAttribute/index.html" target="component-usage">HashAttribute</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.HashContent/index.html" target="component-usage">HashContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.IdentifyMimeType/index.html" target="component-usage">IdentifyMimeType</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.InvokeHTTP/index.html" target="component-usage">InvokeHTTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ListenHTTP/index.html" target="component-usage">ListenHTTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ListenSyslog/index.html" target="component-usage">ListenSyslog</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ListenUDP/index.html" target="component-usage">ListenUDP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ListFile/index.html" target="component-usage">ListFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hadoop.ListHDFS/index.html" target="component-usage">ListHDFS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ListSFTP/index.html" target="component-usage">ListSFTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.LogAttribute/index.html" target="component-usage">LogAttribute</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.MergeContent/index.html" target="component-usage">MergeContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ModifyBytes/index.html" target="component-usage">ModifyBytes</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.MonitorActivity/index.html" target="component-usage">MonitorActivity</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ParseSyslog/index.html" target="component-usage">ParseSyslog</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PostHTTP/index.html" target="component-usage">PostHTTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.azure.eventhub.PutAzureEventHub/index.html" target="component-usage">PutAzureEventHub</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.couchbase.PutCouchbaseKey/index.html" target="component-usage">PutCouchbaseKey</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutDistributedMapCache/index.html" target="component-usage">PutDistributedMapCache</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutEmail/index.html" target="component-usage">PutEmail</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutFile/index.html" target="component-usage">PutFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutFTP/index.html" target="component-usage">PutFTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.hbase.PutHBaseCell/index.html" target="component-usage">PutHBaseCell</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.hbase.PutHBaseJSON/index.html" target="component-usage">PutHBaseJSON</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hadoop.PutHDFS/index.html" target="component-usage">PutHDFS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutJMS/index.html" target="component-usage">PutJMS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.kafka.PutKafka/index.html" target="component-usage">PutKafka</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.mongodb.PutMongo/index.html" target="component-usage">PutMongo</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.aws.s3.PutS3Object/index.html" target="component-usage">PutS3Object</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutSFTP/index.html" target="component-usage">PutSFTP</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.aws.sns.PutSNS/index.html" target="component-usage">PutSNS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.solr.PutSolrContentStream/index.html" target="component-usage">PutSolrContentStream</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutSQL/index.html" target="component-usage">PutSQL</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.aws.sqs.PutSQS/index.html" target="component-usage">PutSQS</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.PutSyslog/index.html" target="component-usage">PutSyslog</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ReplaceText/index.html" target="component-usage">ReplaceText</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ReplaceTextWithMapping/index.html" target="component-usage">ReplaceTextWithMapping</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.image.ResizeImage/index.html" target="component-usage">ResizeImage</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.hl7.RouteHL7/index.html" target="component-usage">RouteHL7</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.RouteOnAttribute/index.html" target="component-usage">RouteOnAttribute</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.RouteOnContent/index.html" target="component-usage">RouteOnContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.RouteText/index.html" target="component-usage">RouteText</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ScanAttribute/index.html" target="component-usage">ScanAttribute</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ScanContent/index.html" target="component-usage">ScanContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.SegmentContent/index.html" target="component-usage">SegmentContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.avro.SplitAvro/index.html" target="component-usage">SplitAvro</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.SplitContent/index.html" target="component-usage">SplitContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.SplitJson/index.html" target="component-usage">SplitJson</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.SplitText/index.html" target="component-usage">SplitText</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.SplitXml/index.html" target="component-usage">SplitXml</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.kite.StoreInKiteDataset/index.html" target="component-usage">StoreInKiteDataset</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.TailFile/index.html" target="component-usage">TailFile</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.TransformXml/index.html" target="component-usage">TransformXml</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.UnpackContent/index.html" target="component-usage">UnpackContent</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.attributes.UpdateAttribute/index.html" target="component-usage">UpdateAttribute</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.standard.ValidateXml/index.html" target="component-usage">ValidateXml</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.processors.yandex.YandexTranslate/index.html" target="component-usage">YandexTranslate</a></li>
+                            
+                            </ul>
+                            <span class="no-matching no-components hidden">No matching processors</span>
+                        
+                        
+                    
+                </div>
+            </div>
+            <div class="section">
+                <div class="header">Controller Services</div>
+                <div id="controller-service-links" class="component-links">
+                    
+                        
+                            <ul>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.couchbase.CouchbaseClusterService/index.html" target="component-usage">CouchbaseClusterService</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.dbcp.DBCPConnectionPool/index.html" target="component-usage">DBCPConnectionPool</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.distributed.cache.client.DistributedMapCacheClientService/index.html" target="component-usage">DistributedMapCacheClientService</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.distributed.cache.server.map.DistributedMapCacheServer/index.html" target="component-usage">DistributedMapCacheServer</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.distributed.cache.client.DistributedSetCacheClientService/index.html" target="component-usage">DistributedSetCacheClientService</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.distributed.cache.server.DistributedSetCacheServer/index.html" target="component-usage">DistributedSetCacheServer</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.hbase.HBase_1_1_2_ClientService/index.html" target="component-usage">HBase_1_1_2_ClientService</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.http.StandardHttpContextMap/index.html" target="component-usage">StandardHttpContextMap</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.ssl.StandardSSLContextService/index.html" target="component-usage">StandardSSLContextService</a></li>
+                            
+                            </ul>
+                            <span class="no-matching no-components hidden">No matching controller services</span>
+                        
+                        
+                    
+                </div>
+            </div>
+            <div class="section">
+                <div class="header">Reporting Tasks</div>
+                <div id="reporting-task-links" class="component-links">
+                    
+                        
+                            <ul>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.reporting.ambari.AmbariReportingTask/index.html" target="component-usage">AmbariReportingTask</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.controller.ControllerStatusReportingTask/index.html" target="component-usage">ControllerStatusReportingTask</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.controller.MonitorDiskUsage/index.html" target="component-usage">MonitorDiskUsage</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.controller.MonitorMemory/index.html" target="component-usage">MonitorMemory</a></li>
+                            
+                                <li class="component-item"><a class="component-link" href="components/org.apache.nifi.reporting.ganglia.StandardGangliaReporter/index.html" target="component-usage">StandardGangliaReporter</a></li>
+                            
+                            </ul>
+                            <span class="no-matching no-components hidden">No matching reporting tasks</span>
+                        
+                        
+                    
+                </div>
+            </div>
+            <div class="section">
+                <div class="header">Developer</div>
+                <div id="developer-links" class="component-links">
+                    <ul>
+                        <li class="component-item"><a class="component-link rest-api" href="rest-api/index.html" target="component-usage">Rest Api</a></li>
+                        <li class="component-item"><a class="component-link developer-guide" href="html/developer-guide.html" target="component-usage">Developer Guide</a></li>
+                    </ul>
+                    <span class="no-matching no-components hidden">No matching developer guides</span>
+                </div>
+            </div>
+        </div>
+        <div id="component-filter-controls">
+            <div id="component-filter-container">
+                <input type="text" id="component-filter"/>
+            </div>
+            <div id="component-filter-stats">
+                Displaying&nbsp;<span id="displayed-components">131</span>&nbsp;of&nbsp;131
+            </div>
+        </div>
+        <div id="component-usage-container">
+            <iframe id="component-usage" name="component-usage" frameborder="0" class="component-usage"></iframe>
+        </div>
+    </body>
+</html>
