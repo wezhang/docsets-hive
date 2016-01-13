@@ -26,12 +26,16 @@ var plans = [ 'plans/*.yaml' ];
 
 var plan = yaml.safeLoad(fs.readFileSync('plans/' + program.plan + '.yaml', 'utf8'));
 var prod = plan.prod;
-var name = prod.toLowerCase();
-var contentsPath = name + '.docset/Contents/';
+var name = plan.name;
+var packageName = prod.replace(' ', '_')
+var docsetPath = packageName + '.docset/';
+var contentsPath = path.join(docsetPath, 'Contents/');
 var infoPlistPath = contentsPath;
 var docpath = path.join(contentsPath, 'Resources/Documents/');
 var sqlitePath = path.join(contentsPath, 'Resources/docSet.dsidx');
 var website = 'website/' + name + '/';
+var iconSrc = path.join(website, plan.icon || 'icon.png');
+var iconDst = docsetPath;
 
 var websiteSrc = [ website + '**' ];
 var htmlSrc = _.map(plan.htmlSrcPadding, function(pad) {
@@ -55,13 +59,14 @@ var Type = {
   CLASS: 'Class',
 };
 gulp.task('plist', function() {
-  return gulp.src('templates/info.j2')
+  return gulp.src('templates/Info.j2')
     .pipe(swig({
       data: {
         CFBundleIdentifier: name,
         CFBundleName: prod,
         DocSetPlatformFamily: name,
-        isJavaScriptEnabled: true
+        isJavaScriptEnabled: true,
+        dashIndexFilePath: plan.index || undefined
       },
       ext: '.plist'
     }))
@@ -103,7 +108,12 @@ gulp.task('other', function() {
     .pipe(gulp.dest(docpath));
 });
 
-gulp.task('webpages', ['other'], function() {
+gulp.task('icon', function() {
+  return gulp.src(iconSrc)
+    .pipe(gulp.dest(iconDst));
+});
+
+gulp.task('webpages', ['other', 'icon'], function() {
   return gulp.src(htmlSrc)
     .pipe(rename(function(filepath) {
       if (filepath.extname !== '.html') {
@@ -114,7 +124,18 @@ gulp.task('webpages', ['other'], function() {
     .pipe(gulp.dest(docpath));
 });
 
-gulp.task('default', ['plist', 'sqlite']);
+gulp.task('pack', ['plist', 'sqlite'], function () {
+  var tar = require('gulp-tar');
+  var gzip = require('gulp-gzip');
+
+  return gulp.src(['!**/+(\.DS_Store)/**', docsetPath + '**'], { base: './' } )
+    .pipe(tar(name + '.tar'))
+    .pipe(gzip())
+    .pipe(rename(packageName + '.tgz'))
+    .pipe(gulp.dest('target'));
+});
+
+gulp.task('default', ['plist', 'sqlite', 'pack']);
 
 //var handlePage = eventStream.map(function(buffer, callback) {
 //  console.log(buffer);
@@ -165,15 +186,31 @@ var handleDom = function(buffer, filepath) {
 
   // Add keyword
   plan.selectors.keyword.forEach(function(keyword) {
+    if (keyword.url && filepath !== keyword.url) {
+      // url doesn't match
+      return;
+    }
+
     $(keyword.selector).each(function(i, elem) {
       var name = $(elem).text();
-      name = name.replace(/'/g, "\'\'");
+      name = name.replace(/'/g, "\'\'").trim();
 
-      var path = filepath + '#' + $(elem).attr('id');
-      path = path.replace(/'/g, "\'\'");
+      var target;
+
+      switch(keyword.targetAttribute) {
+      case 'href':
+        var basepath = path.dirname(filepath);
+        target = path.join(basepath, $(elem).attr('href'));
+        break;
+      case 'id': // falling down
+      default:
+        target = filepath + '#' + $(elem).attr('id');
+      }
+
+      target = target.replace(/'/g, "\'\'");
 
       if (name) {
-        index(name, keyword.type, path);
+        index(name, keyword.type, target);
       }
     });
   });
@@ -181,10 +218,10 @@ var handleDom = function(buffer, filepath) {
   return Buffer($.html());
 };
 
-var index = function(name, type, path) {
+var index = function(name, type, target) {
   indexes.push({
     name: name,
     type: type,
-    path: path
+    path: target
   });
 };

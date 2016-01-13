@@ -11,5 +11,9 @@
   <key>isDashDocset</key>
   <true/>
   <key>isJavaScriptEnabled</key><{{ isJavaScriptEnabled | default(false) }}/>
+{%- if dashIndexFilePath %}
+  <key>dashIndexFilePath</key>
+  <string>{{ dashIndexFilePath }}</string>
+{%- endif %}
 </dict>
 </plist>
